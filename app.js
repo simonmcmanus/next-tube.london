@@ -12,7 +12,7 @@ app.use(require('./blender.js')); // content negotiation.
 var cache;
 
 app.configure(function() {
-	app.set('port', process.env.PORT || 4300);
+	app.set('port', process.env.PORT || 4400);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'sizlate');
 });
@@ -56,20 +56,18 @@ fetchAllWidgetData(function(errorSet, dataSet) {
 	cache = dataSet;
 });
 
-// setInterval(function() {
-// 	fetchAllWidgetData(function(es, ds) {
-// 		for (var widget in cache) {
-// 			if (cache[widget].value !== ds[widget].value) {
-// 				console.log(widget, 'has changed');
-// 				var out = {};
-// 				out[widget] = cache[widget].value;
-// 				notifyClients(out);
-// 			}
-// 		}
-// 		cache = ds;
-
-// 	});
-// }, 1000);
+setInterval(function() {
+	fetchAllWidgetData(function(es, ds) {
+		for (var widget in cache) {
+			if (cache[widget].value !== ds[widget].value) {
+				var o = {};
+				o[widget] = cache[widget].value;
+				notifyClients(o);
+			}
+		}
+		cache = ds;
+	});
+}, 1000);
 
 
 /**
@@ -79,9 +77,14 @@ fetchAllWidgetData(function(errorSet, dataSet) {
  */
 function notifyClients(update) {
 	for (var socket in sockets) {
+
 		sockets[socket].emit('widget', update);
 	}
 }
+
+setTimeout(function() {
+	notifyClients('ta');
+}, 2000)
 
 function generateSelectors(data) {
 
@@ -141,12 +144,13 @@ io.set('log level', 1);
 
 var sockets = {};
 
-// io.sockets.on('connection', function (socket) {
-//   if(!sockets) {
-//     sockets = {};
-//   }
-//   sockets[socket.id] = socket;
-//    socket.on('disconnect', function (socket) {
-//     delete sockets[socket.id];
-//    });
-// });
+io.sockets.on('connection', function(socket) {
+  if (!sockets) {
+    sockets = {};
+  }
+  sockets[socket.id] = socket;
+  socket.on('disconnect', function() {
+  	console.log('disconnect', socket);
+    delete sockets[socket.id];
+  });
+});

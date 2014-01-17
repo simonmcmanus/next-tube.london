@@ -2,19 +2,3 @@
 <div class="widget" id="build"></div>
 <div class="widget" id="flight"></div>
 <div class="widget" id="nextTrain"></div>
-
-<div class="widget wide" id="reminders">
-	<h2>Your Reminders</h2>
-	<ul>
-		<li>review domain</li>
-	</ul>
-</div>
-
-
-<div class="widget wide" id="news">
-	<h2>BBC News</h2>
-	<ul>
-		<li>Something happened</li>
-		<li>Something didn't happened</li>
-	</ul>
-</div>
