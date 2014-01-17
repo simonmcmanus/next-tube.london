@@ -45,8 +45,9 @@ function fetchAllWidgetData(callback) {
 function arrayToObj(selectors) {
 	var out = {};
 	for (var widget = 0; widget < selectors.length; widget++) {
-
-		out[selectors[widget].widget] = selectors[widget];
+		if (selectors[widget]) {
+			out[selectors[widget].widget] = selectors[widget];
+		}
 	}
 	return out;
 }
@@ -82,9 +83,6 @@ function notifyClients(update) {
 	}
 }
 
-setTimeout(function() {
-	notifyClients('ta');
-}, 2000)
 
 function generateSelectors(data) {
 
@@ -92,11 +90,9 @@ function generateSelectors(data) {
 	var selectors = {};
 	for (var item in data) {
 		var key = '#' + item;
-		console.log('----->', widgets[data[item].widget].selectors(data[item]));
 		selectors[key] = widgets[data[item].widget]
 											.selectors(data[item])['.widget'];
 	}
-	console.log(selectors);
 	return selectors;
 }
 
@@ -150,7 +146,6 @@ io.sockets.on('connection', function(socket) {
   }
   sockets[socket.id] = socket;
   socket.on('disconnect', function() {
-  	console.log('disconnect', socket);
     delete sockets[socket.id];
   });
 });

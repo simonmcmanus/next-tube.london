@@ -68,12 +68,16 @@ h1 {
 <body class="up">
 	<h1>dotJS Status Board</h1>
 	<div id="widgets">
-	</div>	
+	</div>
 <script src="/socket.io/socket.io.js"></script>
+<script src="/jquery.js"></script>
 <script>
   var socket = io.connect('http://localhost');
   socket.on('widget', function (data) {
-    console.log(data);
+  	for(item in data) {
+  		console.log('#'+item, data[item])
+  		$('#'+item).find('div.value').html(data[item]);
+  	}
   });
 </script>
 </body>
