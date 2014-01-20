@@ -2,3 +2,4 @@
 <div class="widget" id="build"></div>
 <div class="widget" id="flight"></div>
 <div class="widget" id="nextTrain"></div>
+<div class="widget" id="tflStatus"></div>

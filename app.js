@@ -55,20 +55,21 @@ function arrayToObj(selectors) {
 // on startup get the latest data.
 fetchAllWidgetData(function(errorSet, dataSet) {
 	cache = dataSet;
+	console.log('cache is', cache);
 });
 
-setInterval(function() {
-	fetchAllWidgetData(function(es, ds) {
-		for (var widget in cache) {
-			if (cache[widget].value !== ds[widget].value) {
-				var o = {};
-				o[widget] = cache[widget].value;
-				notifyClients(o);
-			}
-		}
-		cache = ds;
-	});
-}, 1000);
+// setInterval(function() {
+// 	fetchAllWidgetData(function(es, ds) {
+// 		for (var widget in cache) {
+// 			if (cache[widget].value !== ds[widget].value) {
+// 				var o = {};
+// 				o[widget] = cache[widget].value;
+// 				notifyClients(o);
+// 			}
+// 		}
+// 		cache = ds;
+// 	});
+// }, 1000);
 
 
 /**
@@ -86,13 +87,17 @@ function notifyClients(update) {
 
 function generateSelectors(data) {
 
-	//console.log('->', data);
 	var selectors = {};
 	for (var item in data) {
+
+
 		var key = '#' + item;
+		// console.log(data[item])
+		// console.log(widgets[data[item].widget])
 		selectors[key] = widgets[data[item].widget]
 											.selectors(data[item])['.widget'];
 	}
+	console.log(selectors)
 	return selectors;
 }
 
@@ -106,6 +111,7 @@ app.get('/', function(req, res) {
 		layout: 'layout',
 		container: '#widgets',
 		buildSelectors: function(data, callback) {
+			console.log('sel is: ' , JSON.stringify(generateSelectors(cache)));
 			callback(generateSelectors(cache));
 		}
 	});
