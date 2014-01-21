@@ -29,9 +29,11 @@ var widgets = require('./widgets.js');
 function fetchAllWidgetData(callback) {
 	var methods = [];
 	for (var stat in widgets ) {
+		console.log('', stat)
 		methods.push(widgets[stat].data);
 	}
 	async.parallel(methods, function(error, data) {
+		console.log(error)
 		callback(null, arrayToObj(data));
 	});
 }
@@ -55,7 +57,7 @@ function arrayToObj(selectors) {
 // on startup get the latest data.
 fetchAllWidgetData(function(errorSet, dataSet) {
 	cache = dataSet;
-	console.log('cache is', cache);
+	//console.log('cache is', cache);
 });
 
 // setInterval(function() {
@@ -90,14 +92,14 @@ function generateSelectors(data) {
 	var selectors = {};
 	for (var item in data) {
 
-
+		console.log('item', item);
 		var key = '#' + item;
 		// console.log(data[item])
 		// console.log(widgets[data[item].widget])
 		selectors[key] = widgets[data[item].widget]
 											.selectors(data[item])['.widget'];
 	}
-	console.log(selectors)
+	//console.log(selectors)
 	return selectors;
 }
 
@@ -111,7 +113,7 @@ app.get('/', function(req, res) {
 		layout: 'layout',
 		container: '#widgets',
 		buildSelectors: function(data, callback) {
-			console.log('sel is: ' , JSON.stringify(generateSelectors(cache)));
+			//console.log('sel is: ' , JSON.stringify(generateSelectors(cache)));
 			callback(generateSelectors(cache));
 		}
 	});
