@@ -23,23 +23,85 @@ var cheerio = require('cheerio');
 var request = require('request');
 
 module.exports = {
-  tflStatus: {
+  weather : {
     data: function(callback) {
-      var out = {
-        value: [{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Bakerloo"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Central"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Circle"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"District"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Hammersmith and City"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Jubilee"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Metropolitan"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Northern"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Piccadilly"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Victoria"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Waterloo and City"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Overground"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"DLR"}],
-        widget: 'tflStatus',
-        unit: 'hours',
-        status: 'good'
-      }
-      return callback(null, out);
+      request('http://forecast.io/embed/#lat=42.3583&lon=-71.0603&name=Woodford', function(e, d){
+        callback(null, d.body);
+      })
     },
     selectors: function(data) {
-      var newData = data.value.filter(function(line) {
-        if(!line.name || line.Description == 'Good Service') {
-          return ''
+      var out = {};
+      out['.widget'] = {
+        partial: 'standard',
+        data: [{
+          id: 'weather',
+          h2: 'Weather for IG8',
+          '.value': data
+        }]
+      }
+      return out;
+    }
+  },
+  // bbcweather: {
+  //   data: function(callback) {
+  //     request('http://www.bbc.co.uk/weather/ig8', function(e, d) {
+  //       var $ = cheerio.load(d.body);
+  //       var page = d.body;
+  //       callback(null, $('.hourly').html());
+  //     })
+  //   },
+  //   selectors: function(data) {
+  //     var out = {};
+  //     out['.widget'] = {
+  //       partial: 'standard',
+  //       data: [{
+  //         id: 'weather',
+  //         h2: 'Weather for IG8',
+  //         '.value': data
+  //       }]
+  //     }
+  //     return out;
+  //   }
+  // },
+
+
+  tflStatus: {
+    data: function(callback) {
+
+      request('http://www.tfl.gov.uk/tfl/livetravelnews/realtime/tube/default.html', function(error, data) {
+        var $ = cheerio.load(data.body);
+        var items = $('#lines li');
+        var out = items.map(function(i, el) {
+
+          var text = $(this).find('h3').text();
+          if(text) {
+            return {
+              line: text,
+              status: $(this).find('div').text(),
+            }
+          }
+        });
+        console.log('sending data', out)
+        callback(null, out);
+        //callback(error, $('#lines').html());
+      })
+//      return callback(null, [{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Bakerloo"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Central"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Circle"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"District"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Hammersmith and City"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Jubilee"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Metropolitan"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Northern"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Piccadilly"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Victoria"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Waterloo and City"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Overground"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"DLR"}]);
+    },
+    selectors: function(data) {
+      var newData = data.map(function(line) {
+        console.log('-->1')
+
+        if(!line.line || line.status === 'Good service') {
+          return false;
         }
-        return '<li class="' + line.CssClass + ' ' + line.name.replace(/ /g, '')+ '">' + line.name + '<div><small>' + line.Description + '</small></div></li>';
+        console.log('-->')
+        var out = '<li class="' + line.CssClass + ' ' + line.line.replace(/ /g, '')+ '">' + line.line + '<div><small>' + line.status.replace(/\n/g, '</br>') + '</small></div></li>';
+        console.log(out);
+        return out;
+      }).filter(function(item) {
+        return item;
       });
+      console.log('ND:', newData)
 
       //if(newData.length > 0)
       if(newData.length === 0) {
@@ -73,7 +135,7 @@ module.exports = {
         if(!trains) {
           return;
         }
-        var out = trains.map(function(train) {
+        return trains.map(function(train) {
           train = train.$;
           return {
             dueIn: train.TimeTo,
@@ -82,13 +144,12 @@ module.exports = {
             location: train.Location
           }
         })
-        out.widget = 'nextTrain';
-        return out;
       };
 
+return callback(null, {"Westbound":[{"dueIn":"1:00","destination":"West Ruislip","isStalled":false,"location":"At Woodford"},{"dueIn":"14:00","destination":"Ealing Broadway","isStalled":false,"location":"Between Theydon Bois and Debden"},{"dueIn":"17:00","destination":"White City","isStalled":false,"location":"Between Epping and Theydon Bois"}],"Eastbound":[{"dueIn":"2:00","destination":"Epping","isStalled":false,"location":"Between South Woodford and Woodford"},{"dueIn":"5:00","destination":"Debden","isStalled":false,"location":"At Snaresbrook"},{"dueIn":"8:00","destination":"Epping","isStalled":false,"location":"Approaching Leytonstone"},{"dueIn":"11:00","destination":"Grange Hill via Woodford","isStalled":false,"location":"Approaching Leyton"},{"dueIn":"13:00","destination":"Epping","isStalled":false,"location":"At Stratford"},{"dueIn":"17:00","destination":"Epping","isStalled":false,"location":"At Mile End"},{"dueIn":"23:00","destination":"Loughton","isStalled":false,"location":"Between Liverpool Street and Bethnal Green"},{"dueIn":"28:00","destination":"Epping","isStalled":false,"location":"At St. Paul's"}],"name":"nextTrain"});
+      // WFD
+      request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/NHG', function(error, data) {
 
-
-      request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/WFD', function(error, data) {
         parseString(data.body, function (err, result) {
 
           var platforms = result.ROOT.S[0].P;
@@ -98,26 +159,39 @@ module.exports = {
           }
           for(var platform in platforms) {
             var direction = platforms[platform].$.N.slice(0, 9);
-            out[direction].push.apply(out[direction], sortTrains(platforms[platform].T));
+            var trains = sortTrains(platforms[platform].T);
+            out[direction].push.apply(out[direction], trains);
           }
-          out.name = 'nextTrain';
           callback(null, out)
         });
 
       })
     },
     selectors: function(data) {
-      console.log('here be data:', data)
-      var out = {};
-      out['.widget'] = {
+      function train(item) {
+        return '<li><span class="due">' + item.dueIn + '</span> ' + item.destination + ' - ' + '<span class="detail">' +  item.location + '</span></li>';
+      };
+      var out = ['<div class="direction"><h3>Westbound</h3><ul class="trains">'];
+      data.Westbound.forEach(function(item) {
+        out.push(train(item));
+      })
+      out.push('</ul></div>');
+      out.push('<div class="direction"><h3>Eastbound</h3><ul  class="trains">')
+      data.Eastbound.forEach(function(item) {
+        out.push(train(item));
+      })
+      out.push('</ul></div>');
+
+      var ret = {};
+      ret['.widget'] = {
         partial: 'standard',
         data: [{
           id: 'tflStatus',
-          h2: 'Tube Status',
-          '.value': newData
+          h2: 'Next Trains',
+          '.value': out.join(' ')
         }]
       }
-      return out;
+      return ret;
     }
   },
   // nextTrain: {

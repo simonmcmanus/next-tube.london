@@ -4,9 +4,11 @@ var express = require('express');
 var async = require('async');
 var http = require('http');
 var socket = require('socket.io');
+var sizlate = require('sizlate');
 
 var app = express();
-
+var fs = require('fs');
+var standardTemplate = fs.readFileSync('./views/partials/standard.sizlate').toString('utf8');
 app.use(require('./blender.js')); // content negotiation.
 
 var cache;
@@ -23,18 +25,16 @@ app.use(express.static('public'));
 var widgets = require('./widgets.js');
 
 /**
- * Gets the latest value for all the widgets.
+ * Gets the latest values for all the widgets.
  * @param  {Function} callback Called when fetched the completed data
  */
 function fetchAllWidgetData(callback) {
-	var methods = [];
-	for (var stat in widgets ) {
-		console.log('', stat)
-		methods.push(widgets[stat].data);
+	var methods = {};
+	for (var stat in widgets) {
+		methods[stat] = widgets[stat].data;
 	}
 	async.parallel(methods, function(error, data) {
-		console.log(error)
-		callback(null, arrayToObj(data));
+		callback(null, data);
 	});
 }
 
@@ -63,11 +63,13 @@ fetchAllWidgetData(function(errorSet, dataSet) {
 // setInterval(function() {
 // 	fetchAllWidgetData(function(es, ds) {
 // 		for (var widget in cache) {
-// 			if (cache[widget].value !== ds[widget].value) {
+// 			//if (JSON.stringify(cache[widget]) != JSON.stringify(ds[widget])) {
+// 				// something changed.
 // 				var o = {};
-// 				o[widget] = cache[widget].value;
+// 				var selectors = widgets[widget].selectors(ds[widget])['.widget'].data;
+// 				o[widget] = sizlate.doRender(standardTemplate, selectors);
 // 				notifyClients(o);
-// 			}
+// 			//}
 // 		}
 // 		cache = ds;
 // 	});
@@ -81,30 +83,23 @@ fetchAllWidgetData(function(errorSet, dataSet) {
  */
 function notifyClients(update) {
 	for (var socket in sockets) {
-
 		sockets[socket].emit('widget', update);
 	}
 }
 
 
 function generateSelectors(data) {
-
 	var selectors = {};
 	for (var item in data) {
-
-		console.log('item', item);
 		var key = '#' + item;
-		// console.log(data[item])
-		// console.log(widgets[data[item].widget])
-		selectors[key] = widgets[data[item].widget]
-											.selectors(data[item])['.widget'];
+		console.log('___---___--_---__,>', widgets[item].selectors(data[item]));
+		selectors[key] = widgets[item].selectors(data[item])['.widget'];
 	}
-	//console.log(selectors)
 	return selectors;
 }
 
 
-app.get('/', function(req, res) {
+app.get('/aa', function(req, res) {
 	res.blender({
 		buildData: function(params, callback) {
 			callback(null, cache);
@@ -113,7 +108,6 @@ app.get('/', function(req, res) {
 		layout: 'layout',
 		container: '#widgets',
 		buildSelectors: function(data, callback) {
-			//console.log('sel is: ' , JSON.stringify(generateSelectors(cache)));
 			callback(generateSelectors(cache));
 		}
 	});
