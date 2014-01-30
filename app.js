@@ -60,20 +60,20 @@ fetchAllWidgetData(function(errorSet, dataSet) {
 	//console.log('cache is', cache);
 });
 
-// setInterval(function() {
-// 	fetchAllWidgetData(function(es, ds) {
-// 		for (var widget in cache) {
-// 			//if (JSON.stringify(cache[widget]) != JSON.stringify(ds[widget])) {
-// 				// something changed.
-// 				var o = {};
-// 				var selectors = widgets[widget].selectors(ds[widget])['.widget'].data;
-// 				o[widget] = sizlate.doRender(standardTemplate, selectors);
-// 				notifyClients(o);
-// 			//}
-// 		}
-// 		cache = ds;
-// 	});
-// }, 5000);
+setInterval(function() {
+	fetchAllWidgetData(function(es, ds) {
+		for (var widget in cache) {
+			//if (JSON.stringify(cache[widget]) != JSON.stringify(ds[widget])) {
+				// something changed.
+				var o = {};
+				var selectors = widgets[widget].selectors(ds[widget])['.widget'].data;
+				o[widget] = sizlate.doRender(standardTemplate, selectors);
+				notifyClients(o);
+			//}
+		}
+		cache = ds;
+	});
+}, 10000);
 
 
 /**
