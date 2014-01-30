@@ -73,7 +73,7 @@ fetchAllWidgetData(function(errorSet, dataSet) {
 // 		}
 // 		cache = ds;
 // 	});
-// }, 1000);
+// }, 5000);
 
 
 /**
@@ -99,7 +99,7 @@ function generateSelectors(data) {
 }
 
 
-app.get('/aa', function(req, res) {
+app.get('/', function(req, res) {
 	res.blender({
 		buildData: function(params, callback) {
 			callback(null, cache);

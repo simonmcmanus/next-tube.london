@@ -1,6 +1,6 @@
-<div class="widget" id="tflStatus"></div>
 <div class="widget wide" id="nextTrain"></div>
-<div class="widget wide" id="weather"></div>
+<div class="widget" id="weather"></div>
+<div class="widget" id="tflStatus"></div>
 
 <div class="widget" id="uptime"></div>
 <div class="widget" id="build"></div>

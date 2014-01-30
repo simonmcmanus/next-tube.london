@@ -3,13 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "3.0.0rc2",
     "async": "~0.2.9",
     "socket.io": "~0.9.16",
-    "xml2js": "~0.4.1"
+    "xml2js": "~0.4.1",
+    "sizlate": "~0.8.4",
+    "cheerio": "~0.13.1",
+    "request": "~2.33.0"
   },
   "engines": {
     "node": "0.8.x",

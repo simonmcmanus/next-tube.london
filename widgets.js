@@ -23,31 +23,10 @@ var cheerio = require('cheerio');
 var request = require('request');
 
 module.exports = {
-  weather : {
-    data: function(callback) {
-      request('http://forecast.io/embed/#lat=42.3583&lon=-71.0603&name=Woodford', function(e, d){
-        callback(null, d.body);
-      })
-    },
-    selectors: function(data) {
-      var out = {};
-      out['.widget'] = {
-        partial: 'standard',
-        data: [{
-          id: 'weather',
-          h2: 'Weather for IG8',
-          '.value': data
-        }]
-      }
-      return out;
-    }
-  },
-  // bbcweather: {
+  // weather : {
   //   data: function(callback) {
-  //     request('http://www.bbc.co.uk/weather/ig8', function(e, d) {
-  //       var $ = cheerio.load(d.body);
-  //       var page = d.body;
-  //       callback(null, $('.hourly').html());
+  //     request('http://forecast.io/embed/#lat=42.3583&lon=-71.0603&name=Woodford', function(e, d){
+  //       callback(null, d.body);
   //     })
   //   },
   //   selectors: function(data) {
@@ -63,6 +42,27 @@ module.exports = {
   //     return out;
   //   }
   // },
+  weather: {
+    data: function(callback) {
+      request('http://www.bbc.co.uk/weather/ig8', function(e, d) {
+        var $ = cheerio.load(d.body);
+        var page = d.body;
+        callback(null, $('.hourly').html());
+      })
+    },
+    selectors: function(data) {
+      var out = {};
+      out['.widget'] = {
+        partial: 'standard',
+        data: [{
+          id: 'weather',
+          h2: 'Weather for IG8',
+          '.value': data
+        }]
+      }
+      return out;
+    }
+  },
 
 
   tflStatus: {
@@ -81,7 +81,6 @@ module.exports = {
             }
           }
         });
-        console.log('sending data', out)
         callback(null, out);
         //callback(error, $('#lines').html());
       })
@@ -89,26 +88,22 @@ module.exports = {
     },
     selectors: function(data) {
       var newData = data.map(function(line) {
-        console.log('-->1')
 
         if(!line.line || line.status === 'Good service') {
           return false;
         }
-        console.log('-->')
         var out = '<li class="' + line.CssClass + ' ' + line.line.replace(/ /g, '')+ '">' + line.line + '<div><small>' + line.status.replace(/\n/g, '</br>') + '</small></div></li>';
-        console.log(out);
         return out;
       }).filter(function(item) {
         return item;
       });
-      console.log('ND:', newData)
-
-      //if(newData.length > 0)
-      if(newData.length === 0) {
-        newData = 'All Lines Operational'
-      }else {
-        newData = newData.join('')
-      }
+newData = 'All Lines Operational'
+      // if(newData.length === 0) {
+      //   newData = 'All Lines Operational'
+      // }else {
+      //   console.log('new', newData)
+      //   newData = newData.join('')
+      // }
       var out = {};
       out['.widget'] = {
         partial: 'standard',
@@ -146,9 +141,9 @@ module.exports = {
         })
       };
 
-return callback(null, {"Westbound":[{"dueIn":"1:00","destination":"West Ruislip","isStalled":false,"location":"At Woodford"},{"dueIn":"14:00","destination":"Ealing Broadway","isStalled":false,"location":"Between Theydon Bois and Debden"},{"dueIn":"17:00","destination":"White City","isStalled":false,"location":"Between Epping and Theydon Bois"}],"Eastbound":[{"dueIn":"2:00","destination":"Epping","isStalled":false,"location":"Between South Woodford and Woodford"},{"dueIn":"5:00","destination":"Debden","isStalled":false,"location":"At Snaresbrook"},{"dueIn":"8:00","destination":"Epping","isStalled":false,"location":"Approaching Leytonstone"},{"dueIn":"11:00","destination":"Grange Hill via Woodford","isStalled":false,"location":"Approaching Leyton"},{"dueIn":"13:00","destination":"Epping","isStalled":false,"location":"At Stratford"},{"dueIn":"17:00","destination":"Epping","isStalled":false,"location":"At Mile End"},{"dueIn":"23:00","destination":"Loughton","isStalled":false,"location":"Between Liverpool Street and Bethnal Green"},{"dueIn":"28:00","destination":"Epping","isStalled":false,"location":"At St. Paul's"}],"name":"nextTrain"});
+//return callback(null, {"Westbound":[{"dueIn":"1:00","destination":"West Ruislip","isStalled":false,"location":"At Woodford"},{"dueIn":"14:00","destination":"Ealing Broadway","isStalled":false,"location":"Between Theydon Bois and Debden"},{"dueIn":"17:00","destination":"White City","isStalled":false,"location":"Between Epping and Theydon Bois"}],"Eastbound":[{"dueIn":"2:00","destination":"Epping","isStalled":false,"location":"Between South Woodford and Woodford"},{"dueIn":"5:00","destination":"Debden","isStalled":false,"location":"At Snaresbrook"},{"dueIn":"8:00","destination":"Epping","isStalled":false,"location":"Approaching Leytonstone"},{"dueIn":"11:00","destination":"Grange Hill via Woodford","isStalled":false,"location":"Approaching Leyton"},{"dueIn":"13:00","destination":"Epping","isStalled":false,"location":"At Stratford"},{"dueIn":"17:00","destination":"Epping","isStalled":false,"location":"At Mile End"},{"dueIn":"23:00","destination":"Loughton","isStalled":false,"location":"Between Liverpool Street and Bethnal Green"},{"dueIn":"28:00","destination":"Epping","isStalled":false,"location":"At St. Paul's"}],"name":"nextTrain"});
       // WFD
-      request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/NHG', function(error, data) {
+      request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/WFD', function(error, data) {
 
         parseString(data.body, function (err, result) {
 
@@ -187,7 +182,7 @@ return callback(null, {"Westbound":[{"dueIn":"1:00","destination":"West Ruislip"
         partial: 'standard',
         data: [{
           id: 'tflStatus',
-          h2: 'Next Trains',
+          h2: 'Central Line Train from Woodford',
           '.value': out.join(' ')
         }]
       }
