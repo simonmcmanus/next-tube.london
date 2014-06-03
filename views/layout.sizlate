@@ -1,201 +1,116 @@
 <html>
-<header>
+<head>
 	    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" href="http://static.bbci.co.uk/frameworks/barlesque/2.59.10/desktop/3.5/style/main.css"><link rel="stylesheet" href="http://static.bbci.co.uk/weather/0.5.276/css/core.css">
 
-</header>
+
+
+
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+
+<script type="text/javascript">
+
+
+var styled = [
+    {
+        "stylers": [
+            {
+                "hue": "#ff1a00"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 33
+            },
+            {
+                "gamma": 0.5
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#2D333C"
+            }
+        ]
+    }
+]
+
+
+        function addMarker(lat, long) {
+                  var marker = new google.maps.Marker({
+                       position: new google.maps.LatLng(lat, long),
+                       map: map,
+                       icon: '/bus.png',
+                       title: 'Hello World!'
+                   });
+                  map.markers.push(marker);
+
+
+
+                }
+
+
+
+            google.maps.event.addDomListener(window, 'load', init);
+
+            var clearMarkers, map;
+
+            function init() {
+                var mapOptions = {
+                    zoom: 11,
+
+                     disableDefaultUI: false, // a way to quickly hide all controls
+                    mapTypeControl: false,
+                      streetViewControl:false,
+                    scaleControl: false,
+                    zoomControl: false,
+                    center: new google.maps.LatLng(51.6067182,0.03675780000003215), // My House
+
+                    styles: styled
+                };
+
+                // Get the HTML DOM element that will contain your map
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement = document.getElementById('map');
+                console.log('ME', mapElement)
+
+                // Create the Google Map using out element and options defined above
+                map = new google.maps.Map(mapElement, mapOptions);
+
+                map.markers = [];
+
+
+                function clearMarkers() {
+
+                   var c = map.markers.length;
+                   while(c--) {
+                    console.log(map.markers[c])
+                   }
+
+                }
+
+
+
+  // addMarker(51.6177182,0.03675780000005215);
+
+  // addMarker(51.6477182,0.0367578000015215);
+}
+
+
+
+        </script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="/style.css">
 <style>
-
-span[data-unit=f] {
-    display: none;
-}
-caption,  tr.humidity, tr.visibility, tr.pressure, tr.wind-direction, tr.windspeed {
-    display: none;
-}
-.windrose-icon.wind-direction-wnw {
-	font-size: 8px;
-}
-
-table.weather {
-	margin: 10px;
-	padding: 10px;
-}
-.hours-1 {
-	width:12%;
-}
-span.hours {
-	font-size: 10px;
-}
-span.mins {
-	display: none;
-}
-.row-title {
-	display:none;
-}
-.sunrise, .sunset {
- font-size: 12px;
- padding: 14px;
-
- line-height: 30px;
-}
-
-.next-day .hours {
-	display: none;
-}
-
-</style>
-<style>
-body {
-	font-family: arial;
-	background-image: url(/squares.png);
-	color: #fff;
-}
-
-
-h1 {
-	margin: 2.5rem 1rem ;
-	padding: 1rem;
-	color: rgb(173, 192, 219);;
-	background: #fff;
-	border-radius: 10px;
-}
-#widgets {
-	margin: 1rem;
-}
-
-h3 {
-	font-size: 0.5em;
-	text-align: left;
-	margin: 10px 0;
-	padding: 0;
-}
-
-.widget {
-	 border: 1px solid #c9c9c9;
-	background: #fff;
-	width: 300px;
-	display: inline-block;
-	vertical-align: top;
-	border-radius: 3px;
-	margin	: 5px;
-	color: rgb(131, 131, 131);
-}
-
-.widget.wide {
-	width: 100%;
-}
-
-.widget#weather {
-	width: 500px;
-}
-
-
-.widget.wide .direction {
-	width: 48%;
-	display: inline-block;
-	vertical-align: top;
-}
-
-.widget .detail {
-	font-size: 0.3em;
-	color: #aaa;
-}
-
-
-.widget h2 {
-	padding: 0 0 10px 0;
-	font-size: 1em;
-	margin: 0px;
-	background: #f3f3f3;
-	padding: 8px;
-	border-radius: 3px 3px 0 0 ;
-}
-
-.widget.fullscreen {
-	width: 50%;
-	height: 40%;
-	vertical-align: center;
-}
-
-.widget ul.trains {
-	padding: 0;
-	margin: 0;
-}
-.widget .due {
-	border: 1px solid #aaa;
-	border-radius: 2px;
-	background: #444;
-	width: 50px;
-	color: #ddd;
-	padding: 5px;
-	text-align: center;
-	display:inline-block;
-	margin: 5px;
-}
-
-.widget.wide {
-	display: block;
-	width: auto;
-}
-
-.widget li {
-	list-style: none;
-	font-size: 0.3em;
-	width: 100%;
-	text-align: left;
-	margin: 0px;
-	line-height: 15px;
-}
-
-.widget li:nth-child(odd)  {
-	background-color: #f2f2f2;
-}
-
-.widget li div {
-	background: rgba(255, 255, 255, 0.8);
-}
-
-.widget li.Central {
-	background: #DC241F;
-}
-.widget li.Bakerloo {
-	background: #894E24;
-}
-.widget li.Circle {
-	background: #FFCE00;
-}
-.widget li.District {
-	background: #007229;
-}
-.widget li.HammersmithandCity {
-	background: #D799AF;
-}
-.widget li.Jubilee {
-	background: #868F98;
-}
-.widget li.Metrpolitan {
-	background: #751056;
-}
-.widget li.Northern {
-	background: #000000;
-}
-.widget li.Piccadilly {
-	background: #0019A8;
-}
-.widget li.Victoria {
-	background: #00A0E2;
-}
-.widget li.WaterlooandCity {
-	background: #76D0BD;
-}
-.widget li.Overground {
-	background: #894E24;
-}
-
-.widget li.DLR {
-	background: #00AFAD;
-}
-
 
 
 
@@ -213,9 +128,24 @@ h3 {
   var socket = io.connect('http://' + window.location.host);
   socket.on('widget', function (data) {
   	for(item in data) {
-  		$('#'+item).html(data[item]);
+      if(item === 'nextBus') {
+        var buses = data[item].data;
+        var c = buses.length;
+
+
+        while(c--) {
+          console.log('buses', buses[c]);
+          addMarker(buses[c].lat, buses[c].long);
+        }
+
+      }else {
+        $('#'+item).html(data[item].markup);
+      }
   	}
   });
+
+
 </script>
+
 </body>
 </html>

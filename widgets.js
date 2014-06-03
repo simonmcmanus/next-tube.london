@@ -5,6 +5,8 @@ var http = require('http');
 
 var sizlate = require('sizlate')
 
+var moment = require('moment');
+
 var selectorConverter = function(data) {
   var out = {};
   out['.widget'] = {
@@ -64,46 +66,36 @@ module.exports = {
     }
   },
 
-
   tflStatus: {
     data: function(callback) {
 
-      request('http://www.tfl.gov.uk/tfl/livetravelnews/realtime/tube/default.html', function(error, data) {
-        var $ = cheerio.load(data.body);
-        var items = $('#lines li');
-        var out = items.map(function(i, el) {
 
-          var text = $(this).find('h3').text();
-          if(text) {
-            return {
-              line: text,
-              status: $(this).find('div').text(),
-            }
-          }
-        });
-        callback(null, out);
-        //callback(error, $('#lines').html());
-      })
-//      return callback(null, [{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Bakerloo"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Central"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Circle"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"District"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Hammersmith and City"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Jubilee"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Metropolitan"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Northern"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Piccadilly"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Victoria"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Waterloo and City"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"Overground"},{"ID":"GS","CssClass":"GoodService","Description":"Good Service","IsActive":"true","name":"DLR"}]);
+var toJson = require('xml2json').toJson;
+
+      request('http://cloud.tfl.gov.uk/TrackerNet/LineStatus', function(err, res, data) {
+        callback(null, JSON.parse(toJson(data)).ArrayOfLineStatus.LineStatus);
+      });
+
     },
     selectors: function(data) {
       var newData = data.map(function(line) {
-
-        if(!line.line || line.status === 'Good service') {
+        console.log(line);
+        if(line.StatusDetails === 0) {
           return false;
         }
-        var out = '<li class="' + line.CssClass + ' ' + line.line.replace(/ /g, '')+ '">' + line.line + '<div><small>' + line.status.replace(/\n/g, '</br>') + '</small></div></li>';
+        console.log('sd', line.StatusDetails);
+        var out = '<li class="' + line.CssClass + ' ' + line.Line.Name.replace(/ /g, '')+ '">' + line.Line.Name + '<div><small>' + line.StatusDetails.replace(/\n/g, '</br>') + '</small></div></li>';
         return out;
       }).filter(function(item) {
         return item;
       });
-newData = 'All Lines Operational'
-      // if(newData.length === 0) {
-      //   newData = 'All Lines Operational'
-      // }else {
-      //   console.log('new', newData)
-      //   newData = newData.join('')
-      // }
+//newData = 'All Lines Operational'
+      if(newData.length === 0) {
+        newData = 'All Lines Operational'
+      }else {
+        console.log('new', newData)
+        newData = newData.join('')
+      }
       var out = {};
       out['.widget'] = {
         partial: 'standard',
@@ -117,7 +109,51 @@ newData = 'All Lines Operational'
     }
   },
 
+  nextBus: {
+    data: function(callback) {
+      //
+      request('http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?stopCode1=75120&returnList=EstimatedTime,longitude,latitude,StopPointName', function(e, r, d) {
+        console.log(d)
+        var out = [];
+        var a = d.split('\r\n');
+        var c = a.length
+        while(c--) {
+          var bus = JSON.parse(a[c]);
+          if(bus[1] === 'Woodford Station') {
+                    console.log('d', bus[2], bus[3]);
 
+            out.push({
+              due: new Date(bus[4]),
+              lat: bus[2],
+              long: bus[3]
+            });
+          }
+        }
+        callback(null, out.reverse());
+
+      })
+    },
+    selectors: function(data) {
+      console.log('data is', data)
+
+      var list = data.map(function(bus) {
+        return '<li>' + moment(bus).fromNow() + '</li>';
+      })
+
+      return {
+        '.widget': {
+            partial: 'map',
+            data: [{
+              id: 'nextBus',
+              h2: '275 Bus',
+              '.value': '<li>' + list.join('') + '</li>'
+            }
+            ]
+        }
+      }
+
+    }
+  },
 
   nextTrain: {
     data: function(callback) {
@@ -143,6 +179,7 @@ newData = 'All Lines Operational'
 
 //return callback(null, {"Westbound":[{"dueIn":"1:00","destination":"West Ruislip","isStalled":false,"location":"At Woodford"},{"dueIn":"14:00","destination":"Ealing Broadway","isStalled":false,"location":"Between Theydon Bois and Debden"},{"dueIn":"17:00","destination":"White City","isStalled":false,"location":"Between Epping and Theydon Bois"}],"Eastbound":[{"dueIn":"2:00","destination":"Epping","isStalled":false,"location":"Between South Woodford and Woodford"},{"dueIn":"5:00","destination":"Debden","isStalled":false,"location":"At Snaresbrook"},{"dueIn":"8:00","destination":"Epping","isStalled":false,"location":"Approaching Leytonstone"},{"dueIn":"11:00","destination":"Grange Hill via Woodford","isStalled":false,"location":"Approaching Leyton"},{"dueIn":"13:00","destination":"Epping","isStalled":false,"location":"At Stratford"},{"dueIn":"17:00","destination":"Epping","isStalled":false,"location":"At Mile End"},{"dueIn":"23:00","destination":"Loughton","isStalled":false,"location":"Between Liverpool Street and Bethnal Green"},{"dueIn":"28:00","destination":"Epping","isStalled":false,"location":"At St. Paul's"}],"name":"nextTrain"});
       // WFD
+      // BNK
       request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/WFD', function(error, data) {
 
         parseString(data.body, function (err, result) {
@@ -163,6 +200,66 @@ newData = 'All Lines Operational'
       })
     },
     selectors: function(data) {
+
+
+      var stations = [
+        { name: "Bank",  code:"BNK"},
+        { name: "Barkingside",  code:"BDE"},
+        { name: "Bethnal Green",  code:"BNG"},
+        { name: "Bond Street",  code:"BDS"},
+        { name: "Buckhurst Hill",  code:"BHL"},
+        { name: "Chancery Lane",  code:"CYL"},
+        { name: "Chigwell",  code:"CHG"},
+        { name: "Debden",  code:"DEB"},
+        { name: "Ealing Broadway",  code:"EBY"},
+        { name: "East Acton",  code:"EAC"},
+        { name: "Epping",  code:"EPP"},
+        { name: "Fairlop",  code:"FLP"},
+        { name: "Gants Hill",  code:"GHL"},
+        { name: "Grange Hill",  code:"GRH"},
+        { name: "Greenford",  code:"GFD"},
+        { name: "Hainault",  code:"HAI"},
+        { name: "Hanger Lane",  code:"HLN"},
+        { name: "Holborn",  code:"HOL"},
+        { name: "Holland Park",  code:"HPK"},
+        { name: "Lancaster Gate",  code:"LAN"},
+        { name: "Leyton",  code:"LEY"},
+        { name: "Leytonstone",  code:"LYS"},
+        { name: "Liverpool Street",  code:"LST"},
+        { name: "Loughton",  code:"LTN"},
+        { name: "Marble Arch",  code:"MAR"},
+        { name: "Mile End" , code:"MLE"},
+        { name: "Newbury Park",  code:"NEP"},
+        { name: "North Acton",  code:"NAC"},
+        { name: "Northolt",  code:"NHT"},
+        { name: "Notting Hill Gate",  code:"NHG"},
+        { name: "Oxford Circus",  code:"OXC"},
+        { name: "Perivale",  code:"PER"},
+        { name: "Queensway",  code:"QWY"},
+        { name: "Redbridge",  code:"RED"},
+        { name: "Roding Valley",  code:"ROD"},
+        { name: "Ruislip Gardens",  code:"RUG"},
+        { name: "Shepherds Bush (Central Line)",  code:"SBC"},
+        { name: "Snaresbrook",  code:"SNB"},
+        { name: "South Ruislip",  code:"SRP"},
+        { name: "South Woodford",  code:"SWF"},
+        { name: "St Pauls",  code:"STP"},
+        { name: "Stratford",  code:"SFD"},
+        { name: "Theydon Bois",  code:"THB"},
+        { name: "Tottenham Court Road",  code:"TCR"},
+        { name: "Wanstead",  code:"WAN"},
+        { name: "West Acton",  code:"WAC"},
+        { name: "West Ruislip",  code:"WRP"},
+        { name: "White City",  code:"WCT"},
+        { name: "Woodford",  code:"WFD"}
+      ];
+
+
+      var stationsHtml = stations.map(function(station){
+        return '<option value="' + station.id + '">' +   station.name + '</option>';
+      });
+
+
       function train(item) {
         return '<li><span class="due">' + item.dueIn + '</span> ' + item.destination + ' - ' + '<span class="detail">' +  item.location + '</span></li>';
       };
@@ -183,7 +280,8 @@ newData = 'All Lines Operational'
         data: [{
           id: 'tflStatus',
           h2: 'Central Line Train from Woodford',
-          '.value': out.join(' ')
+          '.value': out.join(' '),
+          settings: '<select>' + stationsHtml + '</select>'
         }]
       }
       return ret;

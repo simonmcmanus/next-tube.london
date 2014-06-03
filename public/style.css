@@ -1,0 +1,297 @@
+
+span[data-unit=f] {
+    display: none;
+}
+caption,  tr.humidity, tr.visibility, tr.pressure, tr.wind-direction, tr.windspeed {
+    display: none;
+}
+.windrose-icon.wind-direction-wnw {
+  font-size: 8px;
+}
+
+table.weather {
+  margin: 10px;
+  padding: 10px;
+}
+.hours-1 {
+  width:12%;
+}
+span.hours {
+  font-size: 10px;
+}
+span.mins {
+  display: none;
+}
+.row-title {
+  display:none;
+}
+.sunrise, .sunset {
+ font-size: 12px;
+ padding: 14px;
+
+ line-height: 30px;
+}
+
+.next-day .hours {
+  display: none;
+}
+
+body {
+  font-family: arial;
+  background-color: #111;
+    display: flex;
+}
+/*
+
+.settings {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  align:right;
+  width: 24px;
+  height: 24px;
+  background-image: url(/cog.png);
+  background-repeat: no-repeat;
+}*/
+
+h1 {
+  margin: 2.5rem 1rem ;
+  padding: 1rem;
+  color: rgb(173, 192, 219);;
+  background: #fff;
+  border-radius: 10px;
+}
+#widgets {
+  margin: 1rem;
+}
+
+h3 {
+  font-size: 1.1em;
+  text-align: left;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.widget {
+  overflow: hidden;
+   border: 1px solid #c9c9c9;
+   border-radius: 3px;
+   background: linear-gradient(#272727 0%, #121212 50%, #060606 50%, #000000 100%);
+border: 1px solid #262626;
+border-top-color: #3e3e3e;
+background-color: #272727;
+border-bottom-color: #181818;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 3px;
+  margin  : 5px;
+  color: rgb(131, 131, 131);
+  position: relative;
+}
+
+.widget#weather {
+  width: 500px;
+}
+
+
+.widget.wide {
+  display: block;
+  position: relative;
+  width: auto;
+  width: 100%;
+}
+
+
+
+.widget.wide .direction {
+  display: inline-block;
+  min-width: 300px;
+  vertical-align: top;
+  margin: 10px;
+}
+
+.widget .detail {
+  font-size: 0.3em;
+  color: #aaa;
+}
+
+
+.widget h2 {
+
+  font-size: 13px;
+line-height: 13px;
+text-transform: uppercase;
+text-align: center;
+color: #575757;
+margin-top: 11px;
+
+
+  padding: 0 0 10px 0;
+  margin: 0px;
+  padding: 8px;
+  border-radius: 3px 3px 0 0 ;
+}
+
+.widget.fullscreen {
+  width: 50%;
+  height: 40%;
+  vertical-align: center;
+}
+
+.widget ul.trains {
+  padding: 0;
+  margin: 0;
+}
+.widget .due {
+  border: 1px solid #111;
+  border-radius: 2px;
+  background: #222;
+  width: 50px;
+  color: #ddd;
+  padding: 5px;
+  text-align: center;
+  display:inline-block;
+  margin: 5px;
+}
+
+
+
+.widget li {
+  list-style: none;
+  font-size: 0.3em;
+  width: 100%;
+  text-align: left;
+  margin: 0px;
+  line-height: 15px;
+}
+
+
+
+.widget li div {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.widget li.Central {
+  background: #DC241F;
+}
+.widget li.Bakerloo {
+  background: #894E24;
+}
+.widget li.Circle {
+  background: #FFCE00;
+}
+.widget li.District {
+  background: #007229;
+}
+.widget li.HammersmithandCity {
+  background: #D799AF;
+}
+.widget li.Jubilee {
+  background: #868F98;
+}
+.widget li.Metrpolitan {
+  background: #751056;
+}
+.widget li.Northern {
+  background: #000000;
+}
+.widget li.Piccadilly {
+  background: #0019A8;
+}
+.widget li.Victoria {
+  background: #00A0E2;
+}
+.widget li.WaterlooandCity {
+  background: #76D0BD;
+}
+.widget li.Overground {
+  background: #894E24;
+}
+
+.widget li.DLR {
+  background: #00AFAD;
+}
+
+.value {
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+/**
+ * flip
+ *
+ */
+
+
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000;
+}
+  /* flip the pane when hovered */
+  .flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+.flip-container, .front, .back {
+  width: 320px;
+  height: 480px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
+
+
+
+#map {
+  height: 200px;
+  width: 100%;
+}
+
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+#GMapsID div div a div img{
+    display:none;
+}
+
+.gm-style-cc:last-child {
+    display: none !important;
+}
+a[title="Report errors in the road map or imagery to Google"] {
+    display: none !important;
+}
+
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}

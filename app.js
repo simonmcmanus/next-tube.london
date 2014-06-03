@@ -67,7 +67,10 @@ setInterval(function() {
 				// something changed.
 				var o = {};
 				var selectors = widgets[widget].selectors(ds[widget])['.widget'].data;
-				o[widget] = sizlate.doRender(standardTemplate, selectors);
+				o[widget] = {
+          markup: sizlate.doRender(standardTemplate, selectors),
+          data: ds[widget]
+        }
 				notifyClients(o);
 			//}
 		}
@@ -92,7 +95,6 @@ function generateSelectors(data) {
 	var selectors = {};
 	for (var item in data) {
 		var key = '#' + item;
-		console.log('___---___--_---__,>', widgets[item].selectors(data[item]));
 		selectors[key] = widgets[item].selectors(data[item])['.widget'];
 	}
 	return selectors;
