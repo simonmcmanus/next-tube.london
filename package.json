@@ -13,7 +13,8 @@
     "request": "~2.33.0",
     "sizlate": "~0.8.4",
     "socket.io": "~0.9.16",
-    "xml2js": "~0.4.1"
+    "xml2js": "~0.4.1",
+    "xml2json": "^0.4.0"
   },
   "engines": {
     "node": "0.8.x",
