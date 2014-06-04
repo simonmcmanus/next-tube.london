@@ -9,7 +9,7 @@
     "async": "~0.2.9",
     "cheerio": "~0.13.1",
     "express": "3.0.0rc2",
-    "moment": "^2.6.0",
+    "moment": "*",
     "request": "~2.33.0",
     "sizlate": "~0.8.4",
     "socket.io": "~0.9.16",
