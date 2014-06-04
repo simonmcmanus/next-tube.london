@@ -70,7 +70,7 @@ module.exports = {
     data: function(callback) {
 
 
-var toJson = require('xml2json').toJson;
+      var toJson = require('xml2json').toJson;
 
       request('http://cloud.tfl.gov.uk/TrackerNet/LineStatus', function(err, res, data) {
         callback(null, JSON.parse(toJson(data)).ArrayOfLineStatus.LineStatus);
@@ -79,11 +79,9 @@ var toJson = require('xml2json').toJson;
     },
     selectors: function(data) {
       var newData = data.map(function(line) {
-        console.log(line);
         if(line.StatusDetails === 0) {
           return false;
         }
-        console.log('sd', line.StatusDetails);
         var out = '<li class="' + line.CssClass + ' ' + line.Line.Name.replace(/ /g, '')+ '">' + line.Line.Name + '<div><small>' + line.StatusDetails.replace(/\n/g, '</br>') + '</small></div></li>';
         return out;
       }).filter(function(item) {
@@ -93,7 +91,6 @@ var toJson = require('xml2json').toJson;
       if(newData.length === 0) {
         newData = 'All Lines Operational'
       }else {
-        console.log('new', newData)
         newData = newData.join('')
       }
       var out = {};
@@ -111,30 +108,31 @@ var toJson = require('xml2json').toJson;
 
   nextBus: {
     data: function(callback) {
-      //
-      request('http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?stopCode1=75120&returnList=EstimatedTime,longitude,latitude,StopPointName', function(e, r, d) {
+      //http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?stopCode1=75120&returnList=EstimatedTime,longitude,latitude,StopPointName
+      //http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?ReturnList=StopPointName,StopID,Towards,StopPointIndicator,StopPointState,Latitude,Longitude,VisitNumber,LineID,LineName,DirectionID,DestinationName,VehicleID,TripID,RegistrationNumber,EstimatedTime,ExpireTime&LineName=275&Circle=51.6067182,0.03675780000003215,5000
+      request('http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?ReturnList=EstimatedTime,Longitude,Latitude,StopPointName,RegistrationNumber,DirectionID,Towards,StopCode1,StopCode2,StopPointType,Bearing&LineName=275&Circle=51.6067182,0.03675780000003215,5000', function(e, r, d) {
         console.log(d)
         var out = [];
         var a = d.split('\r\n');
         var c = a.length
         while(c--) {
           var bus = JSON.parse(a[c]);
-          if(bus[1] === 'Woodford Station') {
-                    console.log('d', bus[2], bus[3]);
+          console.log('b', bus);
+          out.push({
+            currentLocation: bus[2],
+            lat: bus[7],
+            long: bus[8],
+            registration: bus[6],
+            bearing: bus[6],
 
-            out.push({
-              due: new Date(bus[4]),
-              lat: bus[2],
-              long: bus[3]
-            });
-          }
+            due: new Date(bus[7]),
+          });
         }
         callback(null, out.reverse());
 
-      })
+      });
     },
     selectors: function(data) {
-      console.log('data is', data)
 
       var list = data.map(function(bus) {
         return '<li>' + moment(bus).fromNow() + '</li>';

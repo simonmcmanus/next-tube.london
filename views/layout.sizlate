@@ -43,12 +43,12 @@ var styled = [
 ]
 
 
-        function addMarker(lat, long) {
+        function addMarker(bus) {
                   var marker = new google.maps.Marker({
-                       position: new google.maps.LatLng(lat, long),
+                       position: new google.maps.LatLng(bus.lat, bus.long),
                        map: map,
                        icon: '/bus.png',
-                       title: 'Hello World!'
+                       title: bus.currentLocation + '' + bus.registration
                    });
                   map.markers.push(marker);
 
@@ -64,7 +64,7 @@ var styled = [
 
             function init() {
                 var mapOptions = {
-                    zoom: 11,
+                    zoom: 15,
 
                      disableDefaultUI: false, // a way to quickly hide all controls
                     mapTypeControl: false,
@@ -84,6 +84,17 @@ var styled = [
                 // Create the Google Map using out element and options defined above
                 map = new google.maps.Map(mapElement, mapOptions);
 
+
+                var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(51.6067182,0.03675780000003215),
+                     map: map,
+                     title: '2a Danbury Way'
+                 });
+
+
+
+
+
                 map.markers = [];
 
 
@@ -96,11 +107,6 @@ var styled = [
 
                 }
 
-
-
-  // addMarker(51.6177182,0.03675780000005215);
-
-  // addMarker(51.6477182,0.0367578000015215);
 }
 
 
@@ -135,7 +141,7 @@ var styled = [
 
         while(c--) {
           console.log('buses', buses[c]);
-          addMarker(buses[c].lat, buses[c].long);
+          addMarker(buses[c]);
         }
 
       }else {
