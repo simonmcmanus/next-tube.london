@@ -70,7 +70,7 @@ setInterval(function() {
 				o[widget] = {
           markup: sizlate.doRender(standardTemplate, selectors),
           data: ds[widget]
-        }
+        };
 				notifyClients(o);
 			//}
 		}
