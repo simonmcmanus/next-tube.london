@@ -1,23 +1,25 @@
 {
-  "name": "StatusApps",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
+  "name": "wt2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "dependencies": {
-    "async": "~0.2.9",
-    "cheerio": "~0.13.1",
-    "express": "3.0.0rc2",
-    "moment": "*",
-    "request": "~2.33.0",
-    "sizlate": "~0.8.4",
-    "socket.io": "~0.9.16",
-    "xml2js": "~0.4.1",
-    "xml2json": "*"
+    "duo": "^0.8.4",
+    "duo-jade": "0.0.5",
+    "duosass": "^1.0.2",
+    "express": "^4.9.6",
+    "gulp": "^3.8.8",
+    "gulp-shell": "^0.2.9",
+    "jade": "^1.7.0",
+    "request": "^2.45.0",
+    "socket.io": "^1.1.0",
+    "xml2js": "^0.4.4",
+    "xml2json": "^0.5.1"
   },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

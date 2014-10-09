@@ -1,5 +1,0 @@
-$('select').change(function() {
-
-debugger;
-
-})
