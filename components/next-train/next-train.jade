@@ -1,0 +1,14 @@
+#nextTrain.widget.wide
+    h2 Trains from Woodford
+    .value
+      each trains, direction in nextTrain
+        .direction
+          h3=direction
+          ul.trains
+            each train in trains
+              li
+                .due-container
+                  span.due=train.dueIn
+                span.destination=train.destination
+                span.detail=train.location
+ 

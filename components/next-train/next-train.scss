@@ -1,0 +1,49 @@
+.due-container {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+}
+
+
+ul.trains {
+  padding: 0;
+}
+
+
+
+
+.trains li {
+  list-style: none;
+  margin:  1em 0;
+
+  span.destination {
+    font-size: 0.9em;
+  }
+}
+html body .widget .due {
+  text-align:right;
+  margin-right: 10px;
+  font-family: 'Erbos';
+  display:inline-block;
+  line-height:15px;
+  border-right:1px solid white !important;
+  color: #fff;
+  background: rgb(108, 160, 98);
+}
+
+.direction {
+  vertical-align: top;
+}
+
+.detail {
+  display: none;
+}
+
+
+@media (min-width: 400px) {
+  .direction {
+    width: 50%;
+    display: inline-block;
+  }
+
+}
