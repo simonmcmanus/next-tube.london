@@ -55,7 +55,7 @@ setInterval(function() {
         };
         cache = ds;
     });
-}, 10000);
+}, 30000);
 
 
  app.get("/", function(req, res) {
