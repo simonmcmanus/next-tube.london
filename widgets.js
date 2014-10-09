@@ -263,7 +263,7 @@ module.exports = {
 
 
       function train(item) {
-        return '<li><span class="due">' + item.dueIn + '</span> ' + item.destination + ' - ' + '<span class="detail">' +  item.location + '</span></li>';
+        return '<li><div class="due-container"><span class="due">' + item.dueIn + '</span></div> <span class="destination">' + item.destination + '</span> ' + '<span class="detail"> -&nbsp;' +  item.location + '</span></li>';
       };
       var out = ['<div class="direction"><h3>Westbound</h3><ul class="trains">'];
       data.Westbound.forEach(function(item) {

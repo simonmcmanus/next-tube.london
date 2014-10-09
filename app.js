@@ -86,7 +86,7 @@ setInterval(function() {
  */
 function notifyClients(update) {
 	for (var socket in sockets) {
-		sockets[socket].emit('widget', update);
+		//sockets[socket].emit('widget', update);
 	}
 }
 
