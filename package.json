@@ -19,9 +19,10 @@
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
-  }
+  },
   "devDependencies": {},
   "scripts": {
+    "start": "node app.js"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
