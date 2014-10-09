@@ -1,11 +1,9 @@
-- console.log(nextBus)
 #nextBus.widget.wide
     h2 Buses
     .direction
       h3 To Barkingside
       ul.trains
         each bus in nextBus['1'].buses
-          -console.log('bus', bus);
           li
             .due-container
               span.due=bus.due
