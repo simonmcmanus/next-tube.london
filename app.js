@@ -23,7 +23,7 @@ function fetchAllWidgetData(callback) {
     async.parallel(methods, function(error, data) {
         callback(null, data);
     });
-}
+};
 
 // on startup get the latest data.
 fetchAllWidgetData(function(errorSet, dataSet) {
