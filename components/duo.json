@@ -2,8 +2,8 @@
   "client/shared.js": {
     "id": "client/shared.js",
     "type": "js",
-    "mtime": 1412889089000,
-    "src": "var nextBus = require('../components/next-bus/next-bus.js');\nvar nextTrain = require('../components/next-train/next-train.js');\nvar trainStatus = require('../components/train-status/train-status.js');\n\nvar socket = io('http://localhost');\n\nsocket.on('nextTrain', nextTrain.render);\nsocket.on('trainStatus', trainStatus.render);\nsocket.on('nextBus', nextBus.render);\n\n",
+    "mtime": 1412889871000,
+    "src": "var nextBus = require('../components/next-bus/next-bus.js');\nvar nextTrain = require('../components/next-train/next-train.js');\nvar trainStatus = require('../components/train-status/train-status.js');\n\nvar socket = io('http://woodford.today:80');\n\nsocket.on('nextTrain', nextTrain.render);\nsocket.on('trainStatus', trainStatus.render);\nsocket.on('nextBus', nextBus.render);\n\n",
     "deps": {
       "../components/next-bus/next-bus.js": "components/next-bus/next-bus.js",
       "../components/next-train/next-train.js": "components/next-train/next-train.js",
