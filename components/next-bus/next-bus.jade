@@ -3,17 +3,19 @@
     .direction
       h3 To Barkingside
       ul.trains
-        each bus in nextBus['1'].buses
-          li
-            .due-container
-              span.due=bus.due
+        if nextBus['1']
+          each bus in nextBus['1'].buses
+            li
+              .due-container
+                span.due=bus.due
 
     .direction
       h3 To Walthamstow
       ul.trains
-        each bus in nextBus['2'].buses
-          li
-            .due-container
-              span.due=bus.due
+        if nextBus['2']
+          each bus in nextBus['2'].buses
+            li
+              .due-container
+                span.due=bus.due
 
 
