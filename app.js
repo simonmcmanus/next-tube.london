@@ -10,6 +10,7 @@ var http = require('http');
 var cache = {};
 var nextTrain = require('./fetchers/next-train.js');
 var tflStatus = require('./fetchers/tfl-status.js');
+var nextBus = require('./fetchers/next-bus.js');
 
 /**
  * Gets the latest values for all the widgets.
@@ -18,7 +19,8 @@ var tflStatus = require('./fetchers/tfl-status.js');
 function fetchAllWidgetData(callback) {
     var methods = {
         tflStatus: tflStatus,
-        nextTrain: nextTrain
+        nextTrain: nextTrain,
+        nextBus: nextBus
     };
     async.parallel(methods, function(error, data) {
         callback(null, data);
@@ -37,7 +39,7 @@ fetchAllWidgetData(function(errorSet, dataSet) {
  * @return {[type]}        [description]
  */
 function notifyClients(widget, data) {
-    console.log('notify', widget);
+    
     for (var socket in sockets) {
         sockets[socket].emit(widget, data);
     }
@@ -53,7 +55,7 @@ setInterval(function() {
         };
         cache = ds;
     });
-}, 1000);
+}, 10000);
 
 
  app.get("/", function(req, res) {
@@ -80,7 +82,6 @@ setInterval(function() {
  var sockets = {};
 
  io.sockets.on('connection', function(socket) {
-    console.log('connection')
    sockets[socket.id] = socket;
    socket.on('disconnect', function() {
      delete sockets[socket.id];
