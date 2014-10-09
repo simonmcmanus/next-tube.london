@@ -67,8 +67,7 @@ setInterval(function() {
  
  var server = http.createServer(app);
 
- 
- server.listen(4000, function() {
+ server.listen( process.env.PORT || 4000, function() {
    console.log("Listening on " + 4000);
  });
 
