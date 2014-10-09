@@ -2,7 +2,13 @@ var nextBus = require('../components/next-bus/next-bus.js');
 var nextTrain = require('../components/next-train/next-train.js');
 var trainStatus = require('../components/train-status/train-status.js');
 
-var socket = io(window.location.origin +':80');
+
+if(window.location.hostname === 'woodford.today') {
+    url = 'http://woodford.today:80/';
+}else {
+    url = 'http://localhost/'
+}
+var socket = io(url);
 
 socket.on('nextTrain', nextTrain.render);
 socket.on('trainStatus', trainStatus.render);

@@ -2,23 +2,14 @@
   "client/shared.js": {
     "id": "client/shared.js",
     "type": "js",
-    "mtime": 1412890077000,
-    "src": "var nextBus = require('../components/next-bus/next-bus.js');\nvar nextTrain = require('../components/next-train/next-train.js');\nvar trainStatus = require('../components/train-status/train-status.js');\n\nvar socket = io(window.location.origin +':80');\n\nsocket.on('nextTrain', nextTrain.render);\nsocket.on('trainStatus', trainStatus.render);\nsocket.on('nextBus', nextBus.render);\n\n",
+    "mtime": 1412891025000,
+    "src": "var nextBus = require('../components/next-bus/next-bus.js');\nvar nextTrain = require('../components/next-train/next-train.js');\nvar trainStatus = require('../components/train-status/train-status.js');\n\n\nif(window.location.hostname === 'woodford.today') {\n    url = 'http://woodford.today:80/';\n}else {\n    url = 'http://localhost/'\n}\nvar socket = io(url);\n\nsocket.on('nextTrain', nextTrain.render);\nsocket.on('trainStatus', trainStatus.render);\nsocket.on('nextBus', nextBus.render);\n\n",
     "deps": {
       "../components/next-bus/next-bus.js": "components/next-bus/next-bus.js",
       "../components/next-train/next-train.js": "components/next-train/next-train.js",
       "../components/train-status/train-status.js": "components/train-status/train-status.js"
     },
     "entry": true
-  },
-  "components/next-bus/next-bus.js": {
-    "id": "components/next-bus/next-bus.js",
-    "type": "js",
-    "mtime": 1412889092000,
-    "src": "var template = require('./next-bus.jade');\n\nexports.render = function(data) {\n    $('#nextBus').html(template({ 'nextBus': data }));\n};\n",
-    "deps": {
-      "./next-bus.jade": "components/next-bus/next-bus.jade"
-    }
   },
   "components/next-train/next-train.js": {
     "id": "components/next-train/next-train.js",
@@ -38,13 +29,13 @@
       "./train-status.jade": "components/train-status/train-status.jade"
     }
   },
-  "components/next-bus/next-bus.jade": {
-    "id": "components/next-bus/next-bus.jade",
+  "components/next-bus/next-bus.js": {
+    "id": "components/next-bus/next-bus.js",
     "type": "js",
-    "mtime": 1412889119000,
-    "src": "var jade = require('jade-runtime');\n\nmodule.exports = function template(locals) {\nvar buf = [];\nvar jade_mixins = {};\nvar jade_interp;\n;var locals_for_with = (locals || {});(function (nextBus) {\nbuf.push(\"<div id=\\\"nextBus\\\" class=\\\"widget wide\\\"><h2>Buses</h2><div class=\\\"direction\\\"><h3>To Barkingside</h3><ul class=\\\"trains\\\">\");\n// iterate nextBus['1'].buses\n;(function(){\n  var $$obj = nextBus['1'].buses;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  }\n}).call(this);\n\nbuf.push(\"</ul></div><div class=\\\"direction\\\"><h3>To Walthamstow</h3><ul class=\\\"trains\\\">\");\n// iterate nextBus['2'].buses\n;(function(){\n  var $$obj = nextBus['2'].buses;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  }\n}).call(this);\n\nbuf.push(\"</ul></div></div>\");}.call(this,\"nextBus\" in locals_for_with?locals_for_with.nextBus:typeof nextBus!==\"undefined\"?nextBus:undefined));;return buf.join(\"\");\n};",
+    "mtime": 1412889092000,
+    "src": "var template = require('./next-bus.jade');\n\nexports.render = function(data) {\n    $('#nextBus').html(template({ 'nextBus': data }));\n};\n",
     "deps": {
-      "jade-runtime": "jade-runtime"
+      "./next-bus.jade": "components/next-bus/next-bus.jade"
     }
   },
   "components/next-train/next-train.jade": {
@@ -61,6 +52,15 @@
     "type": "js",
     "mtime": 1412866600000,
     "src": "var jade = require('jade-runtime');\n\nmodule.exports = function template(locals) {\nvar buf = [];\nvar jade_mixins = {};\nvar jade_interp;\n;var locals_for_with = (locals || {});(function (count, tflStatus) {\nbuf.push(\"<div id=\\\"tflStatus\\\" class=\\\"widget wide\\\"><h2>Tube Status</h2><ul></ul>\");\ncount = 0;\n// iterate tflStatus\n;(function(){\n  var $$obj = tflStatus;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var status = $$obj[$index];\n\nif ( status.StatusDetails!=='')\n{\nbuf.push(\"<li\" + (jade.cls(['line '+status.Line.Name.replace(' ', '')], [true])) + \"><h3>\" + (jade.escape(null == (jade_interp = status.Line.Name) ? \"\" : jade_interp)) + \"</h3><div>\" + (jade.escape(null == (jade_interp = status.StatusDetails) ? \"\" : jade_interp)) + \"</div>\");\ncount++\nbuf.push(\"</li>\");\n}\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var status = $$obj[$index];\n\nif ( status.StatusDetails!=='')\n{\nbuf.push(\"<li\" + (jade.cls(['line '+status.Line.Name.replace(' ', '')], [true])) + \"><h3>\" + (jade.escape(null == (jade_interp = status.Line.Name) ? \"\" : jade_interp)) + \"</h3><div>\" + (jade.escape(null == (jade_interp = status.StatusDetails) ? \"\" : jade_interp)) + \"</div>\");\ncount++\nbuf.push(\"</li>\");\n}\n    }\n\n  }\n}).call(this);\n\nif ( count === 0)\n{\nbuf.push(\"<div>All lines operational.</div>\");\n}\nbuf.push(\"</div>\");}.call(this,\"count\" in locals_for_with?locals_for_with.count:typeof count!==\"undefined\"?count:undefined,\"tflStatus\" in locals_for_with?locals_for_with.tflStatus:typeof tflStatus!==\"undefined\"?tflStatus:undefined));;return buf.join(\"\");\n};",
+    "deps": {
+      "jade-runtime": "jade-runtime"
+    }
+  },
+  "components/next-bus/next-bus.jade": {
+    "id": "components/next-bus/next-bus.jade",
+    "type": "js",
+    "mtime": 1412889119000,
+    "src": "var jade = require('jade-runtime');\n\nmodule.exports = function template(locals) {\nvar buf = [];\nvar jade_mixins = {};\nvar jade_interp;\n;var locals_for_with = (locals || {});(function (nextBus) {\nbuf.push(\"<div id=\\\"nextBus\\\" class=\\\"widget wide\\\"><h2>Buses</h2><div class=\\\"direction\\\"><h3>To Barkingside</h3><ul class=\\\"trains\\\">\");\n// iterate nextBus['1'].buses\n;(function(){\n  var $$obj = nextBus['1'].buses;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  }\n}).call(this);\n\nbuf.push(\"</ul></div><div class=\\\"direction\\\"><h3>To Walthamstow</h3><ul class=\\\"trains\\\">\");\n// iterate nextBus['2'].buses\n;(function(){\n  var $$obj = nextBus['2'].buses;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  }\n}).call(this);\n\nbuf.push(\"</ul></div></div>\");}.call(this,\"nextBus\" in locals_for_with?locals_for_with.nextBus:typeof nextBus!==\"undefined\"?nextBus:undefined));;return buf.join(\"\");\n};",
     "deps": {
       "jade-runtime": "jade-runtime"
     }
