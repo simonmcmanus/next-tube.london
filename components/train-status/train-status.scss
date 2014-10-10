@@ -1,44 +1,4 @@
 
-#tflStatus li div.circle  {
-  width: 35px;
-  height: 35px;
-  border-radius: 35px;
-  display:inline-block;
-  top: 11px;
-  position: relative;
-  left: -5px;
-}
-
-
-div.status {
-  margin: 20px;
-  line-height: 1.4;
-}
-
-.name {
-  border: 1px solid red;
-  display: inline-block;
-  width:90%;
-  position: relative;
-  left: -20px;
-  padding-left: 14px;
-  //left: -1.2em;
-  height: 30px;
-
-  background: #f2ebea; /* Old browsers */
-  background: -moz-linear-gradient(left,  #f2ebea 0%, #dc241f 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f2ebea), color-stop(100%,#dc241f)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left,  #f2ebea 0%,#dc241f 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(left,  #f2ebea 0%,#dc241f 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(left,  #f2ebea 0%,#dc241f 100%); /* IE10+ */
-  background: linear-gradient(to right,  #f2ebea 0%,#dc241f 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2ebea', endColorstr='#dc241f',GradientType=1 ); /* IE6-9 */
-}
-
-
-
-
-
 #tflStatus  {
   small {
     margin-left: 40px;
@@ -47,6 +7,8 @@ div.status {
   ul {
     padding: 0;
     li.line {
+      margin: 20px;
+      line-height: 1.4;
       margin: 1em;
       padding: 0 1em 1em 1em;
       border-radius: 4px;
@@ -90,19 +52,5 @@ div.status {
         border: 1px solid #00AFAD; 
       }  
     }
-
   }
-
-}
-
-
-
-.widget li.Overground div.circle,
-.widget li.Overground div.name  {
-  background: #894E24;
-}
-
-.widget li.DLR div.circle,
-.widget li.DLR div.name  {
-  background: #00AFAD;
 }

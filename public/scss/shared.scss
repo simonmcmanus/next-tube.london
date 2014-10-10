@@ -1,9 +1,3 @@
-
-body {
-    background: #eee;
-     font-size: 16px;
-}
-
 @font-face {
     font-family: 'Erbos';   
     src: url('/fonts/7LED.ttf')
@@ -15,34 +9,32 @@ body {
 }
 
 
-.widget {
-    margin: .5em .1em;
-    padding: 1em;
-    font-family: 'GreyscaleBasic';
-    border-radius: 3px;
-    background: #fff;
-    border: 1px solid #BDBDBD;
-    
+body {
+    background: #eee;
+     font-size: 16px;
+     .widget {
+         margin: .5em .1em;
+         padding: 1em;
+         font-family: 'GreyscaleBasic';
+         border-radius: 3px;
+         background: #fff;
+         border: 1px solid #BDBDBD;
+         
 
-    vertical-align: top;
-    border-radius: 3px;
-    color: rgb(131, 131, 131);
-    position: relative;
-    h2 {
-        margin-top: 0;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
-    }
-    h3 {
-        font-size: 1em;
-    }
+         vertical-align: top;
+         border-radius: 3px;
+         color: rgb(131, 131, 131);
+         position: relative;
+         h2 {
+             margin-top: 0;
+             border-bottom: 1px solid #ddd;
+             padding-bottom: 10px;
+         }
+         h3 {
+             font-size: 1em;
+         }
+     }
 }
-
-
-
-
-
-
 
 @import 'components/next-train/next-train.scss';
 @import 'components/train-status/train-status.scss';
