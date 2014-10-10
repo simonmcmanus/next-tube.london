@@ -36,5 +36,12 @@ body {
      }
 }
 
+@media (min-width: 800px) {
+    html body .widget {
+        margin: 1em 20%;
+    }
+
+}
+
 @import 'components/next-train/next-train.scss';
 @import 'components/train-status/train-status.scss';
