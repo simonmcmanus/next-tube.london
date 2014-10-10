@@ -20,6 +20,8 @@ body {
     border-radius: 3px;
     color: #838383;
     position: relative; }
+    body .widget li {
+      list-style: none; }
     body .widget h2 {
       margin-top: 0;
       border-bottom: 1px solid #ddd;
@@ -95,6 +97,6 @@ body {
     #tflStatus ul li.line.WaterlooandCity {
       border: 1px solid #76D0BD; }
     #tflStatus ul li.line.Overground {
-      border: 1px solid #894E24; }
+      border: 1px solid red; }
     #tflStatus ul li.line.DLR {
       border: 1px solid #00AFAD; }

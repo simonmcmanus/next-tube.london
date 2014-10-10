@@ -1,7 +1,14 @@
 #nextTrain.widget.wide
     h2 Trains from Woodford
     .value
-      each trains, direction in nextTrain
+      div.settings
+        select
+          each station in nextTrain.stations
+            - var selected = false;
+            if station.code === nextTrain.current
+              - selected = true
+            option(value=station.code, selected=selected)=station.name
+      each trains, direction in nextTrain.station[nextTrain.current].trains
         .direction
           h3=direction
           ul.trains

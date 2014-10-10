@@ -25,6 +25,9 @@ body {
          border-radius: 3px;
          color: rgb(131, 131, 131);
          position: relative;
+         li {
+            list-style: none;
+         }
          h2 {
              margin-top: 0;
              border-bottom: 1px solid #ddd;

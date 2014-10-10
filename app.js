@@ -4,13 +4,9 @@ var async = require('async');
 var socket = require('socket.io');
 var http = require('http');
 
-
-
-
-var cache = {};
 var nextTrain = require('./fetchers/next-train.js');
-var tflStatus = require('./fetchers/tfl-status.js');
-var nextBus = require('./fetchers/next-bus.js');
+// requests always served from the cache and then updated over websockets.
+var cache = {};
 
 /**
  * Gets the latest values for all the widgets.
@@ -18,9 +14,11 @@ var nextBus = require('./fetchers/next-bus.js');
  */
 function fetchAllWidgetData(callback) {
     var methods = {
-        tflStatus: tflStatus,
-        nextTrain: nextTrain,
-        nextBus: nextBus
+        tflStatus: require('./fetchers/tfl-status.js'),
+        nextTrain: function(next) {
+            nextTrain('WFD', next);
+        },
+        nextBus: require('./fetchers/next-bus.js')
     };
     async.parallel(methods, function(error, data) {
         callback(null, data);
@@ -32,19 +30,16 @@ fetchAllWidgetData(function(errorSet, dataSet) {
     cache = dataSet;
 });
  
-
  /**
  * Notify connected clients that there is a new value.
  * @param  {[type]} update {widgetName: widgetValue}
  * @return {[type]}        [description]
  */
 function notifyClients(widget, data) {
-    
     for (var socket in sockets) {
         sockets[socket].emit(widget, data);
     }
 }
-
 
 setInterval(function() {
     fetchAllWidgetData(function(es, ds) {
@@ -57,33 +52,24 @@ setInterval(function() {
     });
 }, 30000);
 
+app.use(express.static('public')); 
 
- app.get("/", function(req, res) {
-    fetchAllWidgetData(function(error, data) {
-        res.render('layout.jade', data);
+app.get("/", function(req, res) {
+    res.render('layout.jade', cache);
+});
+
+var server = http.createServer(app);
+var port =  process.env.PORT || 4000;
+server.listen(port, function() {
+    console.log("Listening on " + port);
+});
+
+var io = socket.listen(server);
+var sockets = {};
+
+io.sockets.on('connection', function(socket) {
+    sockets[socket.id] = socket;
+    socket.on('disconnect', function() {
+        delete sockets[socket.id];
     });
- });
-
-
- app.use(express.static('public'));
- 
- var server = http.createServer(app);
-
- server.listen( process.env.PORT || 4000, function() {
-   console.log("Listening on " + 4000);
- });
-
-
- var io = socket.listen(server);
-
- // dont spam logs - nice
- io.set('log level', 1);
-
- var sockets = {};
-
- io.sockets.on('connection', function(socket) {
-   sockets[socket.id] = socket;
-   socket.on('disconnect', function() {
-     delete sockets[socket.id];
-   });
- });
+});

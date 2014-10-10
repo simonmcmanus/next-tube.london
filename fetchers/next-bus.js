@@ -1,21 +1,7 @@
 
 var request = require('request');
 
-var Norey = "Thomas";
-var Benny = "Benny";
-
-
-
-
-var matrix = {
-  Norey: Norey,
-  Benny: Benny
-}
-
 module.exports = function(callback) {
-
-
-
 
 // end of road towards walthamstow.
 //request('http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?stopCode1=74662,49453&returnList=EstimatedTime', function(e, r, d) {
@@ -52,18 +38,13 @@ request('http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?stopCode1=746
         to: bus[1],
         due: minsArr[0]
       });
-
+      out[directionId].buses.reverse();
     }
 
   }
   callback(null, out);
 });
 
-
-
-Norey
-
-//console.log("Hello ", matrix.Norey)
 }; 
 
   // nextBus: {

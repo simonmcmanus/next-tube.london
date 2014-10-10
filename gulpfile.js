@@ -14,6 +14,12 @@ gulp.task('build:js', shell.task([
     './bin/js.sh'
 ]));
 
+gulp.task('build', shell.task([
+    './bin/js.sh',
+    './bin/css.sh'
+]));
+
+
 gulp.task('watch', function () {
     gulp.watch(['components/*/*.scss', 'public/scss/shared.scss'], ['build:css']);
     gulp.watch(['components/*/*.js', 'client/shared.js'], ['build:js']);
