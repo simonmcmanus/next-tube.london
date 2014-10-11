@@ -1,7 +1,64 @@
 'use strict';
 var request = require('request');
-
+var async = require('async');
 var parseString = require('xml2js').parseString;
+
+
+var sortTrains = function(trains) {
+  if(!trains) {
+    return;
+  }
+  return trains.map(function(train) {
+    train = train.$;
+    return {
+      dueIn: train.TimeTo,
+      destination: train.Destination,
+      isStalled: (train.IsStalled === 1),
+      location: train.Location
+    }
+  })
+};
+
+module.exports = function(stationCodes, callback) {
+  async.map(stationCodes, function(stationCode, next) {
+    console.log('fetching statoin', stationCode);
+    request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/' + stationCode, function(error, data) {
+      parseString(data.body, function (err, result) {
+        var platforms = result.ROOT.S[0].P;
+        var out = {
+            code: stationCode,
+            trains: {}
+        }
+        for(var platform in platforms) {
+          var direction = platforms[platform].$.N.split(' - ')[0];
+          var trains = sortTrains(platforms[platform].T);
+          
+          if(!out.trains[direction]) {
+            out.trains[direction] = [];
+          }
+          out.trains[direction].push.apply(out.trains[direction], trains);          
+        }
+        //console.log('called next', out);
+        next(null, out)
+      });
+
+    });
+  }, function(e, d) {
+    // convert to object.
+    var out = {
+      stationCodes: stations,
+      stations: {}
+    };
+    d.forEach(function(item) {
+      out.stations[item.code] = item;
+    });
+    callback( e, out);
+  });
+};
+
+
+
+
 
  var stations = [
         { name: "Bank",  code:"BNK"},
@@ -54,47 +111,3 @@ var parseString = require('xml2js').parseString;
         { name: "White City",  code:"WCT"},
         { name: "Woodford",  code:"WFD"}
       ];
-module.exports = function(stationCode, callback) {
-
-  var sortTrains = function(trains) {
-    if(!trains) {
-      return;
-    }
-    return trains.map(function(train) {
-      train = train.$;
-      return {
-        dueIn: train.TimeTo,
-        destination: train.Destination,
-        isStalled: (train.IsStalled === 1),
-        location: train.Location
-      }
-    })
-  };
-
-  request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/WFD', function(error, data) {
-
-    parseString(data.body, function (err, result) {
-
-      var platforms = result.ROOT.S[0].P;
-      var out = {
-        current: stationCode,
-        stations: stations, // list of the stations
-        station: {} // detail about each station.
-      }
-
-      out.station[stationCode] = {
-        trains: {
-          'Westbound': [],
-          'Eastbound': []        
-        }
-      }
-      for(var platform in platforms) {
-        var direction = platforms[platform].$.N.slice(0, 9);
-        var trains = sortTrains(platforms[platform].T);
-        out.station[stationCode].trains[direction].push.apply(out.station[stationCode].trains[direction], trains);
-      }
-      callback(null, out)
-    });
-
-  })
-};

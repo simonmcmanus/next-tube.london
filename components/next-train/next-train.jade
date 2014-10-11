@@ -1,21 +1,25 @@
+- if(!nextTrain.current)
+- nextTrain.current = { name: 'Woodfordz', code: 'WFD'}
 #nextTrain.widget.wide
-    h2 Trains from Woodford
+    h2='Trains from ' + nextTrain.current.name
     .value
       div.settings
-        select
-          each station in nextTrain.stations
+        form(method="get", action="/")
+        select(name="stationCode")
+          each station in nextTrain.stationCodes
             - var selected = false;
-            if station.code === nextTrain.current
+            if station.code === nextTrain.current.code
               - selected = true
             option(value=station.code, selected=selected)=station.name
-      each trains, direction in nextTrain.station[nextTrain.current].trains
-        .direction
-          h3=direction
-          ul.trains
-            each train in trains
-              li
-                .due-container
-                  span.due=train.dueIn
-                span.destination=train.destination
-                span.detail=train.location
+      each trains, direction in nextTrain.stations[nextTrain.current.code].trains
+        if trains.length > 0
+          .direction
+            h3=direction
+            ul.trains
+              each train in trains
+                li
+                  .due-container
+                    span.due=train.dueIn
+                  span.destination=train.destination
+                  span.detail=train.location
  

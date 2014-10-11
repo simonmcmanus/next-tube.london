@@ -8,9 +8,13 @@ if(window.location.hostname === 'woodford.today') {
 }else {
     url = 'http://localhost/'
 }
-var socket = io(url);
+socket = io(url);
 
 socket.on('nextTrain', nextTrain.render);
 socket.on('trainStatus', trainStatus.render);
 socket.on('nextBus', nextBus.render);
+
+nextTrain.bind($('#nextTrain'));
+//trainStatus.bind($('#tflStatus'));
+//nextBus.bind($('#nextBus'));
 
