@@ -12,12 +12,8 @@ var active = {
             'WFD': {}
         }
     }
-}
+};
 
-// stop listening needs to be changed slightly 
-// needs to check if there are any other users listening to that station.
-
-// can be used on session disconnect
 var deleteActive = function(sessionId) {
     var nextTrainUsers = active.nextTrain.users;
     for(station in nextTrainUsers) {
@@ -45,24 +41,24 @@ var isStationEmpty = function(sessionId, station) {
 
 // stop listening to a station for a session id.
 var stopListening = function(sessionId, station) {
-    delete active.nextTrain.users[station][sessionId];
+    if(active.nextTrain.users[station]) { // not sure this check should be necessary.
+        delete active.nextTrain.users[station][sessionId];
+    }
     cleanupStations(sessionId, station);
 };
 
-// remove the station from the 
+// remove the station from the keys,
 var deleteStation = function(stationId) {
-    // always check woodford so we have something uptodate for first page load.
+    // always check woodford so we have something upto date for first page load.
     if(stationId !== 'WFD') {
         active.nextTrain.keys = _.without(active.nextTrain.keys, stationId);
     }
 };
 
 var startListening = function(sessionId, station) {
-    console.log(active.nextTrain.keys.indexOf(station))
     if(active.nextTrain.keys.indexOf(station) == -1) {
         active.nextTrain.keys.push(station);
     }
-    //so we know this user is listening.
     if(!active.nextTrain.users[station]) {
         active.nextTrain.users[station] = {};
     }
@@ -97,19 +93,44 @@ fetchAllWidgetData(function(errorSet, dataSet) {
  
  /**
  * Notify connected clients that there is a new value.
- * @param  {[type]} update {widgetName: widgetValue}
  */
-function notifyClients(widget, data) {
+function notifyAllClients(widget, data) {
     for (var socket in sockets) {
         sockets[socket].emit(widget, data);
+    }
+}
+// notify active users of station update.
+function notifyStationUpdate(stationCode, data) {
+    var users = active.nextTrain.users[stationCode];
+    for(var socketId in users) {
+        sockets[socketId].emit('nextTrain:central:'+stationCode, data);
     }
 }
 
 setInterval(function() {
     fetchAllWidgetData(function(es, ds) {
         for (var widget in cache) {
-            if (JSON.stringify(cache[widget]) != JSON.stringify(ds[widget])) {
-                notifyClients(widget, ds[widget]);
+            if(widget === 'nextTrain') {
+                for(station in ds.nextTrain.stations) {
+                    console.log('station', station)
+                    if(cache.nextTrain.stations[station] && ds.nextTrain.stations[station]) {
+                        var oldTrains = cache.nextTrain.stations[station].trains;
+                        var newTrains = ds.nextTrain.stations[station].trains
+                        if (JSON.stringify(oldTrains) != JSON.stringify(newTrains)) {
+
+                            // strip other trains from cache, needs to change.
+                            var _stations = ds.nextTrain.stations;
+                            var out = ds.nextTrain;
+                            out.stations = {};
+                            out.stations[station] = _stations[station];
+                            notifyStationUpdate(station, out);
+                        }
+                    }
+                }
+            } else {
+                if (JSON.stringify(cache[widget]) != JSON.stringify(ds[widget])) {
+                    notifyAllClients(widget, ds[widget]);
+                }                
             }
         };
         cache = ds;
@@ -126,7 +147,6 @@ app.get("/", function(req, res) {
 });
 
 app.get("/next-train/:line/:station", function(req, res) {
-
     if(cache.nextTrain[req.params.station]) {
         return res.json(cache.nextTrain[req.params.station]);
     } else {
@@ -145,10 +165,7 @@ server.listen(port, function() {
 var io = socket.listen(server);
 var sockets = {};
 
-
-
 io.sockets.on('connection', function(socket) {
-    console.log('connected')
     sockets[socket.id] = socket;
 
     socket.on('next-train:station:listen:start', function(stationId) {
@@ -160,9 +177,7 @@ io.sockets.on('connection', function(socket) {
     });
 
     socket.on('disconnect', function() {
-        console.log('disconnected');
         deleteActive(socket.id);
         delete sockets[socket.id];
     });
-
 });

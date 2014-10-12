@@ -4,7 +4,8 @@
       - count = 0;
       each status in tflStatus
           if status.StatusDetails!==''
-              li(class='line '+status.Line.Name.replace(' ', ''))
+              - var regex = new RegExp(' ', "g")
+              li(class='line '+status.Line.Name.replace(regex, ''))
                 h3=status.Line.Name
                 div=status.StatusDetails
                 - count++

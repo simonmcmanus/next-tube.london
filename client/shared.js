@@ -10,7 +10,9 @@ if(window.location.hostname === 'woodford.today') {
 }
 socket = io(url);
 
-socket.on('nextTrain', nextTrain.render);
+// need to implement nextTrain:central:woodford
+
+//socket.on('nextTrain', nextTrain.render);
 socket.on('trainStatus', trainStatus.render);
 socket.on('nextBus', nextBus.render);
 
