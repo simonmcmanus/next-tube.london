@@ -68,6 +68,7 @@ var startListening = function(sessionId, station) {
 var nextTrain = require('./fetchers/next-train.js');
 // requests always served from the cache and then updated over websockets.
 var cache = {};
+var cacheHttp = {};
 
 /**
  * Gets the latest values for all the widgets.
@@ -155,7 +156,7 @@ app.get("/next-train/:line/:station", function(req, res) {
     }
 });
 
-var server = http.createServer(app);
+var server = http.createServer(app); 
 var port =  process.env.PORT || 4000;
 server.listen(port, function() {
     console.log("Listening on " + port);
