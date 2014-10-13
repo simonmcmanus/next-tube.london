@@ -112,7 +112,6 @@ setInterval(function() {
         for (var widget in cache) {
             if(widget === 'nextTrain') {
                 for(station in ds.nextTrain.stations) {
-                    console.log('station', station)
                     if(cache.nextTrain.stations[station] && ds.nextTrain.stations[station]) {
                         var oldTrains = cache.nextTrain.stations[station].trains;
                         var newTrains = ds.nextTrain.stations[station].trains

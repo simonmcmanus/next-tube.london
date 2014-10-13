@@ -1,18 +1,15 @@
 var template = require('./next-train.jade');
 
-
 exports.render = function(data) {
-    console.log('render data:', data);
     var $newNode = $(template({ 'nextTrain': data}));
     $('#nextTrain').replaceWith($newNode);
     exports.bind($newNode, data);
 };
 
 exports.bind = function($node, data) {
-    var $select = $node.find('select');
+    var $select = $node.find('select#stationCode');
     $select.change(stationChange);
     $node.find('a.change').click(function() {
-        console.log('cn', $node.find('.settings'));
         $node.find('.settings').toggleClass('hidden');
     });
     var newStation = $select.data('currentlyListening');
@@ -30,7 +27,6 @@ var stationChange = function(e) {
 
 var getStationData = function(stationCode, callback) {
     $.get('/next-train/central/' + stationCode, function(data, success) {
-        console.log(success);
         if(success !== 'success') {
             return alert('Connection failed');
         }
@@ -38,7 +34,6 @@ var getStationData = function(stationCode, callback) {
         var stations = {};
         stations[stationCode] = data.stations[stationCode];
         data.stations = stations;
-        console.log('drrr', data);
         exports.render(data);
     });
 };

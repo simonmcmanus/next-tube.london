@@ -4,6 +4,12 @@ var async = require('async');
 var parseString = require('xml2js').parseString;
 
 
+exports.get =  function() {};
+
+// bind to certain events
+exports.bind = function() {};
+exports.unbind = function() {};
+
 var sortTrains = function(trains) {
   if(!trains) {
     return;
@@ -48,6 +54,7 @@ module.exports = function(stationCodes, callback) {
     // convert to object.
     var out = {
       stationCodes: stations,
+      lineCodes: lines,
       stations: {}
     };
     d.forEach(function(item) {
@@ -58,7 +65,18 @@ module.exports = function(stationCodes, callback) {
 };
 
 
-
+var lines = {
+  B: "Bakerloo",
+  C: "Central",
+  D: "District",
+  H: "Hammersmith & Circle",
+  J: "Jubilee",
+  M: "Metropolitan",
+  N: "Northern",
+  P: "Piccadilly",
+  V: "Victoria",
+  W: "Waterloo & City"
+};
 
 
 var stations = {

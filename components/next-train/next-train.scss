@@ -1,80 +1,129 @@
-
-
-a.change {
-  float: right;
-}
-
-.settings {
-  clear: both;
-  background: #F4F4F4;
-  padding: .5em .5em;
-  height: auto;
-  border-bottom: 1px solid #ddd;
-  overflow: hidden;
-    -webkit-transition: all .8s ease;
-       -moz-transition: all .8s ease;
-            transition: all .8s ease;
-
-  label {
-    width: 30%;
-    padding: .5em;
-    font-size: 0.8em;
-    font-family: london_tubenormal;
-    display: inline-block;
-    text-align: right;
+#nextTrain {
+  h2 {
+    border-bottom: 0;
   }
-  &.hidden {
-   height: 0;
-   padding: 0 .5em;
-  }
-}
-
-.direction {
-  vertical-align: top;
-  ul.trains {
-    padding: 0;
-    li {
-      list-style: none;
-      margin:  1em 0;
-
-      .detail {
-        display: none;
-      }
-      span.destination {
-        font-size: 0.9em;
-      }
-      .due-container {
-        display: inline-block;
-        width: 80px;
-        text-align: right;
-        .due {
-          text-align:right;
-          margin-right: 10px;
-          font-family: 'Erbos';
-          display:inline-block;
-          line-height:15px;
-          border-right:1px solid white !important;
-          color: #fff;
-          background: rgb(108, 160, 98);
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: 550px) {
 
   a.change {
-    position: absolute;
-    width: 95%;
-    text-align: right;
-    text-decoration: none;
-    margin-top: -2em;
+    float: right;
+  }
+
+  .settings {
+    clear: both;
+    background: #FFFDFD;
+    padding: .5em .5em;
+    height: auto;
+    border-bottom: 1px solid #DC241F;
+    border-top: 1px solid #DC241F;
+    overflow: hidden;
+      -webkit-transition: all .8s ease;
+         -moz-transition: all .8s ease;
+              transition: all .8s ease;
+    form {
+      margin: 0;
+      label {
+        width: 30%;
+        padding: .5em;
+        font-size: 0.8em;
+        font-family: london_tubenormal;
+        display: inline-block;
+        text-align: right;
+      }
+
+    }
+    &.hidden {
+     height: 0;
+     padding: 0 .5em;
+    }
+  }
+
+  .noTrains {
+    margin-bottom: 0;
   }
 
 
   .direction {
-    width: 50%;
-    display: inline-block;
+    vertical-align: top;
+    ul.trains {
+      padding: 0;
+      li {
+        list-style: none;
+        margin:  1em 0;
+
+        .detail {
+          display: none;
+        }
+        span.destination {
+          font-size: 0.9em;
+        }
+        .due-container {
+          display: inline-block;
+          width: 80px;
+          text-align: right;
+          .due {
+            text-align:right;
+            margin-right: 10px;
+            font-family: 'Erbos';
+            display:inline-block;
+            line-height:15px;
+            border-right:1px solid white !important;
+            color: #fff;
+            background: rgb(108, 160, 98);
+          }
+        }
+      }
+    }
   }
+
+  @media (min-width: 550px) {
+
+    a.change {
+      position: absolute;
+      width: 94%;
+      text-align: right;
+      text-decoration: none;
+      margin-top: -2em;
+    }
+
+
+    .direction {
+      width: 50%;
+      display: inline-block;
+    }
+
+    .settings:after {
+      transition: border-width .4s;
+      transition: top .4s ease;
+
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 0 10px 10px;
+      border-color: #Fff transparent;
+      display: block;
+      width: 0;
+      z-index: 1;
+      top: 2.57em;
+      left: 91%;
+    }
+
+    .settings:before {
+      transition: border-width .4s;
+      transition: top .4s ease;
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 0 10px 10px;
+      border-color: #DC241F transparent;
+      display: block;
+      width: 0;
+      z-index: 0;
+      top: 2.5em;
+      left: 91%;
+    }
+    .settings.hidden:before, .settings.hidden:after {
+      top: 3em;
+      border-width: 0;
+    } 
+
+  }  
 }
