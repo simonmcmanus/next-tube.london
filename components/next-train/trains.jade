@@ -1,0 +1,16 @@
+div.trains
+    - var noTrains = true;
+    each trains, direction in station.trains
+        if trains.length > 0
+            .direction
+                h3=direction
+                ul.trains
+                    each train in trains
+                        li
+                            .due-container
+                                span.due=train.dueIn
+                            span.destination=train.destination
+                            span.detail=train.location
+            - noTrains = false;
+    if noTrains
+        h3.noTrains No Trains

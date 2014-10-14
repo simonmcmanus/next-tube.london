@@ -1,0 +1,48 @@
+{
+    "predef": [
+    ],
+
+    "node": true,
+    "bitwise"       : true,
+    "camelcase"     : true,
+    "curly"         : true,
+    "eqeqeq"        : true,
+    "forin"         : true,
+    "freeze"        : true,
+    "immed"         : true,
+    "indent"        : 4,
+    "latedef"       : "nofunc",
+    "newcap"        : true,
+    "noarg"         : true,
+    "noempty"       : true,
+    "nonew"         : true,
+    "quotmark"      : "single",
+    "undef"         : true,
+    "unused"        : true,
+    "strict"        : true,
+    "trailing"      : true,
+    "maxdepth"      : 3,
+    "maxstatements" : 10,
+    "maxcomplexity" : 5,
+    "expr"          : true,
+    "globals": {
+      "describe": true,
+      "it": true,
+      "should": true,
+      "window": true,
+      "document": true,
+      "$": true,
+      "beforeEach": true,
+      "before": true,
+      "afterEach": true,
+      "after": true,
+      "tesco": false,
+      "alert": true,
+      "_": true,
+      "Backbone": true,
+      "page": true,
+      "history": true
+    },
+    "boss"          : true
+
+}
