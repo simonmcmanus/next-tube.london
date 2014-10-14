@@ -14,7 +14,11 @@
   font-style: normal; }
 
 body {
-  background: #eee;
+  background: url(http://woodfordhistoricalsociety.co.uk/wp-content/uploads/2013/03/LNER-Woodford-Station-April-1938.jpg);
+  background: url(http://woodfordhistoricalsociety.co.uk/wp-content/uploads/2013/03/Woodford-Station-level-crossing-20th-April-1938.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   font-size: 16px; }
   body .widget {
     -webkit-transition: all 1s ease-in-out;

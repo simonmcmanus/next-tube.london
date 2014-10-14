@@ -1,3 +1,4 @@
+'use strict';
 
 var toJson = require('xml2json').toJson;
 var request = require('request');

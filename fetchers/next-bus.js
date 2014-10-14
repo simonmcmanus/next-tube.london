@@ -1,3 +1,4 @@
+'use strict';
 
 var request = require('request');
 
@@ -21,9 +22,8 @@ request('http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?stopCode1=746
       out[directionId] = {
         direction: bus[1],
         buses: []
-      }
+      };
     }
-    
 
     var minutes = (howLong / 1000) / 60;
     var minsStr = ''+minutes;

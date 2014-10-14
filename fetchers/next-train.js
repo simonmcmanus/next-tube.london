@@ -3,13 +3,92 @@ var request = require('request');
 var async = require('async');
 var parseString = require('xml2js').parseString;
 
+var stations = require('./stations.json');
 
-exports.get =  function() {};
+var active = {
+    nextTrain: {
+        keys: ['WFD'],
+        users: {
+            'WFD': {}
+        }
+    }
+};
 
-// bind to certain events
-exports.bind = function() {};
-exports.unbind = function() {};
+exports.get = function(stationCode, callback) {
+  request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/' + stationCode, function(error, data) {
+    parseString(data.body, function (err, result) {
+      if(!result.ROOT) {
+        return callback(true);
+      }
+      var platforms = result.ROOT.S[0].P;
+      var out = {
+          code: stationCode,
+          name: result.ROOT.S[0].$.N,
+          trains: {}
+      };
+      for(var platform in platforms) {
+        var direction = platforms[platform].$.N.split(' - ')[0];
+        var trains = sortTrains(platforms[platform].T);
+        
+        if(!out.trains[direction]) {
+          out.trains[direction] = [];
+        }
+        out.trains[direction].push.apply(out.trains[direction], trains);          
+      }
+      callback(null, out);
+    });
+  });
+};
 
+
+exports.getAll = function(callback) {
+  async.map(active.nextTrain.keys, exports.get, function(e, d) {
+    // convert to object.
+    var out = {
+      stationCodes: stations,
+      stations: {}
+    };
+    d.forEach(function(item) {
+      out.stations[item.code] = item;
+    });
+    callback( e, out);
+  });
+};
+
+exports.checkForChanges = function(ds, cache, sockets) {
+  console.log('check for changes');
+  for(var station in ds.nextTrain.stations) {
+      if(cache.nextTrain.stations[station] && ds.nextTrain.stations[station]) {
+          var oldTrains = cache.nextTrain.stations[station].trains;
+          var newTrains = ds.nextTrain.stations[station].trains;
+          if (JSON.stringify(oldTrains) !== JSON.stringify(newTrains)) {
+
+              // strip other trains from cache, needs to change.
+              var _stations = ds.nextTrain.stations;
+              var out = ds.nextTrain;
+              out.stations = {};
+              out.stations[station] = _stations[station];
+              notifyStationUpdate(station, out, sockets);
+          }
+      }
+  }
+};
+
+
+// notify active users of station update.
+function notifyStationUpdate(stationCode, data, sockets) {
+  console.log('notify station update', stationCode);
+    var users = active.nextTrain.users[stationCode];
+    for(var socketId in users) {
+        sockets[socketId].emit('nextTrain:central:'+stationCode, data.stations[stationCode]);
+    }
+}
+
+exports.events = {
+  'next-train:station:listen:start': startListening,
+  'next-train:station:listen:stop': stopListening,
+  'disconnect': deleteActive
+};
 
 var sortTrains = function(trains) {
   if(!trains) {
@@ -22,112 +101,57 @@ var sortTrains = function(trains) {
       destination: train.Destination,
       isStalled: (train.IsStalled === 1),
       location: train.Location
-    }
-  })
-};
-
-module.exports = function(stationCodes, callback) {
-  async.map(stationCodes, function(stationCode, next) {
-
-    request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/' + stationCode, function(error, data) {
-      parseString(data.body, function (err, result) {
-        var platforms = result.ROOT.S[0].P;
-        var out = {
-            code: stationCode,
-            name: result.ROOT.S[0].$.N,
-            trains: {}
-        }
-        for(var platform in platforms) {
-          var direction = platforms[platform].$.N.split(' - ')[0];
-          var trains = sortTrains(platforms[platform].T);
-          
-          if(!out.trains[direction]) {
-            out.trains[direction] = [];
-          }
-          out.trains[direction].push.apply(out.trains[direction], trains);          
-        }
-        //console.log('called next', out);
-        next(null, out)
-      });
-
-    });
-  }, function(e, d) {
-    // convert to object.
-    var out = {
-      stationCodes: stations,
-      lineCodes: lines,
-      stations: {}
     };
-    d.forEach(function(item) {
-      out.stations[item.code] = item;
-    });
-    callback( e, out);
   });
 };
 
-
-var lines = {
-  B: "Bakerloo",
-  C: "Central",
-  D: "District",
-  H: "Hammersmith & Circle",
-  J: "Jubilee",
-  M: "Metropolitan",
-  N: "Northern",
-  P: "Piccadilly",
-  V: "Victoria",
-  W: "Waterloo & City"
+var deleteActive = function(sessionId) {
+    var nextTrainUsers = active.nextTrain.users;
+    for(var station in nextTrainUsers) {
+        if(nextTrainUsers[station][sessionId]) {
+            stopListening(sessionId, station);
+        }
+        cleanupStations(sessionId, station);
+    }
 };
 
+// stops polling the api for this station.
+var cleanupStations = function(sessionId, station) {
+    if(isStationEmpty(sessionId, station)) {
+        deleteStation(station);
+    }
+};
 
-var stations = {
-  BNK : "Bank",
-  BDE : "Barkingside",
-  BNG : "Bethnal Green",
-  BDS : "Bond Street",
-  BHL : "Buckhurst Hill",
-  CYL : "Chancery Lane",
-  CHG : "Chigwell",
-  DEB : "Debden",
-  EBY : "Ealing Broadway",
-  EAC : "East Acton",
-  EPP : "Epping",
-  FLP : "Fairlop",
-  GHL : "Gants Hill",
-  GRH : "Grange Hill",
-  GFD : "Greenford",
-  HAI : "Hainault",
-  HLN : "Hanger Lane", 
-  HOL : "Holborn", 
-  HPK : "Holland Park", 
-  LAN : "Lancaster Gate", 
-  LEY : "Leyton", 
-  LYS : "Leytonstone", 
-  LST : "Liverpool Street", 
-  LTN : "Loughton", 
-  MAR : "Marble Arch", 
-  MLE : "Mile End" ,
-  NEP : "Newbury Park", 
-  NAC : "North Acton", 
-  NHT : "Northolt", 
-  NHG : "Notting Hill Gate", 
-  OXC : "Oxford Circus", 
-  PER : "Perivale", 
-  QWY : "Queensway", 
-  RED : "Redbridge", 
-  ROD : "Roding Valley", 
-  RUG : "Ruislip Gardens", 
-  SBC : "Shepherds Bush (Central Line)", 
-  SNB : "Snaresbrook", 
-  SRP : "South Ruislip", 
-  SWF : "South Woodford", 
-  STP : "St Pauls", 
-  SFD : "Stratford", 
-  THB : "Theydon Bois", 
-  TCR : "Tottenham Court Road", 
-  WAN : "Wanstead", 
-  WAC : "West Acton", 
-  WRP : "West Ruislip", 
-  WCT : "White City", 
-  WFD : "Woodford"
+// does station have any active sessions listening.
+var isStationEmpty = function(sessionId, station) {
+    if(!active.nextTrain[station]) { // if we dont know about the station
+        return true;
+    }
+    return (active.nextTrain[station][sessionId] === {});
+};
+
+// stop listening to a station for a session id.
+var stopListening = function(sessionId, station) {
+    if(active.nextTrain.users[station]) { // not sure this check should be necessary.
+        delete active.nextTrain.users[station][sessionId];
+    }
+    cleanupStations(sessionId, station);
+};
+
+// remove the station from the keys,
+var deleteStation = function(stationId) {
+    // always check woodford so we have something upto date for first page load.
+    if(stationId !== 'WFD') {
+        active.nextTrain.keys = _.without(active.nextTrain.keys, stationId);
+    }
+};
+
+var startListening = function(sessionId, station) {
+    if (active.nextTrain.keys.indexOf(station) === -1) {
+        active.nextTrain.keys.push(station);
+    }
+    if (!active.nextTrain.users[station]) {
+        active.nextTrain.users[station] = {};
+    }
+    active.nextTrain.users[station][sessionId] = true;
 };

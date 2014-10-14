@@ -1,20 +1,29 @@
-var template = require('./next-train.jade');
+'use strict';
 
-exports.render = function(data) {
-    var $newNode = $(template({ 'nextTrain': data}));
-    $('#nextTrain').replaceWith($newNode);
-    exports.bind($newNode, data);
+var templateTrains = require('./trains.jade');
+var templateTitle = require('./title.jade');
+
+var listen = function(newStation) {
+    socket.emit('next-train:station:listen:start', newStation);
+    socket.on('nextTrain:central:' + newStation, exports.render);
 };
 
-exports.bind = function($node, data) {
+exports.render = function(data) {
+    console.log('render', data);
+    var $node = $('#nextTrain');
+    $node.find('.title').replaceWith($(templateTitle({station: data})));
+    $node.find('.trains').replaceWith($(templateTrains({station: data})));
+    listen(data.code);
+};
+
+exports.bind = function($node) {
     var $select = $node.find('select#stationCode');
     $select.change(stationChange);
     $node.find('a.change').click(function() {
         $node.find('.settings').toggleClass('hidden');
     });
     var newStation = $select.data('currentlyListening');
-    socket.emit('next-train:station:listen:start', newStation);
-    socket.on('nextTrain:central:' + newStation, exports.render);
+    listen(newStation);
 };
 
 var stationChange = function(e) {
@@ -25,15 +34,10 @@ var stationChange = function(e) {
     getStationData(newStation);
 };
 
-var getStationData = function(stationCode, callback) {
-    $.get('/next-train/central/' + stationCode, function(data, success) {
-        if(success !== 'success') {
-            return alert('Connection failed');
-        }
-        // strip out other instances, should happen on the server. 
-        var stations = {};
-        stations[stationCode] = data.stations[stationCode];
-        data.stations = stations;
+var getStationData = function(stationCode) {
+    $.get('/next-train/central/' + stationCode, function(data) {
         exports.render(data);
+    }).fail(function() {
+        alert('http request failed');
     });
 };

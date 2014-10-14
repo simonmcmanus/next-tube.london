@@ -1,14 +1,8 @@
 #nextTrain.widget.wide
-    h2='Trains from ' + station.name
+    include ./title.jade
     a(href="#", class="change") Settings
     div.settings
         form(method="get", action="/")
-
-            label(for="lineCode") Line:
-            select(name="lineCode", id="lineCode" data-currently-listening=station.code)
-                each lineCode, id in nextTrain.lineCodes
-                    option(value=id)=lineCode
-            br
             label(for="stationCode") Station:
             select(name="stationCode", id="stationCode" data-currently-listening=station.code)
                 each stationCode, id in nextTrain.stationCodes
@@ -16,18 +10,4 @@
                     if station.code === id
                         - selected = true
                     option(value=id, selected=selected)=stationCode
-    - var noTrains = true;
-    each trains, direction in station.trains
-        if trains.length > 0
-            .direction
-                h3=direction
-                ul.trains
-                    each train in trains
-                        li
-                            .due-container
-                                span.due=train.dueIn
-                            span.destination=train.destination
-                            span.detail=train.location
-            - noTrains = false;
-    if noTrains
-        h3.noTrains No Trains
+    include ./trains.jade
