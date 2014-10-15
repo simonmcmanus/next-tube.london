@@ -10,7 +10,7 @@ if(window.location.hostname === 'woodford.today') {
 }
 var socket = io(url);
 
-nextTrain.bind($('#nextTrain'));
+nextTrain.bind($('#nextTrain'), socket);
 
 socket.on('trainStatus', trainStatus.render);
 socket.on('nextBus', nextBus.render);

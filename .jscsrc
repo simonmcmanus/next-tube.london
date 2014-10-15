@@ -27,7 +27,7 @@
     "validateLineBreaks"                       : "LF",
     "disallowKeywordsOnNewLine"                : ["else"],
     "requireKeywordsOnNewLine"                 : [],
-    "validateIndentation"                      : 2,
+    "validateIndentation"                      : 4,
     "validateQuoteMarks"                       : "'",
     "disallowMixedSpacesAndTabs"               : true,
     "disallowTrailingWhitespace"               : true,
