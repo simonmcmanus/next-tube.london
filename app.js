@@ -11,8 +11,6 @@ var POLL_INTERVAL = 5000;
 var nextTrain = require('./fetchers/next-train/next-train.js');
 
 // requests always served from the cache and then updated over websockets.
-//  only issue with this is that when a user leaves a station we stop polling that feed so the cache
-//  is out of date until the next fetcher kicks in.
 var cache = {};
 
 /**

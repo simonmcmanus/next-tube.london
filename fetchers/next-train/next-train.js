@@ -50,7 +50,6 @@ exports.get = function (stationCode, callback) {
 };
 
 exports.getAll = function (io, callback) {
-    // no io means no rooms which means not stations to check.
     var stations = stationLister.getAllStations();
     console.log('get stations', stations);
     async.map(stations, exports.get, function (e, d) {
@@ -72,15 +71,12 @@ exports.checkForChanges = function (ds, cache, changeFound) {
             var oldTrains = cache.nextTrain.stations[station].trains;
             var newTrains = ds.nextTrain.stations[station].trains;
             if (JSON.stringify(oldTrains) !== JSON.stringify(newTrains)) {
-
-                // strip other trains from cache, needs to change.
-                var _stations = ds.nextTrain.stations;
-                var out = ds.nextTrain;
-                out.stations = {};
-                out.stations[station] = _stations[station];
-                changeFound(station, out);
+                changeFound(station, {
+                    station: ds.nextTrain.stations[station]
+                });
             }
         } else if(ds.nextTrain.stations[station]) {
+            console.log('2')
             changeFound(station, ds.nextTrain.stations[station]);
         }
     }
