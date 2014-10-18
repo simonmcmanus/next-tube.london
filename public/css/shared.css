@@ -42,6 +42,31 @@ body {
     body .widget h3 {
       font-size: 1em; }
 
+.direction {
+  vertical-align: top; }
+  .direction ul.trains {
+    padding: 0; }
+    .direction ul.trains li {
+      list-style: none;
+      margin: 1em 0; }
+      .direction ul.trains li .detail {
+        display: none; }
+      .direction ul.trains li span.destination {
+        font-size: 0.9em; }
+      .direction ul.trains li .due-container {
+        display: inline-block;
+        width: 80px;
+        text-align: right; }
+        .direction ul.trains li .due-container .due {
+          text-align: right;
+          margin-right: 10px;
+          font-family: 'Erbos';
+          display: inline-block;
+          line-height: 15px;
+          border-right: 1px solid white !important;
+          color: #fff;
+          background: #6ca062; }
+
 @media (min-width: 800px) {
   html body .widget {
     margin: 1em 20%; } }
@@ -75,30 +100,6 @@ body {
     padding: 0 0.5em; }
 #nextTrain .noTrains {
   margin-bottom: 0; }
-#nextTrain .direction {
-  vertical-align: top; }
-  #nextTrain .direction ul.trains {
-    padding: 0; }
-    #nextTrain .direction ul.trains li {
-      list-style: none;
-      margin: 1em 0; }
-      #nextTrain .direction ul.trains li .detail {
-        display: none; }
-      #nextTrain .direction ul.trains li span.destination {
-        font-size: 0.9em; }
-      #nextTrain .direction ul.trains li .due-container {
-        display: inline-block;
-        width: 80px;
-        text-align: right; }
-        #nextTrain .direction ul.trains li .due-container .due {
-          text-align: right;
-          margin-right: 10px;
-          font-family: 'Erbos';
-          display: inline-block;
-          line-height: 15px;
-          border-right: 1px solid white !important;
-          color: #fff;
-          background: #6ca062; }
 @media (min-width: 550px) {
   #nextTrain a.change {
     position: absolute;
