@@ -71,12 +71,10 @@ exports.checkForChanges = function (ds, cache, changeFound) {
             var oldTrains = cache.nextTrain.stations[station].trains;
             var newTrains = ds.nextTrain.stations[station].trains;
             if (JSON.stringify(oldTrains) !== JSON.stringify(newTrains)) {
-                changeFound(station, {
-                    station: ds.nextTrain.stations[station]
-                });
+                changeFound(station, ds.nextTrain.stations[station]);
             }
-        } else if(ds.nextTrain.stations[station]) {
-            console.log('2')
+        } else if(!cache.nextTrain.stations[station] ) {
+            // its not in the cache so let say its changed just in case.
             changeFound(station, ds.nextTrain.stations[station]);
         }
     }
