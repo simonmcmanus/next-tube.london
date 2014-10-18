@@ -3,6 +3,11 @@
 var templateTrains = require('./trains.jade');
 var templateTitle = require('./title.jade');
 
+var listen = function (newStation, socket) {
+    socket.emit('next-train:station:listen:start', newStation);
+    socket.on('next-train:station:' + newStation, exports.render);
+};
+
 var getStationData = function (stationCode, socket) {
     $.get('/next-train/central/' + stationCode, function (data) {
         exports.render(data);
@@ -17,13 +22,8 @@ var stationChange = function (socket, e) {
     var oldStation = e.currentTarget.dataset.currentlyListening;
     var newStation = e.currentTarget.selectedOptions[0].value;
     socket.emit('next-train:station:listen:stop', oldStation);
+    socket.off('next-train:station:' + oldStation);
     getStationData(newStation, socket);
-};
-
-var listen = function (newStation, socket) {
-    console.log('lisen', 'nextTrain:stations:' + newStation);
-    socket.emit('next-train:station:listen:start', newStation);
-    socket.on('updated', exports.render);
 };
 
 exports.render = function (data) {

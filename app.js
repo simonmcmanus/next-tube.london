@@ -8,10 +8,12 @@ var http = require('http');
 
 var POLL_INTERVAL = 5000;
 
-var nextTrain = require('./fetchers/next-train.js');
-// requests always served from the cache and then updated over websockets.
-var cache = {};
+var nextTrain = require('./fetchers/next-train/next-train.js');
 
+// requests always served from the cache and then updated over websockets.
+//  only issue with this is that when a user leaves a station we stop polling that feed so the cache
+//  is out of date until the next fetcher kicks in.
+var cache = {};
 
 /**
  * Gets the latest values for all the widgets.
@@ -40,13 +42,14 @@ function notifyAllClients(widget, data) {
     io.emit(widget, data);
 }
 
-// ceck all feeds
+// check all feeds
 setInterval(function () {
-    //console.log('io', io.nsps['/'].server.nsps['/'].server)
     fetchAllWidgetData(function (es, ds) {
         for (var widget in cache) {
             if (widget === 'nextTrain') {
-                nextTrain.checkForChanges(ds, cache, io);
+                nextTrain.checkForChanges(ds, cache, function(stationId, newData) {
+                    io.emit('next-train:station:' + stationId, newData);
+                });
             } else {
                 if (JSON.stringify(cache[widget]) !== JSON.stringify(ds[widget])) {
                     notifyAllClients(widget, ds[widget]);
