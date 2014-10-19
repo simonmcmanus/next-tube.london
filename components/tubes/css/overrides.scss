@@ -1,0 +1,176 @@
+
+
+
+@mixin large-label() {
+    color: #1c3f95;
+    font-weight: bold;
+    position: relative;
+    font-size: 4em;
+    //opacity: 1;
+
+}
+#map-container{
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    strong {
+
+        //opacity: 0;
+        a {
+            text-decoration: none;
+            color: #1c3f95;
+        }
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+    }
+    li {
+        strong.boxed {
+            border: 0;
+        }
+    }
+
+    .roundel:hover strong,
+    .station:hover strong {
+        opacity: 0.3;
+        z-index: 4000;
+    }
+
+    &[data-station=BHL] {
+        top: -205px;
+        left: -2987px;
+        .BHL {
+            strong {
+                @include large-label();
+                left: -2em;
+                margin-left: -5.2em;
+            }
+        }
+    }
+    &[data-station=LTN] {
+        top: -158px;
+        left: -3127px;
+        .LTN {
+            strong {
+                @include large-label();
+                margin-left: -3em;
+                left: -2em;
+
+            }
+        }
+    }
+
+
+    &[data-station=WFD] {
+        top: -373px;
+        left: -3106px;
+        .WFD {
+            strong {
+                @include large-label();
+                margin-left: -3.5em;
+                left: -1.5em;
+
+            }
+        }
+    }
+
+    &[data-station=SWF] {
+        top: -430px;
+        left: -2935px;
+        .SWF {
+            strong {
+                @include large-label();
+                margin-left: -6em;
+                left: -2em;
+
+            }
+        }
+    }
+
+
+        &[data-station=SNB] {
+        top: -530px;
+        left: -2935px;
+        .SNB {
+            strong {
+                @include large-label();
+                margin-left: -6em;
+                left: -2em;
+
+            }
+        }
+    }
+
+    &[data-station=CHG] {
+        top: -200px;
+        left: -3529px;
+
+        #cen042 {
+            top: 271px;
+            left: 3581px;
+            height: 58px;
+        }
+        .CHG {
+            strong {
+                @include large-label();
+                top:  -50px;
+            }
+        }
+    }
+    &[data-station=ROD] {
+        top: -206px;
+        left: -3458px;
+        .ROD {
+            strong {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                top:  -95px;
+                margin-left: 50px;
+            }
+        }
+    }
+
+
+    &[data-station=LYS] {
+        top: -621px;
+        left: -3042px;
+        .LYS {
+            strong {
+                @include large-label();
+                margin-left: -6.3em;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 800px) {
+    #map-container  {
+        margin-left: 20%;
+    }
+}
+.roundel strong, .station strong{
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    font-size: 1em;
+}
+
+
+#lin029 {
+    display: none;
+}
+
+.bg-container {
+    position: absolute;
+    top: 0;
+    margin: 10px;
+    padding: 20px;
+    width: 92%;
+    height: 100%;
+}

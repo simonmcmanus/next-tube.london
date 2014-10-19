@@ -8,7 +8,7 @@ var listen = function (newStation, socket) {
     socket.on('next-train:station:' + newStation, exports.render);
 };
 
-var getStationData = function (stationCode, socket) {
+exports.getStationData = function (stationCode, socket) {
     $.get('/next-train/central/' + stationCode, function (data) {
         exports.render(data);
         listen(data.code, socket);
@@ -23,7 +23,7 @@ var stationChange = function (socket, e) {
     var newStation = e.currentTarget.selectedOptions[0].value;
     socket.emit('next-train:station:listen:stop', oldStation);
     socket.off('next-train:station:' + oldStation);
-    getStationData(newStation, socket);
+    exports.getStationData(newStation, socket);
 };
 
 exports.render = function (data) {

@@ -20,16 +20,19 @@
     font-style: normal;
 }
 
-
-
 body {
     background-color: rgba(221, 77, 77, 0.76);
      font-size: 16px;
+     .widgets {
+        margin-top: 200px;
+     }
      .widget {
+        box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
+        z-index: 2000;
         h3 {
           font-family: 'london_tubenormal';
         }
-    
+
         -webkit-transition: all 1s ease-in-out;
          -moz-transition: all 1s ease-in-out;
          -o-transition: all 1s ease-in-out;
@@ -38,8 +41,8 @@ body {
          padding: 1em;
          font-family: 'GreyscaleBasic';
          border-radius: 3px;
-         background: #fff;
-         border: 1px solid #BDBDBD;
+         background-color: #fff;
+         border: 1px solid #2F4E99;
          vertical-align: top;
          border-radius: 3px;
          color: rgb(131, 131, 131);
@@ -71,7 +74,7 @@ body {
           display: none;
         }
         span.destination {
-          font-size: 0.9em;
+          font-size: 1.4em;
         }
         .due-container {
           display: inline-block;
@@ -79,10 +82,11 @@ body {
           text-align: right;
           .due {
             text-align:right;
+            font-size: 1.4em;
             margin-right: 10px;
             font-family: 'Erbos';
             display:inline-block;
-            line-height:15px;
+            line-height:22px;
             border-right:1px solid white !important;
             color: #fff;
             background: rgb(108, 160, 98);
@@ -98,6 +102,20 @@ body {
     }
 
 }
-
+body.debug {
+    strong  {
+        border-right: 10px solid green;
+    }
+    #placement {
+        background: red;
+        position: absolute;
+        width: 2000px;
+        height: 3em;
+        left: 11.5em;
+        top: 5em;
+        opacity: .5;
+    }
+}
 @import 'components/next-train/next-train.scss';
 @import 'components/train-status/train-status.scss';
+@import 'components/tubes/css/styles.scss';

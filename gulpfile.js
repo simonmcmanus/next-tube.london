@@ -21,6 +21,6 @@ gulp.task('build', shell.task([
 
 
 gulp.task('watch', function () {
-    gulp.watch(['components/*/*.scss', 'public/scss/shared.scss'], ['build:css']);
-    gulp.watch(['components/*/*.js', 'client/shared.js'], ['build:js']);
+    gulp.watch(['components/**/*.scss', 'public/scss/shared.scss'], ['build:css']);
+    gulp.watch(['components/**/*.js', 'components/**/*.jade', 'client/shared.js'], ['build:js']);
 });

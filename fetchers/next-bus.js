@@ -6,8 +6,8 @@ module.exports = function (callback) {
 
   request('http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1?stopCode1=74662,49453&returnList=EstimatedTime,DirectionID,Towards', function (e, r, d) {
     var out = {};
-    if (!d) {
-      callback(true);
+    if (!d ) {
+      return callback(true);
     }
     var a = d.split('\r\n');
     var c = a.length;

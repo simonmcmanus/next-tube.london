@@ -4,15 +4,15 @@ head
 
     meta(name="viewport" content="width=device-width, user-scalable=no")
 
-body
-    include ../components/next-train/next-train.jade
-    include ../components/train-status/train-status.jade
-    include ../components/next-bus/next-bus.jade
-
-    script(src='https://code.jquery.com/jquery-2.1.1.min.js')
+body.debug
+    div.parent
+        .widgets
+            include ../components/next-train/next-train.jade
+            include ../components/train-status/train-status.jade
+            include ../components/next-bus/next-bus.jade
+        .bg-container
+            include ../components/tubes/tubes.jade
+    #placement
+    script(src='/libs/jquery.js')
     script(src='/socket.io/socket.io.js')
     script(src='/js/shared.js')
-    
-
-
-
