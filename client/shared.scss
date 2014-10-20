@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'Erbos';
+  src: url("/fonts/7LED.ttf");
+}
+
+
+@font-face {
+  font-family: 'GreyscaleBasic';
+  src: url("/fonts/Greyscale_Basic_Regular.ttf");
+}
+
+
+@font-face {
+  font-family: 'london_tubenormal';
+  src: url("/fonts/london-tube-webfont.eot");
+  src: url("/fonts/london-tube-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/london-tube-webfont.woff") format("woff"), url("/fonts/london-tube-webfont.ttf") format("truetype"), url("/fonts/london-tube-webfont.svg#london_tubenormal") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: rgba(221, 77, 77, 0.76);
+  font-size: 126px;
+  .widgets {
+    margin-top: 200px;
+  }
+  .widget {
+    box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
+    z-index: 2000;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    margin: .5em .1em;
+    padding: 1em;
+    font-family: 'GreyscaleBasic';
+    border-radius: .3em;
+    background-color: #fff;
+    border: 2px solid #2F4E99;
+    vertical-align: top;
+    color: #838383;
+    position: relative;
+    h3 {
+      font-family: 'london_tubenormal';
+    }
+    li {
+      list-style: none;
+    }
+    h2 {
+      margin: 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    h3 {
+      font-size: 1em;
+    }
+  }
+}
+
+.direction {
+  vertical-align: top;
+  ul.trains {
+    padding: 0;
+    li {
+      list-style: none;
+      margin: 1em 0;
+      .detail {
+        display: none;
+      }
+      span.destination {
+        font-size: 1.4em;
+      }
+      .due-container {
+        display: inline-block;
+        width: 80px;
+        text-align: right;
+        .due {
+          text-align: right;
+          font-size: 1.4em;
+          margin-right: 10px;
+          font-family: 'Erbos';
+          display: inline-block;
+          line-height: 22px;
+          border-right: 1px solid white !important;
+          color: #fff;
+          background: #6ca062;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  html body .widget {
+    margin: 1em 20%;
+  }
+}
+
+body.debug {
+  #map-container a , 
+  #map-container a.boxed {
+    opacity: 1;
+    
+  }
+
+
+  #placement {
+    background: red;
+    border: 2px solid blue;
+    position: absolute;
+    width: 400px;
+    height: 3em;
+    left: 0em;
+    top: 5em;
+    opacity: .5;
+  }
+}
+
+@media (min-width: 800px) {
+  body.debug #placement {
+    margin: 1em 20%;
+  }
+}
+
+
+
+
+@import '../components/tubes/css/styles.scss';

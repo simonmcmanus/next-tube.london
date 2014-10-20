@@ -1,14 +1,36 @@
 
 
 @mixin large-label() {
+
+    background: white;
+    border: 2px solid #222;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px 25px;
+
+    &.right {
+      border-left: 20px solid green !important;
+    }
+    &.left {
+      border-right: 20px solid green !important;
+    }
+    &.above {
+     border-bottom: 20px solid green !important; 
+    }
+    &.below {
+     border-top: 20px solid green !important; 
+    }
     color: #1c3f95;
     font-weight: bold;
     position: relative;
     font-size: 4em;
-    text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+    box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
     opacity: 1;
-
+    br {
+        display: none;
+    }
 }
+
 #map-container{
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -16,7 +38,7 @@
     transition: all 1s ease-in-out;
 
     li {
-        a {
+        a, strong {
             text-decoration: none;
             color: #1c3f95;
             font-size: 1em;
@@ -24,6 +46,7 @@
             -moz-transition: all 1s ease-in-out;
             -o-transition: all 1s ease-in-out;
             transition: all 1s ease-in-out;
+
             opacity: 0;
             &.boxed {
                 border: 0;
@@ -32,44 +55,84 @@
         }
     }
 
+    .roundel:hover a,
+    .station:hover a,
     .roundel:hover strong,
     .station:hover strong {
         opacity: 0.3;
         z-index: 4000;
     }
 
+    &[data-station=EPP] {
+        top: 11px;
+        left: -3230px;
+        .EPP {
+            a {
+                @include large-label();
+                margin-left: -3em;
+                left: -1.3em;
+            }
+        }
+    }
+
+    &[data-station=THB] {
+        top: -38px;
+        left: -3030px;
+        .THB {
+            a {
+                @include large-label();
+                margin-left: -5.5em;
+                left: -2em;
+            }
+        }
+    }
+
+
+    &[data-station=DEB] {
+        top: -84px;
+        left: -3200px;
+        .DEB {
+            a {
+                @include large-label();
+                margin-left: -3.6em;
+                left: -1.2em;
+            }
+        }
+    }
+
+
+    &[data-station=LTN] {
+        top: -130px;
+        left: -3148px;
+        .LTN {
+            a {
+                @include large-label();
+                left: -1.5em;
+                margin-left: -4.1em;
+            }
+        }
+    }
+
+
     &[data-station=BHL] {
-        top: -205px;
-        left: -2987px;
+        top: -176px;
+        left: -2983px;
         .BHL {
             a {
                 @include large-label();
                 left: -2em;
-                margin-left: -5.2em;
+                margin-left: -6em;
             }
         }
     }
-    &[data-station=LTN] {
-        top: -148px;
-        left: -3127px;
-        .LTN {
-            a {
-                @include large-label();
-                margin-left: -3em;
-                left: -2em;
-
-            }
-        }
-    }
-
 
     &[data-station=WFD] {
-        top: -373px;
-        left: -3106px;
+        top: -345px;
+        left: -3119px;
         .WFD {
             a {
                 @include large-label();
-                margin-left: -3.5em;
+                margin-left: -4.5em;
                 left: -1.5em;
 
             }
@@ -77,12 +140,12 @@
     }
 
     &[data-station=SWF] {
-        top: -430px;
-        left: -2935px;
+        top: -402px;
+        left: -2930px;
         .SWF {
             a {
                 @include large-label();
-                margin-left: -6em;
+                margin-left: -7em;
                 left: -2em;
 
             }
@@ -90,18 +153,118 @@
     }
 
 
-        &[data-station=SNB] {
-        top: -530px;
-        left: -2935px;
+    &[data-station=SNB] {
+        top: -457px;
+        left: -3057px;
         .SNB {
             a {
                 @include large-label();
-                margin-left: -6em;
+                margin-left: -5em;
                 left: -2em;
-
             }
         }
     }
+
+
+
+    &[data-station=LYS] {
+        top: -621px;
+        left: -3042px;
+        .LYS {
+            a {
+                @include large-label();
+                margin-left: -5em;
+                left: -2.1em;
+            }
+        }
+    }
+
+
+    &[data-station=LEY] {
+        top: -744px;
+        left: -3225px;
+        .LEY {
+            a {
+                @include large-label();
+                margin-left: -3.4em;
+                left: -1em;
+            }
+        }
+    }
+
+
+    &[data-station=SFD] {
+        top: -872px;
+        left: -3436px;
+        .SFD {
+            a {
+                @include large-label();
+                left: 0.4em;
+            }
+        }
+    }
+
+
+
+
+    &[data-station=MLE] {
+        top: -1008px;
+        left: -2945px;
+        .MLE {
+            a {
+                @include large-label();
+                position: inherit;
+                width: 4.2em;
+                vertical-align: bottom;
+                margin-top: -1.23em;
+                margin-left: -2.6em;
+            }
+        }
+    }
+
+
+
+    &[data-station=BNG] {
+        top: -1087px;
+        left: -2614px;
+        .BNG {
+            a {
+                @include large-label();
+                margin-left: -3.6em;
+                top: -1.2em;
+            }
+        }
+    }
+
+
+    &[data-station=LST] {
+        top: -1086px;
+        left: -2550px;
+        .LST {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -1.8em;
+                top: -1.3em;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     &[data-station=CHG] {
         top: -200px;
@@ -135,24 +298,19 @@
     }
 
 
-    &[data-station=LYS] {
-        top: -621px;
-        left: -3042px;
-        .LYS {
-            a {
-                @include large-label();
-                margin-left: -6.3em;
-            }
-        }
-    }
 }
 
+
+#central .station {
+    z-index: 30;
+}
 
 @media (min-width: 800px) {
     #map-container  {
         margin-left: 20%;
     }
 }
+.roundel a, .station a,
 .roundel strong, .station strong{
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -162,15 +320,9 @@
 }
 
 
+.links li, #ove042.roundel.disabled{
+    z-index: 20 !important;
+}
 #lin029 {
     display: none;
-}
-
-.bg-container {
-    position: absolute;
-    top: 0;
-    margin: 10px;
-    padding: 20px;
-    width: 92%;
-    height: 100%;
 }

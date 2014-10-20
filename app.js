@@ -84,13 +84,20 @@ var getStationData = function(stationCode, callback) {
 var urlCodes = require('./fetchers/next-train/url-codes.json');
 
 app.get('/central-line/:station', function (req, res) {
-
     var stationCode = urlCodes[req.params.station];
-
     if(!stationCode) {
         return res.send(404);
     }
-    console.log('station lookup', stationCode);
+
+
+    var send = {
+        tubes: {
+            currentStationCode: stationCode
+        }
+    };
+    return res.render('layout.jade', send);
+
+
     getStationData(stationCode, function (err, data) {
         console.log('gotback', err, data);
         var send = cache;

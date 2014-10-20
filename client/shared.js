@@ -23,6 +23,7 @@ var stationCodes = require('../fetchers/next-train/url-codes.json');
 
 page('/central-line/:stationName', function(context, next) {
     var code = stationCodes[context.params.stationName];
+    console.log('newCode', code);
     $('#map-container').attr('data-station', code);
 });
 
