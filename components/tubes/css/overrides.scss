@@ -1,6 +1,5 @@
 
 
-
 @mixin large-label() {
     color: #1c3f95;
     font-weight: bold;
@@ -15,21 +14,21 @@
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
-    strong {
 
-        opacity: 0;
+    li {
         a {
             text-decoration: none;
             color: #1c3f95;
-        }
-        -webkit-transition: all 1s ease-in-out;
-        -moz-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
-    }
-    li {
-        strong.boxed {
-            border: 0;
+            font-size: 1em;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+            opacity: 0;
+            &.boxed {
+                border: 0;
+            }
+
         }
     }
 
@@ -43,7 +42,7 @@
         top: -205px;
         left: -2987px;
         .BHL {
-            strong {
+            a {
                 @include large-label();
                 left: -2em;
                 margin-left: -5.2em;
@@ -54,7 +53,7 @@
         top: -148px;
         left: -3127px;
         .LTN {
-            strong {
+            a {
                 @include large-label();
                 margin-left: -3em;
                 left: -2em;
@@ -68,7 +67,7 @@
         top: -373px;
         left: -3106px;
         .WFD {
-            strong {
+            a {
                 @include large-label();
                 margin-left: -3.5em;
                 left: -1.5em;
@@ -81,7 +80,7 @@
         top: -430px;
         left: -2935px;
         .SWF {
-            strong {
+            a {
                 @include large-label();
                 margin-left: -6em;
                 left: -2em;
@@ -95,7 +94,7 @@
         top: -530px;
         left: -2935px;
         .SNB {
-            strong {
+            a {
                 @include large-label();
                 margin-left: -6em;
                 left: -2em;
@@ -124,7 +123,7 @@
         top: -206px;
         left: -3458px;
         .ROD {
-            strong {
+            a {
                 br {
                     display: none;
                 }
@@ -140,7 +139,7 @@
         top: -621px;
         left: -3042px;
         .LYS {
-            strong {
+            a {
                 @include large-label();
                 margin-left: -6.3em;
             }

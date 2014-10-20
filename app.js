@@ -62,6 +62,10 @@ app.get('/', function (req, res) {
     if (req.query.data === 'true') {
         return res.json(cache);
     }
+
+    cache.tubes = {
+        currentStationCode: "WFD"
+    }
     res.render('layout.jade', cache);
 });
 
@@ -80,6 +84,7 @@ var getStationData = function(stationCode, callback) {
 var urlCodes = require('./fetchers/next-train/url-codes.json');
 
 app.get('/central-line/:station', function (req, res) {
+
     var stationCode = urlCodes[req.params.station];
 
     if(!stationCode) {

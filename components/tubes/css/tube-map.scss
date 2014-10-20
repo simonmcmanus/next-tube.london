@@ -79,11 +79,14 @@ strong{
     line-height: 20px;
     z-index: 30;
 }
-
+a.boxed,
 strong.boxed{
     border: 3px solid transparent;
     padding: 8px 6px;
 }
+
+a.below,
+a.above,
 strong.below,
 strong.above{
     line-height: 20px;
@@ -92,56 +95,86 @@ strong.above{
     width: 118px;
     margin-left: -61px;
 }
+
+a.wide,
 strong.wide{
     white-space: nowrap;
     width: auto;
 }
+
+a.below,
 strong.below{
     top: 12px;
 }
+
+a.above,
 strong.above{
     top: -47px;
 }
+
+a.left,
 strong.left{
     text-align: right;
     right: 14px;
 }
+
+.station a.left,
+.station a.right,
 .station strong.left,
 .station strong.right{
     top: -7px;
 }
+
+.station a.two-lines,
 .station strong.two-lines{
     top: -17px;
 }
+
+.station a.two-lines,
+.station strong.two-lines{
+    top: -17px;
+}
+.roundel a.left,
 .roundel strong.left{
     right: 37px;
     top: 2px;
 }
+.roundel a.right,
 .roundel strong.right{
     top: 5px;
     left: 36px;
 }
+.roundel a.right.above,
 .roundel strong.right.above{
     top: -19px;
     left: 88px;
 }
+.roundel a.left.above,
 .roundel strong.left.above{
     top: -42px;
     right: 29px;
 }
+
+a.right,
 strong.right{
     text-align: left;
     left: 15px;
 }
+
+.roundel a.right,
 .roundel strong.right{
     left: 36px;
 }
+.roundel a.above,
 .roundel strong.above{
     top: -49px;
 }
+.roundel a.below,
 .roundel strong.below{
    top: 37px;
 }
+
+.roundel a.below.right,
 .roundel strong.below.right{
     top: 8px;
     left: 94px;
@@ -151,6 +184,9 @@ strong.right{
     -webkit-transform:rotate(45deg);
     -moz-transform:rotate(45deg);
 }
+
+
+.rot45 a.above,
 .rot45 strong.above{
     -webkit-transform-origin: 0% 0%;
     -webkit-transform: rotate(315deg);
@@ -158,6 +194,7 @@ strong.right{
     -moz-transform: rotate(315deg);
     margin-top: -32px;
 }
+.rot45 a.left,
 .rot45 strong.left{
     right: 7px;
     top: -13px;
@@ -166,6 +203,7 @@ strong.right{
     -moz-transform-origin: 100% 100%;
     -moz-transform: rotate(315deg);
 }
+.rot45 a.below.right,
 .rot45 strong.below.right{
     left: 41px;
     top: -134px;
@@ -194,25 +232,31 @@ strong.right{
     -webkit-transform:rotate(315deg);
     -moz-transform:rotate(315deg);
 }
+.rot315 a,
 .rot315 strong{
     -webkit-transform:rotate(45deg);
     -moz-transform:rotate(45deg);
 }
+.rot315 a.left,
 .rot315 strong.left{
     top: -7px;
     right: 25px;
     -webkit-transform-origin: 100% 100%;
     -moz-transform-origin: 100% 100%;
 }
+.rot315 a.right,
 .rot315 strong.right{
     top: -7px;
     left: 21px;
     -webkit-transform-origin: 0% 0%;
     -moz-transform-origin: 0% 0%;
 }
+.rot315.connection a.left,
 .rot315.connection strong.left{
     right: 46px;
 }
+
+.rot315.connection a.right,
 .rot315.connection strong.right{
     left: 46px;
 }
@@ -976,6 +1020,7 @@ strong.right{
     position: absolute;
     z-index: 100;
 }
+.links a,
 .links strong{
     height: 22px;
     width: 22px;

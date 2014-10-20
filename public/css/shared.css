@@ -1,83 +1,93 @@
 @font-face {
   font-family: 'Erbos';
-  src: url('/fonts/7LED.ttf'); }
-
+  src: url("/fonts/7LED.ttf"); }
 @font-face {
   font-family: 'GreyscaleBasic';
-  src: url('/fonts/Greyscale_Basic_Regular.ttf'); }
-
+  src: url("/fonts/Greyscale_Basic_Regular.ttf"); }
 @font-face {
   font-family: 'london_tubenormal';
-  src: url('/fonts/london-tube-webfont.eot');
-  src: url('/fonts/london-tube-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/london-tube-webfont.woff') format('woff'), url('/fonts/london-tube-webfont.ttf') format('truetype'), url('/fonts/london-tube-webfont.svg#london_tubenormal') format('svg');
+  src: url("/fonts/london-tube-webfont.eot");
+  src: url("/fonts/london-tube-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/london-tube-webfont.woff") format("woff"), url("/fonts/london-tube-webfont.ttf") format("truetype"), url("/fonts/london-tube-webfont.svg#london_tubenormal") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 body {
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 16px; }
-  body .widgets {
-    margin-top: 200px; }
-  body .widget {
-    box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
-    z-index: 2000;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-    margin: 0.5em 0.1em;
-    padding: 1em;
-    font-family: 'GreyscaleBasic';
-    border-radius: 0.3em;
-    background-color: #fff;
-    border: 2px solid #2F4E99;
-    vertical-align: top;
-    color: #838383;
-    position: relative; }
-    body .widget h3 {
-      font-family: 'london_tubenormal'; }
-    body .widget li {
-      list-style: none; }
-    body .widget h2 {
-      margin: 0;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px; }
-    body .widget h3 {
-      font-size: 1em; }
+
+body .widgets {
+  margin-top: 200px;
+  display: none; }
+
+body .widget {
+  box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
+  z-index: 2000;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  margin: .5em .1em;
+  padding: 1em;
+  font-family: 'GreyscaleBasic';
+  border-radius: .3em;
+  background-color: #fff;
+  border: 2px solid #2F4E99;
+  vertical-align: top;
+  color: #838383;
+  position: relative; }
+
+body .widget h3 {
+  font-family: 'london_tubenormal'; }
+
+body .widget li {
+  list-style: none; }
+
+body .widget h2 {
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px; }
+
+body .widget h3 {
+  font-size: 1em; }
 
 .direction {
   vertical-align: top; }
-  .direction ul.trains {
-    padding: 0; }
-    .direction ul.trains li {
-      list-style: none;
-      margin: 1em 0; }
-      .direction ul.trains li .detail {
-        display: none; }
-      .direction ul.trains li span.destination {
-        font-size: 1.4em; }
-      .direction ul.trains li .due-container {
-        display: inline-block;
-        width: 80px;
-        text-align: right; }
-        .direction ul.trains li .due-container .due {
-          text-align: right;
-          font-size: 1.4em;
-          margin-right: 10px;
-          font-family: 'Erbos';
-          display: inline-block;
-          line-height: 22px;
-          border-right: 1px solid white !important;
-          color: #fff;
-          background: #6ca062; }
+
+.direction ul.trains {
+  padding: 0; }
+
+.direction ul.trains li {
+  list-style: none;
+  margin: 1em 0; }
+
+.direction ul.trains li .detail {
+  display: none; }
+
+.direction ul.trains li span.destination {
+  font-size: 1.4em; }
+
+.direction ul.trains li .due-container {
+  display: inline-block;
+  width: 80px;
+  text-align: right; }
+
+.direction ul.trains li .due-container .due {
+  text-align: right;
+  font-size: 1.4em;
+  margin-right: 10px;
+  font-family: 'Erbos';
+  display: inline-block;
+  line-height: 22px;
+  border-right: 1px solid white !important;
+  color: #fff;
+  background: #6ca062; }
 
 @media (min-width: 800px) {
   html body .widget {
     margin: 1em 20%; } }
-
-body.debug #map-container strong {
+body.debug #map-container a {
   opacity: 1;
   border-right: 10px solid green; }
+
 body.debug #placement {
   background: red;
   border: 2px solid blue;
@@ -86,40 +96,47 @@ body.debug #placement {
   height: 3em;
   left: 0em;
   top: 5em;
-  opacity: 0.5; }
+  opacity: .5; }
+
 @media (min-width: 800px) {
   body.debug #placement {
     margin: 1em 20%; } }
-
 #nextTrain h2 {
   border-bottom: 0; }
+
 #nextTrain a.change {
   float: right; }
+
 #nextTrain .settings {
   clear: both;
   background: #FFFDFD;
-  padding: 0.5em 0.5em;
+  padding: .5em .5em;
   height: auto;
   border-bottom: 1px solid #DC241F;
   border-top: 1px solid #DC241F;
   overflow: hidden;
-  -webkit-transition: all 0.8s ease;
-  -moz-transition: all 0.8s ease;
-  transition: all 0.8s ease; }
-  #nextTrain .settings form {
-    margin: 0; }
-    #nextTrain .settings form label {
-      width: 30%;
-      padding: 0.5em;
-      font-size: 0.8em;
-      font-family: london_tubenormal;
-      display: inline-block;
-      text-align: right; }
-  #nextTrain .settings.hidden {
-    height: 0;
-    padding: 0 0.5em; }
+  -webkit-transition: all .8s ease;
+  -moz-transition: all .8s ease;
+  transition: all .8s ease; }
+
+#nextTrain .settings form {
+  margin: 0; }
+
+#nextTrain .settings form label {
+  width: 30%;
+  padding: .5em;
+  font-size: 0.8em;
+  font-family: london_tubenormal;
+  display: inline-block;
+  text-align: right; }
+
+#nextTrain .settings.hidden {
+  height: 0;
+  padding: 0 .5em; }
+
 #nextTrain .noTrains {
   margin-bottom: 0; }
+
 @media (min-width: 550px) {
   #nextTrain a.change {
     position: absolute;
@@ -127,12 +144,14 @@ body.debug #placement {
     text-align: right;
     text-decoration: none;
     margin-top: -2em; }
+
   #nextTrain .direction {
     width: 50%;
     display: inline-block; }
+
   #nextTrain .settings:after {
-    transition: border-width 0.4s;
-    transition: top 0.4s ease;
+    transition: border-width .4s;
+    transition: top .4s ease;
     content: '';
     position: absolute;
     border-style: solid;
@@ -143,9 +162,10 @@ body.debug #placement {
     z-index: 1;
     top: 2.57em;
     left: 91%; }
+
   #nextTrain .settings:before {
-    transition: border-width 0.4s;
-    transition: top 0.4s ease;
+    transition: border-width .4s;
+    transition: top .4s ease;
     content: '';
     position: absolute;
     border-style: solid;
@@ -156,53 +176,80 @@ body.debug #placement {
     z-index: 0;
     top: 2.5em;
     left: 91%; }
+
   #nextTrain .settings.hidden:before, #nextTrain .settings.hidden:after {
     top: 3em;
     border-width: 0; } }
-
 #tflStatus small {
   margin-left: 40px;
   padding: 2em; }
+
 #tflStatus ul {
   padding: 0; }
-  #tflStatus ul li.line {
-    margin: 20px;
-    line-height: 1.4;
-    margin: 1em;
-    padding: 0 1em 1em 1em;
-    border-radius: 4px; }
-    #tflStatus ul li.line.Central {
-      border: 1px solid #DC241F; }
-    #tflStatus ul li.line.Bakerloo {
-      border: 1px solid #894E24; }
-    #tflStatus ul li.line.Circle {
-      border: 1px solid #FFCE00; }
-    #tflStatus ul li.line.District {
-      border: 1px solid #007229; }
-    #tflStatus ul li.line.HammersmithandCity {
-      border: 1px solid #D799AF; }
-    #tflStatus ul li.line.Jubilee {
-      border: 1px solid #868F98; }
-    #tflStatus ul li.line.Metropolitan {
-      border: 1px solid #751056; }
-    #tflStatus ul li.line.Northern {
-      border: 1px solid #000000; }
-    #tflStatus ul li.line.Piccadilly {
-      border: 1px solid #0019A8; }
-    #tflStatus ul li.line.Victoria {
-      border: 1px solid #00A0E2; }
-    #tflStatus ul li.line.WaterlooandCity {
-      border: 1px solid #76D0BD; }
-    #tflStatus ul li.line.Overground {
-      border: 1px solid #e86a10; }
-    #tflStatus ul li.line.DLR {
-      border: 1px solid #00AFAD; }
+
+#tflStatus ul li.line {
+  margin: 20px;
+  line-height: 1.4;
+  margin: 1em;
+  padding: 0 1em 1em 1em;
+  border-radius: 4px; }
+
+#tflStatus ul li.line.Central {
+  border: 1px solid #DC241F; }
+
+#tflStatus ul li.line.Bakerloo {
+  border: 1px solid #894E24; }
+
+#tflStatus ul li.line.Circle {
+  border: 1px solid #FFCE00; }
+
+#tflStatus ul li.line.District {
+  border: 1px solid #007229; }
+
+#tflStatus ul li.line.HammersmithandCity {
+  border: 1px solid #D799AF; }
+
+#tflStatus ul li.line.Jubilee {
+  border: 1px solid #868F98; }
+
+#tflStatus ul li.line.Metropolitan {
+  border: 1px solid #751056; }
+
+#tflStatus ul li.line.Northern {
+  border: 1px solid #000000; }
+
+#tflStatus ul li.line.Piccadilly {
+  border: 1px solid #0019A8; }
+
+#tflStatus ul li.line.Victoria {
+  border: 1px solid #00A0E2; }
+
+#tflStatus ul li.line.WaterlooandCity {
+  border: 1px solid #76D0BD; }
+
+#tflStatus ul li.line.Overground {
+  border: 1px solid #e86a10; }
+
+#tflStatus ul li.line.DLR {
+  border: 1px solid #00AFAD; }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -211,7 +258,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
@@ -223,7 +271,8 @@ ol, ul {
 blockquote, q {
   quotes: none; }
 
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
   content: '';
   content: none; }
 
@@ -233,11 +282,10 @@ table {
 
 @font-face {
   font-family: 'london_tubenormal';
-  src: url('../font/london-tube-webfont.eot');
-  src: url('../font/london-tube-webfont.eot?#iefix') format('embedded-opentype'), url('../font/london-tube-webfont.woff') format('woff'), url('../font/london-tube-webfont.ttf') format('truetype'), url('../font/london-tube-webfont.svg#london_tubenormal') format('svg');
+  src: url("../font/london-tube-webfont.eot");
+  src: url("../font/london-tube-webfont.eot?#iefix") format("embedded-opentype"), url("../font/london-tube-webfont.woff") format("woff"), url("../font/london-tube-webfont.ttf") format("truetype"), url("../font/london-tube-webfont.svg#london_tubenormal") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 body {
   background: white;
   font-family: 'london_tubenormal'; }
@@ -299,7 +347,8 @@ body {
   width: 7px;
   line-height: 16px; }
 
-a, strong {
+a,
+strong {
   white-space: nowrap;
   color: #1c3f95;
   font-size: 22px;
@@ -307,66 +356,91 @@ a, strong {
   line-height: 20px;
   z-index: 30; }
 
+a.boxed,
 strong.boxed {
   border: 3px solid transparent;
   padding: 8px 6px; }
 
-strong.below, strong.above {
+a.below,
+a.above,
+strong.below,
+strong.above {
   line-height: 20px;
   text-align: center;
   white-space: normal;
   width: 118px;
   margin-left: -61px; }
 
+a.wide,
 strong.wide {
   white-space: nowrap;
   width: auto; }
 
+a.below,
 strong.below {
   top: 12px; }
 
+a.above,
 strong.above {
   top: -47px; }
 
+a.left,
 strong.left {
   text-align: right;
   right: 14px; }
 
-.station strong.left, .station strong.right {
+.station a.left,
+.station a.right,
+.station strong.left,
+.station strong.right {
   top: -7px; }
 
+.station a.two-lines,
 .station strong.two-lines {
   top: -17px; }
 
+.station a.two-lines,
+.station strong.two-lines {
+  top: -17px; }
+
+.roundel a.left,
 .roundel strong.left {
   right: 37px;
   top: 2px; }
 
+.roundel a.right,
 .roundel strong.right {
   top: 5px;
   left: 36px; }
 
+.roundel a.right.above,
 .roundel strong.right.above {
   top: -19px;
   left: 88px; }
 
+.roundel a.left.above,
 .roundel strong.left.above {
   top: -42px;
   right: 29px; }
 
+a.right,
 strong.right {
   text-align: left;
   left: 15px; }
 
+.roundel a.right,
 .roundel strong.right {
   left: 36px; }
 
+.roundel a.above,
 .roundel strong.above {
   top: -49px; }
 
+.roundel a.below,
 .roundel strong.below {
   top: 37px; }
 
+.roundel a.below.right,
 .roundel strong.below.right {
   top: 8px;
   left: 94px; }
@@ -375,6 +449,7 @@ strong.right {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg); }
 
+.rot45 a.above,
 .rot45 strong.above {
   -webkit-transform-origin: 0% 0%;
   -webkit-transform: rotate(315deg);
@@ -382,6 +457,7 @@ strong.right {
   -moz-transform: rotate(315deg);
   margin-top: -32px; }
 
+.rot45 a.left,
 .rot45 strong.left {
   right: 7px;
   top: -13px;
@@ -390,6 +466,7 @@ strong.right {
   -moz-transform-origin: 100% 100%;
   -moz-transform: rotate(315deg); }
 
+.rot45 a.below.right,
 .rot45 strong.below.right {
   left: 41px;
   top: -134px;
@@ -418,25 +495,30 @@ strong.right {
   -webkit-transform: rotate(315deg);
   -moz-transform: rotate(315deg); }
 
+.rot315 a,
 .rot315 strong {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg); }
 
+.rot315 a.left,
 .rot315 strong.left {
   top: -7px;
   right: 25px;
   -webkit-transform-origin: 100% 100%;
   -moz-transform-origin: 100% 100%; }
 
+.rot315 a.right,
 .rot315 strong.right {
   top: -7px;
   left: 21px;
   -webkit-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%; }
 
+.rot315.connection a.left,
 .rot315.connection strong.left {
   right: 46px; }
 
+.rot315.connection a.right,
 .rot315.connection strong.right {
   left: 46px; }
 
@@ -545,7 +627,8 @@ strong.right {
   width: 100%;
   top: 9px; }
 
-.rail-symbol li.diag, .rail-symbol li.diag2 {
+.rail-symbol li.diag,
+.rail-symbol li.diag2 {
   width: 13px;
   height: 2px;
   -webkit-transform: rotate(26deg);
@@ -672,7 +755,8 @@ strong.right {
   top: 10px;
   right: 2px; }
 
-.cablecar-symbol .window1, .cablecar-symbol .window2 {
+.cablecar-symbol .window1,
+.cablecar-symbol .window2 {
   content: '';
   height: 6px;
   width: 4px;
@@ -814,13 +898,22 @@ strong.right {
   left: -1px;
   z-index: 3; }
 
-.navy .disabled-symbol, #dlr .disabled-symbol, .navy .disabled-symbol .wheel:before, #dlr .disabled-symbol .wheel:before, .navy .disabled-symbol .wheel, #dlr .disabled-symbol .wheel {
+.navy .disabled-symbol,
+#dlr .disabled-symbol,
+.navy .disabled-symbol .wheel:before,
+#dlr .disabled-symbol .wheel:before,
+.navy .disabled-symbol .wheel,
+#dlr .disabled-symbol .wheel {
   background-color: #1c3f95; }
 
-.navy .disabled-symbol li, #dlr .disabled-symbol li, .navy .disabled-symbol li:before, #dlr .disabled-symbol li:before {
+.navy .disabled-symbol li,
+#dlr .disabled-symbol li,
+.navy .disabled-symbol li:before,
+#dlr .disabled-symbol li:before {
   background-color: #fff; }
 
-.navy .disabled-symbol .wheel, #dlr .disabled-symbol .wheel {
+.navy .disabled-symbol .wheel,
+#dlr .disabled-symbol .wheel {
   border-color: #fff; }
 
 .boat-symbol {
@@ -940,7 +1033,8 @@ strong.right {
   left: 21px;
   border-radius: 0 2px 0 0; }
 
-.boat-symbol li.wave, .boat-symbol li.wave2 {
+.boat-symbol li.wave,
+.boat-symbol li.wave2 {
   width: 25px;
   height: 25px;
   background: #fff;
@@ -951,7 +1045,8 @@ strong.right {
 .boat-symbol li.wave2 {
   left: 13px; }
 
-.boat-symbol li.bwave, .boat-symbol li.bwave2 {
+.boat-symbol li.bwave,
+.boat-symbol li.bwave2 {
   width: 13px;
   height: 7px;
   background: transparent;
@@ -1002,7 +1097,8 @@ strong.right {
   left: 2px;
   border-radius: 3px 3px 0 0; }
 
-.tram-symbol .door1, .tram-symbol .door2 {
+.tram-symbol .door1,
+.tram-symbol .door2 {
   height: 8px;
   width: 3px;
   background: #fff;
@@ -1014,7 +1110,10 @@ strong.right {
 .tram-symbol .door2 {
   left: 24px; }
 
-.tram-symbol .window1, .tram-symbol .window2, .tram-symbol .window3, .tram-symbol .window4 {
+.tram-symbol .window1,
+.tram-symbol .window2,
+.tram-symbol .window3,
+.tram-symbol .window4 {
   height: 3px;
   width: 3px;
   background: #fff;
@@ -1050,7 +1149,10 @@ strong.right {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg); }
 
-.tram-symbol .wheel1, .tram-symbol .wheel2, .tram-symbol .wheel3, .tram-symbol .wheel4 {
+.tram-symbol .wheel1,
+.tram-symbol .wheel2,
+.tram-symbol .wheel3,
+.tram-symbol .wheel4 {
   width: 2px;
   height: 2px;
   display: block;
@@ -1172,6 +1274,7 @@ strong.right {
   position: absolute;
   z-index: 100; }
 
+.links a,
 .links strong {
   height: 22px;
   width: 22px;
@@ -1290,7 +1393,8 @@ header li:hover a {
 #screenshot {
   display: none; }
 
-#central .route, #central .station {
+#central .route,
+#central .station {
   background-color: #ee2e24;
   z-index: 10; }
 
@@ -1328,6 +1432,7 @@ header li:hover a {
   top: 924px;
   left: 405px; }
 
+#cen006 a,
 #cen006 strong {
   top: 5px; }
 
@@ -1347,6 +1452,7 @@ header li:hover a {
   top: 1351px;
   left: 539px; }
 
+#cen009 a,
 #cen009 strong {
   right: 33px;
   top: 0px; }
@@ -1363,6 +1469,7 @@ header li:hover a {
   top: 1368px;
   left: 927px; }
 
+#cen011 a,
 #cen011 strong {
   top: 0px;
   width: 61px;
@@ -1392,6 +1499,7 @@ header li:hover a {
   top: 1345px;
   left: 1378px; }
 
+#cen016 a,
 #cen016 strong {
   left: 79px;
   top: -52px;
@@ -1414,6 +1522,7 @@ header li:hover a {
   top: 1345px;
   left: 1717px; }
 
+#cen020 a,
 #cen020 strong {
   top: -42px;
   left: -63px;
@@ -1423,6 +1532,7 @@ header li:hover a {
   top: 1345px;
   left: 1845px; }
 
+#cen021 a,
 #cen021 strong {
   top: -42px;
   left: -60px;
@@ -1432,6 +1542,7 @@ header li:hover a {
   top: 1345px;
   left: 2042px; }
 
+#cen022 a,
 #cen022 strong {
   text-align: right;
   top: 24px;
@@ -1441,6 +1552,7 @@ header li:hover a {
   top: 1345px;
   left: 2145px; }
 
+#cen023 a,
 #cen023 strong {
   left: 68px;
   top: 25px; }
@@ -1489,6 +1601,7 @@ header li:hover a {
   top: 682px;
   left: 3442px; }
 
+#cen032 a,
 #cen032 strong {
   top: -18px;
   padding-right: 13px;
@@ -1672,7 +1785,8 @@ header li:hover a {
   top: 598px;
   left: 3687px; }
 
-#piccadilly .route, #piccadilly .station {
+#piccadilly .route,
+#piccadilly .station {
   background-color: #1c3f95;
   z-index: 10; }
 
@@ -2156,7 +2270,8 @@ header li:hover a {
   top: 2033px;
   left: 221px; }
 
-#metropolitan .route, #metropolitan .station {
+#metropolitan .route,
+#metropolitan .station {
   background-color: #98005d; }
 
 #met001 {
@@ -2440,7 +2555,8 @@ header li:hover a {
   left: 1903px;
   z-index: 11 !important; }
 
-#district .route, #district .station {
+#district .route,
+#district .station {
   background-color: #00853e;
   z-index: 10; }
 
@@ -3151,7 +3267,8 @@ header li:hover a {
   left: 2377px;
   z-index: 11 !important; }
 
-#circle .route, #circle .station {
+#circle .route,
+#circle .station {
   background-color: #ffd204;
   z-index: 10; }
 
@@ -3398,7 +3515,8 @@ header li:hover a {
   top: 1696px;
   left: 1650px; }
 
-#hammersmith-and-city .route, #hammersmith-and-city .station {
+#hammersmith-and-city .route,
+#hammersmith-and-city .station {
   background-color: #f386a1;
   z-index: 10; }
 
@@ -3551,7 +3669,8 @@ header li:hover a {
   top: 1237px;
   left: 2434px; }
 
-#bakerloo .route, #bakerloo .station {
+#bakerloo .route,
+#bakerloo .station {
   background-color: #b06110;
   z-index: 10; }
 
@@ -3775,7 +3894,8 @@ header li:hover a {
   left: 2082px;
   width: 84px; }
 
-#victoria .route, #victoria .station {
+#victoria .route,
+#victoria .station {
   background-color: #009ddc;
   z-index: 10; }
 
@@ -3966,7 +4086,8 @@ header li:hover a {
   left: 1702px;
   width: 460px; }
 
-#waterloo-and-city .route, #waterloo-and-city .station {
+#waterloo-and-city .route,
+#waterloo-and-city .station {
   background-color: #85cebc;
   z-index: 10; }
 
@@ -3994,7 +4115,8 @@ header li:hover a {
   height: 217px;
   z-index: -3 !important; }
 
-#northern .route, #northern .station {
+#northern .route,
+#northern .station {
   background-color: #000;
   z-index: 10; }
 
@@ -4404,7 +4526,8 @@ header li:hover a {
   top: 917px;
   left: 2144px; }
 
-#jubilee .route, #jubilee .station {
+#jubilee .route,
+#jubilee .station {
   background-color: #959ca1;
   z-index: 10; }
 
@@ -5291,13 +5414,13 @@ header li:hover a {
   top: 1486px;
   left: 1283px;
   height: 348px;
-  z-index: 10; }
+  z-index: +10; }
 
 #ove116 {
   top: 1325px;
   left: 928px;
   width: 418px;
-  z-index: 8; }
+  z-index: +8; }
 
 #ove117 {
   top: 1474px;
@@ -6549,125 +6672,146 @@ header li:hover a {
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out; }
-  #map-container strong {
-    opacity: 0;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out; }
-    #map-container strong a {
-      text-decoration: none;
-      color: #1c3f95; }
-  #map-container li strong.boxed {
-    border: 0; }
-  #map-container .roundel:hover strong, #map-container .station:hover strong {
-    opacity: 0.3;
-    z-index: 4000; }
-  #map-container[data-station=BHL] {
-    top: -205px;
-    left: -2987px; }
-    #map-container[data-station=BHL] .BHL strong {
-      color: #1c3f95;
-      font-weight: bold;
-      position: relative;
-      font-size: 4em;
-      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-      opacity: 1;
-      left: -2em;
-      margin-left: -5.2em; }
-  #map-container[data-station=LTN] {
-    top: -148px;
-    left: -3127px; }
-    #map-container[data-station=LTN] .LTN strong {
-      color: #1c3f95;
-      font-weight: bold;
-      position: relative;
-      font-size: 4em;
-      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-      opacity: 1;
-      margin-left: -3em;
-      left: -2em; }
-  #map-container[data-station=WFD] {
-    top: -373px;
-    left: -3106px; }
-    #map-container[data-station=WFD] .WFD strong {
-      color: #1c3f95;
-      font-weight: bold;
-      position: relative;
-      font-size: 4em;
-      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-      opacity: 1;
-      margin-left: -3.5em;
-      left: -1.5em; }
-  #map-container[data-station=SWF] {
-    top: -430px;
-    left: -2935px; }
-    #map-container[data-station=SWF] .SWF strong {
-      color: #1c3f95;
-      font-weight: bold;
-      position: relative;
-      font-size: 4em;
-      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-      opacity: 1;
-      margin-left: -6em;
-      left: -2em; }
-  #map-container[data-station=SNB] {
-    top: -530px;
-    left: -2935px; }
-    #map-container[data-station=SNB] .SNB strong {
-      color: #1c3f95;
-      font-weight: bold;
-      position: relative;
-      font-size: 4em;
-      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-      opacity: 1;
-      margin-left: -6em;
-      left: -2em; }
-  #map-container[data-station=CHG] {
-    top: -200px;
-    left: -3529px; }
-    #map-container[data-station=CHG] #cen042 {
-      top: 271px;
-      left: 3581px;
-      height: 58px; }
-    #map-container[data-station=CHG] .CHG strong {
-      color: #1c3f95;
-      font-weight: bold;
-      position: relative;
-      font-size: 4em;
-      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-      opacity: 1;
-      top: -50px; }
-  #map-container[data-station=ROD] {
-    top: -206px;
-    left: -3458px; }
-    #map-container[data-station=ROD] .ROD strong {
-      color: #1c3f95;
-      font-weight: bold;
-      position: relative;
-      font-size: 4em;
-      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-      opacity: 1;
-      top: -95px;
-      margin-left: 50px; }
-      #map-container[data-station=ROD] .ROD strong br {
-        display: none; }
-  #map-container[data-station=LYS] {
-    top: -621px;
-    left: -3042px; }
-    #map-container[data-station=LYS] .LYS strong {
-      color: #1c3f95;
-      font-weight: bold;
-      position: relative;
-      font-size: 4em;
-      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-      opacity: 1;
-      margin-left: -6.3em; }
+
+#map-container li a {
+  text-decoration: none;
+  color: #1c3f95;
+  font-size: 1em;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  opacity: 0; }
+
+#map-container li a.boxed {
+  border: 0; }
+
+#map-container .roundel:hover strong,
+#map-container .station:hover strong {
+  opacity: 0.3;
+  z-index: 4000; }
+
+#map-container[data-station=BHL] {
+  top: -187px;
+  left: -2995px; }
+
+#map-container[data-station=BHL] .BHL a {
+  color: #1c3f95;
+  font-weight: bold;
+  position: relative;
+  font-size: 4em;
+  text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+  opacity: 1;
+  left: -1.8em;
+  margin-left: -5.2em; }
+
+#map-container[data-station=LTN] {
+  top: -140px;
+  left: -3147px; }
+
+#map-container[data-station=LTN] .LTN a {
+  color: #1c3f95;
+  font-weight: bold;
+  position: relative;
+  font-size: 4em;
+  text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+  opacity: 1;
+  margin-left: -1em;
+  left: -3.6em; }
+
+#map-container[data-station=WFD] {
+  top: -373px;
+  left: -3106px; }
+
+#map-container[data-station=WFD] .WFD a {
+  color: #1c3f95;
+  font-weight: bold;
+  position: relative;
+  font-size: 4em;
+  text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+  opacity: 1;
+  margin-left: -3.5em;
+  left: -1.5em; }
+
+#map-container[data-station=SWF] {
+  top: -430px;
+  left: -2935px; }
+
+#map-container[data-station=SWF] .SWF a {
+  color: #1c3f95;
+  font-weight: bold;
+  position: relative;
+  font-size: 4em;
+  text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+  opacity: 1;
+  margin-left: -6em;
+  left: -2em; }
+
+#map-container[data-station=SNB] {
+  top: -530px;
+  left: -2935px; }
+
+#map-container[data-station=SNB] .SNB a {
+  color: #1c3f95;
+  font-weight: bold;
+  position: relative;
+  font-size: 4em;
+  text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+  opacity: 1;
+  margin-left: -6em;
+  left: -2em; }
+
+#map-container[data-station=CHG] {
+  top: -200px;
+  left: -3529px; }
+
+#map-container[data-station=CHG] #cen042 {
+  top: 271px;
+  left: 3581px;
+  height: 58px; }
+
+#map-container[data-station=CHG] .CHG strong {
+  color: #1c3f95;
+  font-weight: bold;
+  position: relative;
+  font-size: 4em;
+  text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+  opacity: 1;
+  top: -50px; }
+
+#map-container[data-station=ROD] {
+  top: -206px;
+  left: -3458px; }
+
+#map-container[data-station=ROD] .ROD a {
+  color: #1c3f95;
+  font-weight: bold;
+  position: relative;
+  font-size: 4em;
+  text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+  opacity: 1;
+  top: -95px;
+  margin-left: 50px; }
+
+#map-container[data-station=ROD] .ROD a br {
+  display: none; }
+
+#map-container[data-station=LYS] {
+  top: -621px;
+  left: -3042px; }
+
+#map-container[data-station=LYS] .LYS a {
+  color: #1c3f95;
+  font-weight: bold;
+  position: relative;
+  font-size: 4em;
+  text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+  opacity: 1;
+  margin-left: -6.3em; }
 
 @media (min-width: 800px) {
   #map-container {
     margin-left: 20%; } }
-
 .roundel strong, .station strong {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -6685,3 +6829,9 @@ header li:hover a {
   padding: 20px;
   width: 92%;
   height: 100%; }
+
+/*# sourceMappingURL=shared.css.map */
+/*# sourceMappingURL=shared.css.map */
+/*# sourceMappingURL=shared.css.map */
+
+/*# sourceMappingURL=shared.css.map */
