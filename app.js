@@ -6,6 +6,8 @@ var async = require('async');
 var socket = require('socket.io');
 var http = require('http');
 
+var deepClone = require('underscore.deepclone');
+
 var POLL_INTERVAL = 5000000;
 
 var nextTrain = require('./fetchers/next-train/next-train.js');
@@ -63,31 +65,53 @@ app.get('/', function (req, res) {
     res.render('layout.jade', cache);
 });
 
-app.get('/next-train/central/:station', function (req, res) {
-    if (cache.nextTrain[req.params.station]) {
-        return res.json(cache.nextTrain[req.params.station]);
+var getStationData = function(stationCode, callback) {
+    if (cache.nextTrain[stationCode]) {
+        callback(null, cache.nextTrain[stationCode]);
     } else {
-        nextTrain.get(req.params.station, function (error, data) {
-            res.json(data);
+        nextTrain.get(stationCode, function(e, d) {
+            cache.nextTrain[stationCode] = d;
+            callback(e, d);
         });
     }
+};
+
+
+var urlCodes = require('./fetchers/next-train/url-codes.json');
+
+app.get('/central-line/:station', function (req, res) {
+    var stationCode = urlCodes[req.params.station];
+
+    if(!stationCode) {
+        return res.send(404);
+    }
+    console.log('station lookup', stationCode);
+    getStationData(stationCode, function (err, data) {
+        console.log('gotback', err, data);
+        var send = cache;
+        send.tubes = {
+            currentStationCode: stationCode
+        };
+
+        if (req.headers.accept === 'application/json') {
+            res.json(data);
+        } else {
+            res.render('layout.jade', send);
+        }
+    });
 });
 
 var server = http.createServer(app);
 var port =  process.env.PORT || 4000;
 
-
-
 // on startup get the latest data.
 fetchAllWidgetData(function (errorSet, dataSet) {
-    console.log('got back', errorSet);
-    console.log(JSON.stringify(dataSet));
     cache = dataSet;
 });
 
-    server.listen(port, function () {
-        console.log('Listening on ' + port);
-    });
+server.listen(port, function () {
+    console.log('Listening on ' + port);
+});
 
 var io = socket.listen(server);
 

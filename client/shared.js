@@ -15,9 +15,9 @@ nextTrain.bind($('#nextTrain'), socket);
 socket.on('trainStatus', trainStatus.render);
 socket.on('nextBus', nextBus.render);
 
-$(' ul#central.line li a').click(function(e) {
-    e.preventDefault();
-    var newStation = this.href.split('/').pop();
-    $('#map-container').attr('data-station', newStation);
-    nextTrain.getStationData(newStation, socket);
-});
+// $(' ul#central.line li a').click(function(e) {
+//     e.preventDefault();
+//     var newStation = this.href.split('/').pop();
+//     $('#map-container').attr('data-station', newStation);
+//     nextTrain.getStationData(newStation, socket);
+// });

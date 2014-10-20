@@ -6,7 +6,8 @@
  * In order to do this we track when a user is added and removed from a room.
  *
  * I originally tried to replace this logic with socket.io room functionality but the list of active
- * rooms was never clean becuase it adds every connected socket to its own room.
+ * rooms was never clean becuase it adds every connected socket to its own room. disconnection also 
+ * didnt seem to work very well.
  *
  * This file also ensures lose coupling with socket.io.
  */

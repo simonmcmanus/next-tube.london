@@ -40,11 +40,10 @@ body {
          margin: .5em .1em;
          padding: 1em;
          font-family: 'GreyscaleBasic';
-         border-radius: 3px;
+         border-radius: .3em;
          background-color: #fff;
-         border: 1px solid #2F4E99;
+         border: 2px solid #2F4E99;
          vertical-align: top;
-         border-radius: 3px;
          color: rgb(131, 131, 131);
          position: relative;
          li {
@@ -103,17 +102,28 @@ body {
 
 }
 body.debug {
-    strong  {
-        border-right: 10px solid green;
+
+    #map-container {
+        strong {
+            opacity: 1;
+            border-right: 10px solid green;
+        }
     }
     #placement {
         background: red;
+        border: 2px solid blue;
         position: absolute;
-        width: 2000px;
+        width: 400px;
         height: 3em;
-        left: 11.5em;
+        left: 0em;
         top: 5em;
         opacity: .5;
+    }
+
+    @media (min-width: 800px) {
+          #placement {
+            margin: 1em 20%;
+          }
     }
 }
 @import 'components/next-train/next-train.scss';

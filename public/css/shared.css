@@ -28,11 +28,10 @@ body {
     margin: 0.5em 0.1em;
     padding: 1em;
     font-family: 'GreyscaleBasic';
-    border-radius: 3px;
+    border-radius: 0.3em;
     background-color: #fff;
-    border: 1px solid #2F4E99;
+    border: 2px solid #2F4E99;
     vertical-align: top;
-    border-radius: 3px;
     color: #838383;
     position: relative; }
     body .widget h3 {
@@ -76,16 +75,21 @@ body {
   html body .widget {
     margin: 1em 20%; } }
 
-body.debug strong {
+body.debug #map-container strong {
+  opacity: 1;
   border-right: 10px solid green; }
 body.debug #placement {
   background: red;
+  border: 2px solid blue;
   position: absolute;
-  width: 2000px;
+  width: 400px;
   height: 3em;
-  left: 11.5em;
+  left: 0em;
   top: 5em;
   opacity: 0.5; }
+@media (min-width: 800px) {
+  body.debug #placement {
+    margin: 1em 20%; } }
 
 #nextTrain h2 {
   border-bottom: 0; }
@@ -295,7 +299,7 @@ body {
   width: 7px;
   line-height: 16px; }
 
-strong {
+a, strong {
   white-space: nowrap;
   color: #1c3f95;
   font-size: 22px;
@@ -6541,15 +6545,16 @@ header li:hover a {
   left: -8px; }
 
 #map-container {
-  -webkit-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out; }
   #map-container strong {
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out; }
+    opacity: 0;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out; }
     #map-container strong a {
       text-decoration: none;
       color: #1c3f95; }
@@ -6566,16 +6571,20 @@ header li:hover a {
       font-weight: bold;
       position: relative;
       font-size: 4em;
+      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+      opacity: 1;
       left: -2em;
       margin-left: -5.2em; }
   #map-container[data-station=LTN] {
-    top: -158px;
+    top: -148px;
     left: -3127px; }
     #map-container[data-station=LTN] .LTN strong {
       color: #1c3f95;
       font-weight: bold;
       position: relative;
       font-size: 4em;
+      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+      opacity: 1;
       margin-left: -3em;
       left: -2em; }
   #map-container[data-station=WFD] {
@@ -6586,6 +6595,8 @@ header li:hover a {
       font-weight: bold;
       position: relative;
       font-size: 4em;
+      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+      opacity: 1;
       margin-left: -3.5em;
       left: -1.5em; }
   #map-container[data-station=SWF] {
@@ -6596,6 +6607,8 @@ header li:hover a {
       font-weight: bold;
       position: relative;
       font-size: 4em;
+      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+      opacity: 1;
       margin-left: -6em;
       left: -2em; }
   #map-container[data-station=SNB] {
@@ -6606,6 +6619,8 @@ header li:hover a {
       font-weight: bold;
       position: relative;
       font-size: 4em;
+      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+      opacity: 1;
       margin-left: -6em;
       left: -2em; }
   #map-container[data-station=CHG] {
@@ -6620,6 +6635,8 @@ header li:hover a {
       font-weight: bold;
       position: relative;
       font-size: 4em;
+      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+      opacity: 1;
       top: -50px; }
   #map-container[data-station=ROD] {
     top: -206px;
@@ -6629,6 +6646,8 @@ header li:hover a {
       font-weight: bold;
       position: relative;
       font-size: 4em;
+      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+      opacity: 1;
       top: -95px;
       margin-left: 50px; }
       #map-container[data-station=ROD] .ROD strong br {
@@ -6641,6 +6660,8 @@ header li:hover a {
       font-weight: bold;
       position: relative;
       font-size: 4em;
+      text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+      opacity: 1;
       margin-left: -6.3em; }
 
 @media (min-width: 800px) {

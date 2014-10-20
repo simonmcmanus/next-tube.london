@@ -1,4 +1,4 @@
-section#map-container(data-station='WFD')
+section#map-container(data-station=tubes.currentStationCode)
     ul#central.line
         li#cen001.roundel.connection.WRP
           strong.rail.left West Ruislip
@@ -111,39 +111,38 @@ section#map-container(data-station='WFD')
           strong.left Leyton
         li#cen032.station.LYS
           strong.left.boxed
-          a(href='LYS') Leytonstone
+          a(href='/central-line/leytonstone') Leytonstone
         li#cen033.station.SNB
           strong.left
-            a(href='SNB') Snaresbrook
+            a(href='/central-line/snaresbrook') Snaresbrook
         li#cen034.station.SWF
           strong.left
-            a(href='SWF') South Woodford
+            a(href='/central-line/south-woodford') South Woodford
         li#cen035.roundel.disabled.WFD
           strong.left
-            a(href='WFD') Woodford
+            a(href='/central-line/woodford') Woodford
         li#cen036.station.BHL
-          strong.left
-            a(href='BHL') Buckhurst Hill
+          a.left(href='/central-line/buckhurst-hill') Buckhurst Hill
         li#cen037.station.LTN
           strong.left
-            a(href='LTN') Loughton
+            a(href='/central-line/loughton') Loughton
         li#cen038.station.DEB
           strong.left
-            a(href='DEB') Debden
+            a(href='/central-line/debden') Debden
         li#cen039.station.THB
           strong.left
-            a(href='THB') Theydon Bois
+            a(href='central-line/theydon-bois') Theydon Bois
         li#cen040.roundel.disabled.EPP
           strong.left Epping
         li#cen041.roundel.disabled.ROD
           strong.above
-            a(href="ROD")
+            a(href="/central-line/roding-valley")
               | Roding
               br
               | Valley
         li#cen042.station.vertical.CHG
           strong.below
-            a(href='CHG') Chigwell
+            a(href='/central-line/chigwell') Chigwell
         li#cen043.station.vertical.GRH
           strong.above
             | Grange

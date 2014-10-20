@@ -6,25 +6,26 @@
     font-weight: bold;
     position: relative;
     font-size: 4em;
-    //opacity: 1;
+    text-shadow: #fff 1em 1em 120px, rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+    opacity: 1;
 
 }
 #map-container{
-    -webkit-transition: all .5s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
     strong {
 
-        //opacity: 0;
+        opacity: 0;
         a {
             text-decoration: none;
             color: #1c3f95;
         }
-        -webkit-transition: all .5s ease-in-out;
-        -moz-transition: all .5s ease-in-out;
-        -o-transition: all .5s ease-in-out;
-        transition: all .5s ease-in-out;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
     }
     li {
         strong.boxed {
@@ -50,7 +51,7 @@
         }
     }
     &[data-station=LTN] {
-        top: -158px;
+        top: -148px;
         left: -3127px;
         .LTN {
             strong {
