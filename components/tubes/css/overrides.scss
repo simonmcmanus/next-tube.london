@@ -2,12 +2,41 @@
 
 @mixin large-label() {
 
-    background: white;
+    background: #fff;
     border: 2px solid #222;
     border-radius: 5px;
     margin: 10px;
     padding: 5px 25px;
 
+    // &::after {
+    //     background: white;
+    //     width: 3em;
+    //     content: ' ';
+    //     position: absolute;
+    //     height: 3em;
+    //     top: -1em;
+    //     margin-left: 1.5em;
+    //     color: wheat;
+    //     z-index: -1 !important;
+    //     border-radius: 2em;
+    //     left: -10%;
+    //     border: 2px solid black;
+    // }
+
+    // &::before {
+    //     background: red;
+    //     width: 5em;
+    //     content: ' ';
+    //     position: absolute;
+    //     height: 5em;
+    //     top: -2em;
+    //     color: wheat;
+    //     z-index: -1 !important;
+    //     border-radius: 5em;
+    //     left: 0%;
+    //     border: 2px solid black;
+    // }
+    z-index: 2 !important;
     &.right {
       border-left: 20px solid green !important;
     }
@@ -26,12 +55,15 @@
     font-size: 4em;
     box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
     opacity: 1;
+    height: 1em;
+    line-height: 1em;
     br {
         display: none;
     }
 }
 
 #map-container{
+    overflow: visible;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
@@ -64,38 +96,41 @@
     }
 
     &[data-station=EPP] {
-        top: 11px;
-        left: -3230px;
+        top: 10px;
+        left: -3165px;
         .EPP {
             a {
                 @include large-label();
                 margin-left: -3em;
                 left: -1.3em;
+                top: -.3em;
             }
         }
     }
 
     &[data-station=THB] {
-        top: -38px;
-        left: -3030px;
+        top: -36px;
+        left: -2962px;
         .THB {
             a {
                 @include large-label();
                 margin-left: -5.5em;
                 left: -2em;
+                top: -.5em;
             }
         }
     }
 
 
     &[data-station=DEB] {
-        top: -84px;
-        left: -3200px;
+        top: -81px;
+        left: -3135px;
         .DEB {
             a {
                 @include large-label();
                 margin-left: -3.6em;
                 left: -1.2em;
+                top: -.5em;
             }
         }
     }
@@ -103,50 +138,54 @@
 
     &[data-station=LTN] {
         top: -130px;
-        left: -3148px;
+        left: -3084px;
         .LTN {
             a {
                 @include large-label();
                 left: -1.5em;
                 margin-left: -4.1em;
+                top: -.5em;
             }
         }
     }
 
 
     &[data-station=BHL] {
-        top: -176px;
-        left: -2983px;
+        top: -174px;
+        left: -2930px;
         .BHL {
             a {
                 @include large-label();
                 left: -2em;
                 margin-left: -6em;
+                top: -.5em;
             }
         }
     }
 
     &[data-station=WFD] {
-        top: -345px;
-        left: -3119px;
+        top: -347px;
+        left: -3055px;
         .WFD {
             a {
                 @include large-label();
                 margin-left: -4.5em;
                 left: -1.5em;
+                top: -.3em;
 
             }
         }
     }
 
     &[data-station=SWF] {
-        top: -402px;
-        left: -2930px;
+        top: -399px;
+        left: -2866px;
         .SWF {
             a {
                 @include large-label();
                 margin-left: -7em;
                 left: -2em;
+                top: -.5em;
 
             }
         }
@@ -154,13 +193,14 @@
 
 
     &[data-station=SNB] {
-        top: -457px;
-        left: -3057px;
+        top: -454px;
+        left: -2994px;
         .SNB {
             a {
                 @include large-label();
                 margin-left: -5em;
                 left: -2em;
+                top: -.5em;
             }
         }
     }
@@ -168,33 +208,35 @@
 
 
     &[data-station=LYS] {
-        top: -621px;
-        left: -3042px;
+        top: -617px;
+        left: -2989px;
         .LYS {
             a {
                 @include large-label();
                 margin-left: -5em;
                 left: -2.1em;
+                top: -0.5em;
             }
         }
     }
 
 
     &[data-station=LEY] {
-        top: -744px;
-        left: -3225px;
+        top: -741px;
+        left: -3188px;
         .LEY {
             a {
                 @include large-label();
                 margin-left: -3.4em;
                 left: -1em;
+                top: -.5em;
             }
         }
     }
 
 
     &[data-station=SFD] {
-        top: -872px;
+        top: -894px;
         left: -3436px;
         .SFD {
             a {
@@ -208,8 +250,8 @@
 
 
     &[data-station=MLE] {
-        top: -1008px;
-        left: -2945px;
+        top: -1037px;
+        left: -2942px;
         .MLE {
             a {
                 @include large-label();
@@ -225,8 +267,8 @@
 
 
     &[data-station=BNG] {
-        top: -1087px;
-        left: -2614px;
+        top: -1079px;
+        left: -2763px;
         .BNG {
             a {
                 @include large-label();
@@ -238,7 +280,7 @@
 
 
     &[data-station=LST] {
-        top: -1086px;
+        top: -1150px;
         left: -2550px;
         .LST {
             a {
@@ -251,11 +293,348 @@
     }
 
 
+    &[data-station=BNK] {
+        top: -1293px;
+        left: -2371px;
+        .BNK {
+            a {
+                @include large-label();
+                margin-left: -1.3em;
+                top: -1.6em;
+            }
+        }
+    }
+
+    &[data-station=STP] {
+        top: -1273px;
+        left: -2363px;
+        .STP {
+            a {
+                @include large-label();
+                left: 2.3em;
+                margin-left: -1.3em;
+                top: -1em;
+                position: inherit;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+
+            }
+        }
+    }
+
+
+    &[data-station=CYL] {
+        top: -1223px;
+        left: -2198px;
+        .CYL {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -1.3em;
+                top: -1.5em;
+            }
+        }
+    }
+
+
+    &[data-station=HOL] {
+        top: -1382px;
+        left: -2001px;
+        .HOL {
+            a {
+                @include large-label();
+                left: -2.5em;
+                top: 1em;
+            }
+        }
+    }
+
+    &[data-station=TCR] {
+        top: -1382px;
+        left: -2001px;
+        .TCR {
+            a {
+                @include large-label();
+            }
+        }
+    }
 
 
 
+    &[data-station=OXC] {
+        top: -1216px;
+        left: -1663px;
+        .OXC {
+            a {
+                @include large-label();
+                margin-left: -2em;
+                top: -1.6em;
+            }
+        }
+    }
 
 
+    &[data-station=BDS] {
+        top: -1216px;
+        left: -1544px;
+        .BDS {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -2.8em;
+                top: -1.6em;
+            }
+        }
+    }
+
+
+    &[data-station=MAR] {
+        top: -1373px;
+        left: -1494px;
+        .MAR {
+            a {
+                @include large-label();
+                margin-left: -2.3em;
+                top: 0.6em;
+            }
+        }
+    }
+
+    &[data-station=LAN] {
+        top: -1223px;
+        left: -1363px;
+        .LAN {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -3.3em;
+                top: -1.5em;
+            }
+        }
+    }
+
+    &[data-station=QWY] {
+        top: -1373px;
+        left: -1373px;
+        .QWY {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -1.9em;
+                top: .6em;
+            }
+        }
+    }
+
+    &[data-station=NHG] {
+        top: -1223px;
+        left: -1363px;
+
+        .NHG {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -1.3em;
+                top: -1.5em;
+            }
+        }
+    }
+
+    &[data-station=HPK] {
+        top: -1374px;
+        left: -1094px;
+        .HPK {
+            a {
+                @include large-label();
+                margin-left: -3.3em;
+                top: .6em;
+            }
+        }
+    }
+
+    &[data-station=SBC] {
+        top: -1217px;
+        left: -922px;
+        .SBC {
+            a {
+                @include large-label();
+                margin-left: -4.5em;
+                top: -1.6em;
+            }
+        }
+    }
+
+    &[data-station=WCT] {
+        top: -1217px;
+        left: -915px;
+        .WCT {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -2.3em;
+                top: -1.6em;
+            }
+        }
+    }
+
+    &[data-station=EAC] {
+        top: -1222px;
+        left: -788px;
+
+        .EAC {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -3em;
+                top: -1.5em;
+            }
+        }
+    }
+
+    &[data-station=NAC] {
+        top: -1374px;
+        left: -715px;
+        .NAC {
+            a {
+                @include large-label();
+                margin-left: -3.7em;
+                top: .6em;
+            }
+        }
+    }
+
+    &[data-station=WAC] {
+        top: -1373px;
+        left: -546px;
+        .WAC {
+            a {
+                @include large-label();
+                left: 0em;
+                margin-left: -3.3em;
+                top: .6em;
+            }
+        }
+    }
+
+    &[data-station=EBY] {
+        top: -1305px;
+        left: 31px;
+        .EBY {
+            a {
+                @include large-label();
+                margin-left: -7em;
+                left: -2em;
+                top: -0.3em;
+            }
+        }
+    }
+
+    &[data-station=HLN] {
+        top: -1096px;
+        left: -136px;
+        .HLN {
+            a {
+                @include large-label();
+                left: -6.6em;
+                margin-left: -1.3em;
+                top: -0.5em;
+                width: 6em;
+                position: inherit;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &[data-station=PER] {
+        top: -1010px;
+        left: -177px;
+        .PER {
+            a {
+                @include large-label();
+                left: -4.6em;
+                margin-left: -1.3em;
+                top: -0.5em;
+                width: 4em;
+                position: inherit;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &[data-station=GFD] {
+        top: -912px;
+        left: -19px;
+        .GFD {
+            a {
+                @include large-label();
+                left: -5.6em;
+                margin-left: -1.3em;
+                top: -0.5em;
+                width: 5em;
+                position: inherit;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &[data-station=NHT] {
+        top: -708px;
+        left: -19px;
+        .NHT {
+            a {
+                @include large-label();
+                margin-left: -4.4em;
+                top: -0.5em;
+                left: -1em;
+            }
+        }
+    }
+
+    &[data-station=SRP] {
+        top: -600px;
+        left: 99px;
+        .SRP {
+            a {
+                @include large-label();
+                margin-left: -5.8em;
+                top: -0.3em;
+                left: -2em;
+            }
+        }
+    }
+
+    &[data-station=RUG] {
+        top: -485px;
+        left: 160px;
+        .RUG {
+            a {
+                @include large-label();
+                left: -2em;
+                margin-left: -6.5em;
+                top: -0.5em;
+            }
+        }
+    }
+
+    &[data-station=WRP] {
+        top: -263px;
+        left: 85px;
+        .WRP {
+            a {
+                @include large-label();
+                left: -1em;
+                margin-left: -6.3em;
+                top: -0.4em;
+            }
+        }
+    }
 
 
 
