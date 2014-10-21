@@ -643,7 +643,20 @@
 
 
 
-
+    &[data-station=ROD] {
+        top: -206px;
+        left: -3458px;
+        .ROD {
+            a {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                top:  -95px;
+                margin-left: 50px;
+            }
+        }
+    }
 
     &[data-station=CHG] {
         top: -200px;
@@ -661,7 +674,9 @@
             }
         }
     }
-    &[data-station=ROD] {
+
+
+    &[data-station=GRH] {
         top: -206px;
         left: -3458px;
         .ROD {
@@ -676,6 +691,120 @@
         }
     }
 
+
+    &[data-station=HAI] {
+        top: -323px;
+        left: -3367px;
+        .HAI {
+            a {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                top: -.3em;
+                margin-left: -4.6em;
+            }
+        }
+    }
+
+
+    &[data-station=FLP] {
+        top: -375px;
+        left: -3417px;
+        .FLP {
+            a {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                top: -.5em;
+                margin-left: -3.2em;
+                left: -1em;
+            }
+        }
+    }
+
+
+    &[data-station=BDE] {
+        top: -435px;
+        left: -3283px;
+        .BDE {
+            a {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                top: -.4em;
+                margin-left: -5em;
+                left: -1.3em;
+            }
+        }
+    }
+
+
+    &[data-station=NEP] {
+        top: -482px;
+        left: -3206px;
+        .NEP {
+            a {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                top: -.5em;
+                margin-left: -6.5em;
+                left: -1em;
+            }
+        }
+    }
+
+
+    &[data-station=GHL] {
+        top: -633px;
+        left: -3476px;
+        .GHL {
+            a {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                top: .6em;
+                margin-left: -2.7em;
+            }
+        }
+    }
+
+
+    &[data-station=RED] {
+        top: -482px;
+        left: -3424px;
+        .RED {
+            a {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                margin-left: -2.5em;
+                top: -1.5em;
+            }
+        }
+    }
+
+
+    &[data-station=WAN] {
+        top: -633px;
+        left: -3358px;
+        .WAN {
+            a {
+                br {
+                    display: none;
+                }
+                @include large-label();
+                top: .6em;
+                margin-left: -2.5em;
+            }
+        }
+    }
 
 }
 
