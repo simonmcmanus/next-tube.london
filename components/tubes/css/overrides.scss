@@ -4,9 +4,11 @@
 
     background: #fff;
     border: 2px solid #222;
+    box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
     border-radius: 5px;
     margin: 10px;
     padding: 5px 25px;
+    white-space: nowrap;
 
     // &::after {
     //     background: white;
@@ -37,28 +39,29 @@
     //     border: 2px solid black;
     // }
     z-index: 2 !important;
-    &.right {
-      border-left: 20px solid green !important;
-    }
-    &.left {
-      border-right: 20px solid green !important;
-    }
-    &.above {
-     border-bottom: 20px solid green !important; 
-    }
-    &.below {
-     border-top: 20px solid green !important; 
-    }
+    // &.right {
+    //   border-left: 20px solid green !important;
+    // }
+    // &.left {
+    //   border-right: 20px solid green !important;
+    // }
+    // &.above {
+    //  border-bottom: 20px solid green !important; 
+    // }
+    // &.below {
+    //  border-top: 20px solid green !important; 
+    // }
     color: #1c3f95;
     font-weight: bold;
     position: relative;
     font-size: 4em;
-    box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
     opacity: 1;
     height: 1em;
     line-height: 1em;
     br {
-        display: none;
+        content: ' ';
+        display: inline-block;
+        width: .3em;
     }
 }
 
@@ -92,7 +95,25 @@
     .roundel:hover strong,
     .station:hover strong {
         opacity: 0.3;
-        z-index: 4000;
+    }
+
+    #pic037  {
+        z-index: 10 !important;
+    }
+
+    ul.links li {
+        z-index: 5 !important;
+    }
+    #central .station a {
+        z-index: 230 !important;
+    }
+
+    .lines {
+        z-index: -1;
+    }
+
+    .roundel.disabled{
+        z-index: 50 !important;
     }
 
     &[data-station=EPP] {
@@ -809,9 +830,6 @@
 }
 
 
-#central .station {
-    z-index: 30;
-}
 
 @media (min-width: 800px) {
     #map-container  {
@@ -827,10 +845,6 @@
     font-size: 1em;
 }
 
-
-.links li, #ove042.roundel.disabled{
-    z-index: 20 !important;
-}
 #lin029 {
     display: none;
 }

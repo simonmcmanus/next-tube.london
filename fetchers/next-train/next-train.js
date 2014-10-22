@@ -25,8 +25,6 @@ exports.get = function (stationCode, callback) {
     };
 
     request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/' + stationCode, function (error, data) {
-return callback(null, {});
-        console.log(error);
         if(error || !data.body) {
             return callback(true);
         }
