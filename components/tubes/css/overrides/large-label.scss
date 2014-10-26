@@ -1,0 +1,127 @@
+// makes the station name big when the appropriate data attribute is applied.
+@mixin large-label() {
+
+    background: #fff;
+    border: 2px solid #2F4E99;
+    box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+    border-radius: 5px;
+
+    color: #1c3f95;
+    cursor: default;
+    font-size: 4em;
+    font-weight: bold;
+    height: 1em;
+    line-height: 1em;
+    margin: 10px;
+    opacity: 1;
+    padding: 5px 25px;
+    position: relative;
+    transition-delay: .3s;
+    -webkit-transition: all .6s ease-in-out;
+    -moz-transition: all .6s ease-in-out;
+    -o-transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out;
+    white-space: nowrap;
+    z-index: 2 !important;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        border-style: solid;
+        display: block;
+        width: 0;
+        opacity: 1;
+        border-color: #2F4E99 transparent;
+        background: blue;
+        top: 0;
+    }
+
+
+    &::after {
+        border-color: #fff transparent;
+    }
+
+    &.above {
+        &::before {
+            left: 50%;
+            bottom: -16px;
+            border-width: 14px 14px 0;
+        }
+        &::after {
+            left: 50%;
+            bottom: -13px;
+            border-width: 14px 14px 0;
+        }
+    }
+
+    &.below {
+        &::before {
+            left: 50%;
+            top: -16px !important;
+            border-width: 0 14px 14px;
+
+        }
+        &::after {
+            left: 50%;
+            top: -13px !important;
+            border-width: 0 14px 14px ;
+            border-color: #fff transparent;
+        }
+    }
+
+    &.left {
+        &::before,
+        &::after {
+            bottom: auto;
+            left: auto;
+        }
+
+        &::before {
+            top: 35%;
+            right: -16px;
+            border-width: 10px 0 10px 16px;
+            border-color: transparent #2F4E99;
+        }
+        &::after {
+            top: 35%;
+            right: -13px;
+            border-width: 10px 0 10px 16px;
+            border-color: transparent #fff;
+        }
+    }
+
+    &.right {
+
+        &::before,
+        &::after {
+            bottom: auto;
+            right: auto;
+        }
+
+        &::before {
+            top: 35%;
+            left: -16px;
+            border-width: 10px 16px 10px 0em;
+            border-color: transparent #2F4E99;
+        }
+        &::after {
+            top: 35%;
+            left: -13px;
+            border-width: 10px 16px 10px 0;
+            border-color: transparent #fff;
+        }
+    }
+    &.no-arrow {
+        &::before,
+        &::after {
+            display:none;
+        }
+    }
+
+    br {
+        content: ' ';
+        display: inline-block;
+        width: .3em;
+    }
+}

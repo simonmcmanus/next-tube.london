@@ -1,0 +1,680 @@
+// Central line specific overrides.
+@import './large-label.scss';
+
+
+&[data-station=EPP] {
+    top: 5px;
+    left: -3164px;
+    .EPP {
+        a {
+            @include large-label();
+            margin-left: -3em;
+            left: -1.3em;
+            top: -.2em;
+        }
+    }
+}
+
+&[data-station=THB] {
+    top: -41px;
+    left: -2962px;
+    .THB {
+        a {
+            @include large-label();
+            margin-left: -5.5em;
+            left: -2em !important;
+            top: -.4em;
+        }
+    }
+}
+
+
+&[data-station=DEB] {
+    top: -87px;
+    left: -3135px;
+    .DEB {
+        a {
+            @include large-label();
+            margin-left: -3.6em;
+            left: -1.2em;
+            top: -.4em;
+        }
+    }
+}
+
+
+&[data-station=LTN] {
+    top: -130px;
+    left: -3084px;
+    .LTN {
+        a {
+            @include large-label();
+            left: -1.5em;
+            margin-left: -4.1em;
+            top: -.4em;
+        }
+    }
+}
+
+
+&[data-station=BHL] {
+    top: -180px;
+    left: -2930px;
+    .BHL {
+        a {
+            @include large-label();
+            left: -2em;
+            margin-left: -6em;
+            top: -.4em;
+        }
+    }
+}
+
+&[data-station=WFD] {
+    top: -352px;
+    left: -3055px;
+    .WFD {
+        a {
+            @include large-label();
+            margin-left: -4.5em;
+            left: -1.5em;
+            top: -.2em;
+
+        }
+    }
+}
+
+&[data-station=SWF] {
+    top: -406px;
+    left: -2866px;
+    .SWF {
+        a {
+            @include large-label();
+            margin-left: -7em;
+            left: -2em;
+            top: -.4em;
+        }
+    }
+}
+
+
+&[data-station=SNB] {
+    top: -461px;
+    left: -2994px;
+    .SNB {
+        a {
+            @include large-label();
+            margin-left: -5em;
+            left: -2em;
+            top: -.4em;
+        }
+    }
+}
+
+
+
+&[data-station=LYS] {
+    top: -622px;
+    left: -2987px;
+    .LYS {
+        a {
+            @include large-label();
+            margin-left: -5em;
+            left: -2.1em;
+            top: -0.4em;
+        }
+    }
+}
+
+
+&[data-station=LEY] {
+    top: -747px;
+    left: -3160px;
+    .LEY {
+        a {
+            @include large-label();
+            margin-left: -3.4em;
+            left: -1em;
+            top: -.4em;
+        }
+    }
+}
+
+&[data-station=SFD] {
+    top: -875px;
+    left: -3455px;
+    .SFD {
+        a {
+            @include large-label();
+            left: 0.4em;
+            top: -.2em;
+        }
+    }
+}
+
+&[data-station=MLE] {
+    top: -1058px;
+    left: -2932px;
+    .MLE {
+        a {
+            @include large-label();
+            position: inherit;
+            width: 4.2em;
+            vertical-align: bottom;
+            margin-top: -0.9em;
+            margin-left: -2.75em;
+        }
+    }
+}
+
+&[data-station=BNG] {
+    top: -1060px;
+    left: -2761px;
+    .BNG {
+        a {
+            @include large-label();
+            margin-left: -4.05em;
+            top: -1.5em;
+        }
+    }
+}
+
+&[data-station=LST] {
+    top: -1128px;
+    left: -2386px;
+    .LST {
+        a {
+            @include large-label();
+            left: 0em;
+            margin-left: -4.35em;
+            top: -1.6em;
+        }
+    }
+}
+
+&[data-station=BNK] {
+    top: -1292px;
+    left: -2341px;
+    .BNK {
+        a {
+            @include large-label();
+            margin-left: -1.75em;
+            left: 0;
+            top: -1.6em;
+        }
+    }
+}
+
+&[data-station=STP] {
+    top: -1273px;
+    left: -2352px;
+    .STP {
+        a {
+            @include large-label();
+            margin-left: .5em;
+            position: inherit;
+            top: -1.14em;
+            -ms-transform: rotate(45deg); /* IE 9 */
+            -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+            transform: rotate(45deg);
+
+        }
+    }
+}
+
+
+&[data-station=CYL] {
+    top: -1223px;
+    left: -2020px;
+    .CYL {
+        a {
+            @include large-label();
+            top: -1.5em;
+            left: 0em;
+            margin-left: -4.1em;
+        }
+    }
+}
+
+&[data-station=HOL] {
+    top: -1382px;
+    left: -1997px;
+    .HOL {
+        a {
+            @include large-label();
+            margin-left: -1.9em;
+            left: -.5em;
+            top: .97em;
+        }
+    }
+}
+
+&[data-station=TCR] {
+    top: -1382px;
+    left: -1695px;
+    .TCR {
+        a {
+            @include large-label();
+            top: .99em;
+            left: -6.1em;
+        }
+    }
+}
+
+&[data-station=OXC] {
+    top: -1216px;
+    left: -1605px;
+    .OXC {
+        a {
+            @include large-label();
+            margin-left: -2.9em;
+            top: -1.6em;
+        }
+    }
+}
+
+&[data-station=BDS] {
+    top: -1216px;
+    left: -1544px;
+    .BDS {
+        a {
+            @include large-label();
+            left: 0em;
+            margin-left: -3.29em;
+            top: -1.6em;
+        }
+    }
+}
+
+&[data-station=MAR] {
+    top: -1380px;
+    left: -1418px;
+    .MAR {
+        a {
+            @include large-label();
+            margin-left: -3.5em;
+            top: 0.7em;
+        }
+    }
+}
+
+&[data-station=LAN] {
+    top: -1223px;
+    left: -1305px;
+    .LAN {
+        a {
+            @include large-label();
+            left: 0em;
+            margin-left: -4.2em;
+            top: -1.5em;
+        }
+    }
+}
+
+&[data-station=QWY] {
+    top: -1378px;
+    left: -1277px;
+    .QWY {
+        a {
+            @include large-label();
+            left: 0em;
+            margin-left: -3.35em;
+            top: .66em;
+        }
+    }
+}
+
+&[data-station=NHG] {
+    top: -1215px;
+    left: -1083px;
+    .NHG {
+        a {
+            @include large-label();
+            left: 0em;
+            margin-left: -4.7em;
+            top: -1.6em;
+        }
+    }
+}
+
+&[data-station=HPK] {
+    top: -1373px;
+    left: -1071px;
+    .HPK {
+        a {
+            @include large-label();
+            margin-left: -3.65em;
+            top: .6em;
+        }
+    }
+}
+
+&[data-station=SBC] {
+    top: -1217px;
+    left: -931px;
+    .SBC {
+        a {
+            @include large-label();
+            margin-left: -4.36em;
+            top: -1.6em;
+        }
+    }
+}
+
+&[data-station=WCT] {
+    top: -1217px;
+    left: -864px;
+    .WCT {
+        a {
+            @include large-label();
+            left: 0em;
+            margin-left: -3.1em;
+            top: -1.6em;
+        }
+    }
+}
+
+&[data-station=EAC] {
+    top: -1222px;
+    left: -778px;
+    .EAC {
+        a {
+            @include large-label();
+            left: 0em;
+            margin-left: -3.16em;
+            top: -1.5em;
+        }
+    }
+}
+
+&[data-station=NAC] {
+    top: -1374px;
+    left: -702px;
+    .NAC {
+        a {
+            @include large-label();
+            margin-left: -3.91em;
+            top: .6em;
+        }
+    }
+}
+
+&[data-station=WAC] {
+    top: -1373px;
+    left: -537px;
+    .WAC {
+        a {
+            @include large-label();
+            left: 0em;
+            margin-left: -3.44em;
+            top: .6em;
+        }
+    }
+}
+
+&[data-station=EBY] {
+    top: -1305px;
+    left: 31px;
+    .EBY {
+        a {
+            @include large-label();
+            margin-left: -7em;
+            left: -2em;
+            top: -0.3em;
+        }
+    }
+}
+
+&[data-station=HLN] {
+    top: -1059px;
+    left: -126px;
+    .HLN {
+        a {
+            @include large-label();
+            left: -6.3em;
+            margin-left: -1.3em;
+            top: -1em;
+            width: 6em;
+            position: inherit;
+            -ms-transform: rotate(45deg); /* IE 9 */
+            -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+            transform: rotate(45deg);
+        }
+    }
+}
+
+&[data-station=PER] {
+    top: -972px;
+    left: -169px;
+    .PER {
+        a {
+            @include large-label();
+            left: -4.3em;
+            margin-left: -1.3em;
+            top: -0.99em;
+            width: 4em;
+            position: inherit;
+            -ms-transform: rotate(45deg); /* IE 9 */
+            -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+            transform: rotate(45deg);
+        }
+    }
+}
+
+&[data-station=GFD] {
+    top: -875px;
+    left: -10px;
+    .GFD {
+        a {
+            @include large-label();
+            left: -5.6em;
+            margin-left: -1em;
+            top: -1em;
+            width: 5em;
+            position: inherit;
+            -ms-transform: rotate(45deg); /* IE 9 */
+            -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+            transform: rotate(45deg);
+        }
+    }
+}
+
+&[data-station=NHT] {
+    top: -707px;
+    left: -34px;
+    .NHT {
+        a {
+            @include large-label();
+            margin-left: -4.4em;
+            top: -0.4em;
+            left: -1em;
+        }
+    }
+}
+
+&[data-station=SRP] {
+    top: -600px;
+    left: 99px;
+    .SRP {
+        a {
+            @include large-label();
+            margin-left: -5.8em;
+            top: -0.3em;
+            left: -1.75em;
+        }
+    }
+}
+
+&[data-station=RUG] {
+    top: -485px;
+    left: 160px;
+    .RUG {
+        a {
+            @include large-label();
+            left: -2.2em;
+            margin-left: -6.5em;
+            top: -0.4em;
+        }
+    }
+}
+
+&[data-station=WRP] {
+    top: -270px;
+    left: 92px;
+    .WRP {
+        a {
+            @include large-label();
+            left: -1.1em;
+            margin-left: -6.3em;
+            top: -0.3em;
+        }
+    }
+}
+
+&[data-station=ROD] {
+    top: -206px;
+    left: -3458px;
+    .ROD {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+        }
+    }
+}
+
+&[data-station=CHG] {
+    top: -345px;
+    left: -3405px;
+    .CHG {
+        a {
+            @include large-label();
+            left: -2.9em;
+            top: .64em;
+        }
+    }
+}
+
+&[data-station=GRH] {
+    top: -206px;
+    left: -3458px;
+    .ROD {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+            top:  -95px;
+            margin-left: 50px;
+        }
+    }
+}
+
+&[data-station=HAI] {
+    top: -323px;
+    left: -3367px;
+    .HAI {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+            top: -.3em;
+            margin-left: -4.6em;
+        }
+    }
+}
+
+&[data-station=FLP] {
+    top: -382px;
+    left: -3419px;
+    .FLP {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+            top: -.4em;
+            margin-left: -3.41em;
+            left: -1em;
+        }
+    }
+}
+
+&[data-station=BDE] {
+    top: -435px;
+    left: -3283px;
+    .BDE {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+            top: -.4em;
+            margin-left: -5em;
+            left: -1.5em;
+        }
+    }
+}
+
+&[data-station=NEP] {
+    top: -489px;
+    left: -3208px;
+    .NEP {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+            top: -.4em;
+            margin-left: -6.5em;
+            left: -1.2em;
+        }
+    }
+}
+
+&[data-station=GHL] {
+    top: -634px;
+    left: -3453px;
+    .GHL {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+            top: .6em;
+            margin-left: -3.06em;
+        }
+    }
+}
+
+&[data-station=RED] {
+    top: -482px;
+    left: -3385px;
+    .RED {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+            margin-left: -3.11em;
+            top: -1.5em;
+        }
+    }
+}
+
+&[data-station=WAN] {
+    top: -633px;
+    left: -3326px;
+    .WAN {
+        a {
+            br {
+                display: none;
+            }
+            @include large-label();
+            top: .6em;
+            margin-left: -2.99em;
+        }
+    }
+}

@@ -17,8 +17,12 @@ exports.getStationData = function (stationCode, socket) {
             Accept: 'application/json'
         },
         success: function (data) {
-            $('.widget').removeClass('loading');
+            //$('.widget').removeClass('loading');
             exports.render(data);
+            $('.widget').height($('.container').height());
+            setTimeout(function() {
+                $('.widget').removeClass('loading');
+            }, 600);
             listen(data.code, socket);
         }
     }).fail(function (e) {
@@ -31,6 +35,7 @@ var stationChange = function (socket, e) {
     var newStation = e.currentTarget.selectedOptions[0].value;
     var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase(); 
     page('/central-line/' + newStationSlug);
+    $('body').scrollTop(0)
     // socket.emit('next-train:station:listen:stop', oldStation);
     // socket.off('next-train:station:' + oldStation);
     exports.getStationData(newStationSlug, socket);

@@ -19,18 +19,23 @@
 }
 
 body {
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px;
   .widgets {
     margin-top: 200px;
+    display: none;
   }
   .widget {
     box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
     z-index: 2000;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all .6s ease-in-out;
+    -moz-transition: all .6s ease-in-out;
+    -o-transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out;
     margin: .5em .1em;
     padding: 1em;
     font-family: 'GreyscaleBasic';
@@ -54,11 +59,23 @@ body {
     h3 {
       font-size: 1em;
     }
-
+    .container {
+      transition-delay: 0s;
+      -webkit-transition: opacity .4s ease-in-out;
+      -moz-transition: opacity .4s ease-in-out;
+      -o-transition: opacity .4s ease-in-out;
+      transition: opacity .4s ease-in-out;
+    }
+    -webkit-transition: height .4s ease-in-out;
+    -moz-transition: height .4s ease-in-out;
+    -o-transition: height .4s ease-in-out;
+    transition: height .4s ease-in-out;
     &.loading {
-      background: red;
-      margin-top: 100%;
-      .trains {
+
+
+      height: 0;
+      .container {
+        transition-delay: 0s;
         opacity: 0;
       }
     }
@@ -108,11 +125,25 @@ body.debug {
   #map-container a ,
   #map-container a.boxed {
     opacity: 1;
+    // &.right {
+    //   border-left: 20px solid green !important;
+    // }
+    // &.left {
+    //   border-right: 20px solid green !important;
+    // }
+    // &.above {
+    //  border-bottom: 20px solid green !important; 
+    // }
+    // &.below {
+    //  border-top: 20px solid green !important; 
+    // }
   }
+
 
 
   #placement {
     background: red;
+    display: none;
     border: 2px solid blue;
     position: absolute;
     width: 400px;
@@ -135,3 +166,4 @@ body.debug {
 
 @import '../components/tubes/css/styles.scss';
 @import '../components/next-train/next-train.scss';
+
