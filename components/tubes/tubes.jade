@@ -1,168 +1,168 @@
 // modified from csstubemap.co.uk
 section#map-container(data-station=tubes.currentStationCode)
     ul#central.line
-        li#cen001.roundel.connection.WRP
-          a.rail.left(href='/central-line/west-ruislip') West Ruislip
+       li#cen001.roundel.connection.WRP
+          a.rail.left(href='/central-line/west-ruislip', class=(tubes.currentStationCode === 'WRP') ? ' point' : '') West Ruislip
         li#cen002.route.vertical
         li#cen003.station.RUG
-          a.left.two-lines(href='/central-line/ruislip-gardens')
+          a.left.two-lines(href='/central-line/ruislip-gardens', class=(tubes.currentStationCode === 'RUG') ? ' point' : '')
             | Ruislip
             br
             | Gardens
         li#cen004.roundel.connection.SRP
-          a.rail.left(href='/central-line/south-ruislip') South Ruislip
+          a.rail.left(href='/central-line/south-ruislip', class=(tubes.currentStationCode === 'SRP') ? ' point' : '') South Ruislip
         li#cen005.station.NHT
-          a.left(href='/central-line/northolt') Northolt
+          a.left(href='/central-line/northolt', class=(tubes.currentStationCode === 'NHT') ? ' point' : '') Northolt
         li#cen006.roundel.connection.rot315.GFD
-          a.rail.left(href='/central-line/greenford') Greenford
+          a.rail.left(href='/central-line/greenford', class=(tubes.currentStationCode === 'GFD') ? ' point' : '') Greenford
         li#cen007.station.rot315.PER
-          a.left(href='/central-line/perivale') Perivale
+          a.left(href='/central-line/perivale', class=(tubes.currentStationCode === 'PER') ? ' point' : '') Perivale
         li#cen008.station.rot315.HLN
-          a.left(href='/central-line/hanger-lane') Hanger Lane
+          a.left(href='/central-line/hanger-lane', class=(tubes.currentStationCode === 'HLN') ? ' point' : '') Hanger Lane
         li#cen009.roundel.connection.EBY
-          a.rail.left(href='/central-line/ealing-broadway') Ealing Broadway
+          a.rail.left(href='/central-line/ealing-broadway', class=(tubes.currentStationCode === 'EBY') ? ' point' : '') Ealing Broadway
         li#cen010.station.vertical.WAC
-          a.below(href='/central-line/west-acton')
+          a.below(href='/central-line/west-acton', class=(tubes.currentStationCode === 'WAC') ? ' point' : '')
             | West
             br
             | Acton
         li#cen011.station.vertical.NAC
-          a.below.boxed(href='/central-line/north-acton')
+          a.below.boxed(href='/central-line/north-acton', class=(tubes.currentStationCode === 'NAC') ? ' point' : '')
             | North
             br
             | Acton
         li#cen012.station.vertical.EAC
-          a.above(href='/central-line/east-acton')
+          a.above(href='/central-line/east-acton', class=(tubes.currentStationCode !== 'EAC') || ' point')
             | East
             br
             | Acton
         li#cen013.roundel.connection.WCT
-          a.above(href='/central-line/white-city')
+          a.above(href='/central-line/white-city', class=(tubes.currentStationCode !== 'WCT') || ' point')
             | White
             br
             | City
         li#cen014.roundel.connection.SBC
-          a.above.rail(href='/central-line/shepherds-bush')
+          a.above.rail(href='/central-line/shepherds-bush', class=(tubes.currentStationCode !== 'SBC') || ' point')
             | Shepherd's
             br
             | Bush
         li#cen015.station.vertical.HPK
-          a.below(href='/central-line/holland-park')
+          a.below(href='/central-line/holland-park', class=(tubes.currentStationCode !== 'HPK') || ' point')
             | Holland
             br
             | Park
         li#cen016.roundel.connection.NHG
-          a.above.boxed(href='/central-line/notting-hill-gate')
+          a.above.boxed(href='/central-line/notting-hill-gate', class=(tubes.currentStationCode !== 'NHG') || ' point')
             | Notting
             br
             | Hill Gate
         li#cen017.station.vertical.QWY
-          a.below(href='/central-line/queensway') Queensway
+          a.below(href='/central-line/queensway', class=(tubes.currentStationCode !== 'QWY') || ' point') Queensway
         li#cen018.station.vertical.LAN
-          a.above(href='/central-line/lancaster-gate')
+          a.above(href='/central-line/lancaster-gate', class=(tubes.currentStationCode !== 'LAN') || ' point')
             | Lancaster
             br
             | Gate
         li#cen019.station.vertical.MAR
-          a.below(href='/central-line/marble-arch')
+          a.below(href='/central-line/marble-arch', class=(tubes.currentStationCode !== 'MAR') || ' point')
             | Marble
             br
             | Arch
         li#cen020.roundel.connection.BDS
-          a.above(href='/central-line/bond-street')
+          a.above(href='/central-line/bond-street', class=(tubes.currentStationCode !== 'BDS') || ' point')
             | Bond
             br
             | Street
         li#cen021.roundel.connection.OXC
-          a.above(href='/central-line/oxford-circus')
+          a.above(href='/central-line/oxford-circus', class=(tubes.currentStationCode !== 'OXC') || ' point')
             | Oxford
             br
             | Circus
         li#cen022.roundel.connection.TCR
-          a.below(href='/central-line/tottenham-court-road')
+          a.below(href='/central-line/tottenham-court-road', class=(tubes.currentStationCode !== 'TCR') || ' point')
             | Tottenham
             br
             | Court
             br
             | Road
         li#cen023.roundel.connection.HOL
-          a.below(href='/central-line/holborn') Holborn
+          a.below(href='/central-line/holborn', class=(tubes.currentStationCode !== 'HOL') || ' point') Holborn
         li#cen024.station.vertical.CYL
-          a.above(href='/central-line/chancery-lane')
+          a.above(href='/central-line/chancery-lane', class=(tubes.currentStationCode !== 'CYL') || ' point')
             | Chancery
             br
             | Lane
         li#cen025.station.rot315.STP
-          a.no-arrow.right(href='/central-line/st-pauls') St. Paul's
+          a.no-arrow.right(href='/central-line/st-pauls', class=(tubes.currentStationCode !== 'STP') || ' point') St. Paul's
         li#cen026.roundel.connection.BNK
-          a.above.cross(href='/central-line/bank')
+          a.above.cross(href='/central-line/bank', class=(tubes.currentStationCode !== 'BNK') || ' point')
             br
             | Bank
         li#cen027.roundel.connection
         li#cen028.station.vertical.BNG
-          a.above(href='/central-line/bethnal-green')
+          a.above(href='/central-line/bethnal-green', class=(tubes.currentStationCode !== 'BNG') || ' point')
             | Bethnal
             br
             | Green
         li#cen029.roundel.connection.MLE
-          a.above(href='/central-line/mile-end')
+          a.above(href='/central-line/mile-end', class=(tubes.currentStationCode !== 'MLE') || ' point')
             br
             | Mile End
         li#cen030.roundel.disabled.SFD
-          a.rail.right(href='/central-line/stratford') Stratford
+          a.rail.right(href='/central-line/stratford', class=(tubes.currentStationCode !== 'SFD') || ' point') Stratford
         li#cen031.station.LEY
-          a.left(href='/central-line/leyton') Leyton
+          a.left(href='/central-line/leyton', class=(tubes.currentStationCode !== 'LEY') || ' point') Leyton
         li#cen032.station.LYS
-          a.left.boxed(href='/central-line/leytonstone') Leytonstone
+          a.left.boxed(href='/central-line/leytonstone', class=(tubes.currentStationCode !== 'LYS') || ' point') Leytonstone
         li#cen033.station.SNB
-          a.left(href='/central-line/snaresbrook') Snaresbrook
+          a.left(href='/central-line/snaresbrook', class=(tubes.currentStationCode !== 'SNB') || ' point') Snaresbrook
         li#cen034.station.SWF
-          a.left(href='/central-line/south-woodford') South Woodford
+          a.left(href='/central-line/south-woodford', class=(tubes.currentStationCode !== 'SWF') || ' point') South Woodford
         li#cen035.roundel.disabled.WFD
-          a.left(href='/central-line/woodford') Woodford
+          a.left(href='/central-line/woodford', class=(tubes.currentStationCode !== 'WFD') || ' point') Woodford
         li#cen036.station.BHL
-          a.left(href='/central-line/buckhurst-hill') Buckhurst Hill
+          a.left(href='/central-line/buckhurst-hill', class=(tubes.currentStationCode !== 'BHL') || ' point') Buckhurst Hill
         li#cen037.station.LTN
-          a.left(href='/central-line/loughton') Loughton
+          a.left(href='/central-line/loughton', class=(tubes.currentStationCode !== 'LTN') || ' point') Loughton
         li#cen038.station.DEB
-          a.left(href='/central-line/debden') Debden
+          a.left(href='/central-line/debden', class=(tubes.currentStationCode !== 'DEB') || ' point') Debden
         li#cen039.station.THB
-          a.left(href='/central-line/theydon-bois') Theydon Bois
+          a.left(href='/central-line/theydon-bois', class=(tubes.currentStationCode !== 'THB') || ' point') Theydon Bois
         li#cen040.roundel.disabled.EPP
-          a.left(href='/central-line/epping') Epping
+          a.left(href='/central-line/epping', class=(tubes.currentStationCode !== 'EPP') || ' point') Epping
         li#cen041.roundel.disabled.ROD
           strong.above
-            a(href="/central-line/roding-valley")
+            a(href="/central-line/roding-valley", class=(tubes.currentStationCode !== 'ROD') || ' point')
               | Roding
               br
               | Valley
         li#cen042.station.vertical.CHG
-          a.below(href='/central-line/chigwell') Chigwell
+          a.below(href='/central-line/chigwell', class=(tubes.currentStationCode !== 'CHG') || ' point') Chigwell
         li#cen043.station.vertical.GRH
-          a.above(href='/central-line/grange-hill')
+          a.above(href='/central-line/grange-hill', class=(tubes.currentStationCode !== 'GRH') || ' point')
             | Grange
             br
             | Hill
 
         li#cen044.roundel.disabled.HAI
-          a.left(href='/central-line/hainault') Hainault
+          a.left(href='/central-line/hainault', class=(tubes.currentStationCode !== 'HAI') || ' point') Hainault
         li#cen045.station.FLP
-          a.left(href='/central-line/fairlop') Fairlop
+          a.left(href='/central-line/fairlop', class=(tubes.currentStationCode !== 'FLP') || ' point') Fairlop
         li#cen046.station.BDE
-          a.left(href='/central-line/barkingside') Barkingside
+          a.left(href='/central-line/barkingside', class=(tubes.currentStationCode !== 'BDE') || ' point') Barkingside
         li#cen047.station.NEP
-          a.left(href='/central-line/newbury-park') Newbury Park
+          a.left(href='/central-line/newbury-park', class=(tubes.currentStationCode !== 'NEP') || ' point') Newbury Park
         li#cen048.station.vertical.GHL
-          a.below(href='/central-line/gants-hill')
+          a.below(href='/central-line/gants-hill', class=(tubes.currentStationCode !== 'GHL') || ' point')
             | Gants
             br
             | Hill
         li#cen049.station.vertical.RED
-          a.above(href='/central-line/redbridge')
+          a.above(href='/central-line/redbridge', class=(tubes.currentStationCode !== 'RED') || ' point')
             br
             | Redbridge
         li#cen050.station.vertical.WAN
-          a.below(href='/central-line/wanstead') Wanstead
+          a.below(href='/central-line/wanstead', class=(tubes.currentStationCode !== 'WAN') || ' point') Wanstead
         li#cen051.route.horizontal
         li#cen052.route.diagonal
         li#cen053.route.bend45deg.rot90.flipped

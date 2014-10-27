@@ -2,7 +2,7 @@
   "client/shared.js": {
     "id": "client/shared.js",
     "type": "js",
-    "mtime": 1414401829000,
+    "mtime": 1414403001000,
     "src": "\nvar page = require('../public/libs/page.js');\nvar nextBus = require('../components/next-bus/next-bus.js');\nvar nextTrain = require('../components/next-train/next-train.js');\nvar trainStatus = require('../components/train-status/train-status.js');\n\nvar url;\nif(window.location.hostname === 'woodford.today') {\n    url = 'http://woodford.today:80/';\n}else {\n    url = 'http://localhost/';\n}\nvar socket = io(url);\n\nnextTrain.bind($('#nextTrain'), socket);\n\nsocket.on('trainStatus', trainStatus.render);\nsocket.on('nextBus', nextBus.render);\n\npage();\n\nvar stationCodes = require('../fetchers/next-train/url-codes.json');\n\npage('/central-line/:stationName', function(context, next) {\n    var code = stationCodes[context.params.stationName];\n    // to emit stop listening.\n    $('li a.point').removeClass('point');\n    $('#map-container').attr('data-station', code);\n    setTimeout(function() {\n        var selector = 'ul.line li.' + code + ' a';\n        console.log(selector);\n        $(selector).addClass('point');\n    }, 800);\n    nextTrain.showLoader();\n    nextTrain.getStationData(context.params.stationName, socket);\n});\n\n// $(' ul#central.line li a').click(function(e) {\n//     e.preventDefault();\n//     var newStation = this.href.split('/').pop();\n//     $('#map-container').attr('data-station', newStation);\n//     nextTrain.getStationData(newStation, socket);\n// });\n",
     "deps": {
       "../public/libs/page.js": "public/libs/page.js",
@@ -27,17 +27,6 @@
     "src": "module.exports = {\n  \"bank\": \"BNK\",\n  \"barkingside\": \"BDE\",\n  \"bethnal-green\": \"BNG\",\n  \"bond-street\": \"BDS\",\n  \"buckhurst-hill\": \"BHL\",\n  \"chancery-lane\": \"CYL\",\n  \"chigwell\": \"CHG\",\n  \"debden\": \"DEB\",\n  \"ealing-broadway\": \"EBY\",\n  \"east-acton\": \"EAC\",\n  \"epping\": \"EPP\",\n  \"fairlop\": \"FLP\",\n  \"gants-hill\": \"GHL\",\n  \"grange-hill\": \"GRH\",\n  \"greenford\": \"GFD\",\n  \"hainault\": \"HAI\",\n  \"hanger-lane\": \"HLN\",\n  \"holborn\": \"HOL\",\n  \"holland-park\": \"HPK\",\n  \"lancaster-gate\": \"LAN\",\n  \"leyton\": \"LEY\",\n  \"leytonstone\": \"LYS\",\n  \"liverpool-street\": \"LST\",\n  \"loughton\": \"LTN\",\n  \"marble-arch\": \"MAR\",\n  \"mile-end\": \"MLE\",\n  \"newbury-park\": \"NEP\",\n  \"north-acton\": \"NAC\",\n  \"northolt\": \"NHT\",\n  \"notting-hill-gate\": \"NHG\",\n  \"oxford-circus\": \"OXC\",\n  \"perivale\": \"PER\",\n  \"queensway\": \"QWY\",\n  \"redbridge\": \"RED\",\n  \"roding-valley\": \"ROD\",\n  \"ruislip-gardens\": \"RUG\",\n  \"shepherds-bush\": \"SBC\",\n  \"snaresbrook\": \"SNB\",\n  \"south-ruislip\": \"SRP\",\n  \"south-woodford\": \"SWF\",\n  \"st-pauls\": \"STP\",\n  \"stratford\": \"SFD\",\n  \"theydon-bois\": \"THB\",\n  \"tottenham-court-road\": \"TCR\",\n  \"wanstead\": \"WAN\",\n  \"west-acton\": \"WAC\",\n  \"west-ruislip\": \"WRP\",\n  \"white-city\": \"WCT\",\n  \"woodford\": \"WFD\"\n};",
     "deps": {}
   },
-  "components/next-train/next-train.js": {
-    "id": "components/next-train/next-train.js",
-    "type": "js",
-    "mtime": 1414064473000,
-    "src": "'use strict';\n\nvar page = require('../../public/libs/page.js');\nvar templateTrains = require('./trains.jade');\nvar templateTitle = require('./title.jade');\n\nvar listen = function (newStation, socket) {\n    socket.emit('next-train:station:listen:start', newStation);\n    socket.on('next-train:station:' + newStation, exports.render);\n};\n\nexports.getStationData = function (stationCode, socket) {\n\n    $.ajax({\n        url: '/central-line/' + stationCode,\n        headers: {\n            Accept: 'application/json'\n        },\n        success: function (data) {\n            //$('.widget').removeClass('loading');\n            exports.render(data);\n            $('.widget').height($('.container').height());\n            setTimeout(function() {\n                $('.widget').removeClass('loading');\n            }, 600);\n            listen(data.code, socket);\n        }\n    }).fail(function (e) {\n        $('#nextTrain').html('<h1>Error occured fetching ' + stationCode + '</h1>');\n    });\n};\n\nvar stationChange = function (socket, e) {\n    var oldStation = e.currentTarget.dataset.currentlyListening;\n    var newStation = e.currentTarget.selectedOptions[0].value;\n    var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase(); \n    page('/central-line/' + newStationSlug);\n    $('body').scrollTop(0)\n    // socket.emit('next-train:station:listen:stop', oldStation);\n    // socket.off('next-train:station:' + oldStation);\n    exports.getStationData(newStationSlug, socket);\n};\n\nexports.showLoader = function() {\n    $('.widget').addClass('loading');\n};\n\nexports.render = function (data) {\n    console.log('render', data);\n    var $node = $('#nextTrain');\n    $node.find('select').attr('data-currently-listening', data.code);\n    $node.find('.trains').replaceWith($(templateTrains({ station: data })));\n};\n\nexports.bind = function ($node, socket) {\n    var $select = $node.find('select#stationCode');\n    $select.change(stationChange.bind(null, socket));\n    $node.find('a.change').click(function () {\n        $node.find('.settings').toggleClass('hidden');\n    });\n    var newStation = $select.data('currentlyListening');\n    listen(newStation, socket);\n};\n",
-    "deps": {
-      "../../public/libs/page.js": "public/libs/page.js",
-      "./trains.jade": "components/next-train/trains.jade",
-      "./title.jade": "components/next-train/title.jade"
-    }
-  },
   "components/next-bus/next-bus.js": {
     "id": "components/next-bus/next-bus.js",
     "type": "js",
@@ -47,6 +36,17 @@
       "./next-bus.jade": "components/next-bus/next-bus.jade"
     }
   },
+  "components/next-train/next-train.js": {
+    "id": "components/next-train/next-train.js",
+    "type": "js",
+    "mtime": 1414403045000,
+    "src": "'use strict';\n\nvar page = require('../../public/libs/page.js');\nvar templateTrains = require('./trains.jade');\nvar templateTitle = require('./title.jade');\n\nvar listen = function (newStation, socket) {\n    socket.emit('next-train:station:listen:start', newStation);\n    socket.on('next-train:station:' + newStation, exports.render);\n};\n\nexports.getStationData = function (stationCode, socket) {\n\n    $.ajax({\n        url: '/central-line/' + stationCode,\n        headers: {\n            Accept: 'application/json'\n        },\n        success: function (data) {\n            //$('.widget').removeClass('loading');\n            exports.render(data);\n            $('.widget').height($('.container').height());\n            setTimeout(function() {\n                $('.widget').removeClass('loading');\n            }, 600);\n            listen(data.code, socket);\n        }\n    }).fail(function (e) {\n        $('#nextTrain').html('<h1>Error occured fetching ' + stationCode + '</h1>');\n    });\n};\n\nvar stationChange = function (socket, e) {\n    var oldStation = e.currentTarget.dataset.currentlyListening;\n    var newStation = e.currentTarget.selectedOptions[0].value;\n    var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase(); \n    page('/central-line/' + newStationSlug);\n    $('body').scrollTop(0)\n    // socket.emit('next-train:station:listen:stop', oldStation);\n    // socket.off('next-train:station:' + oldStation);\n    exports.getStationData(newStationSlug, socket);\n};\n\nexports.showLoader = function() {\n    $('.widget').addClass('loading');\n};\n\nexports.render = function (data) {\n    console.log('render', data);\n    var $node = $('#nextTrain');\n    $node.find('select').attr('data-currently-listening', data.code);\n    $node.find('.trains').replaceWith($(templateTrains({ station: data })));\n};\n\nexports.bind = function ($node, socket) {\n    var $select = $node.find('select#stationCode');\n    $select.change(stationChange.bind(null, socket));\n    $node.find('a.change').click(function () {\n        $node.find('.settings').toggleClass('hidden');\n    });\n    var newStation = $select.data('currentlyListening');\n    listen(newStation, socket);\n};\n",
+    "deps": {
+      "../../public/libs/page.js": "public/libs/page.js",
+      "./trains.jade": "components/next-train/trains.jade",
+      "./title.jade": "components/next-train/title.jade"
+    }
+  },
   "components/train-status/train-status.js": {
     "id": "components/train-status/train-status.js",
     "type": "js",
@@ -54,6 +54,15 @@
     "src": "'use strict';\n\nvar template = require('./train-status.jade');\n\nexports.render = function (data) {\n    console.log('train status')\n  $('#tflStatus').replaceWith(template({ 'tflStatus': data }));\n};\n",
     "deps": {
       "./train-status.jade": "components/train-status/train-status.jade"
+    }
+  },
+  "components/next-bus/next-bus.jade": {
+    "id": "components/next-bus/next-bus.jade",
+    "type": "js",
+    "mtime": 1413717949000,
+    "src": "var jade = require('jade-runtime');\n\nmodule.exports = function template(locals) {\nvar buf = [];\nvar jade_mixins = {};\nvar jade_interp;\n;var locals_for_with = (locals || {});(function (nextBus) {\nbuf.push(\"<div id=\\\"nextBus\\\"><h2>Buses</h2><div class=\\\"direction\\\"><h3>To Barkingside</h3><ul class=\\\"trains\\\">\");\nif ( nextBus['1'])\n{\n// iterate nextBus['1'].buses\n;(function(){\n  var $$obj = nextBus['1'].buses;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  }\n}).call(this);\n\n}\nbuf.push(\"</ul></div><div class=\\\"direction\\\"><h3>To Walthamstow</h3><ul class=\\\"trains\\\">\");\nif ( nextBus['2'])\n{\n// iterate nextBus['2'].buses\n;(function(){\n  var $$obj = nextBus['2'].buses;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  }\n}).call(this);\n\n}\nbuf.push(\"</ul></div></div>\");}.call(this,\"nextBus\" in locals_for_with?locals_for_with.nextBus:typeof nextBus!==\"undefined\"?nextBus:undefined));;return buf.join(\"\");\n};",
+    "deps": {
+      "jade-runtime": "jade-runtime"
     }
   },
   "components/next-train/trains.jade": {
@@ -70,15 +79,6 @@
     "type": "js",
     "mtime": 1413286391000,
     "src": "var jade = require('jade-runtime');\n\nmodule.exports = function template(locals) {\nvar buf = [];\nvar jade_mixins = {};\nvar jade_interp;\n;var locals_for_with = (locals || {});(function (station) {\nbuf.push(\"<h2 class=\\\"title\\\">\" + (jade.escape(null == (jade_interp = 'Trains from ' + station.name) ? \"\" : jade_interp)) + \"</h2>\");}.call(this,\"station\" in locals_for_with?locals_for_with.station:typeof station!==\"undefined\"?station:undefined));;return buf.join(\"\");\n};",
-    "deps": {
-      "jade-runtime": "jade-runtime"
-    }
-  },
-  "components/next-bus/next-bus.jade": {
-    "id": "components/next-bus/next-bus.jade",
-    "type": "js",
-    "mtime": 1413717949000,
-    "src": "var jade = require('jade-runtime');\n\nmodule.exports = function template(locals) {\nvar buf = [];\nvar jade_mixins = {};\nvar jade_interp;\n;var locals_for_with = (locals || {});(function (nextBus) {\nbuf.push(\"<div id=\\\"nextBus\\\"><h2>Buses</h2><div class=\\\"direction\\\"><h3>To Barkingside</h3><ul class=\\\"trains\\\">\");\nif ( nextBus['1'])\n{\n// iterate nextBus['1'].buses\n;(function(){\n  var $$obj = nextBus['1'].buses;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  }\n}).call(this);\n\n}\nbuf.push(\"</ul></div><div class=\\\"direction\\\"><h3>To Walthamstow</h3><ul class=\\\"trains\\\">\");\nif ( nextBus['2'])\n{\n// iterate nextBus['2'].buses\n;(function(){\n  var $$obj = nextBus['2'].buses;\n  if ('number' == typeof $$obj.length) {\n\n    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {\n      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  } else {\n    var $$l = 0;\n    for (var $index in $$obj) {\n      $$l++;      var bus = $$obj[$index];\n\nbuf.push(\"<li><div class=\\\"due-container\\\"><span class=\\\"due\\\">\" + (jade.escape(null == (jade_interp = bus.due) ? \"\" : jade_interp)) + \"</span></div></li>\");\n    }\n\n  }\n}).call(this);\n\n}\nbuf.push(\"</ul></div></div>\");}.call(this,\"nextBus\" in locals_for_with?locals_for_with.nextBus:typeof nextBus!==\"undefined\"?nextBus:undefined));;return buf.join(\"\");\n};",
     "deps": {
       "jade-runtime": "jade-runtime"
     }

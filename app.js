@@ -11,7 +11,7 @@ var deepClone = require('underscore.deepclone');
 var POLL_INTERVAL = 5000000;
 
 var nextTrain = require('./fetchers/next-train/next-train.js');
-
+var stations = require('./components/tubes/stations.json');
 // requests always served from the cache and then updated over websockets.
 var cache = {};
 
@@ -63,6 +63,7 @@ app.get('/', function (req, res) {
     }
 
     cache.tubes = {
+        stations : stations,
         currentStationCode: "WFD"
     }
     res.render('layout.jade', cache);
@@ -90,15 +91,15 @@ app.get('/central-line/:station', function (req, res) {
 
     getStationData(stationCode, function (err, data) {
         console.log('gotback', err, data);
-        var send = {};
-        send.tubes = {
+        cache.tubes = {
+            stations : stations,
             currentStationCode: stationCode
         };
 
         if (req.headers.accept === 'application/json') {
             res.json(data);
         } else {
-            res.render('layout.jade', send);
+            res.render('layout.jade', cache);
         }
     });
 });
