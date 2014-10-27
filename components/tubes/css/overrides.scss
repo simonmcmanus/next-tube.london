@@ -1,9 +1,6 @@
 #map-container{
     overflow: visible;
-    -webkit-transition: all 10s ease-in-out;
-    -moz-transition: all 10s ease-in-out;
-    -o-transition: all 10s ease-in-out;
-    transition: all 10s ease-in-out;
+    transition: all .8s ease-in-out;
 
     li {
         a {
@@ -19,8 +16,10 @@
                 border-style: solid;
                 display: block;
                 width: 0;
+                opacity: 0;
                 border-color:transparent;
-                transition: all 6s ease-in-out;
+                // used when point is added.
+                transition: all .5s ease-in-out;
             }
 
             &.left {
@@ -29,15 +28,15 @@
                     top: 35%;
                     bottom: auto;
                     right:0;
-                    opacity: 0;
-                    transition: all 6s ease-in-out;
 
                 }
 
                 &::before {
+                    border-color: transparent #2F4E99;
                     border-width: 10px 0 10px 16px;
                 }
                 &::after {
+                    border-color: transparent #fff;
                     border-width: 10px 0 10px 16px;
                 }
             }

@@ -6544,27 +6544,25 @@ header li:hover a {
 
 #map-container {
   overflow: visible;
-  -webkit-transition: all 10s ease-in-out;
-  -moz-transition: all 10s ease-in-out;
-  -o-transition: all 10s ease-in-out;
-  transition: all 10s ease-in-out; }
+  transition: all .8s ease-in-out; }
   #map-container li a::before, #map-container li a::after {
     content: "";
     position: absolute;
     border-style: solid;
     display: block;
     width: 0;
+    opacity: 0;
     border-color: transparent;
-    transition: all 6s ease-in-out; }
+    transition: all .5s ease-in-out; }
   #map-container li a.left::before, #map-container li a.left::after {
     top: 35%;
     bottom: auto;
-    right: 0;
-    opacity: 0;
-    transition: all 6s ease-in-out; }
+    right: 0; }
   #map-container li a.left::before {
+    border-color: transparent #2F4E99;
     border-width: 10px 0 10px 16px; }
   #map-container li a.left::after {
+    border-color: transparent #fff;
     border-width: 10px 0 10px 16px; }
   #map-container li a.above::before {
     left: 50%;
@@ -6638,8 +6636,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -3em;
@@ -6649,11 +6647,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=EPP] .EPP a.left.point::before, #map-container[data-station=EPP] .EPP a.left.point::after {
+      #map-container[data-station=EPP] .EPP a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=EPP] .EPP a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=EPP] .EPP a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=THB] {
     top: -41px;
     left: -2962px; }
@@ -6672,8 +6671,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -5.5em;
@@ -6683,11 +6682,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=THB] .THB a.left.point::before, #map-container[data-station=THB] .THB a.left.point::after {
+      #map-container[data-station=THB] .THB a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=THB] .THB a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=THB] .THB a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=DEB] {
     top: -87px;
     left: -3135px; }
@@ -6706,8 +6706,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -3.6em;
@@ -6717,11 +6717,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=DEB] .DEB a.left.point::before, #map-container[data-station=DEB] .DEB a.left.point::after {
+      #map-container[data-station=DEB] .DEB a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=DEB] .DEB a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=DEB] .DEB a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=LTN] {
     top: -130px;
     left: -3084px; }
@@ -6740,8 +6741,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: -1.5em;
@@ -6751,11 +6752,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=LTN] .LTN a.left.point::before, #map-container[data-station=LTN] .LTN a.left.point::after {
+      #map-container[data-station=LTN] .LTN a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=LTN] .LTN a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=LTN] .LTN a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=BHL] {
     top: -180px;
     left: -2930px; }
@@ -6774,8 +6776,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: -2em;
@@ -6785,11 +6787,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=BHL] .BHL a.left.point::before, #map-container[data-station=BHL] .BHL a.left.point::after {
+      #map-container[data-station=BHL] .BHL a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=BHL] .BHL a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=BHL] .BHL a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=WFD] {
     top: -352px;
     left: -3055px; }
@@ -6808,8 +6811,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -4.5em;
@@ -6819,11 +6822,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=WFD] .WFD a.left.point::before, #map-container[data-station=WFD] .WFD a.left.point::after {
+      #map-container[data-station=WFD] .WFD a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=WFD] .WFD a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=WFD] .WFD a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=SWF] {
     top: -406px;
     left: -2866px; }
@@ -6842,8 +6846,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -7em;
@@ -6853,11 +6857,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=SWF] .SWF a.left.point::before, #map-container[data-station=SWF] .SWF a.left.point::after {
+      #map-container[data-station=SWF] .SWF a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=SWF] .SWF a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=SWF] .SWF a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=SNB] {
     top: -461px;
     left: -2994px; }
@@ -6876,8 +6881,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -5em;
@@ -6887,11 +6892,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=SNB] .SNB a.left.point::before, #map-container[data-station=SNB] .SNB a.left.point::after {
+      #map-container[data-station=SNB] .SNB a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=SNB] .SNB a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=SNB] .SNB a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=LYS] {
     top: -622px;
     left: -2987px; }
@@ -6910,8 +6916,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -5em;
@@ -6921,11 +6927,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=LYS] .LYS a.left.point::before, #map-container[data-station=LYS] .LYS a.left.point::after {
+      #map-container[data-station=LYS] .LYS a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=LYS] .LYS a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=LYS] .LYS a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=LEY] {
     top: -747px;
     left: -3160px; }
@@ -6944,8 +6951,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -3.4em;
@@ -6955,11 +6962,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=LEY] .LEY a.left.point::before, #map-container[data-station=LEY] .LEY a.left.point::after {
+      #map-container[data-station=LEY] .LEY a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=LEY] .LEY a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=LEY] .LEY a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=SFD] {
     top: -875px;
     left: -3455px; }
@@ -6978,8 +6986,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0.4em;
@@ -6988,11 +6996,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=SFD] .SFD a.left.point::before, #map-container[data-station=SFD] .SFD a.left.point::after {
+      #map-container[data-station=SFD] .SFD a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=SFD] .SFD a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=SFD] .SFD a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=MLE] {
     top: -1058px;
     left: -2932px; }
@@ -7011,8 +7020,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       position: inherit;
@@ -7024,11 +7033,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=MLE] .MLE a.left.point::before, #map-container[data-station=MLE] .MLE a.left.point::after {
+      #map-container[data-station=MLE] .MLE a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=MLE] .MLE a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=MLE] .MLE a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=BNG] {
     top: -1060px;
     left: -2761px; }
@@ -7047,8 +7057,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -4.05em;
@@ -7057,11 +7067,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=BNG] .BNG a.left.point::before, #map-container[data-station=BNG] .BNG a.left.point::after {
+      #map-container[data-station=BNG] .BNG a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=BNG] .BNG a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=BNG] .BNG a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=LST] {
     top: -1128px;
     left: -2386px; }
@@ -7080,8 +7091,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0em;
@@ -7091,11 +7102,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=LST] .LST a.left.point::before, #map-container[data-station=LST] .LST a.left.point::after {
+      #map-container[data-station=LST] .LST a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=LST] .LST a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=LST] .LST a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=BNK] {
     top: -1292px;
     left: -2341px; }
@@ -7114,8 +7126,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -1.75em;
@@ -7125,11 +7137,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=BNK] .BNK a.left.point::before, #map-container[data-station=BNK] .BNK a.left.point::after {
+      #map-container[data-station=BNK] .BNK a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=BNK] .BNK a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=BNK] .BNK a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=STP] {
     top: -1273px;
     left: -2352px; }
@@ -7148,8 +7161,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: .5em;
@@ -7164,11 +7177,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=STP] .STP a.left.point::before, #map-container[data-station=STP] .STP a.left.point::after {
+      #map-container[data-station=STP] .STP a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=STP] .STP a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=STP] .STP a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=CYL] {
     top: -1223px;
     left: -2020px; }
@@ -7187,8 +7201,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: -1.5em;
@@ -7198,11 +7212,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=CYL] .CYL a.left.point::before, #map-container[data-station=CYL] .CYL a.left.point::after {
+      #map-container[data-station=CYL] .CYL a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=CYL] .CYL a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=CYL] .CYL a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=HOL] {
     top: -1382px;
     left: -1997px; }
@@ -7221,8 +7236,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -1.9em;
@@ -7232,11 +7247,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=HOL] .HOL a.left.point::before, #map-container[data-station=HOL] .HOL a.left.point::after {
+      #map-container[data-station=HOL] .HOL a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=HOL] .HOL a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=HOL] .HOL a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=TCR] {
     top: -1382px;
     left: -1695px; }
@@ -7255,8 +7271,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: .99em;
@@ -7265,11 +7281,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=TCR] .TCR a.left.point::before, #map-container[data-station=TCR] .TCR a.left.point::after {
+      #map-container[data-station=TCR] .TCR a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=TCR] .TCR a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=TCR] .TCR a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=OXC] {
     top: -1216px;
     left: -1605px; }
@@ -7288,8 +7305,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -2.9em;
@@ -7298,11 +7315,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=OXC] .OXC a.left.point::before, #map-container[data-station=OXC] .OXC a.left.point::after {
+      #map-container[data-station=OXC] .OXC a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=OXC] .OXC a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=OXC] .OXC a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=BDS] {
     top: -1216px;
     left: -1544px; }
@@ -7321,8 +7339,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0em;
@@ -7332,11 +7350,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=BDS] .BDS a.left.point::before, #map-container[data-station=BDS] .BDS a.left.point::after {
+      #map-container[data-station=BDS] .BDS a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=BDS] .BDS a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=BDS] .BDS a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=MAR] {
     top: -1380px;
     left: -1418px; }
@@ -7355,8 +7374,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -3.5em;
@@ -7365,11 +7384,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=MAR] .MAR a.left.point::before, #map-container[data-station=MAR] .MAR a.left.point::after {
+      #map-container[data-station=MAR] .MAR a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=MAR] .MAR a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=MAR] .MAR a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=LAN] {
     top: -1223px;
     left: -1305px; }
@@ -7388,8 +7408,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0em;
@@ -7399,11 +7419,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=LAN] .LAN a.left.point::before, #map-container[data-station=LAN] .LAN a.left.point::after {
+      #map-container[data-station=LAN] .LAN a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=LAN] .LAN a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=LAN] .LAN a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=QWY] {
     top: -1378px;
     left: -1277px; }
@@ -7422,8 +7443,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0em;
@@ -7433,11 +7454,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=QWY] .QWY a.left.point::before, #map-container[data-station=QWY] .QWY a.left.point::after {
+      #map-container[data-station=QWY] .QWY a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=QWY] .QWY a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=QWY] .QWY a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=NHG] {
     top: -1215px;
     left: -1083px; }
@@ -7456,8 +7478,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0em;
@@ -7467,11 +7489,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=NHG] .NHG a.left.point::before, #map-container[data-station=NHG] .NHG a.left.point::after {
+      #map-container[data-station=NHG] .NHG a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=NHG] .NHG a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=NHG] .NHG a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=HPK] {
     top: -1373px;
     left: -1071px; }
@@ -7490,8 +7513,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -3.65em;
@@ -7500,11 +7523,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=HPK] .HPK a.left.point::before, #map-container[data-station=HPK] .HPK a.left.point::after {
+      #map-container[data-station=HPK] .HPK a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=HPK] .HPK a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=HPK] .HPK a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=SBC] {
     top: -1217px;
     left: -931px; }
@@ -7523,8 +7547,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -4.36em;
@@ -7533,11 +7557,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=SBC] .SBC a.left.point::before, #map-container[data-station=SBC] .SBC a.left.point::after {
+      #map-container[data-station=SBC] .SBC a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=SBC] .SBC a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=SBC] .SBC a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=WCT] {
     top: -1217px;
     left: -864px; }
@@ -7556,8 +7581,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0em;
@@ -7567,11 +7592,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=WCT] .WCT a.left.point::before, #map-container[data-station=WCT] .WCT a.left.point::after {
+      #map-container[data-station=WCT] .WCT a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=WCT] .WCT a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=WCT] .WCT a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=EAC] {
     top: -1222px;
     left: -778px; }
@@ -7590,8 +7616,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0em;
@@ -7601,11 +7627,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=EAC] .EAC a.left.point::before, #map-container[data-station=EAC] .EAC a.left.point::after {
+      #map-container[data-station=EAC] .EAC a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=EAC] .EAC a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=EAC] .EAC a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=NAC] {
     top: -1374px;
     left: -702px; }
@@ -7624,8 +7651,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -3.91em;
@@ -7634,11 +7661,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=NAC] .NAC a.left.point::before, #map-container[data-station=NAC] .NAC a.left.point::after {
+      #map-container[data-station=NAC] .NAC a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=NAC] .NAC a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=NAC] .NAC a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=WAC] {
     top: -1373px;
     left: -537px; }
@@ -7657,8 +7685,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: 0em;
@@ -7668,11 +7696,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=WAC] .WAC a.left.point::before, #map-container[data-station=WAC] .WAC a.left.point::after {
+      #map-container[data-station=WAC] .WAC a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=WAC] .WAC a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=WAC] .WAC a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=EBY] {
     top: -1305px;
     left: 31px; }
@@ -7691,8 +7720,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -7em;
@@ -7702,11 +7731,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=EBY] .EBY a.left.point::before, #map-container[data-station=EBY] .EBY a.left.point::after {
+      #map-container[data-station=EBY] .EBY a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=EBY] .EBY a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=EBY] .EBY a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=HLN] {
     top: -1059px;
     left: -126px; }
@@ -7725,8 +7755,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: -6.3em;
@@ -7743,11 +7773,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=HLN] .HLN a.left.point::before, #map-container[data-station=HLN] .HLN a.left.point::after {
+      #map-container[data-station=HLN] .HLN a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=HLN] .HLN a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=HLN] .HLN a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=PER] {
     top: -972px;
     left: -169px; }
@@ -7766,8 +7797,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: -4.3em;
@@ -7784,11 +7815,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=PER] .PER a.left.point::before, #map-container[data-station=PER] .PER a.left.point::after {
+      #map-container[data-station=PER] .PER a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=PER] .PER a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=PER] .PER a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=GFD] {
     top: -875px;
     left: -10px; }
@@ -7807,8 +7839,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: -5.6em;
@@ -7825,11 +7857,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=GFD] .GFD a.left.point::before, #map-container[data-station=GFD] .GFD a.left.point::after {
+      #map-container[data-station=GFD] .GFD a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=GFD] .GFD a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=GFD] .GFD a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=NHT] {
     top: -707px;
     left: -34px; }
@@ -7848,8 +7881,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -4.4em;
@@ -7859,11 +7892,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=NHT] .NHT a.left.point::before, #map-container[data-station=NHT] .NHT a.left.point::after {
+      #map-container[data-station=NHT] .NHT a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=NHT] .NHT a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=NHT] .NHT a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=SRP] {
     top: -600px;
     left: 99px; }
@@ -7882,8 +7916,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -5.8em;
@@ -7893,11 +7927,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=SRP] .SRP a.left.point::before, #map-container[data-station=SRP] .SRP a.left.point::after {
+      #map-container[data-station=SRP] .SRP a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=SRP] .SRP a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=SRP] .SRP a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=RUG] {
     top: -485px;
     left: 160px; }
@@ -7916,8 +7951,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: -2.2em;
@@ -7927,11 +7962,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=RUG] .RUG a.left.point::before, #map-container[data-station=RUG] .RUG a.left.point::after {
+      #map-container[data-station=RUG] .RUG a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=RUG] .RUG a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=RUG] .RUG a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=WRP] {
     top: -270px;
     left: 92px; }
@@ -7950,8 +7986,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: -1.1em;
@@ -7961,11 +7997,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=WRP] .WRP a.left.point::before, #map-container[data-station=WRP] .WRP a.left.point::after {
+      #map-container[data-station=WRP] .WRP a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=WRP] .WRP a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=WRP] .WRP a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=ROD] {
     top: -206px;
     left: -3458px; }
@@ -7984,8 +8021,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important; }
       #map-container[data-station=ROD] .ROD a br {
@@ -7994,11 +8031,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=ROD] .ROD a.left.point::before, #map-container[data-station=ROD] .ROD a.left.point::after {
+      #map-container[data-station=ROD] .ROD a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=ROD] .ROD a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=ROD] .ROD a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=CHG] {
     top: -345px;
     left: -3405px; }
@@ -8017,8 +8055,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       left: -2.9em;
@@ -8027,11 +8065,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=CHG] .CHG a.left.point::before, #map-container[data-station=CHG] .CHG a.left.point::after {
+      #map-container[data-station=CHG] .CHG a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=CHG] .CHG a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=CHG] .CHG a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=GRH] {
     top: -206px;
     left: -3458px; }
@@ -8050,8 +8089,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: -95px;
@@ -8062,11 +8101,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=GRH] .ROD a.left.point::before, #map-container[data-station=GRH] .ROD a.left.point::after {
+      #map-container[data-station=GRH] .ROD a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=GRH] .ROD a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=GRH] .ROD a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=HAI] {
     top: -323px;
     left: -3367px; }
@@ -8085,8 +8125,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: -.3em;
@@ -8097,11 +8137,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=HAI] .HAI a.left.point::before, #map-container[data-station=HAI] .HAI a.left.point::after {
+      #map-container[data-station=HAI] .HAI a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=HAI] .HAI a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=HAI] .HAI a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=FLP] {
     top: -382px;
     left: -3419px; }
@@ -8120,8 +8161,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: -.4em;
@@ -8133,11 +8174,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=FLP] .FLP a.left.point::before, #map-container[data-station=FLP] .FLP a.left.point::after {
+      #map-container[data-station=FLP] .FLP a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=FLP] .FLP a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=FLP] .FLP a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=BDE] {
     top: -435px;
     left: -3283px; }
@@ -8156,8 +8198,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: -.4em;
@@ -8169,11 +8211,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=BDE] .BDE a.left.point::before, #map-container[data-station=BDE] .BDE a.left.point::after {
+      #map-container[data-station=BDE] .BDE a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=BDE] .BDE a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=BDE] .BDE a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=NEP] {
     top: -489px;
     left: -3208px; }
@@ -8192,8 +8235,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: -.4em;
@@ -8205,11 +8248,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=NEP] .NEP a.left.point::before, #map-container[data-station=NEP] .NEP a.left.point::after {
+      #map-container[data-station=NEP] .NEP a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=NEP] .NEP a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=NEP] .NEP a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=GHL] {
     top: -634px;
     left: -3453px; }
@@ -8228,8 +8272,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: .6em;
@@ -8240,11 +8284,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=GHL] .GHL a.left.point::before, #map-container[data-station=GHL] .GHL a.left.point::after {
+      #map-container[data-station=GHL] .GHL a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=GHL] .GHL a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=GHL] .GHL a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=RED] {
     top: -482px;
     left: -3385px; }
@@ -8263,8 +8308,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       margin-left: -3.11em;
@@ -8275,11 +8320,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=RED] .RED a.left.point::before, #map-container[data-station=RED] .RED a.left.point::after {
+      #map-container[data-station=RED] .RED a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=RED] .RED a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=RED] .RED a.left.point::after {
+        opacity: 1;
+        right: -13px; }
   #map-container[data-station=WAN] {
     top: -633px;
     left: -3326px; }
@@ -8298,8 +8344,8 @@ header li:hover a {
       opacity: 1;
       padding: 5px 25px;
       position: relative;
-      transition-delay: 30s;
-      transition: all 6s ease-in-out;
+      transition-delay: 3s;
+      transition: all .3s ease-in-out;
       white-space: nowrap;
       z-index: 2 !important;
       top: .6em;
@@ -8310,11 +8356,12 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
-      #map-container[data-station=WAN] .WAN a.left.point::before, #map-container[data-station=WAN] .WAN a.left.point::after {
+      #map-container[data-station=WAN] .WAN a.left.point::before {
         opacity: 1;
         right: -16px; }
-      #map-container[data-station=WAN] .WAN a.left::after {
-        border-color: transparent #fff; }
+      #map-container[data-station=WAN] .WAN a.left.point::after {
+        opacity: 1;
+        right: -13px; }
 
 @media (min-width: 800px) {
   #map-container {

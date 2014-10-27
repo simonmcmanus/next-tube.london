@@ -16,8 +16,8 @@
     opacity: 1;
     padding: 5px 25px;
     position: relative;
-    transition-delay: 30s;
-    transition: all 6s ease-in-out;
+    transition-delay: 3s;
+    transition: all .3s ease-in-out;
     white-space: nowrap;
     z-index: 2 !important;
 
@@ -30,16 +30,16 @@
     &.left {
 
         &.point {
-            &::before,
+            &::before {
+
+                opacity: 1;
+                right: -16px;
+            }
             &::after {
                 opacity: 1;
-                right: -16px
+                right: -13px;
             }
         }
 
-    
-        &::after {
-            border-color: transparent #fff;
-        }
     }
 }
