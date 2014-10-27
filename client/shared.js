@@ -27,10 +27,10 @@ page('/central-line/:stationName', function(context, next) {
     $('li a.point').removeClass('point');
     $('#map-container').attr('data-station', code);
     setTimeout(function() {
-        var selector = 'li.station.' + code + ' a';
+        var selector = 'ul.line li.' + code + ' a';
         console.log(selector);
         $(selector).addClass('point');
-    }, 500);
+    }, 800);
     nextTrain.showLoader();
     nextTrain.getStationData(context.params.stationName, socket);
 });

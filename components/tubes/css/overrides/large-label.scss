@@ -16,10 +16,10 @@
     opacity: 1;
     padding: 5px 25px;
     position: relative;
-    transition: all .3s ease-in-out;
+    
     transition-delay: .3s;
     white-space: nowrap;
-    z-index: 2 !important;
+    z-index: 200 !important;
 
     br {
         content: ' ';

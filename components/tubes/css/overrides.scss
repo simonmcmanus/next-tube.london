@@ -4,7 +4,7 @@
 
     li {
         a {
-            transition: all .3s ease-in-out;
+            transition: all .4s ease-in-out;
 
             &::before,
             &::after {
@@ -16,8 +16,9 @@
                 opacity: 0;
                 border-color:transparent;
                 // used when point is added.
-                transition: all .5s ease-in-out;
+                transition: all .2s ease-in-out;
             }
+
 
             &.left {
                 &::before,
@@ -116,7 +117,7 @@
     .station:hover a,
     .roundel:hover strong,
     .station:hover strong {
-        opacity: 0.2c;
+        opacity: 0.2;
     }
 
     #pic037  {
@@ -126,9 +127,7 @@
     ul.links li {
         z-index: 5 !important;
     }
-    #central .station a {
-        z-index: 230 !important;
-    }
+
 
     .lines {
         z-index: -1;
