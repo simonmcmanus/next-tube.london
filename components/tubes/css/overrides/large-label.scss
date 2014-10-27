@@ -26,20 +26,45 @@
         display: inline-block;
         width: .3em;
     }
+    &.point::before,
+    &.point::after, {
+        opacity: 1;
+    }
 
-    &.left {
-
-        &.point {
-            &::before {
-
-                opacity: 1;
-                right: -16px;
-            }
-            &::after {
-                opacity: 1;
-                right: -13px;
-            }
+    &.left.point {
+        &::before {
+            right: -16px;
         }
+        &::after {
+            right: -13px;
+        }
+    }
 
+    &.right.point {
+        &::before {
+            left: -16px;
+        }
+        &::after {
+            left: -13px;
+        }
+    }
+
+    &.above.point {
+        &::before {
+            bottom: -16px;
+        }
+        &::after {
+            bottom: -13px;
+        }
+    }
+
+
+    &.below.point {
+        &::before {
+            top: -16px;
+        }
+        &::after {
+            top: -13px;
+        }
     }
 }

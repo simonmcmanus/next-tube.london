@@ -6559,43 +6559,37 @@ header li:hover a {
     #map-container li a.left::before, #map-container li a.left::after {
       top: 35%;
       bottom: auto;
-      right: 0; }
+      right: 0;
+      border-width: 10px 0 10px 16px; }
     #map-container li a.left::before {
-      border-color: transparent #2F4E99;
-      border-width: 10px 0 10px 16px; }
+      border-color: transparent #2F4E99; }
     #map-container li a.left::after {
-      border-color: transparent #fff;
-      border-width: 10px 0 10px 16px; }
-    #map-container li a.above::before {
-      left: 50%;
-      bottom: -16px;
-      border-width: 14px 14px 0; }
-    #map-container li a.above::after {
-      left: 50%;
-      bottom: -13px;
-      border-width: 14px 14px 0; }
-    #map-container li a.below::before {
-      left: 50%;
-      top: -16px !important;
-      border-width: 0 14px 14px; }
-    #map-container li a.below::after {
-      left: 50%;
-      top: -13px !important;
-      border-width: 0 14px 14px;
-      border-color: #fff transparent; }
+      border-color: transparent #fff; }
     #map-container li a.right::before, #map-container li a.right::after {
       bottom: auto;
-      right: auto; }
-    #map-container li a.right::before {
       top: 35%;
-      left: -16px;
-      border-width: 10px 16px 10px 0em;
+      right: auto;
+      left: 0;
+      border-width: 10px 16px 10px 0; }
+    #map-container li a.right::before {
       border-color: transparent #2F4E99; }
     #map-container li a.right::after {
-      top: 35%;
-      left: -13px;
-      border-width: 10px 16px 10px 0;
       border-color: transparent #fff; }
+    #map-container li a.above::before, #map-container li a.above::after {
+      left: 50%;
+      bottom: 0;
+      border-width: 14px 14px 0; }
+    #map-container li a.above::before {
+      border-color: #2F4E99 transparent; }
+    #map-container li a.above::after {
+      border-color: #fff transparent; }
+    #map-container li a.below::before, #map-container li a.below::after {
+      left: 50%;
+      border-width: 0 14px 14px; }
+    #map-container li a.below::before {
+      border-color: #2F4E99 transparent; }
+    #map-container li a.below::after {
+      border-color: #fff transparent; }
     #map-container li a.no-arrow::before, #map-container li a.no-arrow::after {
       display: none; }
   #map-container li a, #map-container li strong {
@@ -6646,12 +6640,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=EPP] .EPP a.point::before, #map-container[data-station=EPP] .EPP a.point::after {
+        opacity: 1; }
       #map-container[data-station=EPP] .EPP a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=EPP] .EPP a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=EPP] .EPP a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=EPP] .EPP a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=EPP] .EPP a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=EPP] .EPP a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=EPP] .EPP a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=EPP] .EPP a.below.point::after {
+        top: -13px; }
   #map-container[data-station=THB] {
     top: -41px;
     left: -2962px; }
@@ -6680,12 +6686,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=THB] .THB a.point::before, #map-container[data-station=THB] .THB a.point::after {
+        opacity: 1; }
       #map-container[data-station=THB] .THB a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=THB] .THB a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=THB] .THB a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=THB] .THB a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=THB] .THB a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=THB] .THB a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=THB] .THB a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=THB] .THB a.below.point::after {
+        top: -13px; }
   #map-container[data-station=DEB] {
     top: -87px;
     left: -3135px; }
@@ -6714,12 +6732,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=DEB] .DEB a.point::before, #map-container[data-station=DEB] .DEB a.point::after {
+        opacity: 1; }
       #map-container[data-station=DEB] .DEB a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=DEB] .DEB a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=DEB] .DEB a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=DEB] .DEB a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=DEB] .DEB a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=DEB] .DEB a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=DEB] .DEB a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=DEB] .DEB a.below.point::after {
+        top: -13px; }
   #map-container[data-station=LTN] {
     top: -130px;
     left: -3084px; }
@@ -6748,12 +6778,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=LTN] .LTN a.point::before, #map-container[data-station=LTN] .LTN a.point::after {
+        opacity: 1; }
       #map-container[data-station=LTN] .LTN a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=LTN] .LTN a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=LTN] .LTN a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=LTN] .LTN a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=LTN] .LTN a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=LTN] .LTN a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=LTN] .LTN a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=LTN] .LTN a.below.point::after {
+        top: -13px; }
   #map-container[data-station=BHL] {
     top: -180px;
     left: -2930px; }
@@ -6782,12 +6824,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=BHL] .BHL a.point::before, #map-container[data-station=BHL] .BHL a.point::after {
+        opacity: 1; }
       #map-container[data-station=BHL] .BHL a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=BHL] .BHL a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=BHL] .BHL a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=BHL] .BHL a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=BHL] .BHL a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=BHL] .BHL a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=BHL] .BHL a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=BHL] .BHL a.below.point::after {
+        top: -13px; }
   #map-container[data-station=WFD] {
     top: -352px;
     left: -3055px; }
@@ -6816,12 +6870,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=WFD] .WFD a.point::before, #map-container[data-station=WFD] .WFD a.point::after {
+        opacity: 1; }
       #map-container[data-station=WFD] .WFD a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=WFD] .WFD a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=WFD] .WFD a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=WFD] .WFD a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=WFD] .WFD a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=WFD] .WFD a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=WFD] .WFD a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=WFD] .WFD a.below.point::after {
+        top: -13px; }
   #map-container[data-station=SWF] {
     top: -406px;
     left: -2866px; }
@@ -6850,12 +6916,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=SWF] .SWF a.point::before, #map-container[data-station=SWF] .SWF a.point::after {
+        opacity: 1; }
       #map-container[data-station=SWF] .SWF a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=SWF] .SWF a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=SWF] .SWF a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=SWF] .SWF a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=SWF] .SWF a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=SWF] .SWF a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=SWF] .SWF a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=SWF] .SWF a.below.point::after {
+        top: -13px; }
   #map-container[data-station=SNB] {
     top: -461px;
     left: -2994px; }
@@ -6884,12 +6962,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=SNB] .SNB a.point::before, #map-container[data-station=SNB] .SNB a.point::after {
+        opacity: 1; }
       #map-container[data-station=SNB] .SNB a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=SNB] .SNB a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=SNB] .SNB a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=SNB] .SNB a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=SNB] .SNB a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=SNB] .SNB a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=SNB] .SNB a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=SNB] .SNB a.below.point::after {
+        top: -13px; }
   #map-container[data-station=LYS] {
     top: -622px;
     left: -2987px; }
@@ -6918,12 +7008,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=LYS] .LYS a.point::before, #map-container[data-station=LYS] .LYS a.point::after {
+        opacity: 1; }
       #map-container[data-station=LYS] .LYS a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=LYS] .LYS a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=LYS] .LYS a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=LYS] .LYS a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=LYS] .LYS a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=LYS] .LYS a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=LYS] .LYS a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=LYS] .LYS a.below.point::after {
+        top: -13px; }
   #map-container[data-station=LEY] {
     top: -747px;
     left: -3160px; }
@@ -6952,12 +7054,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=LEY] .LEY a.point::before, #map-container[data-station=LEY] .LEY a.point::after {
+        opacity: 1; }
       #map-container[data-station=LEY] .LEY a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=LEY] .LEY a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=LEY] .LEY a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=LEY] .LEY a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=LEY] .LEY a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=LEY] .LEY a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=LEY] .LEY a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=LEY] .LEY a.below.point::after {
+        top: -13px; }
   #map-container[data-station=SFD] {
     top: -875px;
     left: -3455px; }
@@ -6985,12 +7099,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=SFD] .SFD a.point::before, #map-container[data-station=SFD] .SFD a.point::after {
+        opacity: 1; }
       #map-container[data-station=SFD] .SFD a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=SFD] .SFD a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=SFD] .SFD a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=SFD] .SFD a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=SFD] .SFD a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=SFD] .SFD a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=SFD] .SFD a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=SFD] .SFD a.below.point::after {
+        top: -13px; }
   #map-container[data-station=MLE] {
     top: -1058px;
     left: -2932px; }
@@ -7021,12 +7147,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=MLE] .MLE a.point::before, #map-container[data-station=MLE] .MLE a.point::after {
+        opacity: 1; }
       #map-container[data-station=MLE] .MLE a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=MLE] .MLE a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=MLE] .MLE a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=MLE] .MLE a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=MLE] .MLE a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=MLE] .MLE a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=MLE] .MLE a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=MLE] .MLE a.below.point::after {
+        top: -13px; }
   #map-container[data-station=BNG] {
     top: -1060px;
     left: -2761px; }
@@ -7054,12 +7192,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=BNG] .BNG a.point::before, #map-container[data-station=BNG] .BNG a.point::after {
+        opacity: 1; }
       #map-container[data-station=BNG] .BNG a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=BNG] .BNG a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=BNG] .BNG a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=BNG] .BNG a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=BNG] .BNG a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=BNG] .BNG a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=BNG] .BNG a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=BNG] .BNG a.below.point::after {
+        top: -13px; }
   #map-container[data-station=LST] {
     top: -1128px;
     left: -2386px; }
@@ -7088,12 +7238,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=LST] .LST a.point::before, #map-container[data-station=LST] .LST a.point::after {
+        opacity: 1; }
       #map-container[data-station=LST] .LST a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=LST] .LST a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=LST] .LST a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=LST] .LST a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=LST] .LST a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=LST] .LST a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=LST] .LST a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=LST] .LST a.below.point::after {
+        top: -13px; }
   #map-container[data-station=BNK] {
     top: -1292px;
     left: -2341px; }
@@ -7122,12 +7284,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=BNK] .BNK a.point::before, #map-container[data-station=BNK] .BNK a.point::after {
+        opacity: 1; }
       #map-container[data-station=BNK] .BNK a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=BNK] .BNK a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=BNK] .BNK a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=BNK] .BNK a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=BNK] .BNK a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=BNK] .BNK a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=BNK] .BNK a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=BNK] .BNK a.below.point::after {
+        top: -13px; }
   #map-container[data-station=STP] {
     top: -1273px;
     left: -2352px; }
@@ -7161,12 +7335,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=STP] .STP a.point::before, #map-container[data-station=STP] .STP a.point::after {
+        opacity: 1; }
       #map-container[data-station=STP] .STP a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=STP] .STP a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=STP] .STP a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=STP] .STP a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=STP] .STP a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=STP] .STP a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=STP] .STP a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=STP] .STP a.below.point::after {
+        top: -13px; }
   #map-container[data-station=CYL] {
     top: -1223px;
     left: -2020px; }
@@ -7195,12 +7381,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=CYL] .CYL a.point::before, #map-container[data-station=CYL] .CYL a.point::after {
+        opacity: 1; }
       #map-container[data-station=CYL] .CYL a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=CYL] .CYL a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=CYL] .CYL a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=CYL] .CYL a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=CYL] .CYL a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=CYL] .CYL a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=CYL] .CYL a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=CYL] .CYL a.below.point::after {
+        top: -13px; }
   #map-container[data-station=HOL] {
     top: -1382px;
     left: -1997px; }
@@ -7229,12 +7427,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=HOL] .HOL a.point::before, #map-container[data-station=HOL] .HOL a.point::after {
+        opacity: 1; }
       #map-container[data-station=HOL] .HOL a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=HOL] .HOL a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=HOL] .HOL a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=HOL] .HOL a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=HOL] .HOL a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=HOL] .HOL a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=HOL] .HOL a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=HOL] .HOL a.below.point::after {
+        top: -13px; }
   #map-container[data-station=TCR] {
     top: -1382px;
     left: -1695px; }
@@ -7262,12 +7472,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=TCR] .TCR a.point::before, #map-container[data-station=TCR] .TCR a.point::after {
+        opacity: 1; }
       #map-container[data-station=TCR] .TCR a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=TCR] .TCR a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=TCR] .TCR a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=TCR] .TCR a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=TCR] .TCR a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=TCR] .TCR a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=TCR] .TCR a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=TCR] .TCR a.below.point::after {
+        top: -13px; }
   #map-container[data-station=OXC] {
     top: -1216px;
     left: -1605px; }
@@ -7295,12 +7517,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=OXC] .OXC a.point::before, #map-container[data-station=OXC] .OXC a.point::after {
+        opacity: 1; }
       #map-container[data-station=OXC] .OXC a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=OXC] .OXC a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=OXC] .OXC a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=OXC] .OXC a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=OXC] .OXC a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=OXC] .OXC a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=OXC] .OXC a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=OXC] .OXC a.below.point::after {
+        top: -13px; }
   #map-container[data-station=BDS] {
     top: -1216px;
     left: -1544px; }
@@ -7329,12 +7563,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=BDS] .BDS a.point::before, #map-container[data-station=BDS] .BDS a.point::after {
+        opacity: 1; }
       #map-container[data-station=BDS] .BDS a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=BDS] .BDS a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=BDS] .BDS a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=BDS] .BDS a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=BDS] .BDS a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=BDS] .BDS a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=BDS] .BDS a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=BDS] .BDS a.below.point::after {
+        top: -13px; }
   #map-container[data-station=MAR] {
     top: -1380px;
     left: -1418px; }
@@ -7362,12 +7608,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=MAR] .MAR a.point::before, #map-container[data-station=MAR] .MAR a.point::after {
+        opacity: 1; }
       #map-container[data-station=MAR] .MAR a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=MAR] .MAR a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=MAR] .MAR a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=MAR] .MAR a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=MAR] .MAR a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=MAR] .MAR a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=MAR] .MAR a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=MAR] .MAR a.below.point::after {
+        top: -13px; }
   #map-container[data-station=LAN] {
     top: -1223px;
     left: -1305px; }
@@ -7396,12 +7654,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=LAN] .LAN a.point::before, #map-container[data-station=LAN] .LAN a.point::after {
+        opacity: 1; }
       #map-container[data-station=LAN] .LAN a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=LAN] .LAN a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=LAN] .LAN a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=LAN] .LAN a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=LAN] .LAN a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=LAN] .LAN a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=LAN] .LAN a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=LAN] .LAN a.below.point::after {
+        top: -13px; }
   #map-container[data-station=QWY] {
     top: -1378px;
     left: -1277px; }
@@ -7430,12 +7700,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=QWY] .QWY a.point::before, #map-container[data-station=QWY] .QWY a.point::after {
+        opacity: 1; }
       #map-container[data-station=QWY] .QWY a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=QWY] .QWY a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=QWY] .QWY a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=QWY] .QWY a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=QWY] .QWY a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=QWY] .QWY a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=QWY] .QWY a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=QWY] .QWY a.below.point::after {
+        top: -13px; }
   #map-container[data-station=NHG] {
     top: -1215px;
     left: -1083px; }
@@ -7464,12 +7746,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=NHG] .NHG a.point::before, #map-container[data-station=NHG] .NHG a.point::after {
+        opacity: 1; }
       #map-container[data-station=NHG] .NHG a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=NHG] .NHG a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=NHG] .NHG a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=NHG] .NHG a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=NHG] .NHG a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=NHG] .NHG a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=NHG] .NHG a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=NHG] .NHG a.below.point::after {
+        top: -13px; }
   #map-container[data-station=HPK] {
     top: -1373px;
     left: -1071px; }
@@ -7497,12 +7791,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=HPK] .HPK a.point::before, #map-container[data-station=HPK] .HPK a.point::after {
+        opacity: 1; }
       #map-container[data-station=HPK] .HPK a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=HPK] .HPK a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=HPK] .HPK a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=HPK] .HPK a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=HPK] .HPK a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=HPK] .HPK a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=HPK] .HPK a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=HPK] .HPK a.below.point::after {
+        top: -13px; }
   #map-container[data-station=SBC] {
     top: -1217px;
     left: -931px; }
@@ -7530,12 +7836,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=SBC] .SBC a.point::before, #map-container[data-station=SBC] .SBC a.point::after {
+        opacity: 1; }
       #map-container[data-station=SBC] .SBC a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=SBC] .SBC a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=SBC] .SBC a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=SBC] .SBC a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=SBC] .SBC a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=SBC] .SBC a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=SBC] .SBC a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=SBC] .SBC a.below.point::after {
+        top: -13px; }
   #map-container[data-station=WCT] {
     top: -1217px;
     left: -864px; }
@@ -7564,12 +7882,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=WCT] .WCT a.point::before, #map-container[data-station=WCT] .WCT a.point::after {
+        opacity: 1; }
       #map-container[data-station=WCT] .WCT a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=WCT] .WCT a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=WCT] .WCT a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=WCT] .WCT a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=WCT] .WCT a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=WCT] .WCT a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=WCT] .WCT a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=WCT] .WCT a.below.point::after {
+        top: -13px; }
   #map-container[data-station=EAC] {
     top: -1222px;
     left: -778px; }
@@ -7598,12 +7928,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=EAC] .EAC a.point::before, #map-container[data-station=EAC] .EAC a.point::after {
+        opacity: 1; }
       #map-container[data-station=EAC] .EAC a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=EAC] .EAC a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=EAC] .EAC a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=EAC] .EAC a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=EAC] .EAC a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=EAC] .EAC a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=EAC] .EAC a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=EAC] .EAC a.below.point::after {
+        top: -13px; }
   #map-container[data-station=NAC] {
     top: -1374px;
     left: -702px; }
@@ -7631,12 +7973,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=NAC] .NAC a.point::before, #map-container[data-station=NAC] .NAC a.point::after {
+        opacity: 1; }
       #map-container[data-station=NAC] .NAC a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=NAC] .NAC a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=NAC] .NAC a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=NAC] .NAC a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=NAC] .NAC a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=NAC] .NAC a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=NAC] .NAC a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=NAC] .NAC a.below.point::after {
+        top: -13px; }
   #map-container[data-station=WAC] {
     top: -1373px;
     left: -537px; }
@@ -7665,12 +8019,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=WAC] .WAC a.point::before, #map-container[data-station=WAC] .WAC a.point::after {
+        opacity: 1; }
       #map-container[data-station=WAC] .WAC a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=WAC] .WAC a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=WAC] .WAC a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=WAC] .WAC a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=WAC] .WAC a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=WAC] .WAC a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=WAC] .WAC a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=WAC] .WAC a.below.point::after {
+        top: -13px; }
   #map-container[data-station=EBY] {
     top: -1305px;
     left: 31px; }
@@ -7699,12 +8065,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=EBY] .EBY a.point::before, #map-container[data-station=EBY] .EBY a.point::after {
+        opacity: 1; }
       #map-container[data-station=EBY] .EBY a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=EBY] .EBY a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=EBY] .EBY a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=EBY] .EBY a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=EBY] .EBY a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=EBY] .EBY a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=EBY] .EBY a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=EBY] .EBY a.below.point::after {
+        top: -13px; }
   #map-container[data-station=HLN] {
     top: -1059px;
     left: -126px; }
@@ -7740,12 +8118,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=HLN] .HLN a.point::before, #map-container[data-station=HLN] .HLN a.point::after {
+        opacity: 1; }
       #map-container[data-station=HLN] .HLN a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=HLN] .HLN a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=HLN] .HLN a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=HLN] .HLN a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=HLN] .HLN a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=HLN] .HLN a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=HLN] .HLN a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=HLN] .HLN a.below.point::after {
+        top: -13px; }
   #map-container[data-station=PER] {
     top: -972px;
     left: -169px; }
@@ -7781,12 +8171,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=PER] .PER a.point::before, #map-container[data-station=PER] .PER a.point::after {
+        opacity: 1; }
       #map-container[data-station=PER] .PER a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=PER] .PER a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=PER] .PER a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=PER] .PER a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=PER] .PER a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=PER] .PER a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=PER] .PER a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=PER] .PER a.below.point::after {
+        top: -13px; }
   #map-container[data-station=GFD] {
     top: -875px;
     left: -10px; }
@@ -7822,12 +8224,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=GFD] .GFD a.point::before, #map-container[data-station=GFD] .GFD a.point::after {
+        opacity: 1; }
       #map-container[data-station=GFD] .GFD a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=GFD] .GFD a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=GFD] .GFD a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=GFD] .GFD a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=GFD] .GFD a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=GFD] .GFD a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=GFD] .GFD a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=GFD] .GFD a.below.point::after {
+        top: -13px; }
   #map-container[data-station=NHT] {
     top: -707px;
     left: -34px; }
@@ -7856,12 +8270,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=NHT] .NHT a.point::before, #map-container[data-station=NHT] .NHT a.point::after {
+        opacity: 1; }
       #map-container[data-station=NHT] .NHT a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=NHT] .NHT a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=NHT] .NHT a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=NHT] .NHT a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=NHT] .NHT a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=NHT] .NHT a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=NHT] .NHT a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=NHT] .NHT a.below.point::after {
+        top: -13px; }
   #map-container[data-station=SRP] {
     top: -600px;
     left: 99px; }
@@ -7890,12 +8316,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=SRP] .SRP a.point::before, #map-container[data-station=SRP] .SRP a.point::after {
+        opacity: 1; }
       #map-container[data-station=SRP] .SRP a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=SRP] .SRP a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=SRP] .SRP a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=SRP] .SRP a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=SRP] .SRP a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=SRP] .SRP a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=SRP] .SRP a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=SRP] .SRP a.below.point::after {
+        top: -13px; }
   #map-container[data-station=RUG] {
     top: -485px;
     left: 160px; }
@@ -7924,12 +8362,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=RUG] .RUG a.point::before, #map-container[data-station=RUG] .RUG a.point::after {
+        opacity: 1; }
       #map-container[data-station=RUG] .RUG a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=RUG] .RUG a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=RUG] .RUG a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=RUG] .RUG a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=RUG] .RUG a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=RUG] .RUG a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=RUG] .RUG a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=RUG] .RUG a.below.point::after {
+        top: -13px; }
   #map-container[data-station=WRP] {
     top: -270px;
     left: 92px; }
@@ -7958,12 +8408,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=WRP] .WRP a.point::before, #map-container[data-station=WRP] .WRP a.point::after {
+        opacity: 1; }
       #map-container[data-station=WRP] .WRP a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=WRP] .WRP a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=WRP] .WRP a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=WRP] .WRP a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=WRP] .WRP a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=WRP] .WRP a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=WRP] .WRP a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=WRP] .WRP a.below.point::after {
+        top: -13px; }
   #map-container[data-station=ROD] {
     top: -206px;
     left: -3458px; }
@@ -7991,12 +8453,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=ROD] .ROD a.point::before, #map-container[data-station=ROD] .ROD a.point::after {
+        opacity: 1; }
       #map-container[data-station=ROD] .ROD a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=ROD] .ROD a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=ROD] .ROD a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=ROD] .ROD a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=ROD] .ROD a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=ROD] .ROD a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=ROD] .ROD a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=ROD] .ROD a.below.point::after {
+        top: -13px; }
   #map-container[data-station=CHG] {
     top: -345px;
     left: -3405px; }
@@ -8024,12 +8498,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=CHG] .CHG a.point::before, #map-container[data-station=CHG] .CHG a.point::after {
+        opacity: 1; }
       #map-container[data-station=CHG] .CHG a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=CHG] .CHG a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=CHG] .CHG a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=CHG] .CHG a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=CHG] .CHG a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=CHG] .CHG a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=CHG] .CHG a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=CHG] .CHG a.below.point::after {
+        top: -13px; }
   #map-container[data-station=GRH] {
     top: -206px;
     left: -3458px; }
@@ -8059,12 +8545,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=GRH] .ROD a.point::before, #map-container[data-station=GRH] .ROD a.point::after {
+        opacity: 1; }
       #map-container[data-station=GRH] .ROD a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=GRH] .ROD a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=GRH] .ROD a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=GRH] .ROD a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=GRH] .ROD a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=GRH] .ROD a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=GRH] .ROD a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=GRH] .ROD a.below.point::after {
+        top: -13px; }
   #map-container[data-station=HAI] {
     top: -323px;
     left: -3367px; }
@@ -8094,12 +8592,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=HAI] .HAI a.point::before, #map-container[data-station=HAI] .HAI a.point::after {
+        opacity: 1; }
       #map-container[data-station=HAI] .HAI a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=HAI] .HAI a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=HAI] .HAI a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=HAI] .HAI a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=HAI] .HAI a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=HAI] .HAI a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=HAI] .HAI a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=HAI] .HAI a.below.point::after {
+        top: -13px; }
   #map-container[data-station=FLP] {
     top: -382px;
     left: -3419px; }
@@ -8130,12 +8640,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=FLP] .FLP a.point::before, #map-container[data-station=FLP] .FLP a.point::after {
+        opacity: 1; }
       #map-container[data-station=FLP] .FLP a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=FLP] .FLP a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=FLP] .FLP a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=FLP] .FLP a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=FLP] .FLP a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=FLP] .FLP a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=FLP] .FLP a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=FLP] .FLP a.below.point::after {
+        top: -13px; }
   #map-container[data-station=BDE] {
     top: -435px;
     left: -3283px; }
@@ -8166,12 +8688,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=BDE] .BDE a.point::before, #map-container[data-station=BDE] .BDE a.point::after {
+        opacity: 1; }
       #map-container[data-station=BDE] .BDE a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=BDE] .BDE a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=BDE] .BDE a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=BDE] .BDE a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=BDE] .BDE a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=BDE] .BDE a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=BDE] .BDE a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=BDE] .BDE a.below.point::after {
+        top: -13px; }
   #map-container[data-station=NEP] {
     top: -489px;
     left: -3208px; }
@@ -8202,12 +8736,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=NEP] .NEP a.point::before, #map-container[data-station=NEP] .NEP a.point::after {
+        opacity: 1; }
       #map-container[data-station=NEP] .NEP a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=NEP] .NEP a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=NEP] .NEP a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=NEP] .NEP a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=NEP] .NEP a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=NEP] .NEP a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=NEP] .NEP a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=NEP] .NEP a.below.point::after {
+        top: -13px; }
   #map-container[data-station=GHL] {
     top: -634px;
     left: -3453px; }
@@ -8237,12 +8783,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=GHL] .GHL a.point::before, #map-container[data-station=GHL] .GHL a.point::after {
+        opacity: 1; }
       #map-container[data-station=GHL] .GHL a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=GHL] .GHL a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=GHL] .GHL a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=GHL] .GHL a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=GHL] .GHL a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=GHL] .GHL a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=GHL] .GHL a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=GHL] .GHL a.below.point::after {
+        top: -13px; }
   #map-container[data-station=RED] {
     top: -482px;
     left: -3385px; }
@@ -8272,12 +8830,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=RED] .RED a.point::before, #map-container[data-station=RED] .RED a.point::after {
+        opacity: 1; }
       #map-container[data-station=RED] .RED a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=RED] .RED a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=RED] .RED a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=RED] .RED a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=RED] .RED a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=RED] .RED a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=RED] .RED a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=RED] .RED a.below.point::after {
+        top: -13px; }
   #map-container[data-station=WAN] {
     top: -633px;
     left: -3326px; }
@@ -8307,12 +8877,24 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+      #map-container[data-station=WAN] .WAN a.point::before, #map-container[data-station=WAN] .WAN a.point::after {
+        opacity: 1; }
       #map-container[data-station=WAN] .WAN a.left.point::before {
-        opacity: 1;
         right: -16px; }
       #map-container[data-station=WAN] .WAN a.left.point::after {
-        opacity: 1;
         right: -13px; }
+      #map-container[data-station=WAN] .WAN a.right.point::before {
+        left: -16px; }
+      #map-container[data-station=WAN] .WAN a.right.point::after {
+        left: -13px; }
+      #map-container[data-station=WAN] .WAN a.above.point::before {
+        bottom: -16px; }
+      #map-container[data-station=WAN] .WAN a.above.point::after {
+        bottom: -13px; }
+      #map-container[data-station=WAN] .WAN a.below.point::before {
+        top: -16px; }
+      #map-container[data-station=WAN] .WAN a.below.point::after {
+        top: -13px; }
 
 @media (min-width: 800px) {
   #map-container {

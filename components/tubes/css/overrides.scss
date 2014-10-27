@@ -20,76 +20,75 @@
             }
 
 
+
+
             &.left {
                 &::before,
                 &::after {
                     top: 35%;
                     bottom: auto;
                     right:0;
+                    border-width: 10px 0 10px 16px;
 
                 }
-
                 &::before {
                     border-color: transparent #2F4E99;
-                    border-width: 10px 0 10px 16px;
                 }
                 &::after {
                     border-color: transparent #fff;
-                    border-width: 10px 0 10px 16px;
                 }
             }
-
-
-            &.above {
-                &::before {
-                    left: 50%;
-                    bottom: -16px;
-                    border-width: 14px 14px 0;
-                }
-                &::after {
-                    left: 50%;
-                    bottom: -13px;
-                    border-width: 14px 14px 0;
-                }
-            }
-
-            &.below {
-                &::before {
-                    left: 50%;
-                    top: -16px !important;
-                    border-width: 0 14px 14px;
-
-                }
-                &::after {
-                    left: 50%;
-                    top: -13px !important;
-                    border-width: 0 14px 14px ;
-                    border-color: #fff transparent;
-                }
-            }
-
 
             &.right {
 
                 &::before,
                 &::after {
                     bottom: auto;
+                    top: 35%;
                     right: auto;
+                    left: 0;
+                    border-width: 10px 16px 10px 0;
                 }
 
                 &::before {
-                    top: 35%;
-                    left: -16px;
-                    border-width: 10px 16px 10px 0em;
                     border-color: transparent #2F4E99;
                 }
                 &::after {
-                    top: 35%;
-                    left: -13px;
-                    border-width: 10px 16px 10px 0;
                     border-color: transparent #fff;
                 }
             }
+
+            &.above {
+                &::before,
+                &::after {
+                    left: 50%;
+                    bottom: 0;
+                    border-width: 14px 14px 0;
+                }
+
+                &::before {
+                    border-color: #2F4E99 transparent;
+                }
+                &::after {
+                    border-color: #fff transparent;
+                }
+            }
+
+            &.below {
+                &::before,
+                &::after {
+                    left: 50%;
+                    border-width: 0 14px 14px ;
+                }
+                &::before {
+                    border-color: #2F4E99 transparent;
+                }
+                &::after {
+                    border-color: #fff transparent;
+                }
+            }
+
+
             &.no-arrow {
                 &::before,
                 &::after {
@@ -97,8 +96,6 @@
                 }
             }
         }
-
-
 
 
 
