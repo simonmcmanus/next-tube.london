@@ -33,7 +33,6 @@ body {
     z-index: 2000;
     transition: all .8s ease-in-out;
     margin: .5em .1em;
-    padding: 1em;
     font-family: 'GreyscaleBasic';
     border-radius: .3em;
     background-color: #fff;
@@ -162,4 +161,5 @@ body.debug {
 
 @import '../components/tubes/css/styles.scss';
 @import '../components/next-train/next-train.scss';
+@import '../components/train-status/train-status.scss';
 

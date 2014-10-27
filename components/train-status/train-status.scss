@@ -6,51 +6,50 @@
   }
   ul {
     padding: 0;
+
     li.line {
-      margin: 20px;
+      //display: inline-block;
       line-height: 1.4;
-      margin: 1em;
       padding: 0 1em 1em 1em;
-      border-radius: 4px;
       &.Central {
-        border: 1px solid #DC241F;
+        background: #DC241F;
       }
       &.Bakerloo {
-        border: 1px solid #894E24; 
+        background: #894E24;
       }
       &.Circle {
-        border: 1px solid #FFCE00; 
+        background: #FFCE00;
       }
       &.District {
-        border: 1px solid #007229; 
-      } 
+        background: #007229;
+      }
       &.HammersmithandCity {
-        border: 1px solid #D799AF; 
+        background: #D799AF;
       }
       &.Jubilee {
-        border: 1px solid #868F98; 
+        background: #868F98;
       }
       &.Metropolitan {
-        border: 1px solid #751056; 
+        background: #751056;
       }
       &.Northern {
-        border: 1px solid #000000; 
+        background: #000000;
       }
       &.Piccadilly {
-        border: 1px solid #0019A8; 
+        background: #0019A8;
       }
       &.Victoria {
-        border: 1px solid #00A0E2; 
+        background: #00A0E2;
       }
       &.WaterlooandCity {
-        border: 1px solid #76D0BD; 
-      }   
+        background: #76D0BD;
+      }
       &.Overground {
-        border: 1px solid #e86a10; 
-      }  
+        background: #e86a10;
+      }
       &.DLR {
-        border: 1px solid #00AFAD; 
-      }  
+        background: #00AFAD;
+      }
     }
   }
 }
