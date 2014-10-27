@@ -79,16 +79,21 @@ body {
 
 .direction {
   vertical-align: top;
+  padding: 1.5em;
   ul.trains {
-    padding: 0;
     li {
       list-style: none;
-      margin: 1em 0;
+      padding: .5em 0;
+      h3 {
+          padding: 1.5em;
+      }
       .detail {
         display: none;
       }
       span.destination {
-        font-size: 1.4em;
+        font-size: 1.1em;
+        top: -2px;
+        position: relative;
       }
       .due-container {
         display: inline-block;
