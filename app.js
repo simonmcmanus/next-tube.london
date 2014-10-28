@@ -90,7 +90,8 @@ app.get('/central-line/:station', function (req, res) {
     }
 
     getStationData(stationCode, function (err, data) {
-        console.log('gotback', err, data);
+        console.log('gotback', err, data, cache);
+
         cache.tubes = {
             stations : stations,
             currentStationCode: stationCode

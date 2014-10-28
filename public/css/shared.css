@@ -6533,7 +6533,9 @@ header li:hover a {
   transition-delay: 0.3s; }
   #map-container li a {
     transition: all .4s ease-out;
-    position: relative; }
+    position: relative;
+    float: left;
+    text-decoration: none; }
     #map-container li a::before, #map-container li a::after {
       content: "";
       position: absolute;
@@ -6545,7 +6547,7 @@ header li:hover a {
       transition: all .2s ease-in-out; }
     #map-container li a.left {
       position: absolute;
-      top: -.7em; }
+      top: -.5em; }
       #map-container li a.left::before, #map-container li a.left::after {
         top: 35%;
         bottom: auto;
@@ -6582,12 +6584,6 @@ header li:hover a {
       border-color: #fff transparent; }
     #map-container li a.no-arrow::before, #map-container li a.no-arrow::after {
       display: none; }
-  #map-container li a, #map-container li strong {
-    text-decoration: none;
-    color: #1c3f95;
-    font-size: 1em; }
-    #map-container li a.boxed, #map-container li strong.boxed {
-      border: 0; }
   #map-container .roundel:hover a,
   #map-container .station:hover a,
   #map-container .roundel:hover strong,
@@ -6625,26 +6621,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=EPP] .EPP a.point::before, #map-container[data-station=EPP] .EPP a.point::after {
             opacity: 1; }
-          #map-container[data-station=EPP] .EPP a.left::before {
-            right: -16px; }
-          #map-container[data-station=EPP] .EPP a.left::after {
-            right: -13px; }
+          #map-container[data-station=EPP] .EPP a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=EPP] .EPP a.left::before {
+              right: -16px; }
+            #map-container[data-station=EPP] .EPP a.left::after {
+              right: -13px; }
           #map-container[data-station=EPP] .EPP a.right::before {
             left: -16px; }
           #map-container[data-station=EPP] .EPP a.right::after {
             left: -13px; }
           #map-container[data-station=EPP] .EPP a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=EPP] .EPP a.above::before {
               bottom: -16px; }
             #map-container[data-station=EPP] .EPP a.above::after {
               bottom: -13px; }
           #map-container[data-station=EPP] .EPP a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=EPP] .EPP a.below::before {
               top: -16px; }
             #map-container[data-station=EPP] .EPP a.below::after {
@@ -6677,26 +6676,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=THB] .THB a.point::before, #map-container[data-station=THB] .THB a.point::after {
             opacity: 1; }
-          #map-container[data-station=THB] .THB a.left::before {
-            right: -16px; }
-          #map-container[data-station=THB] .THB a.left::after {
-            right: -13px; }
+          #map-container[data-station=THB] .THB a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=THB] .THB a.left::before {
+              right: -16px; }
+            #map-container[data-station=THB] .THB a.left::after {
+              right: -13px; }
           #map-container[data-station=THB] .THB a.right::before {
             left: -16px; }
           #map-container[data-station=THB] .THB a.right::after {
             left: -13px; }
           #map-container[data-station=THB] .THB a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=THB] .THB a.above::before {
               bottom: -16px; }
             #map-container[data-station=THB] .THB a.above::after {
               bottom: -13px; }
           #map-container[data-station=THB] .THB a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=THB] .THB a.below::before {
               top: -16px; }
             #map-container[data-station=THB] .THB a.below::after {
@@ -6729,26 +6731,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=DEB] .DEB a.point::before, #map-container[data-station=DEB] .DEB a.point::after {
             opacity: 1; }
-          #map-container[data-station=DEB] .DEB a.left::before {
-            right: -16px; }
-          #map-container[data-station=DEB] .DEB a.left::after {
-            right: -13px; }
+          #map-container[data-station=DEB] .DEB a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=DEB] .DEB a.left::before {
+              right: -16px; }
+            #map-container[data-station=DEB] .DEB a.left::after {
+              right: -13px; }
           #map-container[data-station=DEB] .DEB a.right::before {
             left: -16px; }
           #map-container[data-station=DEB] .DEB a.right::after {
             left: -13px; }
           #map-container[data-station=DEB] .DEB a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=DEB] .DEB a.above::before {
               bottom: -16px; }
             #map-container[data-station=DEB] .DEB a.above::after {
               bottom: -13px; }
           #map-container[data-station=DEB] .DEB a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=DEB] .DEB a.below::before {
               top: -16px; }
             #map-container[data-station=DEB] .DEB a.below::after {
@@ -6781,26 +6786,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=LTN] .LTN a.point::before, #map-container[data-station=LTN] .LTN a.point::after {
             opacity: 1; }
-          #map-container[data-station=LTN] .LTN a.left::before {
-            right: -16px; }
-          #map-container[data-station=LTN] .LTN a.left::after {
-            right: -13px; }
+          #map-container[data-station=LTN] .LTN a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=LTN] .LTN a.left::before {
+              right: -16px; }
+            #map-container[data-station=LTN] .LTN a.left::after {
+              right: -13px; }
           #map-container[data-station=LTN] .LTN a.right::before {
             left: -16px; }
           #map-container[data-station=LTN] .LTN a.right::after {
             left: -13px; }
           #map-container[data-station=LTN] .LTN a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LTN] .LTN a.above::before {
               bottom: -16px; }
             #map-container[data-station=LTN] .LTN a.above::after {
               bottom: -13px; }
           #map-container[data-station=LTN] .LTN a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LTN] .LTN a.below::before {
               top: -16px; }
             #map-container[data-station=LTN] .LTN a.below::after {
@@ -6833,26 +6841,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=BHL] .BHL a.point::before, #map-container[data-station=BHL] .BHL a.point::after {
             opacity: 1; }
-          #map-container[data-station=BHL] .BHL a.left::before {
-            right: -16px; }
-          #map-container[data-station=BHL] .BHL a.left::after {
-            right: -13px; }
+          #map-container[data-station=BHL] .BHL a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=BHL] .BHL a.left::before {
+              right: -16px; }
+            #map-container[data-station=BHL] .BHL a.left::after {
+              right: -13px; }
           #map-container[data-station=BHL] .BHL a.right::before {
             left: -16px; }
           #map-container[data-station=BHL] .BHL a.right::after {
             left: -13px; }
           #map-container[data-station=BHL] .BHL a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BHL] .BHL a.above::before {
               bottom: -16px; }
             #map-container[data-station=BHL] .BHL a.above::after {
               bottom: -13px; }
           #map-container[data-station=BHL] .BHL a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BHL] .BHL a.below::before {
               top: -16px; }
             #map-container[data-station=BHL] .BHL a.below::after {
@@ -6890,26 +6901,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=WFD] .WFD a.point::before, #map-container[data-station=WFD] .WFD a.point::after {
             opacity: 1; }
-          #map-container[data-station=WFD] .WFD a.left::before {
-            right: -16px; }
-          #map-container[data-station=WFD] .WFD a.left::after {
-            right: -13px; }
+          #map-container[data-station=WFD] .WFD a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=WFD] .WFD a.left::before {
+              right: -16px; }
+            #map-container[data-station=WFD] .WFD a.left::after {
+              right: -13px; }
           #map-container[data-station=WFD] .WFD a.right::before {
             left: -16px; }
           #map-container[data-station=WFD] .WFD a.right::after {
             left: -13px; }
           #map-container[data-station=WFD] .WFD a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WFD] .WFD a.above::before {
               bottom: -16px; }
             #map-container[data-station=WFD] .WFD a.above::after {
               bottom: -13px; }
           #map-container[data-station=WFD] .WFD a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WFD] .WFD a.below::before {
               top: -16px; }
             #map-container[data-station=WFD] .WFD a.below::after {
@@ -6945,26 +6959,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=SWF] .SWF a.point::before, #map-container[data-station=SWF] .SWF a.point::after {
             opacity: 1; }
-          #map-container[data-station=SWF] .SWF a.left::before {
-            right: -16px; }
-          #map-container[data-station=SWF] .SWF a.left::after {
-            right: -13px; }
+          #map-container[data-station=SWF] .SWF a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=SWF] .SWF a.left::before {
+              right: -16px; }
+            #map-container[data-station=SWF] .SWF a.left::after {
+              right: -13px; }
           #map-container[data-station=SWF] .SWF a.right::before {
             left: -16px; }
           #map-container[data-station=SWF] .SWF a.right::after {
             left: -13px; }
           #map-container[data-station=SWF] .SWF a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SWF] .SWF a.above::before {
               bottom: -16px; }
             #map-container[data-station=SWF] .SWF a.above::after {
               bottom: -13px; }
           #map-container[data-station=SWF] .SWF a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SWF] .SWF a.below::before {
               top: -16px; }
             #map-container[data-station=SWF] .SWF a.below::after {
@@ -7000,26 +7017,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=SNB] .SNB a.point::before, #map-container[data-station=SNB] .SNB a.point::after {
             opacity: 1; }
-          #map-container[data-station=SNB] .SNB a.left::before {
-            right: -16px; }
-          #map-container[data-station=SNB] .SNB a.left::after {
-            right: -13px; }
+          #map-container[data-station=SNB] .SNB a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=SNB] .SNB a.left::before {
+              right: -16px; }
+            #map-container[data-station=SNB] .SNB a.left::after {
+              right: -13px; }
           #map-container[data-station=SNB] .SNB a.right::before {
             left: -16px; }
           #map-container[data-station=SNB] .SNB a.right::after {
             left: -13px; }
           #map-container[data-station=SNB] .SNB a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SNB] .SNB a.above::before {
               bottom: -16px; }
             #map-container[data-station=SNB] .SNB a.above::after {
               bottom: -13px; }
           #map-container[data-station=SNB] .SNB a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SNB] .SNB a.below::before {
               top: -16px; }
             #map-container[data-station=SNB] .SNB a.below::after {
@@ -7053,26 +7073,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=LYS] .LYS a.point::before, #map-container[data-station=LYS] .LYS a.point::after {
             opacity: 1; }
-          #map-container[data-station=LYS] .LYS a.left::before {
-            right: -16px; }
-          #map-container[data-station=LYS] .LYS a.left::after {
-            right: -13px; }
+          #map-container[data-station=LYS] .LYS a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=LYS] .LYS a.left::before {
+              right: -16px; }
+            #map-container[data-station=LYS] .LYS a.left::after {
+              right: -13px; }
           #map-container[data-station=LYS] .LYS a.right::before {
             left: -16px; }
           #map-container[data-station=LYS] .LYS a.right::after {
             left: -13px; }
           #map-container[data-station=LYS] .LYS a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LYS] .LYS a.above::before {
               bottom: -16px; }
             #map-container[data-station=LYS] .LYS a.above::after {
               bottom: -13px; }
           #map-container[data-station=LYS] .LYS a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LYS] .LYS a.below::before {
               top: -16px; }
             #map-container[data-station=LYS] .LYS a.below::after {
@@ -7106,26 +7129,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=LEY] .LEY a.point::before, #map-container[data-station=LEY] .LEY a.point::after {
             opacity: 1; }
-          #map-container[data-station=LEY] .LEY a.left::before {
-            right: -16px; }
-          #map-container[data-station=LEY] .LEY a.left::after {
-            right: -13px; }
+          #map-container[data-station=LEY] .LEY a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=LEY] .LEY a.left::before {
+              right: -16px; }
+            #map-container[data-station=LEY] .LEY a.left::after {
+              right: -13px; }
           #map-container[data-station=LEY] .LEY a.right::before {
             left: -16px; }
           #map-container[data-station=LEY] .LEY a.right::after {
             left: -13px; }
           #map-container[data-station=LEY] .LEY a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LEY] .LEY a.above::before {
               bottom: -16px; }
             #map-container[data-station=LEY] .LEY a.above::after {
               bottom: -13px; }
           #map-container[data-station=LEY] .LEY a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LEY] .LEY a.below::before {
               top: -16px; }
             #map-container[data-station=LEY] .LEY a.below::after {
@@ -7159,26 +7185,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=SFD] .SFD a.point::before, #map-container[data-station=SFD] .SFD a.point::after {
             opacity: 1; }
-          #map-container[data-station=SFD] .SFD a.left::before {
-            right: -16px; }
-          #map-container[data-station=SFD] .SFD a.left::after {
-            right: -13px; }
+          #map-container[data-station=SFD] .SFD a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=SFD] .SFD a.left::before {
+              right: -16px; }
+            #map-container[data-station=SFD] .SFD a.left::after {
+              right: -13px; }
           #map-container[data-station=SFD] .SFD a.right::before {
             left: -16px; }
           #map-container[data-station=SFD] .SFD a.right::after {
             left: -13px; }
           #map-container[data-station=SFD] .SFD a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SFD] .SFD a.above::before {
               bottom: -16px; }
             #map-container[data-station=SFD] .SFD a.above::after {
               bottom: -13px; }
           #map-container[data-station=SFD] .SFD a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SFD] .SFD a.below::before {
               top: -16px; }
             #map-container[data-station=SFD] .SFD a.below::after {
@@ -7211,26 +7240,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=MLE] .MLE a.point::before, #map-container[data-station=MLE] .MLE a.point::after {
             opacity: 1; }
-          #map-container[data-station=MLE] .MLE a.left::before {
-            right: -16px; }
-          #map-container[data-station=MLE] .MLE a.left::after {
-            right: -13px; }
+          #map-container[data-station=MLE] .MLE a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=MLE] .MLE a.left::before {
+              right: -16px; }
+            #map-container[data-station=MLE] .MLE a.left::after {
+              right: -13px; }
           #map-container[data-station=MLE] .MLE a.right::before {
             left: -16px; }
           #map-container[data-station=MLE] .MLE a.right::after {
             left: -13px; }
           #map-container[data-station=MLE] .MLE a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=MLE] .MLE a.above::before {
               bottom: -16px; }
             #map-container[data-station=MLE] .MLE a.above::after {
               bottom: -13px; }
           #map-container[data-station=MLE] .MLE a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=MLE] .MLE a.below::before {
               top: -16px; }
             #map-container[data-station=MLE] .MLE a.below::after {
@@ -7263,26 +7295,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=BNG] .BNG a.point::before, #map-container[data-station=BNG] .BNG a.point::after {
             opacity: 1; }
-          #map-container[data-station=BNG] .BNG a.left::before {
-            right: -16px; }
-          #map-container[data-station=BNG] .BNG a.left::after {
-            right: -13px; }
+          #map-container[data-station=BNG] .BNG a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=BNG] .BNG a.left::before {
+              right: -16px; }
+            #map-container[data-station=BNG] .BNG a.left::after {
+              right: -13px; }
           #map-container[data-station=BNG] .BNG a.right::before {
             left: -16px; }
           #map-container[data-station=BNG] .BNG a.right::after {
             left: -13px; }
           #map-container[data-station=BNG] .BNG a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BNG] .BNG a.above::before {
               bottom: -16px; }
             #map-container[data-station=BNG] .BNG a.above::after {
               bottom: -13px; }
           #map-container[data-station=BNG] .BNG a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BNG] .BNG a.below::before {
               top: -16px; }
             #map-container[data-station=BNG] .BNG a.below::after {
@@ -7318,26 +7353,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=LST] .LST a.point::before, #map-container[data-station=LST] .LST a.point::after {
             opacity: 1; }
-          #map-container[data-station=LST] .LST a.left::before {
-            right: -16px; }
-          #map-container[data-station=LST] .LST a.left::after {
-            right: -13px; }
+          #map-container[data-station=LST] .LST a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=LST] .LST a.left::before {
+              right: -16px; }
+            #map-container[data-station=LST] .LST a.left::after {
+              right: -13px; }
           #map-container[data-station=LST] .LST a.right::before {
             left: -16px; }
           #map-container[data-station=LST] .LST a.right::after {
             left: -13px; }
           #map-container[data-station=LST] .LST a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LST] .LST a.above::before {
               bottom: -16px; }
             #map-container[data-station=LST] .LST a.above::after {
               bottom: -13px; }
           #map-container[data-station=LST] .LST a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LST] .LST a.below::before {
               top: -16px; }
             #map-container[data-station=LST] .LST a.below::after {
@@ -7370,26 +7408,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=BNK] .BNK a.point::before, #map-container[data-station=BNK] .BNK a.point::after {
             opacity: 1; }
-          #map-container[data-station=BNK] .BNK a.left::before {
-            right: -16px; }
-          #map-container[data-station=BNK] .BNK a.left::after {
-            right: -13px; }
+          #map-container[data-station=BNK] .BNK a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=BNK] .BNK a.left::before {
+              right: -16px; }
+            #map-container[data-station=BNK] .BNK a.left::after {
+              right: -13px; }
           #map-container[data-station=BNK] .BNK a.right::before {
             left: -16px; }
           #map-container[data-station=BNK] .BNK a.right::after {
             left: -13px; }
           #map-container[data-station=BNK] .BNK a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BNK] .BNK a.above::before {
               bottom: -16px; }
             #map-container[data-station=BNK] .BNK a.above::after {
               bottom: -13px; }
           #map-container[data-station=BNK] .BNK a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BNK] .BNK a.below::before {
               top: -16px; }
             #map-container[data-station=BNK] .BNK a.below::after {
@@ -7428,26 +7469,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=STP] .STP a.point::before, #map-container[data-station=STP] .STP a.point::after {
             opacity: 1; }
-          #map-container[data-station=STP] .STP a.left::before {
-            right: -16px; }
-          #map-container[data-station=STP] .STP a.left::after {
-            right: -13px; }
+          #map-container[data-station=STP] .STP a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=STP] .STP a.left::before {
+              right: -16px; }
+            #map-container[data-station=STP] .STP a.left::after {
+              right: -13px; }
           #map-container[data-station=STP] .STP a.right::before {
             left: -16px; }
           #map-container[data-station=STP] .STP a.right::after {
             left: -13px; }
           #map-container[data-station=STP] .STP a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=STP] .STP a.above::before {
               bottom: -16px; }
             #map-container[data-station=STP] .STP a.above::after {
               bottom: -13px; }
           #map-container[data-station=STP] .STP a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=STP] .STP a.below::before {
               top: -16px; }
             #map-container[data-station=STP] .STP a.below::after {
@@ -7480,26 +7524,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=CYL] .CYL a.point::before, #map-container[data-station=CYL] .CYL a.point::after {
             opacity: 1; }
-          #map-container[data-station=CYL] .CYL a.left::before {
-            right: -16px; }
-          #map-container[data-station=CYL] .CYL a.left::after {
-            right: -13px; }
+          #map-container[data-station=CYL] .CYL a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=CYL] .CYL a.left::before {
+              right: -16px; }
+            #map-container[data-station=CYL] .CYL a.left::after {
+              right: -13px; }
           #map-container[data-station=CYL] .CYL a.right::before {
             left: -16px; }
           #map-container[data-station=CYL] .CYL a.right::after {
             left: -13px; }
           #map-container[data-station=CYL] .CYL a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=CYL] .CYL a.above::before {
               bottom: -16px; }
             #map-container[data-station=CYL] .CYL a.above::after {
               bottom: -13px; }
           #map-container[data-station=CYL] .CYL a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=CYL] .CYL a.below::before {
               top: -16px; }
             #map-container[data-station=CYL] .CYL a.below::after {
@@ -7532,26 +7579,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=HOL] .HOL a.point::before, #map-container[data-station=HOL] .HOL a.point::after {
             opacity: 1; }
-          #map-container[data-station=HOL] .HOL a.left::before {
-            right: -16px; }
-          #map-container[data-station=HOL] .HOL a.left::after {
-            right: -13px; }
+          #map-container[data-station=HOL] .HOL a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=HOL] .HOL a.left::before {
+              right: -16px; }
+            #map-container[data-station=HOL] .HOL a.left::after {
+              right: -13px; }
           #map-container[data-station=HOL] .HOL a.right::before {
             left: -16px; }
           #map-container[data-station=HOL] .HOL a.right::after {
             left: -13px; }
           #map-container[data-station=HOL] .HOL a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=HOL] .HOL a.above::before {
               bottom: -16px; }
             #map-container[data-station=HOL] .HOL a.above::after {
               bottom: -13px; }
           #map-container[data-station=HOL] .HOL a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=HOL] .HOL a.below::before {
               top: -16px; }
             #map-container[data-station=HOL] .HOL a.below::after {
@@ -7584,26 +7634,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=TCR] .TCR a.point::before, #map-container[data-station=TCR] .TCR a.point::after {
             opacity: 1; }
-          #map-container[data-station=TCR] .TCR a.left::before {
-            right: -16px; }
-          #map-container[data-station=TCR] .TCR a.left::after {
-            right: -13px; }
+          #map-container[data-station=TCR] .TCR a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=TCR] .TCR a.left::before {
+              right: -16px; }
+            #map-container[data-station=TCR] .TCR a.left::after {
+              right: -13px; }
           #map-container[data-station=TCR] .TCR a.right::before {
             left: -16px; }
           #map-container[data-station=TCR] .TCR a.right::after {
             left: -13px; }
           #map-container[data-station=TCR] .TCR a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=TCR] .TCR a.above::before {
               bottom: -16px; }
             #map-container[data-station=TCR] .TCR a.above::after {
               bottom: -13px; }
           #map-container[data-station=TCR] .TCR a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=TCR] .TCR a.below::before {
               top: -16px; }
             #map-container[data-station=TCR] .TCR a.below::after {
@@ -7636,26 +7689,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=OXC] .OXC a.point::before, #map-container[data-station=OXC] .OXC a.point::after {
             opacity: 1; }
-          #map-container[data-station=OXC] .OXC a.left::before {
-            right: -16px; }
-          #map-container[data-station=OXC] .OXC a.left::after {
-            right: -13px; }
+          #map-container[data-station=OXC] .OXC a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=OXC] .OXC a.left::before {
+              right: -16px; }
+            #map-container[data-station=OXC] .OXC a.left::after {
+              right: -13px; }
           #map-container[data-station=OXC] .OXC a.right::before {
             left: -16px; }
           #map-container[data-station=OXC] .OXC a.right::after {
             left: -13px; }
           #map-container[data-station=OXC] .OXC a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=OXC] .OXC a.above::before {
               bottom: -16px; }
             #map-container[data-station=OXC] .OXC a.above::after {
               bottom: -13px; }
           #map-container[data-station=OXC] .OXC a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=OXC] .OXC a.below::before {
               top: -16px; }
             #map-container[data-station=OXC] .OXC a.below::after {
@@ -7688,26 +7744,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=BDS] .BDS a.point::before, #map-container[data-station=BDS] .BDS a.point::after {
             opacity: 1; }
-          #map-container[data-station=BDS] .BDS a.left::before {
-            right: -16px; }
-          #map-container[data-station=BDS] .BDS a.left::after {
-            right: -13px; }
+          #map-container[data-station=BDS] .BDS a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=BDS] .BDS a.left::before {
+              right: -16px; }
+            #map-container[data-station=BDS] .BDS a.left::after {
+              right: -13px; }
           #map-container[data-station=BDS] .BDS a.right::before {
             left: -16px; }
           #map-container[data-station=BDS] .BDS a.right::after {
             left: -13px; }
           #map-container[data-station=BDS] .BDS a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BDS] .BDS a.above::before {
               bottom: -16px; }
             #map-container[data-station=BDS] .BDS a.above::after {
               bottom: -13px; }
           #map-container[data-station=BDS] .BDS a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BDS] .BDS a.below::before {
               top: -16px; }
             #map-container[data-station=BDS] .BDS a.below::after {
@@ -7740,26 +7799,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=MAR] .MAR a.point::before, #map-container[data-station=MAR] .MAR a.point::after {
             opacity: 1; }
-          #map-container[data-station=MAR] .MAR a.left::before {
-            right: -16px; }
-          #map-container[data-station=MAR] .MAR a.left::after {
-            right: -13px; }
+          #map-container[data-station=MAR] .MAR a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=MAR] .MAR a.left::before {
+              right: -16px; }
+            #map-container[data-station=MAR] .MAR a.left::after {
+              right: -13px; }
           #map-container[data-station=MAR] .MAR a.right::before {
             left: -16px; }
           #map-container[data-station=MAR] .MAR a.right::after {
             left: -13px; }
           #map-container[data-station=MAR] .MAR a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=MAR] .MAR a.above::before {
               bottom: -16px; }
             #map-container[data-station=MAR] .MAR a.above::after {
               bottom: -13px; }
           #map-container[data-station=MAR] .MAR a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=MAR] .MAR a.below::before {
               top: -16px; }
             #map-container[data-station=MAR] .MAR a.below::after {
@@ -7792,26 +7854,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=LAN] .LAN a.point::before, #map-container[data-station=LAN] .LAN a.point::after {
             opacity: 1; }
-          #map-container[data-station=LAN] .LAN a.left::before {
-            right: -16px; }
-          #map-container[data-station=LAN] .LAN a.left::after {
-            right: -13px; }
+          #map-container[data-station=LAN] .LAN a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=LAN] .LAN a.left::before {
+              right: -16px; }
+            #map-container[data-station=LAN] .LAN a.left::after {
+              right: -13px; }
           #map-container[data-station=LAN] .LAN a.right::before {
             left: -16px; }
           #map-container[data-station=LAN] .LAN a.right::after {
             left: -13px; }
           #map-container[data-station=LAN] .LAN a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LAN] .LAN a.above::before {
               bottom: -16px; }
             #map-container[data-station=LAN] .LAN a.above::after {
               bottom: -13px; }
           #map-container[data-station=LAN] .LAN a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=LAN] .LAN a.below::before {
               top: -16px; }
             #map-container[data-station=LAN] .LAN a.below::after {
@@ -7844,26 +7909,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=QWY] .QWY a.point::before, #map-container[data-station=QWY] .QWY a.point::after {
             opacity: 1; }
-          #map-container[data-station=QWY] .QWY a.left::before {
-            right: -16px; }
-          #map-container[data-station=QWY] .QWY a.left::after {
-            right: -13px; }
+          #map-container[data-station=QWY] .QWY a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=QWY] .QWY a.left::before {
+              right: -16px; }
+            #map-container[data-station=QWY] .QWY a.left::after {
+              right: -13px; }
           #map-container[data-station=QWY] .QWY a.right::before {
             left: -16px; }
           #map-container[data-station=QWY] .QWY a.right::after {
             left: -13px; }
           #map-container[data-station=QWY] .QWY a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=QWY] .QWY a.above::before {
               bottom: -16px; }
             #map-container[data-station=QWY] .QWY a.above::after {
               bottom: -13px; }
           #map-container[data-station=QWY] .QWY a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=QWY] .QWY a.below::before {
               top: -16px; }
             #map-container[data-station=QWY] .QWY a.below::after {
@@ -7896,26 +7964,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=NHG] .NHG a.point::before, #map-container[data-station=NHG] .NHG a.point::after {
             opacity: 1; }
-          #map-container[data-station=NHG] .NHG a.left::before {
-            right: -16px; }
-          #map-container[data-station=NHG] .NHG a.left::after {
-            right: -13px; }
+          #map-container[data-station=NHG] .NHG a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=NHG] .NHG a.left::before {
+              right: -16px; }
+            #map-container[data-station=NHG] .NHG a.left::after {
+              right: -13px; }
           #map-container[data-station=NHG] .NHG a.right::before {
             left: -16px; }
           #map-container[data-station=NHG] .NHG a.right::after {
             left: -13px; }
           #map-container[data-station=NHG] .NHG a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=NHG] .NHG a.above::before {
               bottom: -16px; }
             #map-container[data-station=NHG] .NHG a.above::after {
               bottom: -13px; }
           #map-container[data-station=NHG] .NHG a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=NHG] .NHG a.below::before {
               top: -16px; }
             #map-container[data-station=NHG] .NHG a.below::after {
@@ -7948,26 +8019,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=HPK] .HPK a.point::before, #map-container[data-station=HPK] .HPK a.point::after {
             opacity: 1; }
-          #map-container[data-station=HPK] .HPK a.left::before {
-            right: -16px; }
-          #map-container[data-station=HPK] .HPK a.left::after {
-            right: -13px; }
+          #map-container[data-station=HPK] .HPK a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=HPK] .HPK a.left::before {
+              right: -16px; }
+            #map-container[data-station=HPK] .HPK a.left::after {
+              right: -13px; }
           #map-container[data-station=HPK] .HPK a.right::before {
             left: -16px; }
           #map-container[data-station=HPK] .HPK a.right::after {
             left: -13px; }
           #map-container[data-station=HPK] .HPK a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=HPK] .HPK a.above::before {
               bottom: -16px; }
             #map-container[data-station=HPK] .HPK a.above::after {
               bottom: -13px; }
           #map-container[data-station=HPK] .HPK a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=HPK] .HPK a.below::before {
               top: -16px; }
             #map-container[data-station=HPK] .HPK a.below::after {
@@ -8000,26 +8074,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=SBC] .SBC a.point::before, #map-container[data-station=SBC] .SBC a.point::after {
             opacity: 1; }
-          #map-container[data-station=SBC] .SBC a.left::before {
-            right: -16px; }
-          #map-container[data-station=SBC] .SBC a.left::after {
-            right: -13px; }
+          #map-container[data-station=SBC] .SBC a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=SBC] .SBC a.left::before {
+              right: -16px; }
+            #map-container[data-station=SBC] .SBC a.left::after {
+              right: -13px; }
           #map-container[data-station=SBC] .SBC a.right::before {
             left: -16px; }
           #map-container[data-station=SBC] .SBC a.right::after {
             left: -13px; }
           #map-container[data-station=SBC] .SBC a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SBC] .SBC a.above::before {
               bottom: -16px; }
             #map-container[data-station=SBC] .SBC a.above::after {
               bottom: -13px; }
           #map-container[data-station=SBC] .SBC a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SBC] .SBC a.below::before {
               top: -16px; }
             #map-container[data-station=SBC] .SBC a.below::after {
@@ -8052,26 +8129,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=WCT] .WCT a.point::before, #map-container[data-station=WCT] .WCT a.point::after {
             opacity: 1; }
-          #map-container[data-station=WCT] .WCT a.left::before {
-            right: -16px; }
-          #map-container[data-station=WCT] .WCT a.left::after {
-            right: -13px; }
+          #map-container[data-station=WCT] .WCT a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=WCT] .WCT a.left::before {
+              right: -16px; }
+            #map-container[data-station=WCT] .WCT a.left::after {
+              right: -13px; }
           #map-container[data-station=WCT] .WCT a.right::before {
             left: -16px; }
           #map-container[data-station=WCT] .WCT a.right::after {
             left: -13px; }
           #map-container[data-station=WCT] .WCT a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WCT] .WCT a.above::before {
               bottom: -16px; }
             #map-container[data-station=WCT] .WCT a.above::after {
               bottom: -13px; }
           #map-container[data-station=WCT] .WCT a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WCT] .WCT a.below::before {
               top: -16px; }
             #map-container[data-station=WCT] .WCT a.below::after {
@@ -8104,26 +8184,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=EAC] .EAC a.point::before, #map-container[data-station=EAC] .EAC a.point::after {
             opacity: 1; }
-          #map-container[data-station=EAC] .EAC a.left::before {
-            right: -16px; }
-          #map-container[data-station=EAC] .EAC a.left::after {
-            right: -13px; }
+          #map-container[data-station=EAC] .EAC a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=EAC] .EAC a.left::before {
+              right: -16px; }
+            #map-container[data-station=EAC] .EAC a.left::after {
+              right: -13px; }
           #map-container[data-station=EAC] .EAC a.right::before {
             left: -16px; }
           #map-container[data-station=EAC] .EAC a.right::after {
             left: -13px; }
           #map-container[data-station=EAC] .EAC a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=EAC] .EAC a.above::before {
               bottom: -16px; }
             #map-container[data-station=EAC] .EAC a.above::after {
               bottom: -13px; }
           #map-container[data-station=EAC] .EAC a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=EAC] .EAC a.below::before {
               top: -16px; }
             #map-container[data-station=EAC] .EAC a.below::after {
@@ -8156,26 +8239,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=NAC] .NAC a.point::before, #map-container[data-station=NAC] .NAC a.point::after {
             opacity: 1; }
-          #map-container[data-station=NAC] .NAC a.left::before {
-            right: -16px; }
-          #map-container[data-station=NAC] .NAC a.left::after {
-            right: -13px; }
+          #map-container[data-station=NAC] .NAC a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=NAC] .NAC a.left::before {
+              right: -16px; }
+            #map-container[data-station=NAC] .NAC a.left::after {
+              right: -13px; }
           #map-container[data-station=NAC] .NAC a.right::before {
             left: -16px; }
           #map-container[data-station=NAC] .NAC a.right::after {
             left: -13px; }
           #map-container[data-station=NAC] .NAC a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=NAC] .NAC a.above::before {
               bottom: -16px; }
             #map-container[data-station=NAC] .NAC a.above::after {
               bottom: -13px; }
           #map-container[data-station=NAC] .NAC a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=NAC] .NAC a.below::before {
               top: -16px; }
             #map-container[data-station=NAC] .NAC a.below::after {
@@ -8208,26 +8294,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=WAC] .WAC a.point::before, #map-container[data-station=WAC] .WAC a.point::after {
             opacity: 1; }
-          #map-container[data-station=WAC] .WAC a.left::before {
-            right: -16px; }
-          #map-container[data-station=WAC] .WAC a.left::after {
-            right: -13px; }
+          #map-container[data-station=WAC] .WAC a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=WAC] .WAC a.left::before {
+              right: -16px; }
+            #map-container[data-station=WAC] .WAC a.left::after {
+              right: -13px; }
           #map-container[data-station=WAC] .WAC a.right::before {
             left: -16px; }
           #map-container[data-station=WAC] .WAC a.right::after {
             left: -13px; }
           #map-container[data-station=WAC] .WAC a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WAC] .WAC a.above::before {
               bottom: -16px; }
             #map-container[data-station=WAC] .WAC a.above::after {
               bottom: -13px; }
           #map-container[data-station=WAC] .WAC a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WAC] .WAC a.below::before {
               top: -16px; }
             #map-container[data-station=WAC] .WAC a.below::after {
@@ -8261,26 +8350,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=EBY] .EBY a.point::before, #map-container[data-station=EBY] .EBY a.point::after {
             opacity: 1; }
-          #map-container[data-station=EBY] .EBY a.left::before {
-            right: -16px; }
-          #map-container[data-station=EBY] .EBY a.left::after {
-            right: -13px; }
+          #map-container[data-station=EBY] .EBY a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=EBY] .EBY a.left::before {
+              right: -16px; }
+            #map-container[data-station=EBY] .EBY a.left::after {
+              right: -13px; }
           #map-container[data-station=EBY] .EBY a.right::before {
             left: -16px; }
           #map-container[data-station=EBY] .EBY a.right::after {
             left: -13px; }
           #map-container[data-station=EBY] .EBY a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=EBY] .EBY a.above::before {
               bottom: -16px; }
             #map-container[data-station=EBY] .EBY a.above::after {
               bottom: -13px; }
           #map-container[data-station=EBY] .EBY a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=EBY] .EBY a.below::before {
               top: -16px; }
             #map-container[data-station=EBY] .EBY a.below::after {
@@ -8307,10 +8399,6 @@ header li:hover a {
       border-radius: 5px;
       padding: 5px 25px;
       width: auto;
-      left: -6.3em;
-      margin-left: -1.3em;
-      top: -1em;
-      width: 6em;
       position: inherit;
       -ms-transform: rotate(45deg);
       /* IE 9 */
@@ -8323,26 +8411,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=HLN] .HLN a.point::before, #map-container[data-station=HLN] .HLN a.point::after {
             opacity: 1; }
-          #map-container[data-station=HLN] .HLN a.left::before {
-            right: -16px; }
-          #map-container[data-station=HLN] .HLN a.left::after {
-            right: -13px; }
+          #map-container[data-station=HLN] .HLN a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=HLN] .HLN a.left::before {
+              right: -16px; }
+            #map-container[data-station=HLN] .HLN a.left::after {
+              right: -13px; }
           #map-container[data-station=HLN] .HLN a.right::before {
             left: -16px; }
           #map-container[data-station=HLN] .HLN a.right::after {
             left: -13px; }
           #map-container[data-station=HLN] .HLN a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=HLN] .HLN a.above::before {
               bottom: -16px; }
             #map-container[data-station=HLN] .HLN a.above::after {
               bottom: -13px; }
           #map-container[data-station=HLN] .HLN a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=HLN] .HLN a.below::before {
               top: -16px; }
             #map-container[data-station=HLN] .HLN a.below::after {
@@ -8369,10 +8460,6 @@ header li:hover a {
       border-radius: 5px;
       padding: 5px 25px;
       width: auto;
-      left: -4.3em;
-      margin-left: -1.3em;
-      top: -0.99em;
-      width: 4em;
       position: inherit;
       -ms-transform: rotate(45deg);
       /* IE 9 */
@@ -8385,26 +8472,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=PER] .PER a.point::before, #map-container[data-station=PER] .PER a.point::after {
             opacity: 1; }
-          #map-container[data-station=PER] .PER a.left::before {
-            right: -16px; }
-          #map-container[data-station=PER] .PER a.left::after {
-            right: -13px; }
+          #map-container[data-station=PER] .PER a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=PER] .PER a.left::before {
+              right: -16px; }
+            #map-container[data-station=PER] .PER a.left::after {
+              right: -13px; }
           #map-container[data-station=PER] .PER a.right::before {
             left: -16px; }
           #map-container[data-station=PER] .PER a.right::after {
             left: -13px; }
           #map-container[data-station=PER] .PER a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=PER] .PER a.above::before {
               bottom: -16px; }
             #map-container[data-station=PER] .PER a.above::after {
               bottom: -13px; }
           #map-container[data-station=PER] .PER a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=PER] .PER a.below::before {
               top: -16px; }
             #map-container[data-station=PER] .PER a.below::after {
@@ -8431,10 +8521,6 @@ header li:hover a {
       border-radius: 5px;
       padding: 5px 25px;
       width: auto;
-      left: -5.6em;
-      margin-left: -1em;
-      top: -1em;
-      width: 5em;
       position: inherit;
       -ms-transform: rotate(45deg);
       /* IE 9 */
@@ -8447,26 +8533,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=GFD] .GFD a.point::before, #map-container[data-station=GFD] .GFD a.point::after {
             opacity: 1; }
-          #map-container[data-station=GFD] .GFD a.left::before {
-            right: -16px; }
-          #map-container[data-station=GFD] .GFD a.left::after {
-            right: -13px; }
+          #map-container[data-station=GFD] .GFD a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=GFD] .GFD a.left::before {
+              right: -16px; }
+            #map-container[data-station=GFD] .GFD a.left::after {
+              right: -13px; }
           #map-container[data-station=GFD] .GFD a.right::before {
             left: -16px; }
           #map-container[data-station=GFD] .GFD a.right::after {
             left: -13px; }
           #map-container[data-station=GFD] .GFD a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=GFD] .GFD a.above::before {
               bottom: -16px; }
             #map-container[data-station=GFD] .GFD a.above::after {
               bottom: -13px; }
           #map-container[data-station=GFD] .GFD a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=GFD] .GFD a.below::before {
               top: -16px; }
             #map-container[data-station=GFD] .GFD a.below::after {
@@ -8492,36 +8581,36 @@ header li:hover a {
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 5px 25px;
-      width: auto;
-      margin-left: -4.4em;
-      top: -0.4em;
-      left: -1em; }
+      width: auto; }
       @media (min-width: 800px) {
         #map-container[data-station=NHT] .NHT a {
           margin: 10px;
           font-size: 4em; }
           #map-container[data-station=NHT] .NHT a.point::before, #map-container[data-station=NHT] .NHT a.point::after {
             opacity: 1; }
-          #map-container[data-station=NHT] .NHT a.left::before {
-            right: -16px; }
-          #map-container[data-station=NHT] .NHT a.left::after {
-            right: -13px; }
+          #map-container[data-station=NHT] .NHT a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=NHT] .NHT a.left::before {
+              right: -16px; }
+            #map-container[data-station=NHT] .NHT a.left::after {
+              right: -13px; }
           #map-container[data-station=NHT] .NHT a.right::before {
             left: -16px; }
           #map-container[data-station=NHT] .NHT a.right::after {
             left: -13px; }
           #map-container[data-station=NHT] .NHT a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=NHT] .NHT a.above::before {
               bottom: -16px; }
             #map-container[data-station=NHT] .NHT a.above::after {
               bottom: -13px; }
           #map-container[data-station=NHT] .NHT a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=NHT] .NHT a.below::before {
               top: -16px; }
             #map-container[data-station=NHT] .NHT a.below::after {
@@ -8547,36 +8636,36 @@ header li:hover a {
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 5px 25px;
-      width: auto;
-      margin-left: -5.8em;
-      top: -0.3em;
-      left: -1.75em; }
+      width: auto; }
       @media (min-width: 800px) {
         #map-container[data-station=SRP] .SRP a {
           margin: 10px;
           font-size: 4em; }
           #map-container[data-station=SRP] .SRP a.point::before, #map-container[data-station=SRP] .SRP a.point::after {
             opacity: 1; }
-          #map-container[data-station=SRP] .SRP a.left::before {
-            right: -16px; }
-          #map-container[data-station=SRP] .SRP a.left::after {
-            right: -13px; }
+          #map-container[data-station=SRP] .SRP a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=SRP] .SRP a.left::before {
+              right: -16px; }
+            #map-container[data-station=SRP] .SRP a.left::after {
+              right: -13px; }
           #map-container[data-station=SRP] .SRP a.right::before {
             left: -16px; }
           #map-container[data-station=SRP] .SRP a.right::after {
             left: -13px; }
           #map-container[data-station=SRP] .SRP a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SRP] .SRP a.above::before {
               bottom: -16px; }
             #map-container[data-station=SRP] .SRP a.above::after {
               bottom: -13px; }
           #map-container[data-station=SRP] .SRP a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=SRP] .SRP a.below::before {
               top: -16px; }
             #map-container[data-station=SRP] .SRP a.below::after {
@@ -8602,36 +8691,36 @@ header li:hover a {
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 5px 25px;
-      width: auto;
-      left: -2.2em;
-      margin-left: -6.5em;
-      top: -0.4em; }
+      width: auto; }
       @media (min-width: 800px) {
         #map-container[data-station=RUG] .RUG a {
           margin: 10px;
           font-size: 4em; }
           #map-container[data-station=RUG] .RUG a.point::before, #map-container[data-station=RUG] .RUG a.point::after {
             opacity: 1; }
-          #map-container[data-station=RUG] .RUG a.left::before {
-            right: -16px; }
-          #map-container[data-station=RUG] .RUG a.left::after {
-            right: -13px; }
+          #map-container[data-station=RUG] .RUG a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=RUG] .RUG a.left::before {
+              right: -16px; }
+            #map-container[data-station=RUG] .RUG a.left::after {
+              right: -13px; }
           #map-container[data-station=RUG] .RUG a.right::before {
             left: -16px; }
           #map-container[data-station=RUG] .RUG a.right::after {
             left: -13px; }
           #map-container[data-station=RUG] .RUG a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=RUG] .RUG a.above::before {
               bottom: -16px; }
             #map-container[data-station=RUG] .RUG a.above::after {
               bottom: -13px; }
           #map-container[data-station=RUG] .RUG a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=RUG] .RUG a.below::before {
               top: -16px; }
             #map-container[data-station=RUG] .RUG a.below::after {
@@ -8667,26 +8756,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=WRP] .WRP a.point::before, #map-container[data-station=WRP] .WRP a.point::after {
             opacity: 1; }
-          #map-container[data-station=WRP] .WRP a.left::before {
-            right: -16px; }
-          #map-container[data-station=WRP] .WRP a.left::after {
-            right: -13px; }
+          #map-container[data-station=WRP] .WRP a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=WRP] .WRP a.left::before {
+              right: -16px; }
+            #map-container[data-station=WRP] .WRP a.left::after {
+              right: -13px; }
           #map-container[data-station=WRP] .WRP a.right::before {
             left: -16px; }
           #map-container[data-station=WRP] .WRP a.right::after {
             left: -13px; }
           #map-container[data-station=WRP] .WRP a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WRP] .WRP a.above::before {
               bottom: -16px; }
             #map-container[data-station=WRP] .WRP a.above::after {
               bottom: -13px; }
           #map-container[data-station=WRP] .WRP a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WRP] .WRP a.below::before {
               top: -16px; }
             #map-container[data-station=WRP] .WRP a.below::after {
@@ -8721,26 +8813,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=ROD] .ROD a.point::before, #map-container[data-station=ROD] .ROD a.point::after {
             opacity: 1; }
-          #map-container[data-station=ROD] .ROD a.left::before {
-            right: -16px; }
-          #map-container[data-station=ROD] .ROD a.left::after {
-            right: -13px; }
+          #map-container[data-station=ROD] .ROD a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=ROD] .ROD a.left::before {
+              right: -16px; }
+            #map-container[data-station=ROD] .ROD a.left::after {
+              right: -13px; }
           #map-container[data-station=ROD] .ROD a.right::before {
             left: -16px; }
           #map-container[data-station=ROD] .ROD a.right::after {
             left: -13px; }
           #map-container[data-station=ROD] .ROD a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=ROD] .ROD a.above::before {
               bottom: -16px; }
             #map-container[data-station=ROD] .ROD a.above::after {
               bottom: -13px; }
           #map-container[data-station=ROD] .ROD a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=ROD] .ROD a.below::before {
               top: -16px; }
             #map-container[data-station=ROD] .ROD a.below::after {
@@ -8766,35 +8861,36 @@ header li:hover a {
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 5px 25px;
-      width: auto;
-      left: -2.9em;
-      top: .64em; }
+      width: auto; }
       @media (min-width: 800px) {
         #map-container[data-station=CHG] .CHG a {
           margin: 10px;
           font-size: 4em; }
           #map-container[data-station=CHG] .CHG a.point::before, #map-container[data-station=CHG] .CHG a.point::after {
             opacity: 1; }
-          #map-container[data-station=CHG] .CHG a.left::before {
-            right: -16px; }
-          #map-container[data-station=CHG] .CHG a.left::after {
-            right: -13px; }
+          #map-container[data-station=CHG] .CHG a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=CHG] .CHG a.left::before {
+              right: -16px; }
+            #map-container[data-station=CHG] .CHG a.left::after {
+              right: -13px; }
           #map-container[data-station=CHG] .CHG a.right::before {
             left: -16px; }
           #map-container[data-station=CHG] .CHG a.right::after {
             left: -13px; }
           #map-container[data-station=CHG] .CHG a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=CHG] .CHG a.above::before {
               bottom: -16px; }
             #map-container[data-station=CHG] .CHG a.above::after {
               bottom: -13px; }
           #map-container[data-station=CHG] .CHG a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=CHG] .CHG a.below::before {
               top: -16px; }
             #map-container[data-station=CHG] .CHG a.below::after {
@@ -8831,26 +8927,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=GRH] .ROD a.point::before, #map-container[data-station=GRH] .ROD a.point::after {
             opacity: 1; }
-          #map-container[data-station=GRH] .ROD a.left::before {
-            right: -16px; }
-          #map-container[data-station=GRH] .ROD a.left::after {
-            right: -13px; }
+          #map-container[data-station=GRH] .ROD a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=GRH] .ROD a.left::before {
+              right: -16px; }
+            #map-container[data-station=GRH] .ROD a.left::after {
+              right: -13px; }
           #map-container[data-station=GRH] .ROD a.right::before {
             left: -16px; }
           #map-container[data-station=GRH] .ROD a.right::after {
             left: -13px; }
           #map-container[data-station=GRH] .ROD a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=GRH] .ROD a.above::before {
               bottom: -16px; }
             #map-container[data-station=GRH] .ROD a.above::after {
               bottom: -13px; }
           #map-container[data-station=GRH] .ROD a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=GRH] .ROD a.below::before {
               top: -16px; }
             #map-container[data-station=GRH] .ROD a.below::after {
@@ -8887,26 +8986,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=HAI] .HAI a.point::before, #map-container[data-station=HAI] .HAI a.point::after {
             opacity: 1; }
-          #map-container[data-station=HAI] .HAI a.left::before {
-            right: -16px; }
-          #map-container[data-station=HAI] .HAI a.left::after {
-            right: -13px; }
+          #map-container[data-station=HAI] .HAI a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=HAI] .HAI a.left::before {
+              right: -16px; }
+            #map-container[data-station=HAI] .HAI a.left::after {
+              right: -13px; }
           #map-container[data-station=HAI] .HAI a.right::before {
             left: -16px; }
           #map-container[data-station=HAI] .HAI a.right::after {
             left: -13px; }
           #map-container[data-station=HAI] .HAI a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=HAI] .HAI a.above::before {
               bottom: -16px; }
             #map-container[data-station=HAI] .HAI a.above::after {
               bottom: -13px; }
           #map-container[data-station=HAI] .HAI a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=HAI] .HAI a.below::before {
               top: -16px; }
             #map-container[data-station=HAI] .HAI a.below::after {
@@ -8932,38 +9034,36 @@ header li:hover a {
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 5px 25px;
-      width: auto;
-      top: -.4em;
-      margin-left: -3.41em;
-      left: -1em; }
-      #map-container[data-station=FLP] .FLP a br {
-        display: none; }
+      width: auto; }
       @media (min-width: 800px) {
         #map-container[data-station=FLP] .FLP a {
           margin: 10px;
           font-size: 4em; }
           #map-container[data-station=FLP] .FLP a.point::before, #map-container[data-station=FLP] .FLP a.point::after {
             opacity: 1; }
-          #map-container[data-station=FLP] .FLP a.left::before {
-            right: -16px; }
-          #map-container[data-station=FLP] .FLP a.left::after {
-            right: -13px; }
+          #map-container[data-station=FLP] .FLP a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=FLP] .FLP a.left::before {
+              right: -16px; }
+            #map-container[data-station=FLP] .FLP a.left::after {
+              right: -13px; }
           #map-container[data-station=FLP] .FLP a.right::before {
             left: -16px; }
           #map-container[data-station=FLP] .FLP a.right::after {
             left: -13px; }
           #map-container[data-station=FLP] .FLP a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=FLP] .FLP a.above::before {
               bottom: -16px; }
             #map-container[data-station=FLP] .FLP a.above::after {
               bottom: -13px; }
           #map-container[data-station=FLP] .FLP a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=FLP] .FLP a.below::before {
               top: -16px; }
             #map-container[data-station=FLP] .FLP a.below::after {
@@ -8989,38 +9089,36 @@ header li:hover a {
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 5px 25px;
-      width: auto;
-      top: -.4em;
-      margin-left: -5em;
-      left: -1.5em; }
-      #map-container[data-station=BDE] .BDE a br {
-        display: none; }
+      width: auto; }
       @media (min-width: 800px) {
         #map-container[data-station=BDE] .BDE a {
           margin: 10px;
           font-size: 4em; }
           #map-container[data-station=BDE] .BDE a.point::before, #map-container[data-station=BDE] .BDE a.point::after {
             opacity: 1; }
-          #map-container[data-station=BDE] .BDE a.left::before {
-            right: -16px; }
-          #map-container[data-station=BDE] .BDE a.left::after {
-            right: -13px; }
+          #map-container[data-station=BDE] .BDE a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=BDE] .BDE a.left::before {
+              right: -16px; }
+            #map-container[data-station=BDE] .BDE a.left::after {
+              right: -13px; }
           #map-container[data-station=BDE] .BDE a.right::before {
             left: -16px; }
           #map-container[data-station=BDE] .BDE a.right::after {
             left: -13px; }
           #map-container[data-station=BDE] .BDE a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BDE] .BDE a.above::before {
               bottom: -16px; }
             #map-container[data-station=BDE] .BDE a.above::after {
               bottom: -13px; }
           #map-container[data-station=BDE] .BDE a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=BDE] .BDE a.below::before {
               top: -16px; }
             #map-container[data-station=BDE] .BDE a.below::after {
@@ -9046,38 +9144,36 @@ header li:hover a {
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 5px 25px;
-      width: auto;
-      top: -.4em;
-      margin-left: -6.5em;
-      left: -1.2em; }
-      #map-container[data-station=NEP] .NEP a br {
-        display: none; }
+      width: auto; }
       @media (min-width: 800px) {
         #map-container[data-station=NEP] .NEP a {
           margin: 10px;
           font-size: 4em; }
           #map-container[data-station=NEP] .NEP a.point::before, #map-container[data-station=NEP] .NEP a.point::after {
             opacity: 1; }
-          #map-container[data-station=NEP] .NEP a.left::before {
-            right: -16px; }
-          #map-container[data-station=NEP] .NEP a.left::after {
-            right: -13px; }
+          #map-container[data-station=NEP] .NEP a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=NEP] .NEP a.left::before {
+              right: -16px; }
+            #map-container[data-station=NEP] .NEP a.left::after {
+              right: -13px; }
           #map-container[data-station=NEP] .NEP a.right::before {
             left: -16px; }
           #map-container[data-station=NEP] .NEP a.right::after {
             left: -13px; }
           #map-container[data-station=NEP] .NEP a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=NEP] .NEP a.above::before {
               bottom: -16px; }
             #map-container[data-station=NEP] .NEP a.above::after {
               bottom: -13px; }
           #map-container[data-station=NEP] .NEP a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=NEP] .NEP a.below::before {
               top: -16px; }
             #map-container[data-station=NEP] .NEP a.below::after {
@@ -9114,26 +9210,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=GHL] .GHL a.point::before, #map-container[data-station=GHL] .GHL a.point::after {
             opacity: 1; }
-          #map-container[data-station=GHL] .GHL a.left::before {
-            right: -16px; }
-          #map-container[data-station=GHL] .GHL a.left::after {
-            right: -13px; }
+          #map-container[data-station=GHL] .GHL a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=GHL] .GHL a.left::before {
+              right: -16px; }
+            #map-container[data-station=GHL] .GHL a.left::after {
+              right: -13px; }
           #map-container[data-station=GHL] .GHL a.right::before {
             left: -16px; }
           #map-container[data-station=GHL] .GHL a.right::after {
             left: -13px; }
           #map-container[data-station=GHL] .GHL a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=GHL] .GHL a.above::before {
               bottom: -16px; }
             #map-container[data-station=GHL] .GHL a.above::after {
               bottom: -13px; }
           #map-container[data-station=GHL] .GHL a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=GHL] .GHL a.below::before {
               top: -16px; }
             #map-container[data-station=GHL] .GHL a.below::after {
@@ -9159,37 +9258,36 @@ header li:hover a {
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 5px 25px;
-      width: auto;
-      margin-left: -3.11em;
-      top: -1.5em; }
-      #map-container[data-station=RED] .RED a br {
-        display: none; }
+      width: auto; }
       @media (min-width: 800px) {
         #map-container[data-station=RED] .RED a {
           margin: 10px;
           font-size: 4em; }
           #map-container[data-station=RED] .RED a.point::before, #map-container[data-station=RED] .RED a.point::after {
             opacity: 1; }
-          #map-container[data-station=RED] .RED a.left::before {
-            right: -16px; }
-          #map-container[data-station=RED] .RED a.left::after {
-            right: -13px; }
+          #map-container[data-station=RED] .RED a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=RED] .RED a.left::before {
+              right: -16px; }
+            #map-container[data-station=RED] .RED a.left::after {
+              right: -13px; }
           #map-container[data-station=RED] .RED a.right::before {
             left: -16px; }
           #map-container[data-station=RED] .RED a.right::after {
             left: -13px; }
           #map-container[data-station=RED] .RED a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=RED] .RED a.above::before {
               bottom: -16px; }
             #map-container[data-station=RED] .RED a.above::after {
               bottom: -13px; }
           #map-container[data-station=RED] .RED a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=RED] .RED a.below::before {
               top: -16px; }
             #map-container[data-station=RED] .RED a.below::after {
@@ -9226,26 +9324,29 @@ header li:hover a {
           font-size: 4em; }
           #map-container[data-station=WAN] .WAN a.point::before, #map-container[data-station=WAN] .WAN a.point::after {
             opacity: 1; }
-          #map-container[data-station=WAN] .WAN a.left::before {
-            right: -16px; }
-          #map-container[data-station=WAN] .WAN a.left::after {
-            right: -13px; }
+          #map-container[data-station=WAN] .WAN a.left {
+            top: -.7em;
+            right: .5em; }
+            #map-container[data-station=WAN] .WAN a.left::before {
+              right: -16px; }
+            #map-container[data-station=WAN] .WAN a.left::after {
+              right: -13px; }
           #map-container[data-station=WAN] .WAN a.right::before {
             left: -16px; }
           #map-container[data-station=WAN] .WAN a.right::after {
             left: -13px; }
           #map-container[data-station=WAN] .WAN a.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WAN] .WAN a.above::before {
               bottom: -16px; }
             #map-container[data-station=WAN] .WAN a.above::after {
               bottom: -13px; }
           #map-container[data-station=WAN] .WAN a.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px; }
+            margin-left: -98px; }
             #map-container[data-station=WAN] .WAN a.below::before {
               top: -16px; }
             #map-container[data-station=WAN] .WAN a.below::after {
@@ -9306,7 +9407,7 @@ header li:hover a {
     text-decoration: none;
     margin-top: -2em; }
   #nextTrain .direction {
-    width: 50%;
+    width: 42%;
     display: inline-block; } }
 
 #tflStatus small {

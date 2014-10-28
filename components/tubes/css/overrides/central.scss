@@ -359,10 +359,6 @@
     .HLN {
         a {
             @include large-label();
-            left: -6.3em;
-            margin-left: -1.3em;
-            top: -1em;
-            width: 6em;
             position: inherit;
             -ms-transform: rotate(45deg); /* IE 9 */
             -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
@@ -377,10 +373,6 @@
     .PER {
         a {
             @include large-label();
-            left: -4.3em;
-            margin-left: -1.3em;
-            top: -0.99em;
-            width: 4em;
             position: inherit;
             -ms-transform: rotate(45deg); /* IE 9 */
             -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
@@ -395,10 +387,6 @@
     .GFD {
         a {
             @include large-label();
-            left: -5.6em;
-            margin-left: -1em;
-            top: -1em;
-            width: 5em;
             position: inherit;
             -ms-transform: rotate(45deg); /* IE 9 */
             -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
@@ -413,9 +401,6 @@
     .NHT {
         a {
             @include large-label();
-            margin-left: -4.4em;
-            top: -0.4em;
-            left: -1em;
         }
     }
 }
@@ -426,9 +411,6 @@
     .SRP {
         a {
             @include large-label();
-            margin-left: -5.8em;
-            top: -0.3em;
-            left: -1.75em;
         }
     }
 }
@@ -439,9 +421,6 @@
     .RUG {
         a {
             @include large-label();
-            left: -2.2em;
-            margin-left: -6.5em;
-            top: -0.4em;
         }
     }
 }
@@ -478,8 +457,6 @@
     .CHG {
         a {
             @include large-label();
-            left: -2.9em;
-            top: .64em;
         }
     }
 }
@@ -519,13 +496,7 @@
     left: -3419px;
     .FLP {
         a {
-            br {
-                display: none;
-            }
             @include large-label();
-            top: -.4em;
-            margin-left: -3.41em;
-            left: -1em;
         }
     }
 }
@@ -535,13 +506,7 @@
     left: -3283px;
     .BDE {
         a {
-            br {
-                display: none;
-            }
             @include large-label();
-            top: -.4em;
-            margin-left: -5em;
-            left: -1.5em;
         }
     }
 }
@@ -551,13 +516,7 @@
     left: -3208px;
     .NEP {
         a {
-            br {
-                display: none;
-            }
             @include large-label();
-            top: -.4em;
-            margin-left: -6.5em;
-            left: -1.2em;
         }
     }
 }
@@ -582,12 +541,7 @@
     left: -3385px;
     .RED {
         a {
-            br {
-                display: none;
-            }
             @include large-label();
-            margin-left: -3.11em;
-            top: -1.5em;
         }
     }
 }

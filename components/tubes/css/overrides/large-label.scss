@@ -28,6 +28,8 @@
         }
 
         &.left {
+            top: -.7em;
+            right: .5em;
             &::before {
                 right: -16px;
             }
@@ -46,9 +48,9 @@
         }
 
         &.above {
-            top: -1.8em;
+            top: -1.6em;
             left: -15px;
-            margin-left: -100px;
+            margin-left: -98px;
 
             &::before {
                 bottom: -16px;
@@ -60,9 +62,9 @@
 
 
         &.below {
-            bottom: -1.8em;
+            top: .7em;
             left: -15px;
-            margin-left: -100px;
+            margin-left: -98px;
 
 
             &::before {
