@@ -8,9 +8,6 @@
     .EPP {
         a {
             @include large-label();
-            margin-left: -3em;
-            left: -1.3em;
-            top: -.2em;
         }
     }
 }
@@ -21,9 +18,6 @@
     .THB {
         a {
             @include large-label();
-            margin-left: -5.5em;
-            left: -2em !important;
-            top: -.4em;
         }
     }
 }
@@ -35,9 +29,6 @@
     .DEB {
         a {
             @include large-label();
-            margin-left: -3.6em;
-            left: -1.2em;
-            top: -.4em;
         }
     }
 }
@@ -49,9 +40,6 @@
     .LTN {
         a {
             @include large-label();
-            left: -1.5em;
-            margin-left: -4.1em;
-            top: -.4em;
         }
     }
 }
@@ -63,9 +51,6 @@
     .BHL {
         a {
             @include large-label();
-            left: -2em;
-            margin-left: -6em;
-            top: -.4em;
         }
     }
 }
@@ -73,13 +58,14 @@
 &[data-station=WFD] {
     top: -352px;
     left: -3055px;
+    @media (max-width: 800px) {
+        left: -3255px;
+    }
     .WFD {
         a {
             @include large-label();
-            margin-left: -4.5em;
-            left: -1.5em;
-            top: -.2em;
-
+            margin-left: -4em;
+            top: -.5em;
         }
     }
 }
@@ -87,12 +73,12 @@
 &[data-station=SWF] {
     top: -406px;
     left: -2866px;
+    @media (max-width: 800px) {
+        left: -3255px;
+    }
     .SWF {
         a {
             @include large-label();
-            margin-left: -7em;
-            left: -2em;
-            top: -.4em;
         }
     }
 }
@@ -101,12 +87,13 @@
 &[data-station=SNB] {
     top: -461px;
     left: -2994px;
+    @media (max-width: 800px) {
+        left: -3255px;
+    }
+
     .SNB {
         a {
             @include large-label();
-            margin-left: -5em;
-            left: -2em;
-            top: -.4em;
         }
     }
 }
@@ -120,8 +107,6 @@
         a {
             @include large-label();
             margin-left: -5em;
-            left: -2.1em;
-            top: -0.4em;
         }
     }
 }
@@ -134,8 +119,6 @@
         a {
             @include large-label();
             margin-left: -3.4em;
-            left: -1em;
-            top: -.4em;
         }
     }
 }
@@ -146,7 +129,6 @@
     .SFD {
         a {
             @include large-label();
-            left: 0.4em;
             top: -.2em;
         }
     }
@@ -158,11 +140,6 @@
     .MLE {
         a {
             @include large-label();
-            position: inherit;
-            width: 4.2em;
-            vertical-align: bottom;
-            margin-top: -0.9em;
-            margin-left: -2.75em;
         }
     }
 }
@@ -173,8 +150,6 @@
     .BNG {
         a {
             @include large-label();
-            margin-left: -4.05em;
-            top: -1.5em;
         }
     }
 }
@@ -198,9 +173,6 @@
     .BNK {
         a {
             @include large-label();
-            margin-left: -1.75em;
-            left: 0;
-            top: -1.6em;
         }
     }
 }
@@ -211,13 +183,10 @@
     .STP {
         a {
             @include large-label();
-            margin-left: 0.5em;
             position: inherit;
-            top:  -0.14em;
             -ms-transform: rotate(45deg); /* IE 9 */
             -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
             transform: rotate(45deg);
-
         }
     }
 }
@@ -229,9 +198,6 @@
     .CYL {
         a {
             @include large-label();
-            top: -1.5em;
-            left: 0em;
-            margin-left: -4.1em;
         }
     }
 }
@@ -242,9 +208,6 @@
     .HOL {
         a {
             @include large-label();
-            margin-left: -1.9em;
-            left: -.5em;
-            top: .97em;
         }
     }
 }
@@ -255,8 +218,6 @@
     .TCR {
         a {
             @include large-label();
-            top: .99em;
-            left: -6.1em;
         }
     }
 }
@@ -267,8 +228,6 @@
     .OXC {
         a {
             @include large-label();
-            margin-left: -2.9em;
-            top: -1.6em;
         }
     }
 }
@@ -279,9 +238,6 @@
     .BDS {
         a {
             @include large-label();
-            left: 0em;
-            margin-left: -3.29em;
-            top: -1.6em;
         }
     }
 }
@@ -292,8 +248,6 @@
     .MAR {
         a {
             @include large-label();
-            margin-left: -3.5em;
-            top: 0.7em;
         }
     }
 }
@@ -304,9 +258,6 @@
     .LAN {
         a {
             @include large-label();
-            left: 0em;
-            margin-left: -4.2em;
-            top: -1.5em;
         }
     }
 }
@@ -317,9 +268,6 @@
     .QWY {
         a {
             @include large-label();
-            left: 0em;
-            margin-left: -3.35em;
-            top: .66em;
         }
     }
 }
@@ -330,9 +278,6 @@
     .NHG {
         a {
             @include large-label();
-            left: 0em;
-            margin-left: -4.7em;
-            top: -1.6em;
         }
     }
 }
@@ -343,8 +288,6 @@
     .HPK {
         a {
             @include large-label();
-            margin-left: -3.65em;
-            top: .6em;
         }
     }
 }
@@ -355,8 +298,6 @@
     .SBC {
         a {
             @include large-label();
-            margin-left: -4.36em;
-            top: -1.6em;
         }
     }
 }
@@ -367,9 +308,6 @@
     .WCT {
         a {
             @include large-label();
-            left: 0em;
-            margin-left: -3.1em;
-            top: -1.6em;
         }
     }
 }
@@ -380,9 +318,6 @@
     .EAC {
         a {
             @include large-label();
-            left: 0em;
-            margin-left: -3.16em;
-            top: -1.5em;
         }
     }
 }
@@ -393,8 +328,6 @@
     .NAC {
         a {
             @include large-label();
-            margin-left: -3.91em;
-            top: .6em;
         }
     }
 }
@@ -405,9 +338,6 @@
     .WAC {
         a {
             @include large-label();
-            left: 0em;
-            margin-left: -3.44em;
-            top: .6em;
         }
     }
 }
@@ -418,9 +348,7 @@
     .EBY {
         a {
             @include large-label();
-            margin-left: -7em;
-            left: -2em;
-            top: -0.3em;
+            margin-left: -3em;
         }
     }
 }

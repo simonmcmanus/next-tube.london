@@ -1,70 +1,84 @@
 // makes the station name big when the appropriate data attribute is applied.
 @mixin large-label() {
 
+
+    color: #1c3f95;
+    cursor: default;
+    font-weight: bold;
+    height: 1em;
+    line-height: 1em;
+    opacity: 1;
+    //transition-delay: .5sxx;
+    white-space: nowrap;
+    z-index: 200 !important;
     background: #fff;
     border: 2px solid #2F4E99;
     box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
     border-radius: 5px;
-    margin-left: 10px;
-
-    color: #1c3f95;
-    cursor: default;
-    font-size: 4em;
-    font-weight: bold;
-    height: 1em;
-    line-height: 1em;
-    margin: 10px;
-    opacity: 1;
     padding: 5px 25px;
-    position: relative;
-    transition-delay: .5s;
-    white-space: nowrap;
-    z-index: 200 !important;
+    width: auto;
+
+    @media (min-width: 800px) {
+
+        margin: 10px;
+        font-size: 4em;
+        &.point::before,
+        &.point::after, {
+            opacity: 1;
+        }
+
+        &.left {
+            &::before {
+                right: -16px;
+            }
+            &::after {
+                right: -13px;
+            }
+        }
+
+        &.right {
+            &::before {
+                left: -16px;
+            }
+            &::after {
+                left: -13px;
+            }
+        }
+
+        &.above {
+            top: -1.8em;
+            left: -15px;
+            margin-left: -100px;
+
+            &::before {
+                bottom: -16px;
+            }
+            &::after {
+                bottom: -13px;
+            }
+        }
+
+
+        &.below {
+            bottom: -1.8em;
+            left: -15px;
+            margin-left: -100px;
+
+
+            &::before {
+                top: -16px;
+            }
+            &::after {
+                top: -13px;
+            }
+        }
+    }
 
     br {
         content: ' ';
         display: inline-block;
         width: .3em;
     }
-    &.point::before,
-    &.point::after, {
-        opacity: 1;
-    }
-
-    &.left.point {
-        &::before {
-            right: -16px;
-        }
-        &::after {
-            right: -13px;
-        }
-    }
-
-    &.right.point {
-        &::before {
-            left: -16px;
-        }
-        &::after {
-            left: -13px;
-        }
-    }
-
-    &.above.point {
-        &::before {
-            bottom: -16px;
-        }
-        &::after {
-            bottom: -13px;
-        }
-    }
 
 
-    &.below.point {
-        &::before {
-            top: -16px;
-        }
-        &::after {
-            top: -13px;
-        }
-    }
 }

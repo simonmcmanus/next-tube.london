@@ -1,7 +1,7 @@
 #! /bin/bash
 
-rm -Rf ./public/css
-mkdir ./public/css
+#rm -Rf ./public/css
+#mkdir ./public/css
 #rm -Rf .sass-cache
 
 

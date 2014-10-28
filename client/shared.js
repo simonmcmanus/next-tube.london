@@ -26,11 +26,12 @@ page('/central-line/:stationName', function(context, next) {
     // to emit stop listening.
     $('li a.point').removeClass('point');
     $('#map-container').attr('data-station', code);
-    setTimeout(function() {
-        var selector = 'ul.line li.' + code + ' a';
-        console.log(selector);
-        $(selector).addClass('point');
-    }, 800);
+    var selector = 'ul.line li.' + code + ' a';
+    console.log(selector);
+    $(selector).addClass('point');
+
+    // setTimeout(function() {
+    // }, 800);
     nextTrain.showLoader();
     nextTrain.getStationData(context.params.stationName, socket);
 });
