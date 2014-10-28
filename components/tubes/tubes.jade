@@ -93,7 +93,7 @@ section#map-container(data-station=tubes.currentStationCode)
             br
             | Lane
         li#cen025.station.rot315.STP
-          a.no-arrow.right(href='/central-line/st-pauls', class=(tubes.currentStationCode !== 'STP') || ' point') St. Paul's
+          a.right(href='/central-line/st-pauls', class=(tubes.currentStationCode !== 'STP') || ' point') St. Paul's
         li#cen026.roundel.connection.BNK
           a.above.cross(href='/central-line/bank', class=(tubes.currentStationCode !== 'BNK') || ' point')
             br
@@ -131,8 +131,7 @@ section#map-container(data-station=tubes.currentStationCode)
         li#cen040.roundel.disabled.EPP
           a.left(href='/central-line/epping', class=(tubes.currentStationCode !== 'EPP') || ' point') Epping
         li#cen041.roundel.disabled.ROD
-          strong.above
-            a(href="/central-line/roding-valley", class=(tubes.currentStationCode !== 'ROD') || ' point')
+          a.above(href="/central-line/roding-valley", class=(tubes.currentStationCode !== 'ROD') || ' point')
               | Roding
               br
               | Valley
@@ -143,7 +142,6 @@ section#map-container(data-station=tubes.currentStationCode)
             | Grange
             br
             | Hill
-
         li#cen044.roundel.disabled.HAI
           a.left(href='/central-line/hainault', class=(tubes.currentStationCode !== 'HAI') || ' point') Hainault
         li#cen045.station.FLP

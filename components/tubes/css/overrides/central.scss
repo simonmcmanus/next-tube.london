@@ -206,14 +206,14 @@
 }
 
 &[data-station=STP] {
-    top: -1273px;
-    left: -2352px;
+    top: -1295px;
+    left: -2379px;
     .STP {
         a {
             @include large-label();
-            margin-left: .5em;
+            margin-left: 0.5em;
             position: inherit;
-            top: -1.14em;
+            top:  -0.14em;
             -ms-transform: rotate(45deg); /* IE 9 */
             -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
             transform: rotate(45deg);
