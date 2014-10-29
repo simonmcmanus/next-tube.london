@@ -1,4 +1,29 @@
 // makes the station name big when the appropriate data attribute is applied.
+
+@mixin large-roundel-li() {
+    // take account of a roundel in positioning.
+    @media (min-width: 800px) {
+        &.left {
+            top: -38px;
+            right: 50px;
+        }
+        &.right {
+            top: -33px;
+            left: 45px;
+        }
+        &.above {
+            top: -1.6em;
+            left: -7px;
+        }
+        &.below {
+            top: 44px;
+            left: -7px;
+        }
+
+    }
+
+}
+
 @mixin large-label() {
 
 
@@ -28,8 +53,8 @@
         }
 
         &.left {
-            top: -.7em;
-            right: .5em;
+            top: -45px;
+            right: 22px;
             &::before {
                 right: -16px;
             }
@@ -48,7 +73,7 @@
         }
 
         &.above {
-            top: -1.6em;
+            top: -1.8em;
             left: -15px;
             margin-left: -98px;
 
@@ -62,8 +87,8 @@
 
 
         &.below {
-            top: .7em;
-            left: -15px;
+            top: 25px;
+            left: -14px;
             margin-left: -98px;
 
 
