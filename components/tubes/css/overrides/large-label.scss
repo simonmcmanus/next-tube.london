@@ -4,8 +4,8 @@
     // take account of a roundel in positioning.
     @media (min-width: 800px) {
         &.left {
-            top: -38px;
-            right: 50px;
+            top: -42px;
+            right: 49px;
         }
         &.right {
             top: -33px;
@@ -35,17 +35,16 @@
     opacity: 1;
     //transition-delay: .5sxx;
     white-space: nowrap;
-    z-index: 200 !important;
+    z-index: 2000 !important;
     background: #fff;
     border: 2px solid #2F4E99;
     box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
     border-radius: 5px;
-    padding: 5px 25px;
+    padding: 15px 25px;
     width: auto;
 
     @media (min-width: 800px) {
 
-        margin: 10px;
         font-size: 4em;
         &.point::before,
         &.point::after, {
@@ -53,8 +52,8 @@
         }
 
         &.left {
-            top: -45px;
-            right: 22px;
+            top: -42px;
+            right: 27px;
             &::before {
                 right: -16px;
             }
@@ -78,10 +77,10 @@
             margin-left: -98px;
 
             &::before {
-                bottom: -16px;
+                bottom: -15px;
             }
             &::after {
-                bottom: -13px;
+                bottom: -14px;
             }
         }
 
@@ -93,7 +92,7 @@
 
 
             &::before {
-                top: -16px;
+                top: -14px;
             }
             &::after {
                 top: -13px;
