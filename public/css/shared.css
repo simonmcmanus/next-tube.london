@@ -14,6 +14,7 @@ body {
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px; }
   body #floater {
+    display: none;
     margin-top: 200px;
     box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
     z-index: 2000;
@@ -6554,6 +6555,8 @@ header li:hover a {
     #map-container li a.left {
       position: absolute;
       top: -.5em; }
+      #map-container li a.left.boxed {
+        top: -1.1em; }
       #map-container li a.left::before, #map-container li a.left::after {
         top: 35%;
         bottom: auto;
@@ -6595,7 +6598,7 @@ header li:hover a {
     #map-container li a.no-arrow::before, #map-container li a.no-arrow::after {
       display: none; }
   #map-container li.roundel a.above {
-    margin-left: -53px;
+    margin-left: -49px;
     margin-top: -7px; }
   #map-container li.roundel a.left {
     margin-right: 2px;
@@ -6648,8 +6651,8 @@ header li:hover a {
           #map-container[data-station=EPP] .EPP a.right::after {
             left: -13px; }
           #map-container[data-station=EPP] .EPP a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=EPP] .EPP a.above::before {
               bottom: -15px; }
@@ -6672,11 +6675,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=EPP] .EPP a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=EPP] .EPP a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=EPP] .EPP a.below {
           top: 44px;
           left: -7px; } }
@@ -6715,8 +6718,8 @@ header li:hover a {
           #map-container[data-station=THB] .THB a.right::after {
             left: -13px; }
           #map-container[data-station=THB] .THB a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=THB] .THB a.above::before {
               bottom: -15px; }
@@ -6769,8 +6772,8 @@ header li:hover a {
           #map-container[data-station=DEB] .DEB a.right::after {
             left: -13px; }
           #map-container[data-station=DEB] .DEB a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=DEB] .DEB a.above::before {
               bottom: -15px; }
@@ -6823,8 +6826,8 @@ header li:hover a {
           #map-container[data-station=LTN] .LTN a.right::after {
             left: -13px; }
           #map-container[data-station=LTN] .LTN a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=LTN] .LTN a.above::before {
               bottom: -15px; }
@@ -6877,8 +6880,8 @@ header li:hover a {
           #map-container[data-station=BHL] .BHL a.right::after {
             left: -13px; }
           #map-container[data-station=BHL] .BHL a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=BHL] .BHL a.above::before {
               bottom: -15px; }
@@ -6936,8 +6939,8 @@ header li:hover a {
           #map-container[data-station=WFD] .WFD a.right::after {
             left: -13px; }
           #map-container[data-station=WFD] .WFD a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=WFD] .WFD a.above::before {
               bottom: -15px; }
@@ -6960,11 +6963,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=WFD] .WFD a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=WFD] .WFD a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=WFD] .WFD a.below {
           top: 44px;
           left: -7px; } }
@@ -7006,8 +7009,8 @@ header li:hover a {
           #map-container[data-station=SWF] .SWF a.right::after {
             left: -13px; }
           #map-container[data-station=SWF] .SWF a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=SWF] .SWF a.above::before {
               bottom: -15px; }
@@ -7063,8 +7066,8 @@ header li:hover a {
           #map-container[data-station=SNB] .SNB a.right::after {
             left: -13px; }
           #map-container[data-station=SNB] .SNB a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=SNB] .SNB a.above::before {
               bottom: -15px; }
@@ -7118,8 +7121,8 @@ header li:hover a {
           #map-container[data-station=LYS] .LYS a.right::after {
             left: -13px; }
           #map-container[data-station=LYS] .LYS a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=LYS] .LYS a.above::before {
               bottom: -15px; }
@@ -7173,8 +7176,8 @@ header li:hover a {
           #map-container[data-station=LEY] .LEY a.right::after {
             left: -13px; }
           #map-container[data-station=LEY] .LEY a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=LEY] .LEY a.above::before {
               bottom: -15px; }
@@ -7228,8 +7231,8 @@ header li:hover a {
           #map-container[data-station=SFD] .SFD a.right::after {
             left: -13px; }
           #map-container[data-station=SFD] .SFD a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=SFD] .SFD a.above::before {
               bottom: -15px; }
@@ -7252,11 +7255,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=SFD] .SFD a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=SFD] .SFD a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=SFD] .SFD a.below {
           top: 44px;
           left: -7px; } }
@@ -7295,8 +7298,8 @@ header li:hover a {
           #map-container[data-station=MLE] .MLE a.right::after {
             left: -13px; }
           #map-container[data-station=MLE] .MLE a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=MLE] .MLE a.above::before {
               bottom: -15px; }
@@ -7319,11 +7322,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=MLE] .MLE a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=MLE] .MLE a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=MLE] .MLE a.below {
           top: 44px;
           left: -7px; } }
@@ -7362,8 +7365,8 @@ header li:hover a {
           #map-container[data-station=BNG] .BNG a.right::after {
             left: -13px; }
           #map-container[data-station=BNG] .BNG a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=BNG] .BNG a.above::before {
               bottom: -15px; }
@@ -7419,8 +7422,8 @@ header li:hover a {
           #map-container[data-station=LST] .LST a.right::after {
             left: -13px; }
           #map-container[data-station=LST] .LST a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=LST] .LST a.above::before {
               bottom: -15px; }
@@ -7443,11 +7446,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=LST] .LST a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=LST] .LST a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=LST] .LST a.below {
           top: 44px;
           left: -7px; } }
@@ -7486,8 +7489,8 @@ header li:hover a {
           #map-container[data-station=BNK] .BNK a.right::after {
             left: -13px; }
           #map-container[data-station=BNK] .BNK a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=BNK] .BNK a.above::before {
               bottom: -15px; }
@@ -7510,11 +7513,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=BNK] .BNK a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=BNK] .BNK a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=BNK] .BNK a.below {
           top: 44px;
           left: -7px; } }
@@ -7561,8 +7564,8 @@ header li:hover a {
           #map-container[data-station=STP] .STP a.right::after {
             left: -13px; }
           #map-container[data-station=STP] .STP a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=STP] .STP a.above::before {
               bottom: -15px; }
@@ -7615,8 +7618,8 @@ header li:hover a {
           #map-container[data-station=CYL] .CYL a.right::after {
             left: -13px; }
           #map-container[data-station=CYL] .CYL a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=CYL] .CYL a.above::before {
               bottom: -15px; }
@@ -7669,8 +7672,8 @@ header li:hover a {
           #map-container[data-station=HOL] .HOL a.right::after {
             left: -13px; }
           #map-container[data-station=HOL] .HOL a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=HOL] .HOL a.above::before {
               bottom: -15px; }
@@ -7693,11 +7696,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=HOL] .HOL a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=HOL] .HOL a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=HOL] .HOL a.below {
           top: 44px;
           left: -7px; } }
@@ -7736,8 +7739,8 @@ header li:hover a {
           #map-container[data-station=TCR] .TCR a.right::after {
             left: -13px; }
           #map-container[data-station=TCR] .TCR a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=TCR] .TCR a.above::before {
               bottom: -15px; }
@@ -7760,11 +7763,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=TCR] .TCR a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=TCR] .TCR a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=TCR] .TCR a.below {
           top: 44px;
           left: -7px; } }
@@ -7803,8 +7806,8 @@ header li:hover a {
           #map-container[data-station=OXC] .OXC a.right::after {
             left: -13px; }
           #map-container[data-station=OXC] .OXC a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=OXC] .OXC a.above::before {
               bottom: -15px; }
@@ -7827,11 +7830,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=OXC] .OXC a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=OXC] .OXC a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=OXC] .OXC a.below {
           top: 44px;
           left: -7px; } }
@@ -7870,8 +7873,8 @@ header li:hover a {
           #map-container[data-station=BDS] .BDS a.right::after {
             left: -13px; }
           #map-container[data-station=BDS] .BDS a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=BDS] .BDS a.above::before {
               bottom: -15px; }
@@ -7894,11 +7897,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=BDS] .BDS a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=BDS] .BDS a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=BDS] .BDS a.below {
           top: 44px;
           left: -7px; } }
@@ -7937,8 +7940,8 @@ header li:hover a {
           #map-container[data-station=MAR] .MAR a.right::after {
             left: -13px; }
           #map-container[data-station=MAR] .MAR a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=MAR] .MAR a.above::before {
               bottom: -15px; }
@@ -7991,8 +7994,8 @@ header li:hover a {
           #map-container[data-station=LAN] .LAN a.right::after {
             left: -13px; }
           #map-container[data-station=LAN] .LAN a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=LAN] .LAN a.above::before {
               bottom: -15px; }
@@ -8045,8 +8048,8 @@ header li:hover a {
           #map-container[data-station=QWY] .QWY a.right::after {
             left: -13px; }
           #map-container[data-station=QWY] .QWY a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=QWY] .QWY a.above::before {
               bottom: -15px; }
@@ -8099,8 +8102,8 @@ header li:hover a {
           #map-container[data-station=NHG] .NHG a.right::after {
             left: -13px; }
           #map-container[data-station=NHG] .NHG a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=NHG] .NHG a.above::before {
               bottom: -15px; }
@@ -8123,11 +8126,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=NHG] .NHG a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=NHG] .NHG a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=NHG] .NHG a.below {
           top: 44px;
           left: -7px; } }
@@ -8166,8 +8169,8 @@ header li:hover a {
           #map-container[data-station=HPK] .HPK a.right::after {
             left: -13px; }
           #map-container[data-station=HPK] .HPK a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=HPK] .HPK a.above::before {
               bottom: -15px; }
@@ -8220,8 +8223,8 @@ header li:hover a {
           #map-container[data-station=SBC] .SBC a.right::after {
             left: -13px; }
           #map-container[data-station=SBC] .SBC a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=SBC] .SBC a.above::before {
               bottom: -15px; }
@@ -8244,11 +8247,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=SBC] .SBC a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=SBC] .SBC a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=SBC] .SBC a.below {
           top: 44px;
           left: -7px; } }
@@ -8287,8 +8290,8 @@ header li:hover a {
           #map-container[data-station=WCT] .WCT a.right::after {
             left: -13px; }
           #map-container[data-station=WCT] .WCT a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=WCT] .WCT a.above::before {
               bottom: -15px; }
@@ -8311,11 +8314,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=WCT] .WCT a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=WCT] .WCT a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=WCT] .WCT a.below {
           top: 44px;
           left: -7px; } }
@@ -8354,8 +8357,8 @@ header li:hover a {
           #map-container[data-station=EAC] .EAC a.right::after {
             left: -13px; }
           #map-container[data-station=EAC] .EAC a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=EAC] .EAC a.above::before {
               bottom: -15px; }
@@ -8408,8 +8411,8 @@ header li:hover a {
           #map-container[data-station=NAC] .NAC a.right::after {
             left: -13px; }
           #map-container[data-station=NAC] .NAC a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=NAC] .NAC a.above::before {
               bottom: -15px; }
@@ -8462,8 +8465,8 @@ header li:hover a {
           #map-container[data-station=WAC] .WAC a.right::after {
             left: -13px; }
           #map-container[data-station=WAC] .WAC a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=WAC] .WAC a.above::before {
               bottom: -15px; }
@@ -8517,8 +8520,8 @@ header li:hover a {
           #map-container[data-station=EBY] .EBY a.right::after {
             left: -13px; }
           #map-container[data-station=EBY] .EBY a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=EBY] .EBY a.above::before {
               bottom: -15px; }
@@ -8541,11 +8544,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=EBY] .EBY a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=EBY] .EBY a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=EBY] .EBY a.below {
           top: 44px;
           left: -7px; } }
@@ -8590,8 +8593,8 @@ header li:hover a {
           #map-container[data-station=HLN] .HLN a.right::after {
             left: -13px; }
           #map-container[data-station=HLN] .HLN a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=HLN] .HLN a.above::before {
               bottom: -15px; }
@@ -8650,8 +8653,8 @@ header li:hover a {
           #map-container[data-station=PER] .PER a.right::after {
             left: -13px; }
           #map-container[data-station=PER] .PER a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=PER] .PER a.above::before {
               bottom: -15px; }
@@ -8710,8 +8713,8 @@ header li:hover a {
           #map-container[data-station=GFD] .GFD a.right::after {
             left: -13px; }
           #map-container[data-station=GFD] .GFD a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=GFD] .GFD a.above::before {
               bottom: -15px; }
@@ -8734,11 +8737,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=GFD] .GFD a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=GFD] .GFD a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=GFD] .GFD a.below {
           top: 44px;
           left: -7px; } }
@@ -8777,8 +8780,8 @@ header li:hover a {
           #map-container[data-station=NHT] .NHT a.right::after {
             left: -13px; }
           #map-container[data-station=NHT] .NHT a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=NHT] .NHT a.above::before {
               bottom: -15px; }
@@ -8831,8 +8834,8 @@ header li:hover a {
           #map-container[data-station=SRP] .SRP a.right::after {
             left: -13px; }
           #map-container[data-station=SRP] .SRP a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=SRP] .SRP a.above::before {
               bottom: -15px; }
@@ -8855,11 +8858,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=SRP] .SRP a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=SRP] .SRP a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=SRP] .SRP a.below {
           top: 44px;
           left: -7px; } }
@@ -8898,8 +8901,8 @@ header li:hover a {
           #map-container[data-station=RUG] .RUG a.right::after {
             left: -13px; }
           #map-container[data-station=RUG] .RUG a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=RUG] .RUG a.above::before {
               bottom: -15px; }
@@ -8955,8 +8958,8 @@ header li:hover a {
           #map-container[data-station=WRP] .WRP a.right::after {
             left: -13px; }
           #map-container[data-station=WRP] .WRP a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=WRP] .WRP a.above::before {
               bottom: -15px; }
@@ -8979,11 +8982,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=WRP] .WRP a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=WRP] .WRP a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=WRP] .WRP a.below {
           top: 44px;
           left: -7px; } }
@@ -9024,8 +9027,8 @@ header li:hover a {
           #map-container[data-station=ROD] .ROD a.right::after {
             left: -13px; }
           #map-container[data-station=ROD] .ROD a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=ROD] .ROD a.above::before {
               bottom: -15px; }
@@ -9048,11 +9051,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=ROD] .ROD a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=ROD] .ROD a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=ROD] .ROD a.below {
           top: 44px;
           left: -7px; } }
@@ -9091,8 +9094,8 @@ header li:hover a {
           #map-container[data-station=CHG] .CHG a.right::after {
             left: -13px; }
           #map-container[data-station=CHG] .CHG a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=CHG] .CHG a.above::before {
               bottom: -15px; }
@@ -9145,8 +9148,8 @@ header li:hover a {
           #map-container[data-station=GRH] .GRH a.right::after {
             left: -13px; }
           #map-container[data-station=GRH] .GRH a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=GRH] .GRH a.above::before {
               bottom: -15px; }
@@ -9203,8 +9206,8 @@ header li:hover a {
           #map-container[data-station=HAI] .HAI a.right::after {
             left: -13px; }
           #map-container[data-station=HAI] .HAI a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=HAI] .HAI a.above::before {
               bottom: -15px; }
@@ -9227,11 +9230,11 @@ header li:hover a {
           top: -42px;
           right: 49px; }
         #map-container[data-station=HAI] .HAI a.right {
-          top: -33px;
-          left: 45px; }
+          top: -31px;
+          left: 50px; }
         #map-container[data-station=HAI] .HAI a.above {
-          top: -1.6em;
-          left: -7px; }
+          top: -1.75em;
+          left: -3px; }
         #map-container[data-station=HAI] .HAI a.below {
           top: 44px;
           left: -7px; } }
@@ -9270,8 +9273,8 @@ header li:hover a {
           #map-container[data-station=FLP] .FLP a.right::after {
             left: -13px; }
           #map-container[data-station=FLP] .FLP a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=FLP] .FLP a.above::before {
               bottom: -15px; }
@@ -9324,8 +9327,8 @@ header li:hover a {
           #map-container[data-station=BDE] .BDE a.right::after {
             left: -13px; }
           #map-container[data-station=BDE] .BDE a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=BDE] .BDE a.above::before {
               bottom: -15px; }
@@ -9378,8 +9381,8 @@ header li:hover a {
           #map-container[data-station=NEP] .NEP a.right::after {
             left: -13px; }
           #map-container[data-station=NEP] .NEP a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=NEP] .NEP a.above::before {
               bottom: -15px; }
@@ -9436,8 +9439,8 @@ header li:hover a {
           #map-container[data-station=GHL] .GHL a.right::after {
             left: -13px; }
           #map-container[data-station=GHL] .GHL a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=GHL] .GHL a.above::before {
               bottom: -15px; }
@@ -9490,8 +9493,8 @@ header li:hover a {
           #map-container[data-station=RED] .RED a.right::after {
             left: -13px; }
           #map-container[data-station=RED] .RED a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=RED] .RED a.above::before {
               bottom: -15px; }
@@ -9548,8 +9551,8 @@ header li:hover a {
           #map-container[data-station=WAN] .WAN a.right::after {
             left: -13px; }
           #map-container[data-station=WAN] .WAN a.above {
-            top: -1.8em;
-            left: -15px;
+            top: -1.89em;
+            left: -14px;
             margin-left: -98px; }
             #map-container[data-station=WAN] .WAN a.above::before {
               bottom: -15px; }
