@@ -2,9 +2,6 @@
   font-family: 'Erbos';
   src: url("/fonts/7LED.ttf"); }
 @font-face {
-  font-family: 'GreyscaleBasic';
-  src: url("/fonts/Greyscale_Basic_Regular.ttf"); }
-@font-face {
   font-family: 'london_tubenormal';
   src: url("/fonts/london-tube-webfont.eot");
   src: url("/fonts/london-tube-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/london-tube-webfont.woff") format("woff"), url("/fonts/london-tube-webfont.ttf") format("truetype"), url("/fonts/london-tube-webfont.svg#london_tubenormal") format("svg");
@@ -18,7 +15,6 @@ body {
     box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
     z-index: 2000;
     transition: all .8s ease-in-out;
-    font-family: 'GreyscaleBasic';
     border-radius: .3em;
     background-color: #fff;
     border: 2px solid #2F4E99;
@@ -6530,8 +6526,6 @@ header li:hover a {
   overflow: visible;
   transition: all 1.5s ease-out;
   transition-delay: .3s; }
-  #map-container #central {
-    opacity: 1; }
   #map-container #piccadilly,
   #map-container #metropolitan,
   #map-container #district,
@@ -6621,6 +6615,10 @@ header li:hover a {
   #map-container .roundel:hover strong,
   #map-container .station:hover strong {
     opacity: 1; }
+  #map-container #central a {
+    opacity: .3; }
+  #map-container #central a:hover {
+    opacity: 1; }
   #map-container[data-station=EPP] {
     top: -28px;
     left: -3164px; }
@@ -6630,7 +6628,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -6697,7 +6695,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -6751,7 +6749,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -6805,7 +6803,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -6859,7 +6857,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -6916,7 +6914,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -6988,7 +6986,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7045,7 +7043,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7099,7 +7097,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7154,7 +7152,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7209,7 +7207,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7277,7 +7275,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7344,7 +7342,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7398,7 +7396,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7468,7 +7466,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7535,7 +7533,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7597,7 +7595,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7651,7 +7649,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7720,7 +7718,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7789,7 +7787,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7856,7 +7854,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7923,7 +7921,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -7969,15 +7967,15 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=LAN] {
-    top: -1223px;
-    left: -1305px; }
+    top: -1246px;
+    left: -1463px; }
     #map-container[data-station=LAN] .LAN a {
       color: #1c3f95;
       cursor: default;
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8031,7 +8029,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8085,7 +8083,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8154,7 +8152,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8208,7 +8206,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8275,7 +8273,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8342,7 +8340,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8396,7 +8394,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8450,7 +8448,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8504,7 +8502,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8572,7 +8570,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8634,7 +8632,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8696,7 +8694,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8771,7 +8769,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8825,7 +8823,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8892,7 +8890,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -8946,7 +8944,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9016,7 +9014,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9085,7 +9083,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9139,7 +9137,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9193,7 +9191,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9264,7 +9262,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9318,7 +9316,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9372,7 +9370,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9426,7 +9424,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9484,7 +9482,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
@@ -9538,7 +9536,7 @@ header li:hover a {
       font-weight: bold;
       height: 1em;
       line-height: 1em;
-      opacity: 1;
+      opacity: 1 !important;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
