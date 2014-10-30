@@ -172,8 +172,8 @@
 }
 
 &[data-station=BNK] {
-    top: -1292px;
-    left: -2341px;
+    top: -1324px;
+    left: -2352px;
     .BNK {
         a {
             @include large-label();
@@ -601,4 +601,9 @@ li.NHG a.above {
             margin-left: -2.99em;
         }
     }
+}
+
+// keeps st pauls visible.
+#cen025 {
+    z-index: 100;
 }

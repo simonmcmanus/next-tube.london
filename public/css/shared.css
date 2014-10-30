@@ -6527,7 +6527,9 @@ header li:hover a {
   left: -8px; }
 
 #map-container {
-  overflow: visible; }
+  overflow: visible;
+  transition: all 1.5s ease-out;
+  transition-delay: .3s; }
   #map-container #central {
     opacity: 1; }
   #map-container #piccadilly,
@@ -7458,8 +7460,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=BNK] {
-    top: -1292px;
-    left: -2341px; }
+    top: -1324px;
+    left: -2352px; }
     #map-container[data-station=BNK] .BNK a {
       color: #1c3f95;
       cursor: default;
@@ -9585,6 +9587,8 @@ header li:hover a {
         content: ' ';
         display: inline-block;
         width: .3em; }
+  #map-container #cen025 {
+    z-index: 100; }
 
 @media (min-width: 800px) {
   #map-container {
