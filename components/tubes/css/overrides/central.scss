@@ -219,6 +219,7 @@
     }
 }
 
+
 &[data-station=TCR] {
     top: -1382px;
     left: -1695px;
@@ -228,6 +229,11 @@
             @include large-roundel-li();
         }
     }
+}
+
+
+li.TCR a.below {
+    left: -61px;
 }
 
 &[data-station=OXC] {

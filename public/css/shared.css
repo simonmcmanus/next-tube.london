@@ -7773,6 +7773,8 @@ header li:hover a {
         #map-container[data-station=TCR] .TCR a.below {
           top: 44px;
           left: -7px; } }
+  #map-container li.TCR a.below {
+    left: -61px; }
   #map-container[data-station=OXC] {
     top: -1216px;
     left: -1605px; }
