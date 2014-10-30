@@ -3130,7 +3130,7 @@ header li:hover a {
 
 #circle .route,
 #circle .station {
-  background-color: #ffd204;
+  background-color: rgba(255, 210, 4, 0.37);
   z-index: 10; }
 
 #cir001 {
@@ -6532,14 +6532,25 @@ header li:hover a {
   overflow: visible;
   transition: all 1.5s ease-out;
   transition-delay: 0.3s; }
-  #map-container .line {
-    opacity: .2;
-    z-index: -1; }
-  #map-container .line li.route {
-    z-index: -10 !important; }
   #map-container #central {
-    z-index: 2000;
     opacity: 1; }
+  #map-container #piccadilly,
+  #map-container #metropolitan,
+  #map-container #district,
+  #map-container #circle,
+  #map-container #hammersmith-and-city,
+  #map-container #bakerloo,
+  #map-container #victoria,
+  #map-container #waterloo-and-city,
+  #map-container #northern,
+  #map-container #jubilee,
+  #map-container #overground,
+  #map-container #dlr,
+  #map-container #emirates,
+  #map-container .cablecar-symbol {
+    opacity: .1; }
+  #map-container .links {
+    display: none; }
   #map-container li a {
     transition: all .4s ease-out;
     position: relative;
@@ -6612,14 +6623,6 @@ header li:hover a {
   #map-container .roundel:hover strong,
   #map-container .station:hover strong {
     opacity: 1; }
-  #map-container #pic037 {
-    z-index: 10 !important; }
-  #map-container ul.links li {
-    z-index: 5 !important; }
-  #map-container .lines {
-    z-index: -1; }
-  #map-container .roundel.disabled {
-    z-index: 50 !important; }
   #map-container[data-station=EPP] {
     top: 5px;
     left: -3164px; }
@@ -9593,9 +9596,6 @@ header li:hover a {
 .roundel a, .station a,
 .roundel strong, .station strong {
   font-size: 1em; }
-
-#lin029 {
-  display: none; }
 
 #nextTrain h2 {
   border-bottom: 0; }
