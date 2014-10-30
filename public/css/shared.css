@@ -6603,6 +6603,8 @@ header li:hover a {
   #map-container li.roundel a.left {
     margin-right: 2px;
     margin-top: 12px; }
+  #map-container li.roundel.connection a.left {
+    margin-top: 8px; }
   #map-container .roundel:hover a,
   #map-container .station:hover a,
   #map-container .roundel:hover strong,
@@ -8575,7 +8577,9 @@ header li:hover a {
       /* IE 9 */
       -webkit-transform: rotate(45deg);
       /* Chrome, Safari, Opera */
-      transform: rotate(45deg); }
+      transform: rotate(45deg);
+      top: -70px !important;
+      right: 65px !important; }
       @media (min-width: 800px) {
         #map-container[data-station=HLN] .HLN a {
           font-size: 4em; }
@@ -8635,7 +8639,9 @@ header li:hover a {
       /* IE 9 */
       -webkit-transform: rotate(45deg);
       /* Chrome, Safari, Opera */
-      transform: rotate(45deg); }
+      transform: rotate(45deg);
+      top: -70px !important;
+      right: 65px !important; }
       @media (min-width: 800px) {
         #map-container[data-station=PER] .PER a {
           font-size: 4em; }
@@ -8695,7 +8701,9 @@ header li:hover a {
       /* IE 9 */
       -webkit-transform: rotate(45deg);
       /* Chrome, Safari, Opera */
-      transform: rotate(45deg); }
+      transform: rotate(45deg);
+      top: -84px !important;
+      right: 71px !important; }
       @media (min-width: 800px) {
         #map-container[data-station=GFD] .GFD a {
           font-size: 4em; }
