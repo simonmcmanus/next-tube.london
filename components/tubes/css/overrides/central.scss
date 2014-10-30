@@ -487,14 +487,9 @@
 &[data-station=GRH] {
     top: -206px;
     left: -3458px;
-    .ROD {
+    .GRH {
         a {
-            br {
-                display: none;
-            }
             @include large-label();
-            top:  -95px;
-            margin-left: 50px;
         }
     }
 }
