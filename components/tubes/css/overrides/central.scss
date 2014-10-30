@@ -218,6 +218,9 @@
         }
     }
 }
+li.HOL a.below {
+    left: 60px;
+}
 
 
 &[data-station=TCR] {
@@ -300,6 +303,10 @@ li.TCR a.below {
 
         }
     }
+}
+
+li.NHG a.above {
+    left: 71px;
 }
 
 &[data-station=HPK] {

@@ -6533,11 +6533,13 @@ header li:hover a {
   transition: all 1.5s ease-out;
   transition-delay: 0.3s; }
   #map-container .line {
+    opacity: .2;
     z-index: -1; }
   #map-container .line li.route {
     z-index: -10 !important; }
   #map-container #central {
-    z-index: 2000; }
+    z-index: 2000;
+    opacity: 1; }
   #map-container li a {
     transition: all .4s ease-out;
     position: relative;
@@ -7706,6 +7708,8 @@ header li:hover a {
         #map-container[data-station=HOL] .HOL a.below {
           top: 44px;
           left: -7px; } }
+  #map-container li.HOL a.below {
+    left: 60px; }
   #map-container[data-station=TCR] {
     top: -1382px;
     left: -1695px; }
@@ -8138,6 +8142,8 @@ header li:hover a {
         #map-container[data-station=NHG] .NHG a.below {
           top: 44px;
           left: -7px; } }
+  #map-container li.NHG a.above {
+    left: 71px; }
   #map-container[data-station=HPK] {
     top: -1373px;
     left: -1071px; }
