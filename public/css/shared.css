@@ -14,7 +14,6 @@ body {
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px; }
   body #floater {
-    display: none;
     margin-top: 200px;
     box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
     z-index: 2000;
@@ -79,13 +78,12 @@ body.debug #map-container a,
 body.debug #map-container a.boxed {
   opacity: 1; }
 body.debug #placement {
-  background: red;
-  border: 2px solid blue;
+  border: 2px solid green;
   position: absolute;
   width: 400px;
   height: 3em;
   left: 0em;
-  top: 5em;
+  top: 3em;
   z-index: 20000 !important; }
 
 @media (min-width: 800px) {
@@ -6529,9 +6527,7 @@ header li:hover a {
   left: -8px; }
 
 #map-container {
-  overflow: visible;
-  transition: all 1.5s ease-out;
-  transition-delay: 0.3s; }
+  overflow: visible; }
   #map-container #central {
     opacity: 1; }
   #map-container #piccadilly,
@@ -6624,7 +6620,7 @@ header li:hover a {
   #map-container .station:hover strong {
     opacity: 1; }
   #map-container[data-station=EPP] {
-    top: 5px;
+    top: -28px;
     left: -3164px; }
     #map-container[data-station=EPP] .EPP a {
       color: #1c3f95;
@@ -6691,8 +6687,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=THB] {
-    top: -41px;
-    left: -2962px; }
+    top: -74px;
+    left: -2960px; }
     #map-container[data-station=THB] .THB a {
       color: #1c3f95;
       cursor: default;
@@ -6745,8 +6741,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=DEB] {
-    top: -87px;
-    left: -3135px; }
+    top: -120px;
+    left: -3136px; }
     #map-container[data-station=DEB] .DEB a {
       color: #1c3f95;
       cursor: default;
@@ -6799,8 +6795,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=LTN] {
-    top: -130px;
-    left: -3084px; }
+    top: -166px;
+    left: -3085px; }
     #map-container[data-station=LTN] .LTN a {
       color: #1c3f95;
       cursor: default;
@@ -6853,8 +6849,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=BHL] {
-    top: -180px;
-    left: -2930px; }
+    top: -213px;
+    left: -2929px; }
     #map-container[data-station=BHL] .BHL a {
       color: #1c3f95;
       cursor: default;
@@ -6907,7 +6903,7 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=WFD] {
-    top: -352px;
+    top: -384px;
     left: -3055px; }
     @media (max-width: 800px) {
       #map-container[data-station=WFD] {
@@ -6979,8 +6975,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=SWF] {
-    top: -406px;
-    left: -2866px; }
+    top: -438px;
+    left: -2865px; }
     @media (max-width: 800px) {
       #map-container[data-station=SWF] {
         left: -3255px; } }
@@ -7036,8 +7032,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=SNB] {
-    top: -461px;
-    left: -2994px; }
+    top: -493px;
+    left: -2998px; }
     @media (max-width: 800px) {
       #map-container[data-station=SNB] {
         left: -3255px; } }
@@ -7093,7 +7089,7 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=LYS] {
-    top: -622px;
+    top: -656px;
     left: -2987px; }
     #map-container[data-station=LYS] .LYS a {
       color: #1c3f95;
@@ -7148,8 +7144,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=LEY] {
-    top: -747px;
-    left: -3160px; }
+    top: -780px;
+    left: -3158px; }
     #map-container[data-station=LEY] .LEY a {
       color: #1c3f95;
       cursor: default;
@@ -7271,8 +7267,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=MLE] {
-    top: -1058px;
-    left: -2932px; }
+    top: -1088px;
+    left: -2996px; }
     #map-container[data-station=MLE] .MLE a {
       color: #1c3f95;
       cursor: default;
@@ -7338,8 +7334,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=BNG] {
-    top: -1060px;
-    left: -2761px; }
+    top: -1084px;
+    left: -2880px; }
     #map-container[data-station=BNG] .BNG a {
       color: #1c3f95;
       cursor: default;
@@ -7392,8 +7388,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=LST] {
-    top: -1128px;
-    left: -2386px; }
+    top: -1160px;
+    left: -2552px; }
     #map-container[data-station=LST] .LST a {
       color: #1c3f95;
       cursor: default;
@@ -7529,8 +7525,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=STP] {
-    top: -1295px;
-    left: -2379px; }
+    top: -1354px;
+    left: -2366px; }
     #map-container[data-station=STP] .STP a {
       color: #1c3f95;
       cursor: default;
@@ -7591,8 +7587,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=CYL] {
-    top: -1223px;
-    left: -2020px; }
+    top: -1246px;
+    left: -2170px; }
     #map-container[data-station=CYL] .CYL a {
       color: #1c3f95;
       cursor: default;
@@ -7645,8 +7641,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=HOL] {
-    top: -1382px;
-    left: -1997px; }
+    top: -1411px;
+    left: -2046px; }
     #map-container[data-station=HOL] .HOL a {
       color: #1c3f95;
       cursor: default;
@@ -7714,8 +7710,8 @@ header li:hover a {
   #map-container li.HOL a.below {
     left: 60px; }
   #map-container[data-station=TCR] {
-    top: -1382px;
-    left: -1695px; }
+    top: -1411px;
+    left: -1943px; }
     #map-container[data-station=TCR] .TCR a {
       color: #1c3f95;
       cursor: default;
@@ -7783,8 +7779,8 @@ header li:hover a {
   #map-container li.TCR a.below {
     left: -61px; }
   #map-container[data-station=OXC] {
-    top: -1216px;
-    left: -1605px; }
+    top: -1248px;
+    left: -1750px; }
     #map-container[data-station=OXC] .OXC a {
       color: #1c3f95;
       cursor: default;
@@ -7850,8 +7846,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=BDS] {
-    top: -1216px;
-    left: -1544px; }
+    top: -1248px;
+    left: -1622px; }
     #map-container[data-station=BDS] .BDS a {
       color: #1c3f95;
       cursor: default;
@@ -7917,8 +7913,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=MAR] {
-    top: -1380px;
-    left: -1418px; }
+    top: -1409px;
+    left: -1530px; }
     #map-container[data-station=MAR] .MAR a {
       color: #1c3f95;
       cursor: default;
@@ -8025,8 +8021,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=QWY] {
-    top: -1378px;
-    left: -1277px; }
+    top: -1409px;
+    left: -1383px; }
     #map-container[data-station=QWY] .QWY a {
       color: #1c3f95;
       cursor: default;
@@ -8079,8 +8075,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=NHG] {
-    top: -1215px;
-    left: -1083px; }
+    top: -1248px;
+    left: -1283px; }
     #map-container[data-station=NHG] .NHG a {
       color: #1c3f95;
       cursor: default;
@@ -8148,8 +8144,8 @@ header li:hover a {
   #map-container li.NHG a.above {
     left: 71px; }
   #map-container[data-station=HPK] {
-    top: -1373px;
-    left: -1071px; }
+    top: -1409px;
+    left: -1193px; }
     #map-container[data-station=HPK] .HPK a {
       color: #1c3f95;
       cursor: default;
@@ -8202,8 +8198,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=SBC] {
-    top: -1217px;
-    left: -931px; }
+    top: -1249px;
+    left: -1105px; }
     #map-container[data-station=SBC] .SBC a {
       color: #1c3f95;
       cursor: default;
@@ -8269,8 +8265,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=WCT] {
-    top: -1217px;
-    left: -864px; }
+    top: -1248px;
+    left: -961px; }
     #map-container[data-station=WCT] .WCT a {
       color: #1c3f95;
       cursor: default;
@@ -8336,8 +8332,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=EAC] {
-    top: -1222px;
-    left: -776px; }
+    top: -1246px;
+    left: -868px; }
     #map-container[data-station=EAC] .EAC a {
       color: #1c3f95;
       cursor: default;
@@ -8390,8 +8386,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=NAC] {
-    top: -1374px;
-    left: -702px; }
+    top: -1409px;
+    left: -815px; }
     #map-container[data-station=NAC] .NAC a {
       color: #1c3f95;
       cursor: default;
@@ -8444,8 +8440,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=WAC] {
-    top: -1373px;
-    left: -537px; }
+    top: -1409px;
+    left: -645px; }
     #map-container[data-station=WAC] .WAC a {
       color: #1c3f95;
       cursor: default;
@@ -8498,8 +8494,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=EBY] {
-    top: -1305px;
-    left: 31px; }
+    top: -1339px;
+    left: 33px; }
     #map-container[data-station=EBY] .EBY a {
       color: #1c3f95;
       cursor: default;
@@ -8566,8 +8562,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=HLN] {
-    top: -1059px;
-    left: -126px; }
+    top: -1103px;
+    left: -139px; }
     #map-container[data-station=HLN] .HLN a {
       color: #1c3f95;
       cursor: default;
@@ -8628,8 +8624,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=PER] {
-    top: -972px;
-    left: -169px; }
+    top: -1016px;
+    left: -183px; }
     #map-container[data-station=PER] .PER a {
       color: #1c3f95;
       cursor: default;
@@ -8690,8 +8686,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=GFD] {
-    top: -875px;
-    left: -10px; }
+    top: -911px;
+    left: -15px; }
     #map-container[data-station=GFD] .GFD a {
       color: #1c3f95;
       cursor: default;
@@ -8765,8 +8761,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=NHT] {
-    top: -707px;
-    left: -34px; }
+    top: -746px;
+    left: -37px; }
     #map-container[data-station=NHT] .NHT a {
       color: #1c3f95;
       cursor: default;
@@ -8819,8 +8815,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=SRP] {
-    top: -600px;
-    left: 99px; }
+    top: -634px;
+    left: 104px; }
     #map-container[data-station=SRP] .SRP a {
       color: #1c3f95;
       cursor: default;
@@ -8886,8 +8882,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=RUG] {
-    top: -485px;
-    left: 160px; }
+    top: -524px;
+    left: 174px; }
     #map-container[data-station=RUG] .RUG a {
       color: #1c3f95;
       cursor: default;
@@ -8940,8 +8936,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=WRP] {
-    top: -270px;
-    left: 92px; }
+    top: -303px;
+    left: 91px; }
     #map-container[data-station=WRP] .WRP a {
       color: #1c3f95;
       cursor: default;
@@ -9010,8 +9006,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=ROD] {
-    top: -206px;
-    left: -3458px; }
+    top: -214px;
+    left: -3403px; }
     #map-container[data-station=ROD] .ROD a {
       color: #1c3f95;
       cursor: default;
@@ -9079,8 +9075,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=CHG] {
-    top: -345px;
-    left: -3405px; }
+    top: -378px;
+    left: -3469px; }
     #map-container[data-station=CHG] .CHG a {
       color: #1c3f95;
       cursor: default;
@@ -9133,8 +9129,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=GRH] {
-    top: -206px;
-    left: -3458px; }
+    top: -215px;
+    left: -3524px; }
     #map-container[data-station=GRH] .GRH a {
       color: #1c3f95;
       cursor: default;
@@ -9187,8 +9183,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=HAI] {
-    top: -323px;
-    left: -3367px; }
+    top: -361px;
+    left: -3366px; }
     #map-container[data-station=HAI] .HAI a {
       color: #1c3f95;
       cursor: default;
@@ -9258,8 +9254,8 @@ header li:hover a {
           top: 44px;
           left: -7px; } }
   #map-container[data-station=FLP] {
-    top: -382px;
-    left: -3419px; }
+    top: -414px;
+    left: -3415px; }
     #map-container[data-station=FLP] .FLP a {
       color: #1c3f95;
       cursor: default;
@@ -9312,8 +9308,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=BDE] {
-    top: -435px;
-    left: -3283px; }
+    top: -467px;
+    left: -3284px; }
     #map-container[data-station=BDE] .BDE a {
       color: #1c3f95;
       cursor: default;
@@ -9366,8 +9362,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=NEP] {
-    top: -489px;
-    left: -3208px; }
+    top: -521px;
+    left: -3205px; }
     #map-container[data-station=NEP] .NEP a {
       color: #1c3f95;
       cursor: default;
@@ -9420,8 +9416,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=GHL] {
-    top: -634px;
-    left: -3453px; }
+    top: -669px;
+    left: -3537px; }
     #map-container[data-station=GHL] .GHL a {
       color: #1c3f95;
       cursor: default;
@@ -9478,8 +9474,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=RED] {
-    top: -482px;
-    left: -3385px; }
+    top: -506px;
+    left: -3472px; }
     #map-container[data-station=RED] .RED a {
       color: #1c3f95;
       cursor: default;
@@ -9532,8 +9528,8 @@ header li:hover a {
         display: inline-block;
         width: .3em; }
   #map-container[data-station=WAN] {
-    top: -633px;
-    left: -3326px; }
+    top: -669px;
+    left: -3406px; }
     #map-container[data-station=WAN] .WAN a {
       color: #1c3f95;
       cursor: default;

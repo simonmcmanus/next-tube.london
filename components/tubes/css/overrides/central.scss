@@ -3,7 +3,7 @@
 
 
 &[data-station=EPP] {
-    top: 5px;
+    top: -28px;
     left: -3164px;
     .EPP {
         a {
@@ -14,8 +14,8 @@
 }
 
 &[data-station=THB] {
-    top: -41px;
-    left: -2962px;
+    top: -74px;
+    left: -2960px;
     .THB {
         a {
             @include large-label();
@@ -24,8 +24,8 @@
 }
 
 &[data-station=DEB] {
-    top: -87px;
-    left: -3135px;
+    top: -120px;
+    left: -3136px;
     .DEB {
         a {
             @include large-label();
@@ -34,8 +34,8 @@
 }
 
 &[data-station=LTN] {
-    top: -130px;
-    left: -3084px;
+    top: -166px;
+    left: -3085px;
     .LTN {
         a {
             @include large-label();
@@ -44,8 +44,8 @@
 }
 
 &[data-station=BHL] {
-    top: -180px;
-    left: -2930px;
+    top: -213px;
+    left: -2929px;
     .BHL {
         a {
             @include large-label();
@@ -54,7 +54,7 @@
 }
 
 &[data-station=WFD] {
-    top: -352px;
+    top: -384px;
     left: -3055px;
     @media (max-width: 800px) {
         left: -3255px;
@@ -71,8 +71,8 @@
 }
 
 &[data-station=SWF] {
-    top: -406px;
-    left: -2866px;
+    top: -438px;
+    left: -2865px;
     @media (max-width: 800px) {
         left: -3255px;
     }
@@ -80,13 +80,14 @@
         a {
             @include large-label();
         }
+
     }
 }
 
 
 &[data-station=SNB] {
-    top: -461px;
-    left: -2994px;
+    top: -493px;
+    left: -2998px;
     @media (max-width: 800px) {
         left: -3255px;
     }
@@ -101,7 +102,7 @@
 
 
 &[data-station=LYS] {
-    top: -622px;
+    top: -656px;
     left: -2987px;
     .LYS {
         a {
@@ -113,8 +114,8 @@
 
 
 &[data-station=LEY] {
-    top: -747px;
-    left: -3160px;
+    top: -780px;
+    left: -3158px;
     .LEY {
         a {
             @include large-label();
@@ -136,8 +137,8 @@
 }
 
 &[data-station=MLE] {
-    top: -1058px;
-    left: -2932px;
+    top: -1088px;
+    left: -2996px;
     .MLE {
         a {
             @include large-label();
@@ -147,8 +148,8 @@
 }
 
 &[data-station=BNG] {
-    top: -1060px;
-    left: -2761px;
+    top: -1084px;
+    left: -2880px;
     .BNG {
         a {
             @include large-label();
@@ -157,8 +158,8 @@
 }
 
 &[data-station=LST] {
-    top: -1128px;
-    left: -2386px;
+    top: -1160px;
+    left: -2552px;
     .LST {
         a {
             @include large-label();
@@ -182,8 +183,8 @@
 }
 
 &[data-station=STP] {
-    top: -1295px;
-    left: -2379px;
+    top: -1354px;
+    left: -2366px;
     .STP {
         a {
             @include large-label();
@@ -199,8 +200,8 @@
 
 
 &[data-station=CYL] {
-    top: -1223px;
-    left: -2020px;
+    top: -1246px;
+    left: -2170px;
     .CYL {
         a {
             @include large-label();
@@ -209,8 +210,8 @@
 }
 
 &[data-station=HOL] {
-    top: -1382px;
-    left: -1997px;
+    top: -1411px;
+    left: -2046px;
     .HOL {
         a {
             @include large-label();
@@ -224,8 +225,8 @@ li.HOL a.below {
 
 
 &[data-station=TCR] {
-    top: -1382px;
-    left: -1695px;
+    top: -1411px;
+    left: -1943px;
     .TCR {
         a {
             @include large-label();
@@ -240,8 +241,8 @@ li.TCR a.below {
 }
 
 &[data-station=OXC] {
-    top: -1216px;
-    left: -1605px;
+    top: -1248px;
+    left: -1750px;
     .OXC {
         a {
             @include large-label();
@@ -252,8 +253,8 @@ li.TCR a.below {
 }
 
 &[data-station=BDS] {
-    top: -1216px;
-    left: -1544px;
+    top: -1248px;
+    left: -1622px;
     .BDS {
         a {
             @include large-label();
@@ -264,8 +265,8 @@ li.TCR a.below {
 }
 
 &[data-station=MAR] {
-    top: -1380px;
-    left: -1418px;
+    top: -1409px;
+    left: -1530px;
     .MAR {
         a {
             @include large-label();
@@ -284,8 +285,8 @@ li.TCR a.below {
 }
 
 &[data-station=QWY] {
-    top: -1378px;
-    left: -1277px;
+    top: -1409px;
+    left: -1383px;
     .QWY {
         a {
             @include large-label();
@@ -294,8 +295,8 @@ li.TCR a.below {
 }
 
 &[data-station=NHG] {
-    top: -1215px;
-    left: -1083px;
+    top: -1248px;
+    left: -1283px;
     .NHG {
         a {
             @include large-label();
@@ -310,8 +311,8 @@ li.NHG a.above {
 }
 
 &[data-station=HPK] {
-    top: -1373px;
-    left: -1071px;
+    top: -1409px;
+    left: -1193px;
     .HPK {
         a {
             @include large-label();
@@ -320,8 +321,8 @@ li.NHG a.above {
 }
 
 &[data-station=SBC] {
-    top: -1217px;
-    left: -931px;
+    top: -1249px;
+    left: -1105px;
     .SBC {
         a {
             @include large-label();
@@ -331,8 +332,8 @@ li.NHG a.above {
 }
 
 &[data-station=WCT] {
-    top: -1217px;
-    left: -864px;
+    top: -1248px;
+    left: -961px;
     .WCT {
         a {
             @include large-label();
@@ -342,8 +343,8 @@ li.NHG a.above {
 }
 
 &[data-station=EAC] {
-    top: -1222px;
-    left: -776px;
+    top: -1246px;
+    left: -868px;
     .EAC {
         a {
             @include large-label();
@@ -352,8 +353,8 @@ li.NHG a.above {
 }
 
 &[data-station=NAC] {
-    top: -1374px;
-    left: -702px;
+    top: -1409px;
+    left: -815px;
     .NAC {
         a {
             @include large-label();
@@ -362,8 +363,8 @@ li.NHG a.above {
 }
 
 &[data-station=WAC] {
-    top: -1373px;
-    left: -537px;
+    top: -1409px;
+    left: -645px;
     .WAC {
         a {
             @include large-label();
@@ -372,8 +373,8 @@ li.NHG a.above {
 }
 
 &[data-station=EBY] {
-    top: -1305px;
-    left: 31px;
+    top: -1339px;
+    left: 33px;
     .EBY {
         a {
             @include large-label();
@@ -384,8 +385,8 @@ li.NHG a.above {
 }
 
 &[data-station=HLN] {
-    top: -1059px;
-    left: -126px;
+    top: -1103px;
+    left: -139px;
     .HLN {
         a {
             @include large-label();
@@ -400,8 +401,8 @@ li.NHG a.above {
 }
 
 &[data-station=PER] {
-    top: -972px;
-    left: -169px;
+    top: -1016px;
+    left: -183px;
     .PER {
         a {
             @include large-label();
@@ -417,8 +418,8 @@ li.NHG a.above {
 }
 
 &[data-station=GFD] {
-    top: -875px;
-    left: -10px;
+    top: -911px;
+    left: -15px;
     .GFD {
         a {
             @include large-label();
@@ -435,8 +436,8 @@ li.NHG a.above {
 }
 
 &[data-station=NHT] {
-    top: -707px;
-    left: -34px;
+    top: -746px;
+    left: -37px;
     .NHT {
         a {
             @include large-label();
@@ -445,8 +446,8 @@ li.NHG a.above {
 }
 
 &[data-station=SRP] {
-    top: -600px;
-    left: 99px;
+    top: -634px;
+    left: 104px;
     .SRP {
         a {
             @include large-label();
@@ -457,8 +458,8 @@ li.NHG a.above {
 }
 
 &[data-station=RUG] {
-    top: -485px;
-    left: 160px;
+    top: -524px;
+    left: 174px;
     .RUG {
         a {
             @include large-label();
@@ -467,8 +468,8 @@ li.NHG a.above {
 }
 
 &[data-station=WRP] {
-    top: -270px;
-    left: 92px;
+    top: -303px;
+    left: 91px;
     .WRP {
         a {
             @include large-label();
@@ -482,8 +483,8 @@ li.NHG a.above {
 }
 
 &[data-station=ROD] {
-    top: -206px;
-    left: -3458px;
+    top: -214px;
+    left: -3403px;
     .ROD {
         a {
             br {
@@ -496,8 +497,8 @@ li.NHG a.above {
 }
 
 &[data-station=CHG] {
-    top: -345px;
-    left: -3405px;
+    top: -378px;
+    left: -3469px;
     .CHG {
         a {
             @include large-label();
@@ -506,8 +507,8 @@ li.NHG a.above {
 }
 
 &[data-station=GRH] {
-    top: -206px;
-    left: -3458px;
+    top: -215px;
+    left: -3524px;
     .GRH {
         a {
             @include large-label();
@@ -516,8 +517,8 @@ li.NHG a.above {
 }
 
 &[data-station=HAI] {
-    top: -323px;
-    left: -3367px;
+    top: -361px;
+    left: -3366px;
     .HAI {
         a {
             br {
@@ -533,8 +534,8 @@ li.NHG a.above {
 }
 
 &[data-station=FLP] {
-    top: -382px;
-    left: -3419px;
+    top: -414px;
+    left: -3415px;
     .FLP {
         a {
             @include large-label();
@@ -543,8 +544,8 @@ li.NHG a.above {
 }
 
 &[data-station=BDE] {
-    top: -435px;
-    left: -3283px;
+    top: -467px;
+    left: -3284px;
     .BDE {
         a {
             @include large-label();
@@ -553,8 +554,8 @@ li.NHG a.above {
 }
 
 &[data-station=NEP] {
-    top: -489px;
-    left: -3208px;
+    top: -521px;
+    left: -3205px;
     .NEP {
         a {
             @include large-label();
@@ -563,8 +564,8 @@ li.NHG a.above {
 }
 
 &[data-station=GHL] {
-    top: -634px;
-    left: -3453px;
+    top: -669px;
+    left: -3537px;
     .GHL {
         a {
             br {
@@ -578,8 +579,8 @@ li.NHG a.above {
 }
 
 &[data-station=RED] {
-    top: -482px;
-    left: -3385px;
+    top: -506px;
+    left: -3472px;
     .RED {
         a {
             @include large-label();
@@ -588,8 +589,8 @@ li.NHG a.above {
 }
 
 &[data-station=WAN] {
-    top: -633px;
-    left: -3326px;
+    top: -669px;
+    left: -3406px;
     .WAN {
         a {
             br {

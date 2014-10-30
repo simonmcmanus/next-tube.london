@@ -99,6 +99,12 @@ section#map-container(data-station=tubes.currentStationCode)
             br
             | Bank
         li#cen027.roundel.connection
+        li#cir008.roundel.connection.LST
+          a.above.rail(href='/central-line/liverpool-street')
+            | Liverpool
+            br
+            | Street
+  
         li#cen028.station.vertical.BNG
           a.above(href='/central-line/bethnal-green', class=(tubes.currentStationCode !== 'BNG') || ' point')
             | Bethnal
@@ -687,11 +693,6 @@ section#map-container(data-station=tubes.currentStationCode)
         li#cir005.station.vertical
         li#cir006.station.rot45
         li#cir007.station
-        li#cir008.roundel.connection.LST
-          a.above.rail(href='/central-line/liverpool-street')
-            | Liverpool
-            br
-            | Street
         li#cir009.roundel.connection
           strong.below.right.rail
             br
