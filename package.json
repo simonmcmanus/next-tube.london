@@ -6,6 +6,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "express": "4.9.6",
+    "gulp-autoprefixer": "^1.0.1",
     "jade": "1.7.0",
     "request": "*",
     "socket.io": "1.1.0",

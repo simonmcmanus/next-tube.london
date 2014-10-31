@@ -3,8 +3,7 @@
 
 var gulp = require('gulp');
 var shell = require('gulp-shell');
-
-
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('build:css', shell.task([
     './bin/css.sh'
@@ -20,7 +19,14 @@ gulp.task('build', shell.task([
 ]));
 
 
+gulp.task('autoprefixer', function () {
+    return gulp.src('./public/css/shared.css')
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('./public/css/'));
+});
+
+
 gulp.task('watch', function () {
-    gulp.watch(['components/**/*.scss', 'client/shared.scss'], ['build:css']);
+    gulp.watch(['components/**/*.scss', 'client/shared.scss'], ['build:css', 'autoprefixer']);
     gulp.watch(['components/**/*.js', 'components/**/*.jade', 'views/**', 'client/shared.js'], ['build:js']);
 });
