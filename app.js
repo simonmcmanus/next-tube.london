@@ -96,7 +96,7 @@ app.get('/central-line/:station', function (req, res) {
                 stationCodes: cache.nextTrain.stationCodes
             },
             tubes: {
-                stations : stations,
+                stations: stations,
                 currentStationCode: stationCode
             }
         };
