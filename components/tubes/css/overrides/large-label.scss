@@ -34,7 +34,8 @@
     height: 1em;
     line-height: 1em;
     opacity: 1 !important;
-    transition-delay: .5s;
+    transition: all .6s ease-out;
+    transition-delay: .2s;
     white-space: nowrap;
     z-index: 2000 !important;
     background: #fff;

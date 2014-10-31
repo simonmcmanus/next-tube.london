@@ -22,8 +22,6 @@ body {
     color: #838383;
     position: relative;
     transition: height .4s ease-in-out; }
-    body #floater h3 {
-      font-family: 'london_tubenormal'; }
     body #floater li {
       list-style: none; }
     body #floater h2 {
@@ -31,7 +29,9 @@ body {
       border-bottom: 1px solid #ddd;
       padding-bottom: 10px; }
     body #floater h3 {
-      font-size: 1em; }
+      font-family: 'london_tubenormal';
+      margin: .5em;
+      font-size: 1.7em; }
     body #floater .container {
       transition-delay: 0s;
       transition: opacity .2s ease-in-out; }
@@ -6524,8 +6524,7 @@ header li:hover a {
 
 #map-container {
   overflow: visible;
-  transition: all 1.5s ease-out;
-  transition-delay: .3s; }
+  transition: all .8s ease-out; }
   #map-container #piccadilly,
   #map-container #metropolitan,
   #map-container #district,
@@ -6556,7 +6555,8 @@ header li:hover a {
       width: 0;
       opacity: 0;
       border-color: transparent;
-      transition: all .2s ease-in-out; }
+      transition: all .2s ease-out;
+      transition-delay: 1.5s; }
     #map-container li a.left {
       position: absolute;
       top: -.5em; }
@@ -6632,7 +6632,8 @@ header li:hover a {
       height: 1em;
       line-height: 1em;
       opacity: 1 !important;
-      transition-delay: .5s;
+      transition: all .6s ease-out;
+      transition-delay: .2s;
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;

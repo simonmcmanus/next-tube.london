@@ -13,10 +13,6 @@
 }
 
 body {
-  // -webkit-transition: all 4s ease-in-out;
-  // -moz-transition: all 4s ease-in-out;
-  // -o-transition: all 4s ease-in-out;
-  // transition: all 4s ease-in-out;
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px;
   #floater {
@@ -31,9 +27,6 @@ body {
     vertical-align: top;
     color: #838383;
     position: relative;
-    h3 {
-      font-family: 'london_tubenormal';
-    }
     li {
       list-style: none;
     }
@@ -43,7 +36,9 @@ body {
       padding-bottom: 10px;
     }
     h3 {
-      font-size: 1em;
+      font-family: 'london_tubenormal';
+      margin: .5em;
+      font-size: 1.7em;
     }
     .container {
       transition-delay: 0s;
