@@ -7,6 +7,6 @@
             select(name="stationCode", id="stationCode")
                 each stationCode, id in nextTrain.stationCodes
                     - var selected = false;
-                    //- if station.code === id
-                    //-     - selected = true
+                    if station.code === id
+                            - selected = true
                     option(value=id, selected=selected)=stationCode

@@ -26,7 +26,7 @@ exports.getStationData = function (stationCode, socket) {
             listen(data.code, socket);
         }
     }).fail(function (e) {
-        $('#nextTrain').html('<h1>Error occured fetching ' + stationCode + '</h1>');
+        $('#floater .trains').html('<h2>Sorry</h2><p>Error occured fetching ' + stationCode + '</p>');
     });
 };
 
