@@ -36,8 +36,8 @@ var stationChange = function (socket, e) {
     var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase(); 
     page('/central-line/' + newStationSlug);
     $('body').scrollTop(0)
-    // socket.emit('next-train:station:listen:stop', oldStation);
-    // socket.off('next-train:station:' + oldStation);
+    socket.emit('next-train:station:listen:stop', oldStation);
+    socket.off('next-train:station:' + oldStation);
     exports.getStationData(newStationSlug, socket);
 };
 

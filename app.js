@@ -42,7 +42,7 @@ setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
         for (var widget in cache) {
             if (widget === 'nextTrain') {
-                nextTrain.checkForChanges(ds, cache, function(stationId, newData) {                    console.log('change detected', stationId);
+                nextTrain.checkForChanges(ds, cache, function(stationId, newData) {
                     io.emit('next-train:station:' + stationId, newData);
                 });
             } else {
