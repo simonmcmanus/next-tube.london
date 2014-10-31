@@ -4,7 +4,7 @@
     div.settings
         form(method="get", action="/")
             label(for="stationCode") Station:
-            select(name="stationCode", id="stationCode")
+            select(name="stationCode", id="stationCode", data-currently-listening=station.code)
                 each stationCode, id in nextTrain.stationCodes
                     - var selected = false;
                     if station.code === id

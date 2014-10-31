@@ -5,6 +5,7 @@ var templateTrains = require('./trains.jade');
 var templateTitle = require('./title.jade');
 
 var listen = function (newStation, socket) {
+    console.log('listen', newStation);
     socket.emit('next-train:station:listen:start', newStation);
     socket.on('next-train:station:' + newStation, exports.render);
 };
@@ -35,7 +36,6 @@ var stationChange = function (socket, e) {
     var newStation = e.currentTarget.selectedOptions[0].value;
     var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase(); 
     page('/central-line/' + newStationSlug);
-    $('body').scrollTop(0)
     socket.emit('next-train:station:listen:stop', oldStation);
     socket.off('next-train:station:' + oldStation);
     exports.getStationData(newStationSlug, socket);
@@ -46,9 +46,10 @@ exports.showLoader = function() {
 };
 
 exports.render = function (data) {
-    console.log('render', data);
     var $node = $('#nextTrain');
     $node.find('select').attr('data-currently-listening', data.code);
+    $('select').val(data.code);
+    $('body').scrollTop(0);
     $node.find('.trains').replaceWith($(templateTrains({ station: data })));
 };
 
@@ -58,6 +59,7 @@ exports.bind = function ($node, socket) {
     $node.find('a.change').click(function () {
         $node.find('.settings').toggleClass('hidden');
     });
+    console.log($select.data('currentlyListening'));
     var newStation = $select.data('currentlyListening');
     listen(newStation, socket);
 };

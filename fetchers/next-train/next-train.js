@@ -54,7 +54,6 @@ exports.get = function (stationCode, callback) {
 
 exports.getAll = function (io, callback) {
     var stations = stationLister.getAllStations();
-    console.log('get stations', stations);
     async.map(stations, exports.get, function (e, d) {
         // convert to object.
         var out = {
@@ -76,7 +75,6 @@ exports.checkForChanges = function (ds, cache, changeFound) {
     if(!ds.nextTrain)  {
         return ;
     }
-    console.log('stations:', ds.nextTrain.stations);
     for (var station in ds.nextTrain.stations) {
         if (cache.nextTrain.stations[station] && ds.nextTrain.stations[station]) {
             var oldTrains = cache.nextTrain.stations[station].trains;
