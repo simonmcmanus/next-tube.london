@@ -13,8 +13,8 @@
 
         }
         &.above {
-            top: -1.75em;
-            left: -3px;
+            top: -1.84em;
+            left: -7px;
         }
         &.below {
             top: 44px;
@@ -34,7 +34,7 @@
     height: 1em;
     line-height: 1em;
     opacity: 1 !important;
-    //transition-delay: .5sxx;
+    transition-delay: .5s;
     white-space: nowrap;
     z-index: 2000 !important;
     background: #fff;
@@ -93,7 +93,7 @@
 
 
             &::before {
-                top: -14px;
+                top: -16px;
             }
             &::after {
                 top: -13px;
