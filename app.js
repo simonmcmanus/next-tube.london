@@ -8,7 +8,7 @@ var http = require('http');
 
 var deepClone = require('underscore.deepclone');
 
-var POLL_INTERVAL = 5000000;
+var POLL_INTERVAL = 5000;
 
 var nextTrain = require('./fetchers/next-train/next-train.js');
 var stations = require('./components/tubes/stations.json');
@@ -42,7 +42,7 @@ setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
         for (var widget in cache) {
             if (widget === 'nextTrain') {
-                nextTrain.checkForChanges(ds, cache, function(stationId, newData) {
+                nextTrain.checkForChanges(ds, cache, function(stationId, newData) {                    console.log('change detected', stationId);
                     io.emit('next-train:station:' + stationId, newData);
                 });
             } else {
