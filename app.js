@@ -90,17 +90,21 @@ app.get('/central-line/:station', function (req, res) {
     }
 
     getStationData(stationCode, function (err, data) {
-        console.log('gotback', err, data, cache);
-
-        cache.tubes = {
-            stations : stations,
-            currentStationCode: stationCode
+        var newOut = {
+            station: data,
+            nextTrain: {
+                stationCodes: cache.nextTrain.stationCodes
+            },
+            tubes: {
+                stations : stations,
+                currentStationCode: stationCode
+            }
         };
 
         if (req.headers.accept === 'application/json') {
             res.json(data);
         } else {
-            res.render('layout.jade', cache);
+            res.render('layout.jade', newOut);
         }
     });
 });

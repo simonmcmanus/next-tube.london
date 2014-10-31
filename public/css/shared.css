@@ -6610,6 +6610,10 @@ header li:hover a {
     margin-top: 12px; }
   #map-container li.roundel.connection a.left {
     margin-top: 8px; }
+  #map-container .roundel strong,
+  #map-container .station strong {
+    transition: opacity .3s ease-out;
+    opacity: 0; }
   #map-container .roundel:hover a,
   #map-container .station:hover a,
   #map-container .roundel:hover strong,
@@ -6970,7 +6974,7 @@ header li:hover a {
     text-decoration: none;
     margin-top: -2em; }
   #nextTrain .direction {
-    width: 42%;
+    max-width: 42%;
     display: inline-block; } }
 
 #tflStatus small {
