@@ -20,9 +20,9 @@ exports.getStationData = function (stationCode, socket) {
         success: function (data) {
             //$('.widget').removeClass('loading');
             exports.render(data);
-            $('.widget').height($('.container').height());
+            $('#floater').height($('.container').height());
             setTimeout(function() {
-                $('.widget').removeClass('loading');
+                $('#floater').removeClass('loading');
             }, 600);
             listen(data.code, socket);
         }
@@ -42,24 +42,20 @@ var stationChange = function (socket, e) {
 };
 
 exports.showLoader = function() {
-    $('.widget').addClass('loading');
+    $('#floater').addClass('loading');
 };
 
 exports.render = function (data) {
     var $node = $('#nextTrain');
     $node.find('select').attr('data-currently-listening', data.code);
     $('select').val(data.code);
-    $('body').scrollTop(0);
+    //$('body').scrollTop(0);
     $node.find('.trains').replaceWith($(templateTrains({ station: data })));
 };
 
 exports.bind = function ($node, socket) {
     var $select = $node.find('select#stationCode');
     $select.change(stationChange.bind(null, socket));
-    $node.find('a.change').click(function () {
-        $node.find('.settings').toggleClass('hidden');
-    });
-    console.log($select.data('currentlyListening'));
     var newStation = $select.data('currentlyListening');
     listen(newStation, socket);
 };
