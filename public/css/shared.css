@@ -11,7 +11,7 @@ body {
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px; }
   body #floater {
-    margin-top: 200px;
+    margin-top: 170px;
     box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
     z-index: 2000;
     transition: all .8s ease-in-out;
@@ -6546,7 +6546,8 @@ header li:hover a {
     transition: all .4s ease-out;
     position: relative;
     float: left;
-    text-decoration: none; }
+    text-decoration: none;
+    border: 2px solid rgba(47, 78, 153, 0); }
     #map-container li a::before, #map-container li a::after {
       content: "";
       position: absolute;
@@ -6556,7 +6557,7 @@ header li:hover a {
       opacity: 0;
       border-color: transparent;
       transition: all .2s ease-out;
-      transition-delay: .4s; }
+      transition-delay: 1s; }
     #map-container li a.left {
       position: absolute;
       top: -.5em; }
@@ -6637,11 +6638,12 @@ header li:hover a {
       white-space: nowrap;
       z-index: 2000 !important;
       background: #fff;
-      border: 2px solid #2F4E99;
       box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
       border-radius: 5px;
       padding: 15px 25px;
-      width: auto; }
+      width: auto;
+      border: 2px solid #2F4E99;
+      transition: border-color .5s ease-in .8s; }
       @media (min-width: 800px) {
         #map-container[data-station=EPP] .EPP a, #map-container[data-station=THB] .THB a, #map-container[data-station=DEB] .DEB a, #map-container[data-station=LTN] .LTN a, #map-container[data-station=BHL] .BHL a, #map-container[data-station=WFD] .WFD a, #map-container[data-station=SWF] .SWF a, #map-container[data-station=SNB] .SNB a, #map-container[data-station=LYS] .LYS a, #map-container[data-station=LEY] .LEY a, #map-container[data-station=SFD] .SFD a, #map-container[data-station=MLE] .MLE a, #map-container[data-station=BNG] .BNG a, #map-container[data-station=LST] .LST a, #map-container[data-station=BNK] .BNK a, #map-container[data-station=STP] .STP a, #map-container[data-station=CYL] .CYL a, #map-container[data-station=HOL] .HOL a, #map-container[data-station=TCR] .TCR a, #map-container[data-station=OXC] .OXC a, #map-container[data-station=BDS] .BDS a, #map-container[data-station=MAR] .MAR a, #map-container[data-station=LAN] .LAN a, #map-container[data-station=QWY] .QWY a, #map-container[data-station=NHG] .NHG a, #map-container[data-station=HPK] .HPK a, #map-container[data-station=SBC] .SBC a, #map-container[data-station=WCT] .WCT a, #map-container[data-station=EAC] .EAC a, #map-container[data-station=NAC] .NAC a, #map-container[data-station=WAC] .WAC a, #map-container[data-station=EBY] .EBY a, #map-container[data-station=HLN] .HLN a, #map-container[data-station=PER] .PER a, #map-container[data-station=GFD] .GFD a, #map-container[data-station=NHT] .NHT a, #map-container[data-station=SRP] .SRP a, #map-container[data-station=RUG] .RUG a, #map-container[data-station=WRP] .WRP a, #map-container[data-station=ROD] .ROD a, #map-container[data-station=CHG] .CHG a, #map-container[data-station=GRH] .GRH a, #map-container[data-station=HAI] .HAI a, #map-container[data-station=FLP] .FLP a, #map-container[data-station=BDE] .BDE a, #map-container[data-station=NEP] .NEP a, #map-container[data-station=GHL] .GHL a, #map-container[data-station=RED] .RED a, #map-container[data-station=WAN] .WAN a {
           font-size: 4em; }

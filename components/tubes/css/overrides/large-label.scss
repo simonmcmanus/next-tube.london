@@ -39,11 +39,13 @@
     white-space: nowrap;
     z-index: 2000 !important;
     background: #fff;
-    border: 2px solid #2F4E99;
     box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
     border-radius: 5px;
     padding: 15px 25px;
     width: auto;
+    border: 2px solid #2F4E99;
+    transition: border-color .5s ease-in .8s;
+
 
     @media (min-width: 800px) {
 
