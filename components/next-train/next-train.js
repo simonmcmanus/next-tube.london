@@ -76,6 +76,7 @@ exports.render = function(data) {
     $('select').val(data.code);
     //$('body').scrollTop(0);
     $node.find('.trains').replaceWith($(templateTrains({ station: data })));
+    $('#floater').height($('.container').height());
 };
 
 // called on first page load.
