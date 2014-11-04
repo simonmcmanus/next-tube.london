@@ -34,12 +34,10 @@ body {
       margin: .5em;
       font-size: 1.7em; }
     body #floater .container {
-      transition: opacity .2s ease-in-out;
-      transition-delay: 1s; }
+      transition: opacity .3s ease-in; }
     body #floater.loading {
       height: 0; }
       body #floater.loading .container {
-        transition-delay: 0s;
         opacity: 0; }
 
 .direction {
@@ -6564,8 +6562,7 @@ header li:hover a {
       width: 0;
       opacity: 0;
       border-color: transparent;
-      transition: all .2s ease-out;
-      transition-delay: 1s; }
+      transition: all .2s ease-out; }
     #map-container li a.left {
       position: absolute;
       top: -.5em; }

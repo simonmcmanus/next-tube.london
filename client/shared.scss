@@ -43,15 +43,14 @@ body {
       font-size: 1.7em;
     }
     .container {
-      transition: opacity .2s ease-in-out;
-      transition-delay: 1s;
+      transition: opacity .3s ease-in;
+      //transition-delay: 1s;
     }
     transition: height .4s ease-in-out;
 
     &.loading {
       height: 0;
       .container {
-        transition-delay: 0s;
         opacity: 0;
       }
     }

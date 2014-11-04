@@ -21,18 +21,17 @@ page();
 
 var stationCodes = require('../fetchers/next-train/url-codes.json');
 
-
-// we need to know what the old  station name was here. 
-// 
-// does this route always get hit on change?
 page('/central-line/:stationName', function(context, next) {
-    var code = stationCodes[context.params.stationName];
-    $('li a.point').removeClass('point');
-    $('#map-container').attr('data-station', code);
-    var selector = 'ul.line li.' + code + ' a';
-    $(selector).addClass('point');
-    nextTrain.showLoader();
-    nextTrain.getStationData(context.params.stationName, socket);
+    if(context.init) {
+        nextTrain.setup(context.params.stationName, socket);
+    } else {
+        var code = stationCodes[context.params.stationName];
+        nextTrain.load(context.params.stationName, socket);
+        $('#map-container').attr('data-station', code);
+        $('li a.point').removeClass('point');
+        $('ul.line li.' + code + ' a').addClass('point');
+
+    }
 });
 
 // $(' ul#central.line li a').click(function(e) {
