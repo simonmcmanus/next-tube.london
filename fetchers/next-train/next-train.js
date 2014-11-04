@@ -23,7 +23,6 @@ exports.get = function (stationCode, callback) {
             };
         });
     };
-
     request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/' + stationCode, function (error, data) {
         if(error || !data.body) {
             return callback(true);
@@ -54,6 +53,8 @@ exports.get = function (stationCode, callback) {
 
 exports.getAll = function (io, callback) {
     var stations = stationLister.getAllStations();
+
+    console.log(stations);
     async.map(stations, exports.get, function (e, d) {
         // convert to object.
         var out = {

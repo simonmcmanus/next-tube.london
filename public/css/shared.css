@@ -35,7 +35,7 @@ body {
       font-size: 1.7em; }
     body #floater .container {
       transition: opacity .2s ease-in-out;
-      transition-delay: 2s; }
+      transition-delay: 1s; }
     body #floater.loading {
       height: 0; }
       body #floater.loading .container {

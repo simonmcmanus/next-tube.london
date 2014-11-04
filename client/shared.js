@@ -21,6 +21,10 @@ page();
 
 var stationCodes = require('../fetchers/next-train/url-codes.json');
 
+
+// we need to know what the old  station name was here. 
+// 
+// does this route always get hit on change?
 page('/central-line/:stationName', function(context, next) {
     var code = stationCodes[context.params.stationName];
     $('li a.point').removeClass('point');

@@ -31,11 +31,17 @@ exports.getStationData = function (stationCode, socket) {
     });
 };
 
+exports.routeChange = function() {
+
+};
+
 var stationChange = function (socket, e) {
     var oldStation = e.currentTarget.dataset.currentlyListening;
     var newStation = e.currentTarget.selectedOptions[0].value;
-    var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase(); 
+    var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase();
     page('/central-line/' + newStationSlug);
+
+    console.log('stop listening.', oldStation);
     socket.emit('next-train:station:listen:stop', oldStation);
     socket.off('next-train:station:' + oldStation);
     exports.getStationData(newStationSlug, socket);

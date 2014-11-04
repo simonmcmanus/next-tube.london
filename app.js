@@ -64,7 +64,7 @@ app.get('/', function (req, res) {
 
     cache.tubes = {
         stations : stations,
-        currentStationCode: "WFD"
+        currentStationCode: 'WFD'
     }
     res.render('layout.jade', cache);
 });
