@@ -1,0 +1,187 @@
+#map-container{
+    overflow: visible;
+    transition: all .8s ease-out;
+
+    #piccadilly,
+    #metropolitan,
+    #district,
+    #circle,
+    #hammersmith-and-city,
+    #bakerloo,
+    #victoria,
+    #waterloo-and-city,
+    #northern,
+    #jubilee,
+    #overground,
+    #dlr,
+    #emirates,
+    .cablecar-symbol,
+    
+     {
+        opacity: .1;
+    }
+
+
+    .links {
+        display: none;
+    }
+    li {
+        a {
+            transition: all .4s ease-out;
+            position: relative;
+            float: left;
+            text-decoration: none;
+            border: 2px solid  rgba(47, 78, 153, 0);
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                border-style: solid;
+                display: block;
+                width: 0;
+                opacity: 0;
+                border-color:transparent;
+                // used when point is added.
+                transition: all .2s ease-out;
+                transition-delay: 1s;
+            }
+
+
+            &.left {
+                position: absolute;
+                top: -.5em;
+                // mainly for leytonstone.
+                &.boxed {
+                    top: -1.1em;
+                }
+
+                &::before,
+                &::after {
+                    top: 35%;
+                    bottom: auto;
+                    right:0;
+                    border-width: 10px 0 10px 16px;
+
+                }
+                &::before {
+                    border-color: transparent #7A7E8B;
+                }
+                &::after {
+                    border-color: transparent #fff;
+                }
+            }
+
+            &.right {
+                &::before,
+                &::after {
+                    bottom: auto;
+                    top: 35%;
+                    right: auto;
+                    left: 0;
+                    border-width: 10px 16px 10px 0;
+                }
+
+                &::before {
+                    border-color: transparent #7A7E8B;
+                }
+                &::after {
+                    border-color: transparent #fff;
+                }
+            }
+
+            &.above {
+                left: 4px;
+
+                &::before,
+                &::after {
+                    left: 100px;
+                    bottom: 0;
+                    border-width: 14px 14px 0;
+                }
+
+                &::before {
+                    border-color: #7A7E8B transparent;
+                }
+                &::after {
+                    border-color: #fff transparent;
+                }
+            }
+
+            &.below {
+                left: 4px;
+                &::before,
+                &::after {
+                    left: 100px;
+                    border-width: 0 12px 12px ;
+                }
+                &::before {
+                    border-color: #7A7E8B transparent;
+                }
+                &::after {
+                    border-color: #fff transparent;
+                }
+            }
+
+
+            &.no-arrow {
+                &::before,
+                &::after {
+                    display:none;
+                }
+            }
+        }
+
+        &.roundel  a.above {
+            margin-left: -49px;
+            margin-top: -7px;
+        }
+        &.roundel  a.left {
+            margin-right: 2px;
+            margin-top: 12px;
+        }
+
+        &.roundel.connection  a.left {
+            margin-top: 8px;
+        }
+    }
+
+    .roundel strong,
+    .station strong  {
+        transition: opacity .3s ease-out;
+         opacity: 0;
+    }
+    .roundel:hover a,
+    .station:hover a,
+    .roundel:hover strong,
+    .station:hover strong {
+        opacity: 1;
+    }
+
+    #central {
+        a {
+            opacity: .3;
+        }
+        a:hover {
+            opacity: 1;
+        }
+    }
+
+    @import './central.scss';
+}
+
+@media (min-width: 800px) {
+    #map-container  {
+        margin-left: 20%;
+    }
+}
+
+.roundel a, .station a,
+.roundel strong, .station strong{
+    // -webkit-transition: all 5s ease-in-out;
+    // -moz-transition: all 5s ease-in-out;
+    // -o-transition: all 5s ease-in-out;
+    // transition: all 5s ease-in-out;
+    font-size: 1em;
+}
+

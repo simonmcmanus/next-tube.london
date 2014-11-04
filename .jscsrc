@@ -12,7 +12,7 @@
     },
     "requireSpacesInAnonymousFunctionExpression": {
         "beforeOpeningRoundBrace": true,
-        "beforeOpeningCurlyBrace": true
+        "beforeOpeningCurlyBrace": false
     },
     "disallowSpacesInsideParentheses"          : true,
     "requireSpacesInsideObjectBrackets"        : "allButNested",

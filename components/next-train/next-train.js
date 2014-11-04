@@ -26,7 +26,7 @@ exports.getStationData = function (stationCode, socket) {
         headers: {
             Accept: 'application/json'
         },
-        success: function (data) {
+        success: function(data) {
 
             exports.render(data);
             $('#floater').height($('.container').height());
@@ -36,7 +36,7 @@ exports.getStationData = function (stationCode, socket) {
             setTimeout(hideLoader, 500);
             listen(data.code, socket);
         }
-    }).fail(function (e) {
+    }).fail(function(e) {
         $('#floater .trains').html('<h2>Sorry</h2><p>Error occured fetching ' + stationCode + '</p>');
     });
 };
@@ -75,12 +75,18 @@ exports.render = function(data) {
     $node.find('select').attr('data-currently-listening', data.code);
     $('select').val(data.code);
     //$('body').scrollTop(0);
+    // what data has changed here? how can we update only whats necessary and animate any
+    // changes nicely?
     $node.find('.trains').replaceWith($(templateTrains({ station: data })));
-    $('#floater').height($('.container').height());
+    exports.resize();
 };
 
+
+exports.resize = function() {
+    $('#floater').height($('.container').height());
+};
 // called on first page load.
-exports.bind = function ($node, socket) {
+exports.bind = function($node, socket) {
     var $select = $node.find('select#stationCode');
     $select.change(stationChange.bind(null, socket));
     var newStation = $select.data('currentlyListening');

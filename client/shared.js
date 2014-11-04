@@ -34,6 +34,8 @@ page('/central-line/:stationName', function(context, next) {
     }
 });
 
+
+window.onresize = nextTrain.resize;
 // $(' ul#central.line li a').click(function(e) {
 //     e.preventDefault();
 //     var newStation = this.href.split('/').pop();
