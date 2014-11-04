@@ -11,6 +11,7 @@
     "request": "*",
     "socket.io": "1.1.0",
     "underscore": "^1.7.0",
+    "underscore.deepclone": "^0.1.0",
     "xml2js": "0.4.4",
     "xml2json": "0.5.1"
   },
