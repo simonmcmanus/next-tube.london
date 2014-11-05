@@ -137,14 +137,22 @@ body.debug {
 
 
 
+  
+
   #placement {
+
     border: 2px solid green;
     position: absolute;
     width: 400px;
     height: 3em;
     left: 0em;
     top: 3em;
-    z-index:20000 !important;
+    z-index: 20000 !important;
+
+    margin-left: 1em;
+    @media (min-width: 800px) {
+
+    }
   }
 }
 
