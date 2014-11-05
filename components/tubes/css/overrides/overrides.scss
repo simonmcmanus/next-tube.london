@@ -15,8 +15,7 @@
     #overground,
     #dlr,
     #emirates,
-    .cablecar-symbol,
-    
+    .cablecar-symbol
      {
         opacity: .1;
     }
@@ -73,6 +72,7 @@
             }
 
             &.right {
+                position: absolute;
                 &::before,
                 &::after {
                     bottom: auto;
@@ -165,6 +165,11 @@
         a:hover {
             opacity: 1;
         }
+    }
+
+    &[data-station=HOME] {
+        top: -2400px;
+        left: 3000;
     }
 
     @import './central.scss';

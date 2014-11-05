@@ -1,6 +1,17 @@
 // makes the station name big when the appropriate data attribute is applied.
 
 @mixin large-roundel-li() {
+
+    &.left {
+        top: -22px;
+        right: 36px;
+    }
+    &.above {
+        left: -8px;
+        top: -57px;
+    }
+
+
     // take account of a roundel in positioning.
     @media (min-width: 800px) {
         &.left {
@@ -46,6 +57,16 @@
     border: 3px solid #7A7E8B;
     transition: border-color .5s ease-in .8s;
 
+
+    // position for small screen.
+    &.left {
+        top: -22px;
+        right: 13px;
+    }
+    &.above {
+        left: -25px;
+        top: -57px;
+    }
 
     @media (min-width: 800px) {
 

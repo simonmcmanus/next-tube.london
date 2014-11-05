@@ -2,7 +2,7 @@
 
 var page = require('../../public/libs/page.js');
 var templateTrains = require('./trains.jade');
-var templateTitle = require('./title.jade');
+//var templateTitle = require('./title.jade');
 var urlCodes = require('../../fetchers/next-train/url-codes.json');
 
 var listen = function (newStation, socket) {
@@ -22,7 +22,7 @@ var showLoader = function() {
 exports.getStationData = function (stationCode, socket) {
 
     $.ajax({
-        url: '/central-line/' + stationCode,
+        url: '/central-line/' + stationCode + '?ajax=true' ,
         headers: {
             Accept: 'application/json'
         },

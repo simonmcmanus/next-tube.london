@@ -1,12 +1,15 @@
 #nextTrain
-    //include ./title.jade
     include ./trains.jade
     div.settings
         form(method="get", action="/")
             label(for="stationCode") Station:
-            select(name="stationCode", id="stationCode", data-currently-listening=station.code)
+            - currentlyListening =  '';
+            if station
+                - currentlyListening = station.code;
+            select(name="stationCode", id="stationCode", data-currently-listening=currentlyListening)
                 each stationCode, id in nextTrain.stationCodes
                     - var selected = false;
-                    if station.code === id
+                    if station && station.code === id
                             - selected = true
                     option(value=id, selected=selected)=stationCode
+        //include ./title.jade

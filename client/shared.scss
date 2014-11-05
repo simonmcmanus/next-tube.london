@@ -15,6 +15,12 @@
 body {
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px;
+
+  #key {
+    border: 3px double #333;
+    width: 505px;
+    height: 275px;
+  }
   #floater {
     margin: 1em;
     margin-top: 170px;
@@ -50,7 +56,9 @@ body {
     transition: height .4s ease-in-out;
 
     &.loading {
-      height: 0;
+      border-color: #ccc;
+      background: url(http://www.ajaxload.info/cache/FF/FF/FF/00/00/00/22-0.gif) no-repeat #fff;
+      background-position: center 10em;
       .container {
         opacity: 0;
       }
