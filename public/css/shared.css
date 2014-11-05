@@ -42,10 +42,12 @@ body {
       transition: opacity .3s ease-in; }
     body #floater.loading {
       border-color: #ccc;
-      background: url(http://www.ajaxload.info/cache/FF/FF/FF/00/00/00/22-0.gif) no-repeat #fff;
+      background: url(/loading.gif) no-repeat #fff;
       background-position: center 10em; }
       body #floater.loading .container {
         opacity: 0; }
+    body #floater .error {
+      padding: 1em; }
 
 .direction {
   vertical-align: top;

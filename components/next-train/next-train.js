@@ -2,6 +2,7 @@
 
 var page = require('../../public/libs/page.js');
 var templateTrains = require('./trains.jade');
+var templateError = require('./error.jade');
 //var templateTitle = require('./title.jade');
 var urlCodes = require('../../fetchers/next-train/url-codes.json');
 
@@ -27,17 +28,15 @@ exports.getStationData = function (stationCode, socket) {
             Accept: 'application/json'
         },
         success: function(data) {
-
             exports.render(data);
-            $('#floater').height($('.container').height());
-            // couldnt get this delay only working with css to delay
-            // removing the opacity. Seems odd to delay showing the user the
-            // data but makes the experience much nicer (less jumpy).
+            exports.resize();
             setTimeout(hideLoader, 500);
             listen(data.code, socket);
         }
     }).fail(function(e) {
-        $('#floater .trains').html('<h2>Sorry</h2><p>Error occured fetching ' + stationCode + '</p>');
+        $('#floater .trains').html(templateError({stationCode: stationCode}));
+        exports.resize();
+        hideLoader();
     });
 };
 
