@@ -82,7 +82,7 @@ var getStationData = function(stationCode, callback) {
 
 var urlCodes = require('./fetchers/next-train/url-codes.json');
 
-app.get('/central-line/:station', function (req, res) {
+app.get('/central/:station', function (req, res) {
     var stationCode = urlCodes[req.params.station];
 
     if (!stationCode) {

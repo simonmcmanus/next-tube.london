@@ -23,7 +23,7 @@ var showLoader = function() {
 exports.getStationData = function (stationCode, socket) {
 
     $.ajax({
-        url: '/central-line/' + stationCode + '?ajax=true' ,
+        url: '/central/' + stationCode + '?ajax=true' ,
         headers: {
             Accept: 'application/json'
         },
@@ -62,7 +62,7 @@ exports.load = function(stationName, socket) {
 var stationChange = function(socket, e) {
     // woo hack! - should come from the json file.
     var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase();
-    page('/central-line/' + newStationSlug);
+    page('/central/' + newStationSlug);
 };
 
 // renders the data, either from ws or http.

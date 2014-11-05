@@ -21,7 +21,7 @@ page();
 
 var stationCodes = require('../fetchers/next-train/url-codes.json');
 
-page('/central-line/:stationName', function(context, next) {
+page('/central/:stationName', function(context, next) {
     if(context.init) {
         nextTrain.setup(context.params.stationName, socket);
     } else {
