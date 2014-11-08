@@ -39,7 +39,7 @@ body {
       margin: .5em;
       font-size: 1.7em; }
     body #floater .container {
-      transition: opacity .3s ease-in; }
+      transition: opacity .1s ease-in; }
     body #floater.loading {
       border-color: #ccc;
       background: url(/loading.gif) no-repeat #fff;
@@ -98,7 +98,7 @@ body.debug #placement {
   z-index: 20000 !important;
   margin-left: 1em; }
 
-@media (min-width: 800px) {
+@media (min-width: 1100px) {
   body.debug #placement {
     margin: 1em 20%; }
 

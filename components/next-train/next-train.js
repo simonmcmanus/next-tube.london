@@ -22,6 +22,8 @@ var showLoader = function() {
 
 exports.getStationData = function (stationCode, socket) {
 
+    var startTime = Date.now();
+
     $.ajax({
         url: '/central/' + stationCode + '?ajax=true' ,
         headers: {
@@ -29,8 +31,14 @@ exports.getStationData = function (stationCode, socket) {
         },
         success: function(data) {
             exports.render(data);
-            exports.resize();
-            setTimeout(hideLoader, 500);
+            exports.resize()
+            var endTime = Date.now();
+            if(startTime  > endTime - 500) {
+                // never less than 500ms so other animations can finish;
+                setTimeout(hideLoader, 500 - (endTime - startTime));
+            }else {
+                hideLoader();
+            }
             listen(data.code, socket);
         }
     }).fail(function(e) {
