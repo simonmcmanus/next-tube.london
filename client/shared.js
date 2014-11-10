@@ -26,11 +26,14 @@ page('/central/:stationName', function(context, next) {
         nextTrain.setup(context.params.stationName, socket);
     } else {
         var code = stationCodes[context.params.stationName];
-        nextTrain.load(context.params.stationName, socket);
+        //nextTrain.load(context.params.stationName, socket);
         $('#map-container').attr('data-station', code);
+        $('li a.active').removeClass('active');
+        $('li.' + code + ' a').addClass('active');
         $('li a.point').removeClass('point');
-        $('ul.line li.' + code + ' a').addClass('point');
-
+        setTimeout(function() {
+            $('ul.line li.' + code + ' a').addClass('point');
+        }, 800);
     }
 });
 

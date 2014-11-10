@@ -38,98 +38,11 @@
 
 @mixin large-label() {
 
-    // make the station name big.
-    color: #4A70CB;
-    cursor: default;
-    font-weight: bold;
-    height: 1em;
-    line-height: 1em;
-    opacity: 1 !important;
-    transition: all .6s ease-out;
-    transition-delay: .2s;
-    white-space: nowrap;
-    z-index: 2000 !important;
-    box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
-    background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
-    border-radius: 8px;
-    padding: 15px 25px;
-    width: auto;
-    border: 3px solid #7A7E8B;
-    transition: border-color .5s ease-in .8s;
-
-
-    // position for small screen.
-    &.left {
-        top: -22px;
-        right: 13px;
-    }
-    &.above {
-        left: -25px;
-        top: -57px;
-    }
 
     @media (min-width: 800px) {
 
         font-size: 4em;
-        &.point::before,
-        &.point::after, {
-            opacity: 1;
-        }
 
-        &.left {
-            top: -42px;
-            right: 27px;
-            &::before {
-                right: -16px;
-            }
-            &::after {
-                right: -10px;
-            }
-        }
-
-        &.right {
-            &::before {
-                left: -16px;
-            }
-            &::after {
-                left: -9px;
-            }
-        }
-
-        &.above {
-            top: -1.89em;
-            left: -14px;
-            margin-left: -98px;
-
-            &::before {
-                bottom: -14px;
-            }
-            &::after {
-                bottom: -11px;
-            }
-        }
-
-
-        &.below {
-            top: 25px;
-            left: -14px;
-            margin-left: -98px;
-
-
-            &::before {
-                top: -14px;
-            }
-            &::after {
-                top: -11px;
-            }
-        }
     }
-
-    br {
-        content: ' ';
-        display: inline-block;
-        width: .3em;
-    }
-
 
 }
