@@ -6875,8 +6875,8 @@ header li:hover a {
     left: -1910px; }
     @media (min-width: 800px) {
       #map-container[data-station=TCR] {
-        top: -1411px;
-        left: -1943px; } }
+        top: -1428px;
+        left: -1926px; } }
   #map-container li.TCR a.below {
     left: -61px; }
   #map-container[data-station=OXC] {
@@ -6894,12 +6894,12 @@ header li:hover a {
         top: -1248px;
         left: -1622px; } }
   #map-container[data-station=MAR] {
-    top: -1392px;
-    left: -1570px; }
+    top: -1398px;
+    left: -1569px; }
     @media (min-width: 800px) {
       #map-container[data-station=MAR] {
-        top: -1409px;
-        left: -1530px; } }
+        top: -1427px;
+        left: -1585px; } }
   #map-container[data-station=LAN] {
     top: -1306px;
     left: -1473px; }
@@ -6908,12 +6908,12 @@ header li:hover a {
         top: -1246px;
         left: -1463px; } }
   #map-container[data-station=QWY] {
-    top: -1392px;
-    left: -1423px; }
+    top: -1397px;
+    left: -1422px; }
     @media (min-width: 800px) {
       #map-container[data-station=QWY] {
-        top: -1409px;
-        left: -1383px; } }
+        top: -1427px;
+        left: -1437px; } }
   #map-container[data-station=NHG] {
     top: -1299px;
     left: -1312px; }
@@ -6924,12 +6924,12 @@ header li:hover a {
   #map-container li.NHG a.above {
     left: 71px; }
   #map-container[data-station=HPK] {
-    top: -1392px;
+    top: -1398px;
     left: -1232px; }
     @media (min-width: 800px) {
       #map-container[data-station=HPK] {
-        top: -1409px;
-        left: -1193px; } }
+        top: -1427px;
+        left: -1248px; } }
   #map-container[data-station=SBC] {
     top: -1299px;
     left: -1137px; }
@@ -6952,28 +6952,26 @@ header li:hover a {
         top: -1246px;
         left: -868px; } }
   #map-container[data-station=NAC] {
-    top: -1379px;
+    top: -1398px;
     left: -854px; }
     @media (min-width: 800px) {
       #map-container[data-station=NAC] {
-        top: -1409px;
-        left: -815px; } }
+        top: -1427px;
+        left: -870px; } }
   #map-container[data-station=WAC] {
-    top: -1392px;
+    top: -1398px;
     left: -684px; }
     @media (min-width: 800px) {
       #map-container[data-station=WAC] {
         top: -1409px;
         left: -645px; } }
   #map-container[data-station=EBY] {
-    top: -1355px;
-    left: -323px; }
+    top: -1357px;
+    left: -318px; }
     @media (min-width: 800px) {
       #map-container[data-station=EBY] {
-        top: -1339px;
-        left: 33px; } }
-    #map-container[data-station=EBY] .EBY a {
-      margin-left: -3em; }
+        top: -1427px;
+        left: -699px; } }
   #map-container[data-station=HLN] {
     top: -1112px;
     left: -361px; }

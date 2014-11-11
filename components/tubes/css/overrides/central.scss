@@ -209,8 +209,8 @@ li.HOL a.below {
     left: -1910px;
 
     @media (min-width: 800px) {
-        top: -1411px;
-        left: -1943px;
+        top: -1428px;
+        left: -1926px;
     }
 }
 li.TCR a.below {
@@ -239,12 +239,11 @@ li.TCR a.below {
 
 
 &[data-station=MAR] {
-
-    top: -1392px;
-    left: -1570px;
+    top: -1398px;
+    left: -1569px;
     @media (min-width: 800px) {
-        top: -1409px;
-        left: -1530px;
+        top: -1427px;
+        left: -1585px;
     }
 }
 
@@ -261,11 +260,11 @@ li.TCR a.below {
 }
 
 &[data-station=QWY] {
-    top: -1392px;
-    left: -1423px;
+    top: -1397px;
+    left: -1422px;
     @media (min-width: 800px) {
-        top: -1409px;
-        left: -1383px;
+        top: -1427px;
+        left: -1437px;
     }
 }
 
@@ -285,11 +284,11 @@ li.NHG a.above {
 }
 
 &[data-station=HPK] {
-    top: -1392px;
+    top: -1398px;
     left: -1232px;
     @media (min-width: 800px) {
-        top: -1409px;
-        left: -1193px;
+        top: -1427px;
+        left: -1248px;
     }
 }
 
@@ -326,18 +325,16 @@ li.NHG a.above {
 }
 
 &[data-station=NAC] {
-
-    top: -1379px;
+    top: -1398px;
     left: -854px;
-
     @media (min-width: 800px) {
-        top: -1409px;
-        left: -815px;
+        top: -1427px;
+        left: -870px;
     }
 }
 
 &[data-station=WAC] {
-    top: -1392px;
+    top: -1398px;
     left: -684px;
     @media (min-width: 800px) {
         top: -1409px;
@@ -346,18 +343,11 @@ li.NHG a.above {
 }
 
 &[data-station=EBY] {
-
-    top: -1355px;
-    left: -323px;
+    top: -1357px;
+    left: -318px;
     @media (min-width: 800px) {
-        top: -1339px;
-        left: 33px;
-    }
-
-    .EBY {
-        a {
-            margin-left: -3em;
-        }
+        top: -1427px;
+        left: -699px;
     }
 }
 
