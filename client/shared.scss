@@ -51,18 +51,11 @@ h3 {
   vertical-align: top;
   color: #838383;
   position: relative;
-  display: none;
   .container {
     transition: opacity .1s ease-in;
   }
   transition: height .4s ease-in-out;
-      -webkit-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-
-
+  transform: translate3d(0,0,0); // enable hardware acc for ipad.
   &.loading {
     border-color: #ccc;
     background: url(/loading.gif) no-repeat #fff;
@@ -71,7 +64,6 @@ h3 {
       opacity: 0;
     }
   }
-
   .error {
     padding: 1em;
   }
@@ -129,7 +121,7 @@ h3 {
   top: 3em;
   z-index: 20000 !important;
   margin-left: 1em;
-  display: none;
+  //display: none;
 }
 
 @media (min-width: 1100px) {

@@ -1,119 +1,94 @@
 
 
 &[data-station=EPP] {
-    top: -44px;
-    left: -3307px;
-
+    top: -42px;
+    left: -3301px;
     @media (min-width: 800px) {
-        top: -28px;
+        top: -43px;
         left: -3164px;
     }
 }
 
 &[data-station=THB] {
     top: -90px;
-    left: -3252px;
-
-    @media (max-width: 800px) {
-        top: -74px;
-        left: -2960px;
+    left: -3245px;
+    @media (min-width: 800px) {
+        top: -90px;
+        left: -2955px;
     }
 }
 
 &[data-station=DEB] {
     top: -136px;
-    left: -3302px;
-
-    @media (max-width: 800px) {
-        top: -120px;
-        left: -3136px;
-
+    left: -3296px;
+    @media (min-width: 800px) {
+        top: -136px;
+        left: -3131px;
     }
 }
 
 &[data-station=LTN] {
     top: -182px;
-    left: -3288px;
-
-    @media (max-width: 800px) {
-        top: -166px;
-        left: -3085px;
+    left: -3281px;
+    @media (min-width: 800px) {
+        top: -182px;
+        left: -3080px;
     }
 }
 
 &[data-station=BHL] {
     top: -229px;
-    left: -3244px;
-
-    @media (max-width: 800px) {
-        top: -213px;
-        left: -2929px;
+    left: -3237px;
+    @media (min-width: 800px) {
+        top: -229px;
+        left: -2924px;
     }
 }
 
 &[data-station=WFD] {
-    top: -400px;
-    left: -3277px;
+    top: -398px;
+    left: -3271px;
     @media (min-width: 800px) {
-        top: -384px;
+        top: -399px;
         left: -3055px;
-    }
-    .WFD {
-        a {
-            margin-left: -4em;
-            top: -.5em;
-        }
     }
 }
 
 &[data-station=SWF] {
     top: -454px;
-    left: -3228px;
-
+    left: -3221px;
     @media (min-width: 800px) {
-        top: -438px;
-        left: -2865px;
+        top: -455px;
+        left: -2860px;
     }
 }
 
 &[data-station=SNB] {
     top: -509px;
-    left: -3264px;
+    left: -3256px;
     @media (min-width: 800px) {
-        top: -493px;
-        left: -2998px;
-
+        top: -509px;
+        left: -2993px;
     }
 }
 
 &[data-station=LYS] {
-
     top: -672px;
-    left: -3260px;
-
+    left: -3253px;
     @media (min-width: 800px) {
-        top: -656px;
-        left: -2987px;
-    }
-    .LYS {
-        a {
-            margin-left: -5em;
-        }
+        top: -672px;
+        left: -2982px;
     }
 }
 
 &[data-station=LEY] {
     top: -796px;
-    left: -3308px;
+    left: -3301px;
     @media (min-width: 800px) {
-        top: -780px;
-        left: -3158px;
+        top: -796px;
+        left: -3153px;
     }
-    .LEY {
-        a {
-            margin-left: -3.4em;
-        }
-    }
+
 }
 
 &[data-station=SFD] {
@@ -132,34 +107,32 @@
 }
 
 &[data-station=MLE] {
-    top: -1139px;
-    left: -3024px;
+    top: -1134px;
+    left: -3022px;
     @media (min-width: 800px) {
-        top: -1088px;
-        left: -2996px;
+        top: -1096px;
+        left: -2992px;
     }
 
 }
 
 &[data-station=BNG] {
-    top: -1144px;
-    left: -2890px;
-
+    top: -1132px;
+    left: -2909px;
     @media (min-width: 800px) {
-        top: -1084px;
-        left: -2880px;
+        top: -1094px;
+        left: -2881px;
     }
 
 }
 
 
 &[data-station=LST] {
-
-    top: -1211px;
-    left: -2591px;
+    top: -1206px;
+    left: -2580px;
     @media (min-width: 800px) {
-        top: -1160px;
-        left: -2552px;
+        top: -1169px;
+        left: -2343px;
     }
 
     .LST {
@@ -172,11 +145,11 @@
 }
 
 &[data-station=BNK] {
-    top: -1375px;
-    left: -2380px;
+    top: -1369px;
+    left: -2378px;
     @media (min-width: 800px) {
-        top: -1324px;
-        left: -2352px;
+        top: -1332px;
+        left: -2348px;
     }
 
 }
@@ -206,12 +179,11 @@
 
 
 &[data-station=CYL] {
-
-    top: -1306px;
-    left: -2180px;
+    top: -1294px;
+    left: -2199px;
     @media (min-width: 800px) {
-        top: -1246px;
-        left: -2170px;
+        top: -1256px;
+        left: -2171px;
 
     }
 }
@@ -496,12 +468,11 @@ li.NHG a.above {
 }
 
 &[data-station=ROD] {
-
-    top: -265px;
-    left: -3431px;
+    top: -260px;
+    left: -3429px;
     @media (min-width: 800px) {
-        top: -214px;
-        left: -3403px;
+        top: -222px;
+        left: -3400px;
     }
 
     .ROD {
@@ -514,110 +485,84 @@ li.NHG a.above {
 }
 
 &[data-station=CHG] {
-    top: -361px;
-    left: -3509px;
-
+    top: -367px;
+    left: -3508px;
     @media (min-width: 800px) {
-        top: -378px;
-        left: -3469px;
+        top: -396px;
+        left: -3523px;
     }
 }
 
 &[data-station=GRH] {
-    top: -275px;
-    left: -3534px;
+    top: -262px;
+    left: -3553px;
     @media (min-width: 800px) {
-        top: -215px;
-        left: -3524px;
+        top: -226px;
+        left: -3526px;
     }
 }
 
 &[data-station=HAI] {
-    top: -361px;
-    left: -3366px;
-    .HAI {
-        a {
-            br {
-                display: none;
-            }
-
-            top: -.3em;
-            margin-left: -4.6em;
-        }
+    top: -375px;
+    left: -3544px;
+    @media (min-width: 800px) {
+        top: -375px;
+        left: -3366px;
     }
 }
 
 &[data-station=FLP] {
-    top: -414px;
-    left: -3415px;
+    top: -430px;
+    left: -3558px;
+    @media (min-width: 800px) {
+        top: -430px;
+        left: -3411px;
+    }
 }
 
 &[data-station=BDE] {
     top: -483px;
-    left: -3528px;
+    left: -3522px;
     @media (min-width: 800px) {
-        top: -467px;
-        left: -3284px;
+        top: -483px;
+        left: -3280px;
     }
 }
 
 &[data-station=NEP] {
-
     top: -537px;
-    left: -3509px;
-
+    left: -3502px;
     @media (min-width: 800px) {
-        top: -521px;
-        left: -3205px;
-
+        top: -537px;
+        left: -3200px;
     }
 }
 
 &[data-station=GHL] {
-
-    top: -650px;
-    left: -3588px;
-
+    top: -664px;
+    left: -3575px;
     @media (min-width: 800px) {
-        top: -669px;
-        left: -3537px;
-    }
-    .GHL {
-        a {
-            br {
-                display: none;
-            }
-            top: .4em;
-        }
+        top: -688px;
+        left: -3592px;
     }
 }
 
 &[data-station=RED] {
 
-    top: -566px;
-    left: -3482px;
+    top: -554px;
+    left: -3501px;
     @media (min-width: 800px) {
-        top: -506px;
-        left: -3472px;
+        top: -516px;
+        left: -3474px;
     }
 }
 
 &[data-station=WAN] {
-    top: -650px;
-    left: -3458px;
+    top: -658px;
+    left: -3444px;
     @media (min-width: 800px) {
-        top: -669px;
-        left: -3406px;
-    }
-
-    .WAN {
-        a {
-            top: .4em;
-
-            br {
-                display: none;
-            }
-        }
+        top: -687px;
+        left: -3460px;
     }
 }
 
