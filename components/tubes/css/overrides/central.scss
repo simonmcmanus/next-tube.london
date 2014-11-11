@@ -1,88 +1,10 @@
-// Central line specific overrides.
-@import './large-label.scss';
 
-&[data-station=EPP] .EPP,
-&[data-station=THB] .THB,
-&[data-station=DEB] .DEB,
-&[data-station=LTN] .LTN,
-&[data-station=BHL] .BHL,
-&[data-station=WFD] .WFD,
-&[data-station=SWF] .SWF,
-&[data-station=SNB] .SNB,
-&[data-station=LYS] .LYS,
-&[data-station=LEY] .LEY,
-&[data-station=SFD] .SFD,
-&[data-station=MLE] .MLE,
-&[data-station=BNG] .BNG,
-&[data-station=LST] .LST,
-&[data-station=BNK] .BNK,
-&[data-station=STP] .STP,
-&[data-station=CYL] .CYL,
-&[data-station=HOL] .HOL,
-&[data-station=TCR] .TCR,
-&[data-station=OXC] .OXC,
-&[data-station=BDS] .BDS,
-&[data-station=MAR] .MAR,
-&[data-station=LAN] .LAN,
-&[data-station=QWY] .QWY,
-&[data-station=NHG] .NHG,
-&[data-station=HPK] .HPK,
-&[data-station=SBC] .SBC,
-&[data-station=WCT] .WCT,
-&[data-station=EAC] .EAC,
-&[data-station=NAC] .NAC,
-&[data-station=WAC] .WAC,
-&[data-station=EBY] .EBY,
-&[data-station=HLN] .HLN,
-&[data-station=PER] .PER,
-&[data-station=GFD] .GFD,
-&[data-station=NHT] .NHT,
-&[data-station=SRP] .SRP,
-&[data-station=RUG] .RUG,
-&[data-station=WRP] .WRP,
-&[data-station=ROD] .ROD,
-&[data-station=CHG] .CHG,
-&[data-station=GRH] .GRH,
-&[data-station=HAI] .HAI,
-&[data-station=FLP] .FLP,
-&[data-station=BDE] .BDE,
-&[data-station=NEP] .NEP,
-&[data-station=GHL] .GHL,
-&[data-station=RED] .RED,
-&[data-station=WAN] .WAN {
-    z-index: 500 !important;
-    a {
-        @include large-label();
-    }
-}
-
-&[data-station=EPP]  .EPP a,
-&[data-station=WFD] .WFD a,
-&[data-station=SFD] .SFD a,
-&[data-station=MLE] .MLE a,
-&[data-station=LST] .LST a,
-&[data-station=BNK] .BNK a,
-&[data-station=HOL] .HOL a,
-&[data-station=TCR] .TCR a,
-&[data-station=OXC] .OXC a,
-&[data-station=BDS] .BDS a,
-&[data-station=NHG] .NHG a,
-&[data-station=SBC] .SBC a,
-&[data-station=WCT] .WCT a,
-&[data-station=EBY] .EBY a,
-&[data-station=GFD] .GFD a,
-&[data-station=SRP] .SRP a,
-&[data-station=WRP] .WRP a,
-&[data-station=ROD] .ROD a,
-&[data-station=HAI] .HAI a {
-    @include large-roundel-li();
-}
 
 &[data-station=EPP] {
     top: -44px;
     left: -3307px;
 
-    @media (max-width: 800px) {
+    @media (min-width: 800px) {
         top: -28px;
         left: -3164px;
     }
@@ -665,8 +587,7 @@ li.NHG a.above {
             br {
                 display: none;
             }
-            top: .6em;
-            margin-left: -3.06em;
+            top: .4em;
         }
     }
 }
@@ -691,11 +612,11 @@ li.NHG a.above {
 
     .WAN {
         a {
+            top: .4em;
+
             br {
                 display: none;
             }
-            top: .6em;
-            margin-left: -2.99em;
         }
     }
 }
@@ -704,3 +625,30 @@ li.NHG a.above {
 #cen025 {
     z-index: 100;
 }
+
+
+// // Central line specific overrides.
+// @import './large-label.scss';
+
+
+// &[data-station=EPP]  .EPP a,
+// &[data-station=WFD] .WFD a,
+// &[data-station=SFD] .SFD a,
+// &[data-station=MLE] .MLE a,
+// &[data-station=LST] .LST a,
+// &[data-station=BNK] .BNK a,
+// &[data-station=HOL] .HOL a,
+// &[data-station=TCR] .TCR a,
+// &[data-station=OXC] .OXC a,
+// &[data-station=BDS] .BDS a,
+// &[data-station=NHG] .NHG a,
+// &[data-station=SBC] .SBC a,
+// &[data-station=WCT] .WCT a,
+// &[data-station=EBY] .EBY a,
+// &[data-station=GFD] .GFD a,
+// &[data-station=SRP] .SRP a,
+// &[data-station=WRP] .WRP a,
+// &[data-station=ROD] .ROD a,
+// &[data-station=HAI] .HAI a {
+//     @include large-roundel-li();
+// }

@@ -42,6 +42,7 @@ h3 {
   vertical-align: top;
   color: #838383;
   position: relative;
+  display: none;
   transition: height .4s ease-in-out;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -6548,7 +6549,9 @@ header li:hover a {
 
 #map-container {
   overflow: visible;
-  transition: top, left .4s ease-out 3s;
+  top: 0 !important;
+  left: 0 !important;
+  transition: all 2s ease-out;
   transform: translate3d(0, 0, 0); }
   #map-container #piccadilly,
   #map-container #metropolitan,
@@ -6570,9 +6573,9 @@ header li:hover a {
   #map-container li a {
     position: absolute;
     text-decoration: none;
-    transition-property: background, border,  box-shadow, left,  margin, top,   width;
-    transition-duration: 0.8s,       0.3s,    0.8s,       0.8s,  0.8s,   0.8s,  0.8s;
-    transition-delay: .3s,         0s,      0s,         0s,    0s,     0s,    0s;
+    transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
+    transition-duration: .8s,       .3s,      .8s,        .5s,       .8s,   .8s,    .8s,     .8s,  .8s;
+    transition-delay: .3s,        0,        0,         .3s,       0,     0,      0,       0,    0;
     transform: translate3d(0, 0, 0);
     color: #4A70CB;
     cursor: hand;
@@ -6595,35 +6598,41 @@ header li:hover a {
       top: -58px; }
     #map-container li a.below {
       left: 3px;
-      top: -4px; }
+      top: 0px; }
   #map-container li.roundel a.left {
     top: -12px;
     right: 13px; }
+    @media (min-width: 800px) {
+      #map-container li.roundel a.left.active {
+        right: 20px;
+        top: -.5em; } }
   #map-container li.roundel a.above {
     left: 1px;
     top: -59px; }
   #map-container li.roundel a.below {
     left: 11px;
     top: 19px; }
-  #map-container li a:hover {
+  #map-container li a.active {
     background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
-    border: 3px solid #7A7E8B; }
-    #map-container li a:hover.left {
+    border: 3px solid #7A7E8B;
+    z-index: 100; }
+    #map-container li a.active.left {
       margin-right: 30px; }
-    #map-container li a:hover.right {
+    #map-container li a.active.right {
       margin-left: 6px; }
-    #map-container li a:hover.above {
+    #map-container li a.active.above {
       top: -69px; }
-    #map-container li a:hover.below {
-      margin-top: 22px; }
-    #map-container li a:hover br {
+    #map-container li a.active.below {
+      margin-top: 18px; }
+    #map-container li a.active br {
       content: ' ';
       display: inline-block;
       width: .3em; }
     @media (min-width: 800px) {
-      #map-container li a:hover {
+      #map-container li a.active {
+        font-size: 4em;
         box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px; } }
-    #map-container li a:hover::before, #map-container li a:hover::after {
+    #map-container li a.active::before, #map-container li a.active::after {
       content: "";
       position: absolute;
       border-style: solid;
@@ -6632,46 +6641,89 @@ header li:hover a {
       opacity: 1;
       border-color: transparent;
       transition: all .2s ease-out; }
-    #map-container li a:hover.left::before, #map-container li a:hover.left::after {
+    #map-container li a.active.left::before, #map-container li a.active.left::after {
       bottom: auto;
       top: 17px;
       border-width: 6px 0 6px 8px; }
-    #map-container li a:hover.left::before {
+    #map-container li a.active.left::before {
       right: -10px;
       border-color: transparent #7A7E8B; }
-    #map-container li a:hover.left::after {
+    #map-container li a.active.left::after {
       right: -6px;
       border-color: transparent #fff; }
-    #map-container li a:hover.right::before, #map-container li a:hover.right::after {
+    #map-container li a.active.right::before, #map-container li a.active.right::after {
       bottom: auto;
       top: 40%;
       border-width: 6px 8px 6px 0; }
-    #map-container li a:hover.right::before {
+    #map-container li a.active.right::before {
       left: -10px;
       border-color: transparent #7A7E8B; }
-    #map-container li a:hover.right::after {
+    #map-container li a.active.right::after {
       left: -6px;
       border-color: transparent #fff; }
-    #map-container li a:hover.above::before, #map-container li a:hover.above::after {
+    #map-container li a.active.above::before, #map-container li a.active.above::after {
       left: 61px;
       bottom: 0;
       border-width: 7px 7px 0; }
-    #map-container li a:hover.above::before {
+    #map-container li a.active.above::before {
       bottom: -10px;
       border-color: #7A7E8B transparent; }
-    #map-container li a:hover.above::after {
+    #map-container li a.active.above::after {
       bottom: -6px;
       border-color: #fff transparent; }
-    #map-container li a:hover.below::before, #map-container li a:hover.below::after {
+    #map-container li a.active.below::before, #map-container li a.active.below::after {
       left: 51px;
       top: 0;
       border-width: 0 7px 7px; }
-    #map-container li a:hover.below::before {
+    #map-container li a.active.below::before {
       top: -10px;
       border-color: #7A7E8B transparent; }
-    #map-container li a:hover.below::after {
+    #map-container li a.active.below::after {
       top: -6px;
       border-color: #fff transparent; }
+    @media (min-width: 800px) {
+      #map-container li a.active.left {
+        position: absolute;
+        top: -.67em;
+        right: 0px; }
+        #map-container li a.active.left::before, #map-container li a.active.left::after {
+          top: 35%;
+          border-width: 10px 0 10px 16px; }
+        #map-container li a.active.left::before {
+          right: -18px; }
+        #map-container li a.active.left::after {
+          right: -14px; }
+      #map-container li a.active.right::before, #map-container li a.active.right::after {
+        top: 35%;
+        left: 0;
+        border-width: 10px 16px 10px 0; }
+      #map-container li a.active.right::before {
+        left: -18px; }
+      #map-container li a.active.right::after {
+        left: -13px; }
+      #map-container li a.active.above {
+        top: -2em;
+        left: -50px; }
+        #map-container li a.active.above::before, #map-container li a.active.above::after {
+          left: 100px;
+          border-width: 14px 14px 0; }
+        #map-container li a.active.above::before {
+          bottom: -17px; }
+        #map-container li a.active.above::after {
+          bottom: -13px; }
+      #map-container li a.active.below {
+        top: 8px; }
+        #map-container li a.active.below::before, #map-container li a.active.below::after {
+          left: 46px;
+          border-width: 0 12px 12px; }
+        #map-container li a.active.below::before {
+          top: -14px; }
+        #map-container li a.active.below::after {
+          top: -10px; } }
+  @media (min-width: 800px) {
+    #map-container li.roundel.active a.above {
+      top: -1.9em;
+      left: -42px; } }
 
 @media (min-width: 800px) {
   #map-container {

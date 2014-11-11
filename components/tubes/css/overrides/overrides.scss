@@ -1,6 +1,8 @@
 #map-container{
     overflow: visible;
-    transition: top, left .4s ease-out 3s;
+    top: 0 !important;
+    left: 0 !important;
+    transition: all 2s ease-out;
     transform: translate3d(0,0,0);
     #piccadilly,
     #metropolitan,
@@ -28,9 +30,9 @@
 
             position: absolute;
             text-decoration: none;
-            transition-property: background, border,  box-shadow, left,  margin, top,   width;
-            transition-duration: 0.8s,       0.3s,    0.8s,       0.8s,  0.8s,   0.8s,  0.8s;
-            transition-delay   : .3s,         0s,      0s,         0s,    0s,     0s,    0s;
+            transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
+            transition-duration: .8s,       .3s,      .8s,        .5s,       .8s,   .8s,    .8s,     .8s,  .8s;
+            transition-delay   : .3s,        0,        0,         .3s,       0,     0,      0,       0,    0;
             transform: translate3d(0,0,0);
             color: #4A70CB;
             cursor: hand;
@@ -58,7 +60,7 @@
             }
             &.below {
                 left: 3px;
-                top: -4px;
+                top: 0px;
             }
         }
 
@@ -67,10 +69,17 @@
             &.left {
                 top: -12px;
                 right: 13px;
+                @media (min-width: 800px) {
+                    &.active {
+                        right: 20px;
+                        top: -.5em;
+                    }
+                }
             }
             &.above {
                 left: 1px;
                 top: -59px;
+
             }
             &.below {
                 left: 11px;
@@ -79,10 +88,13 @@
 
         }
 
+
+
         // a.active
-        a:hover{
+        a.active{
                 background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
                 border: 3px solid #7A7E8B;
+                z-index: 100;
 
                 &.left {
                     margin-right: 30px;
@@ -96,7 +108,7 @@
                 }
 
                 &.below {
-                    margin-top: 22px;
+                    margin-top: 18px;
                 }
 
 
@@ -107,6 +119,7 @@
                 }
 
                 @media (min-width: 800px) {
+                    font-size: 4em;
                     box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
                 }
 
@@ -197,48 +210,89 @@
                 }
 
 
-                // &.point::before,
-                // &.point::after, {
-                //     opacity: 1;
-                // }
-
-                // &.right {
-                //     &::before {
-                //         left: -16px;
-                //     }
-                //     &::after {
-                //         left: -9px;
-                //     }
-                // }
-
-                // &.above {
-                //     top: -1.89em;
-                //     left: -14px;
-                //     margin-left: -98px;
-
-                //     &::before {
-                //         bottom: -14px;
-                //     }
-                //     &::after {
-                //         bottom: -11px;
-                //     }
-                // }
+                @media (min-width: 800px) {
 
 
-                // &.below {
-                //     top: 25px;
-                //     left: -14px;
-                //     margin-left: -98px;
+                    &.left {
+                        position: absolute;
+                        top: -.67em;
+                        right: 0px;
+                       &::before,
+                       &::after {
+                           top: 35%;
+                           border-width: 10px 0 10px 16px;
+                       }
+                       &::before {
+                        right:-18px;
+                       }
+                       &::after {
+                            right:-14px;
+                       }
+
+                   }
+
+                   &.right {
+                       &::before,
+                       &::after {
+                           top: 35%;
+                           left: 0;
+                           border-width: 10px 16px 10px 0;
+                       }
+                       &::before {
+                            left:-18px;
+                       }
+                       &::after {
+                        left:-13px;
+                        }
+                   }
+
+                   &.above {
+                    top: -2em;
+                    left: -50px;
+                       &::before,
+                       &::after {
+                           left: 100px;
+                           border-width: 14px 14px 0;
+                       }
+                       &::before {
+                            bottom: -17px;
+                       }
+                       &::after {
+                            bottom: -13px;
+                        }
+
+                   }
+
+                   &.below {
+                    top: 8px;
+                       &::before,
+                       &::after {
+                           left: 46px;
+                           border-width: 0 12px 12px ;
+                       }
+                        &::before {
+                            top: -14px;
+                        }
+                        &::after{
+                            top: -10px;
+                        }
+                   }
 
 
-                //     &::before {
-                //         top: -14px;
-                //     }
-                //     &::after {
-                //         top: -11px;
-                //     }
-                // }
+                }
+                // end pointers
 
+
+
+        }
+
+        &.roundel.active a {
+            &.above {
+                @media (min-width: 800px) {
+                    top: -1.9em;
+                    left: -42px;
+                }
+            }
         }
         // a.active {
         //     z-index: 2000 !important;
@@ -291,7 +345,7 @@
     // }
 
 
-    //@import './central.scss';
+   // @import './central.scss';
 }
 
 @media (min-width: 800px) {
