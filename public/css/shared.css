@@ -100,7 +100,8 @@ h3 {
   left: 0em;
   top: 3em;
   z-index: 20000 !important;
-  margin-left: 1em; }
+  margin-left: 1em;
+  display: none; }
 
 @media (min-width: 1100px) {
   body.debug #placement {
@@ -6544,8 +6545,9 @@ header li:hover a {
 
 #map-container {
   overflow: visible;
-  transition: all 2s ease-out;
-  transform: translate3d(0, 0, 0); }
+  transition: all 1.5s ease-out;
+  transform: translate3d(0, 0, 0);
+  transition-delay: .5s; }
   #map-container #piccadilly,
   #map-container #metropolitan,
   #map-container #district,
@@ -6567,8 +6569,9 @@ header li:hover a {
     position: absolute;
     text-decoration: none;
     transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
-    transition-duration: .8s,       .3s,      .8s,        .5s,       .8s,   .8s,    .8s,     .8s,  .8s;
-    transition-delay: .3s,        0,        0,         .3s,       0,     0,      0,       0,    0;
+    transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s;
+    transition-delay: 0;
+    transition-timing-function: ease-out;
     transform: translate3d(0, 0, 0);
     color: #4A70CB;
     cursor: hand;
@@ -6611,6 +6614,8 @@ header li:hover a {
     left: 11px;
     top: 19px; }
   #map-container li a.active {
+    transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
+    transition-delay: .5s,       .5s,      .5s,         .5s,       .5s,  .4s,    .4s,     .3s,  .3s;
     background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
     border: 3px solid #7A7E8B;
     z-index: 1000 !important; }
