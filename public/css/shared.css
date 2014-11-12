@@ -6982,7 +6982,7 @@ header li:hover a {
       #map-container[data-station=HLN] {
         top: -1103px;
         left: -139px; } }
-  #map-container li.HLN a {
+  #map-container li.HLN a, #map-container li.PER a {
     position: inherit;
     -ms-transform: rotate(45deg);
     /* IE 9 */
@@ -6991,9 +6991,13 @@ header li:hover a {
     transform: rotate(45deg);
     top: -13px !important;
     right: 22px !important; }
-  #map-container li.HLN a.active {
-    top: -81px !important;
-    right: 39px !important; }
+  #map-container li.HLN a.active, #map-container li.PER a.active {
+    top: -47px !important;
+    right: 10px !important; }
+    @media (min-width: 800px) {
+      #map-container li.HLN a.active, #map-container li.PER a.active {
+        top: -81px !important;
+        right: 39px !important; } }
   #map-container[data-station=PER] {
     top: -1025px;
     left: -310px; }
@@ -7001,15 +7005,6 @@ header li:hover a {
       #map-container[data-station=PER] {
         top: -1016px;
         left: -183px; } }
-    #map-container[data-station=PER] .PER a {
-      position: inherit;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      top: -70px !important;
-      right: 65px !important; }
   #map-container[data-station=GFD] {
     top: -920px;
     left: -195px; }
@@ -7017,15 +7012,22 @@ header li:hover a {
       #map-container[data-station=GFD] {
         top: -911px;
         left: -15px; } }
-    #map-container[data-station=GFD] .GFD a {
-      position: inherit;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      top: -84px !important;
-      right: 71px !important; }
+  #map-container li.GFD a {
+    position: inherit;
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    top: -27px !important;
+    right: 34px !important; }
+  #map-container li.GFD a.active {
+    top: -44px !important;
+    right: 19px !important; }
+    @media (min-width: 800px) {
+      #map-container li.GFD a.active {
+        top: -78px !important;
+        right: 47px !important; } }
   #map-container[data-station=NHT] {
     top: -762px;
     left: -223px; }
