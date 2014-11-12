@@ -108,6 +108,22 @@
     }
 }
 
+
+li.roundel.MLE a {
+    left: 7px;
+    top: -64px;
+
+    &.active {
+        left: 1px;
+        top: -72px;
+        @media (min-width: 800px) {
+            left: -45px;
+            top: -125px;
+        }
+    }
+}
+
+
 &[data-station=BNG] {
     top: -1132px;
     left: -2909px;
@@ -116,6 +132,16 @@
         left: -2881px;
     }
 
+}
+
+li.BNG a {
+    left: 4px;
+    &.active {
+        left: -6px;
+        @media (min-width: 800px) {
+            left: -52px;
+        }
+    }
 }
 
 
@@ -196,6 +222,14 @@ li.STP {
     }
 }
 
+li.roundel.HOL a {
+    left: 40px;
+
+    &.active {
+        left: 10px;
+    }
+}
+
 
 &[data-station=TCR] {
     top: -1386px;
@@ -236,13 +270,13 @@ li.TCR a.below::after {
 
 li.OXC a.above {
     left: -32px;
-}
-
-li.OXC a.above.active {
-    @media (max-width: 800px) {
-        left: 0;
+    &.active {
+        @media (max-width: 800px) {
+            left: 0;
+        }
     }
 }
+
 
 &[data-station=BDS] {
     top: -1299px;
@@ -250,6 +284,15 @@ li.OXC a.above.active {
     @media (min-width: 800px) {
         top: -1248px;
         left: -1622px;
+    }
+}
+
+li.BDS a.above  {
+    left: -28px;
+    &.active {
+        @media (max-width: 800px) {
+            left: 0;
+        }
     }
 }
 
