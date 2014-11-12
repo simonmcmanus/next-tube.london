@@ -337,8 +337,8 @@ li.NHG a.above {
     top: -1398px;
     left: -684px;
     @media (min-width: 800px) {
-        top: -1409px;
-        left: -645px;
+        top: -1427px;
+        left: -700px;
     }
 }
 
@@ -418,20 +418,19 @@ li.NHG a.above {
 }
 
 &[data-station=NHT] {
-
     top: -762px;
-    left: -230px;
+    left: -223px;
     @media (min-width: 800px) {
-        top: -746px;
-        left: -37px;
+        top: -762px;
+        left: -32px;
     }
 }
 
 &[data-station=SRP] {
-    top: -649px;
-    left: -183px;
+    top: -650px;
+    left: -178px;
     @media (min-width: 800px) {
-        top: -634px;
+        top: -652px;
         left: 104px;
     }
 
@@ -439,22 +438,20 @@ li.NHG a.above {
 
 &[data-station=RUG] {
     top: -540px;
-    left: -171px;
+    left: -164px;
     @media (min-width: 800px) {
-        top: -524px;
-        left: 174px;
+        top: -540px;
+        left: 178px;
     }
 }
 
 &[data-station=WRP] {
-    top: -318px;
-    left: -185px;
-
+    top: -321px;
+    left: -180px;
     @media (min-width: 800px) {
-        top: -303px;
-        left: 91px;
+        top: -322px;
+        left: 95px;
     }
-
 }
 
 &[data-station=ROD] {

@@ -82,8 +82,6 @@ exports.render = function(data) {
     $node.find('select').attr('data-currently-listening', data.code);
     $('select').val(data.code);
     //$('body').scrollTop(0);
-    // what data has changed here? how can we update only whats necessary and animate any
-    // changes nicely?
     $node.find('.trains').replaceWith($(templateTrains({ station: data })));
     exports.resize();
 };

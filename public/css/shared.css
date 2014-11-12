@@ -6624,99 +6624,99 @@ header li:hover a {
       #map-container li a.active {
         font-size: 4em;
         box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px; } }
-    #map-container li a.active::before, #map-container li a.active::after {
-      content: "";
-      position: absolute;
-      border-style: solid;
-      display: block;
-      width: 0;
-      opacity: 1;
-      border-color: transparent;
-      transition: all .2s ease-out; }
-    #map-container li a.active.left::before, #map-container li a.active.left::after {
-      bottom: auto;
-      top: 17px;
-      border-width: 6px 0 6px 8px; }
-    #map-container li a.active.left::before {
-      right: -10px;
-      border-color: transparent #7A7E8B; }
-    #map-container li a.active.left::after {
-      right: -6px;
-      border-color: transparent #fff; }
-    #map-container li a.active.right::before, #map-container li a.active.right::after {
-      bottom: auto;
-      top: 40%;
-      border-width: 6px 8px 6px 0; }
-    #map-container li a.active.right::before {
-      left: -10px;
-      border-color: transparent #7A7E8B; }
-    #map-container li a.active.right::after {
-      left: -6px;
-      border-color: transparent #fff; }
-    #map-container li a.active.above::before, #map-container li a.active.above::after {
-      left: 61px;
-      bottom: 0;
-      border-width: 7px 7px 0; }
-    #map-container li a.active.above::before {
-      bottom: -10px;
-      border-color: #7A7E8B transparent; }
-    #map-container li a.active.above::after {
-      bottom: -6px;
-      border-color: #fff transparent; }
-    #map-container li a.active.below::before, #map-container li a.active.below::after {
-      left: 51px;
-      top: 0;
-      border-width: 0 7px 7px; }
-    #map-container li a.active.below::before {
-      top: -10px;
-      border-color: #7A7E8B transparent; }
-    #map-container li a.active.below::after {
-      top: -6px;
-      border-color: #fff transparent; }
-    @media (min-width: 800px) {
-      #map-container li a.active.left {
-        position: absolute;
-        top: -.67em;
-        right: 0px; }
-        #map-container li a.active.left::before, #map-container li a.active.left::after {
-          top: 35%;
-          border-width: 10px 0 10px 16px; }
-        #map-container li a.active.left::before {
-          right: -18px; }
-        #map-container li a.active.left::after {
-          right: -14px; }
-      #map-container li a.active.right::before, #map-container li a.active.right::after {
-        top: 35%;
-        left: 0;
-        border-width: 10px 16px 10px 0; }
-      #map-container li a.active.right::before {
-        left: -18px; }
-      #map-container li a.active.right::after {
-        left: -13px; }
-      #map-container li a.active.above {
-        top: -2em;
-        left: -50px; }
-        #map-container li a.active.above::before, #map-container li a.active.above::after {
-          left: 100px;
-          border-width: 14px 14px 0; }
-        #map-container li a.active.above::before {
-          bottom: -17px; }
-        #map-container li a.active.above::after {
-          bottom: -13px; }
-      #map-container li a.active.below {
-        top: 8px; }
-        #map-container li a.active.below::before, #map-container li a.active.below::after {
-          left: 46px;
-          border-width: 0 12px 12px; }
-        #map-container li a.active.below::before {
-          top: -14px; }
-        #map-container li a.active.below::after {
-          top: -10px; } }
+  #map-container li .point::before, #map-container li .point::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    display: block;
+    width: 0;
+    opacity: 1;
+    border-color: transparent;
+    transition: all .2s ease-out; }
+  #map-container li .point.left::before, #map-container li .point.left::after {
+    bottom: auto;
+    top: 17px;
+    border-width: 6px 0 6px 8px; }
+  #map-container li .point.left::before {
+    right: -10px;
+    border-color: transparent #7A7E8B; }
+  #map-container li .point.left::after {
+    right: -6px;
+    border-color: transparent #fff; }
+  #map-container li .point.right::before, #map-container li .point.right::after {
+    bottom: auto;
+    top: 40%;
+    border-width: 6px 8px 6px 0; }
+  #map-container li .point.right::before {
+    left: -10px;
+    border-color: transparent #7A7E8B; }
+  #map-container li .point.right::after {
+    left: -6px;
+    border-color: transparent #fff; }
+  #map-container li .point.above::before, #map-container li .point.above::after {
+    left: 61px;
+    bottom: 0;
+    border-width: 7px 7px 0; }
+  #map-container li .point.above::before {
+    bottom: -10px;
+    border-color: #7A7E8B transparent; }
+  #map-container li .point.above::after {
+    bottom: -6px;
+    border-color: #fff transparent; }
+  #map-container li .point.below::before, #map-container li .point.below::after {
+    left: 51px;
+    top: 0;
+    border-width: 0 7px 7px; }
+  #map-container li .point.below::before {
+    top: -10px;
+    border-color: #7A7E8B transparent; }
+  #map-container li .point.below::after {
+    top: -6px;
+    border-color: #fff transparent; }
   @media (min-width: 800px) {
-    #map-container li.roundel a.active.above {
+    #map-container li .point.left {
+      position: absolute;
+      top: -.67em;
+      right: 0px; }
+      #map-container li .point.left::before, #map-container li .point.left::after {
+        top: 35%;
+        border-width: 10px 0 10px 16px; }
+      #map-container li .point.left::before {
+        right: -18px; }
+      #map-container li .point.left::after {
+        right: -14px; }
+    #map-container li .point.right::before, #map-container li .point.right::after {
+      top: 35%;
+      left: 0;
+      border-width: 10px 16px 10px 0; }
+    #map-container li .point.right::before {
+      left: -18px; }
+    #map-container li .point.right::after {
+      left: -13px; }
+    #map-container li .point.above {
+      top: -2em;
+      left: -50px; }
+      #map-container li .point.above::before, #map-container li .point.above::after {
+        left: 100px;
+        border-width: 14px 14px 0; }
+      #map-container li .point.above::before {
+        bottom: -17px; }
+      #map-container li .point.above::after {
+        bottom: -13px; }
+    #map-container li .point.below {
+      top: 8px; }
+      #map-container li .point.below::before, #map-container li .point.below::after {
+        left: 46px;
+        border-width: 0 12px 12px; }
+      #map-container li .point.below::before {
+        top: -14px; }
+      #map-container li .point.below::after {
+        top: -10px; } }
+  @media (min-width: 800px) {
+    #map-container li.roundel a.hover.above {
       left: -44px; } }
   @media (min-width: 800px) {
-    #map-container li.roundel a.active.below {
+    #map-container li.roundel a.hover.below {
       top: 26px; } }
   #map-container .roundel strong,
   #map-container .station strong {
@@ -6727,401 +6727,6 @@ header li:hover a {
   #map-container .roundel:hover strong,
   #map-container .station:hover strong {
     opacity: 1; }
-  #map-container[data-station=EPP] {
-    top: -42px;
-    left: -3301px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=EPP] {
-        top: -43px;
-        left: -3164px; } }
-  #map-container[data-station=THB] {
-    top: -90px;
-    left: -3245px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=THB] {
-        top: -90px;
-        left: -2955px; } }
-  #map-container[data-station=DEB] {
-    top: -136px;
-    left: -3296px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=DEB] {
-        top: -136px;
-        left: -3131px; } }
-  #map-container[data-station=LTN] {
-    top: -182px;
-    left: -3281px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=LTN] {
-        top: -182px;
-        left: -3080px; } }
-  #map-container[data-station=BHL] {
-    top: -229px;
-    left: -3237px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=BHL] {
-        top: -229px;
-        left: -2924px; } }
-  #map-container[data-station=WFD] {
-    top: -398px;
-    left: -3271px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=WFD] {
-        top: -399px;
-        left: -3055px; } }
-  #map-container[data-station=SWF] {
-    top: -454px;
-    left: -3221px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=SWF] {
-        top: -455px;
-        left: -2860px; } }
-  #map-container[data-station=SNB] {
-    top: -509px;
-    left: -3256px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=SNB] {
-        top: -509px;
-        left: -2993px; } }
-  #map-container[data-station=LYS] {
-    top: -672px;
-    left: -3253px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=LYS] {
-        top: -672px;
-        left: -2982px; } }
-  #map-container[data-station=LEY] {
-    top: -796px;
-    left: -3301px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=LEY] {
-        top: -796px;
-        left: -3153px; } }
-  #map-container[data-station=SFD] {
-    top: -930px;
-    left: -3421px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=SFD] {
-        top: -907px;
-        left: -3452px; } }
-    #map-container[data-station=SFD] .SFD a {
-      top: -.2em; }
-  #map-container[data-station=MLE] {
-    top: -1134px;
-    left: -3022px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=MLE] {
-        top: -1096px;
-        left: -2992px; } }
-  #map-container[data-station=BNG] {
-    top: -1132px;
-    left: -2909px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=BNG] {
-        top: -1094px;
-        left: -2881px; } }
-  #map-container[data-station=LST] {
-    top: -1206px;
-    left: -2580px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=LST] {
-        top: -1169px;
-        left: -2343px; } }
-    #map-container[data-station=LST] .LST a {
-      left: 0em;
-      margin-left: -4.35em;
-      top: -1.6em; }
-  #map-container[data-station=BNK] {
-    top: -1369px;
-    left: -2378px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=BNK] {
-        top: -1332px;
-        left: -2348px; } }
-  #map-container[data-station=STP] {
-    top: -1346px;
-    left: -2357px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=STP] {
-        top: -1354px;
-        left: -2366px; } }
-    #map-container[data-station=STP] .STP a {
-      position: inherit;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      top: -11px;
-      left: 56px; }
-  #map-container[data-station=CYL] {
-    top: -1294px;
-    left: -2199px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=CYL] {
-        top: -1256px;
-        left: -2171px; } }
-  #map-container[data-station=HOL] {
-    top: -1388px;
-    left: -2135px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=HOL] {
-        top: -1411px;
-        left: -2046px; } }
-  #map-container li.HOL a.below {
-    left: 60px; }
-  #map-container[data-station=TCR] {
-    top: -1386px;
-    left: -1910px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=TCR] {
-        top: -1428px;
-        left: -1926px; } }
-  #map-container li.TCR a.below {
-    left: -61px; }
-  #map-container[data-station=OXC] {
-    top: -1299px;
-    left: -1778px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=OXC] {
-        top: -1248px;
-        left: -1750px; } }
-  #map-container[data-station=BDS] {
-    top: -1299px;
-    left: -1650px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=BDS] {
-        top: -1248px;
-        left: -1622px; } }
-  #map-container[data-station=MAR] {
-    top: -1398px;
-    left: -1569px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=MAR] {
-        top: -1427px;
-        left: -1585px; } }
-  #map-container[data-station=LAN] {
-    top: -1306px;
-    left: -1473px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=LAN] {
-        top: -1246px;
-        left: -1463px; } }
-  #map-container[data-station=QWY] {
-    top: -1397px;
-    left: -1422px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=QWY] {
-        top: -1427px;
-        left: -1437px; } }
-  #map-container[data-station=NHG] {
-    top: -1299px;
-    left: -1312px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=NHG] {
-        top: -1248px;
-        left: -1283px; } }
-  #map-container li.NHG a.above {
-    left: 71px; }
-  #map-container[data-station=HPK] {
-    top: -1398px;
-    left: -1232px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=HPK] {
-        top: -1427px;
-        left: -1248px; } }
-  #map-container[data-station=SBC] {
-    top: -1299px;
-    left: -1137px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=SBC] {
-        top: -1249px;
-        left: -1105px; } }
-  #map-container[data-station=WCT] {
-    top: -1299px;
-    left: -989px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=WCT] {
-        top: -1248px;
-        left: -961px; } }
-  #map-container[data-station=EAC] {
-    top: -1306px;
-    left: -878px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=EAC] {
-        top: -1246px;
-        left: -868px; } }
-  #map-container[data-station=NAC] {
-    top: -1398px;
-    left: -854px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=NAC] {
-        top: -1427px;
-        left: -870px; } }
-  #map-container[data-station=WAC] {
-    top: -1398px;
-    left: -684px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=WAC] {
-        top: -1409px;
-        left: -645px; } }
-  #map-container[data-station=EBY] {
-    top: -1357px;
-    left: -318px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=EBY] {
-        top: -1427px;
-        left: -699px; } }
-  #map-container[data-station=HLN] {
-    top: -1112px;
-    left: -361px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=HLN] {
-        top: -1103px;
-        left: -139px; } }
-    #map-container[data-station=HLN] .HLN a {
-      position: inherit;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      top: -70px !important;
-      right: 65px !important; }
-  #map-container[data-station=PER] {
-    top: -1025px;
-    left: -310px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=PER] {
-        top: -1016px;
-        left: -183px; } }
-    #map-container[data-station=PER] .PER a {
-      position: inherit;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      top: -70px !important;
-      right: 65px !important; }
-  #map-container[data-station=GFD] {
-    top: -920px;
-    left: -195px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=GFD] {
-        top: -911px;
-        left: -15px; } }
-    #map-container[data-station=GFD] .GFD a {
-      position: inherit;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      top: -84px !important;
-      right: 71px !important; }
-  #map-container[data-station=NHT] {
-    top: -762px;
-    left: -230px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=NHT] {
-        top: -746px;
-        left: -37px; } }
-  #map-container[data-station=SRP] {
-    top: -649px;
-    left: -183px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=SRP] {
-        top: -634px;
-        left: 104px; } }
-  #map-container[data-station=RUG] {
-    top: -540px;
-    left: -171px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=RUG] {
-        top: -524px;
-        left: 174px; } }
-  #map-container[data-station=WRP] {
-    top: -318px;
-    left: -185px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=WRP] {
-        top: -303px;
-        left: 91px; } }
-  #map-container[data-station=ROD] {
-    top: -260px;
-    left: -3429px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=ROD] {
-        top: -222px;
-        left: -3400px; } }
-    #map-container[data-station=ROD] .ROD a br {
-      display: none; }
-  #map-container[data-station=CHG] {
-    top: -367px;
-    left: -3508px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=CHG] {
-        top: -396px;
-        left: -3523px; } }
-  #map-container[data-station=GRH] {
-    top: -262px;
-    left: -3553px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=GRH] {
-        top: -226px;
-        left: -3526px; } }
-  #map-container[data-station=HAI] {
-    top: -375px;
-    left: -3544px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=HAI] {
-        top: -375px;
-        left: -3366px; } }
-  #map-container[data-station=FLP] {
-    top: -430px;
-    left: -3558px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=FLP] {
-        top: -430px;
-        left: -3411px; } }
-  #map-container[data-station=BDE] {
-    top: -483px;
-    left: -3522px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=BDE] {
-        top: -483px;
-        left: -3280px; } }
-  #map-container[data-station=NEP] {
-    top: -537px;
-    left: -3502px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=NEP] {
-        top: -537px;
-        left: -3200px; } }
-  #map-container[data-station=GHL] {
-    top: -664px;
-    left: -3575px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=GHL] {
-        top: -688px;
-        left: -3592px; } }
-  #map-container[data-station=RED] {
-    top: -554px;
-    left: -3501px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=RED] {
-        top: -516px;
-        left: -3474px; } }
-  #map-container[data-station=WAN] {
-    top: -658px;
-    left: -3444px; }
-    @media (min-width: 800px) {
-      #map-container[data-station=WAN] {
-        top: -687px;
-        left: -3460px; } }
-  #map-container #cen025 {
-    z-index: 100; }
 
 @media (min-width: 800px) {
   #placement,
