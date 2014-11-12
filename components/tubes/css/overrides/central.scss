@@ -146,7 +146,6 @@
 
 }
 
-
 li.STP {
     a {
         position: inherit;
@@ -157,8 +156,12 @@ li.STP {
         left: 24px;
     }
     a.active {
-        top: -10px;
-        left: 51px;
+        left: 34px;
+        top: 0;
+        @media (min-width: 800px) {
+            top: -10px;
+            left: 51px;
+        }
     }
 }
 
@@ -190,14 +193,9 @@ li.STP {
     @media (min-width: 800px) {
         top: -1411px;
         left: -2046px;
-
     }
-
-
 }
-li.HOL a.below {
-    left: 60px;
-}
+
 
 &[data-station=TCR] {
     top: -1386px;
@@ -269,11 +267,6 @@ li.TCR a.below {
         top: -1248px;
         left: -1283px;
     }
-}
-
-
-li.NHG a.above {
-    left: 71px;
 }
 
 &[data-station=HPK] {
@@ -353,15 +346,21 @@ li.NHG a.above {
         left: -139px;
     }
 
-    .HLN {
-        a {
-            position: inherit;
-            -ms-transform: rotate(45deg); /* IE 9 */
-            -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-            transform: rotate(45deg);
-            top: -70px !important;
-            right: 65px !important;
-        }
+
+}
+
+li.HLN {
+    a {
+        position: inherit;
+        -ms-transform: rotate(45deg); /* IE 9 */
+        -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+        transform: rotate(45deg);
+        top: -13px !important;
+        right: 22px !important;
+    }
+    a.active {
+        top: -81px !important;
+        right: 39px !important;
     }
 }
 
@@ -545,35 +544,7 @@ li.NHG a.above {
         left: -3460px;
     }
 }
-
 // keeps st pauls visible.
-#cen025 {
-    z-index: 100;
+#cen025, #cen026{
+    z-index: 999;
 }
-
-
-// // Central line specific overrides.
-// @import './large-label.scss';
-
-
-// &[data-station=EPP]  .EPP a,
-// &[data-station=WFD] .WFD a,
-// &[data-station=SFD] .SFD a,
-// &[data-station=MLE] .MLE a,
-// &[data-station=LST] .LST a,
-// &[data-station=BNK] .BNK a,
-// &[data-station=HOL] .HOL a,
-// &[data-station=TCR] .TCR a,
-// &[data-station=OXC] .OXC a,
-// &[data-station=BDS] .BDS a,
-// &[data-station=NHG] .NHG a,
-// &[data-station=SBC] .SBC a,
-// &[data-station=WCT] .WCT a,
-// &[data-station=EBY] .EBY a,
-// &[data-station=GFD] .GFD a,
-// &[data-station=SRP] .SRP a,
-// &[data-station=WRP] .WRP a,
-// &[data-station=ROD] .ROD a,
-// &[data-station=HAI] .HAI a {
-//     @include large-roundel-li();
-// }

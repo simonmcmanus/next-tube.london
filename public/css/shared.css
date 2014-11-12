@@ -6582,7 +6582,8 @@ header li:hover a {
     white-space: nowrap;
     border-radius: 8px;
     padding: 15px 25px;
-    width: auto; }
+    width: auto;
+    z-index: 1; }
     #map-container li a.left {
       top: -22px;
       right: -10px; }
@@ -6610,7 +6611,7 @@ header li:hover a {
   #map-container li a.active {
     background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
     border: 3px solid #7A7E8B;
-    z-index: 100; }
+    z-index: 1000 !important; }
     #map-container li a.active.left {
       margin-right: 30px; }
     #map-container li a.active.right {
@@ -6847,8 +6848,12 @@ header li:hover a {
     top: -40px;
     left: 24px; }
   #map-container li.STP a.active {
-    top: -10px;
-    left: 51px; }
+    left: 34px;
+    top: 0; }
+    @media (min-width: 800px) {
+      #map-container li.STP a.active {
+        top: -10px;
+        left: 51px; } }
   #map-container[data-station=STP] {
     top: -1346px;
     left: -2357px; }
@@ -6870,8 +6875,6 @@ header li:hover a {
       #map-container[data-station=HOL] {
         top: -1411px;
         left: -2046px; } }
-  #map-container li.HOL a.below {
-    left: 60px; }
   #map-container[data-station=TCR] {
     top: -1386px;
     left: -1910px; }
@@ -6923,8 +6926,6 @@ header li:hover a {
       #map-container[data-station=NHG] {
         top: -1248px;
         left: -1283px; } }
-  #map-container li.NHG a.above {
-    left: 71px; }
   #map-container[data-station=HPK] {
     top: -1398px;
     left: -1232px; }
@@ -6981,15 +6982,18 @@ header li:hover a {
       #map-container[data-station=HLN] {
         top: -1103px;
         left: -139px; } }
-    #map-container[data-station=HLN] .HLN a {
-      position: inherit;
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      top: -70px !important;
-      right: 65px !important; }
+  #map-container li.HLN a {
+    position: inherit;
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    top: -13px !important;
+    right: 22px !important; }
+  #map-container li.HLN a.active {
+    top: -81px !important;
+    right: 39px !important; }
   #map-container[data-station=PER] {
     top: -1025px;
     left: -310px; }
@@ -7122,8 +7126,8 @@ header li:hover a {
       #map-container[data-station=WAN] {
         top: -687px;
         left: -3460px; } }
-  #map-container #cen025 {
-    z-index: 100; }
+  #map-container #cen025, #map-container #cen026 {
+    z-index: 999; }
 
 @media (min-width: 800px) {
   #placement,
