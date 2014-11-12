@@ -208,7 +208,22 @@ li.STP {
 }
 li.TCR a.below {
     left: -61px;
+    top: 10px;
 }
+li.TCR a.below.active {
+    left: -56px;
+    top: 21px;
+    @media (min-width: 800px) {
+        left: -61px;
+        top: 26px;
+    }
+}
+li.TCR a.below::before,
+li.TCR a.below::after {
+    left: 117px;
+}
+
+
 
 &[data-station=OXC] {
     top: -1299px;
@@ -216,6 +231,16 @@ li.TCR a.below {
     @media (min-width: 800px) {
         top: -1248px;
         left: -1750px;
+    }
+}
+
+li.OXC a.above {
+    left: -32px;
+}
+
+li.OXC a.above.active {
+    @media (max-width: 800px) {
+        left: 0;
     }
 }
 
@@ -266,6 +291,17 @@ li.TCR a.below {
     @media (min-width: 800px) {
         top: -1248px;
         left: -1283px;
+    }
+}
+
+li#cen016.NHG a {
+    left: 56px;
+}
+
+li#cen016.NHG a.active {
+    left: 0;
+    @media (min-width: 800px) {
+        left: -46px;
     }
 }
 
