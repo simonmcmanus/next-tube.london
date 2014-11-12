@@ -109,11 +109,13 @@
 }
 
 
-li.roundel.MLE a {
-    left: 7px;
-    top: -64px;
+li.roundel.MLE  {
+    a {
+        left: 7px;
+        top: -64px;
 
-    &.active {
+    }
+    &.active a {
         left: 1px;
         top: -72px;
         @media (min-width: 800px) {
@@ -122,6 +124,7 @@ li.roundel.MLE a {
         }
     }
 }
+
 
 
 &[data-station=BNG] {
@@ -134,9 +137,11 @@ li.roundel.MLE a {
 
 }
 
-li.BNG a {
-    left: 4px;
-    &.active {
+li.BNG {
+    a {
+        left: 4px;
+    }
+    &.active a {
         left: -6px;
         @media (min-width: 800px) {
             left: -52px;
@@ -164,11 +169,13 @@ li.BNG a {
 
 }
 
-li.roundel.BNK a {
-    left: 15px;
-    top: -66px;
+li.roundel.BNK {
+    a {
+        left: 15px;
+        top: -66px;
+    }
 
-    &.active {
+    &.active a {
         left: 0px;
         @media (min-width: 800px) {
             left: -45px;
@@ -186,7 +193,7 @@ li.STP {
         top: -40px;
         left: 24px;
     }
-    a.active {
+    &.active a {
         left: 34px;
         top: 0;
         @media (min-width: 800px) {
@@ -227,9 +234,11 @@ li.STP {
 }
 
 li.roundel.HOL a {
-    left: 40px;
+    a {
+        left: 40px;
+    }
 
-    &.active {
+    &.active a {
         left: 10px;
     }
 }
@@ -243,11 +252,13 @@ li.roundel.HOL a {
         left: -1926px;
     }
 }
+
 li.TCR a.below {
     left: -61px;
     top: 10px;
 }
-li.TCR a.below.active {
+
+li.TCR.active a.below {
     left: -56px;
     top: 21px;
     @media (min-width: 800px) {
@@ -271,16 +282,17 @@ li.TCR a.below::after {
     }
 }
 
-li.OXC a.above {
-    left: -32px;
-    &.active {
+
+li.OXC.roundel  {
+    a.above {
+        left: -32px;
+    }
+    &.active a.above {
         @media (max-width: 800px) {
             left: 0;
         }
     }
 }
-
-
 &[data-station=BDS] {
     top: -1294px;
     left: -1647px;
@@ -292,10 +304,11 @@ li.OXC a.above {
 
 li.BDS a.above  {
     left: -28px;
-    &.active {
-        @media (max-width: 800px) {
-            left: 0;
-        }
+}
+
+li.BDS.active a.above  {
+    @media (max-width: 800px) {
+        left: 0;
     }
 }
 
@@ -341,7 +354,7 @@ li#cen016.NHG a {
     left: 56px;
 }
 
-li#cen016.NHG a.active {
+li#cen016.NHG.active a {
     left: 0;
     @media (min-width: 800px) {
         left: -46px;
@@ -378,11 +391,12 @@ li#cen016.NHG a.active {
 
 li.roundel.WCT a {
     left: 19px;
-    &.active {
-        left: 0;
-        @media (min-width: 800px) {
-            left: -44px;
-        }
+}
+
+li.roundel.WCT.active a {
+    left: 0;
+    @media (min-width: 800px) {
+        left: -44px;
     }
 }
 
@@ -443,7 +457,7 @@ li.HLN, li.PER {
         top: -13px !important;
         right: 22px !important;
     }
-    a.active {
+    &.active a {
         top: -47px !important;
         right: 10px !important;
         @media (min-width: 800px) {
@@ -481,7 +495,7 @@ li.GFD {
         right: 34px !important;
     }
 
-    a.active {
+    &.active a {
         top: -44px !important;
         right: 19px !important;
         @media (min-width: 800px) {

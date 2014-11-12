@@ -28,9 +28,9 @@ page('/central/:stationName', function(context, next) {
         var code = stationCodes[context.params.stationName];
         nextTrain.load(context.params.stationName, socket);
         $('#map-container').attr('data-station', code);
-        $('li a.active').removeClass('active');
+        $('li.active').removeClass('active');
         $('li a.point').removeClass('point');
-        $('li.' + code + ' a').addClass('active');
+        $('li.' + code ).addClass('active');
         setTimeout(function() {
             $('ul.line li.' + code + ' a').addClass('point');
         }, 1000);
