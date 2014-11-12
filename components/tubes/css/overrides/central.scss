@@ -91,17 +91,17 @@
 }
 
 &[data-station=SFD] {
-    top: -930px;
-    left: -3421px;
+    top: -921px;
+    left: -3427px;
     @media (min-width: 800px) {
-        top: -907px;
-        left: -3452px;
+        top: -922px;
+        left: -3455px;
     }
 }
 
 &[data-station=MLE] {
-    top: -1134px;
-    left: -3022px;
+    top: -1130px;
+    left: -3021px;
     @media (min-width: 800px) {
         top: -1096px;
         left: -2992px;
@@ -128,8 +128,8 @@ li.roundel.MLE a {
     top: -1132px;
     left: -2909px;
     @media (min-width: 800px) {
-        top: -1094px;
-        left: -2881px;
+        top: -1095px;
+        left: -2880px;
     }
 
 }
@@ -147,24 +147,16 @@ li.BNG a {
 
 &[data-station=LST] {
     top: -1206px;
-    left: -2580px;
+    left: -2588px;
     @media (min-width: 800px) {
-        top: -1169px;
-        left: -2343px;
+        top: -1168px;
+        left: -2557px;
     }
-
-    // .LST {
-    //     a {
-    //         left: 0em;
-    //         margin-left: -4.35em;
-    //         top: -1.6em;
-    //     }
-    // }
 }
 
 &[data-station=BNK] {
-    top: -1369px;
-    left: -2378px;
+    top: -1373px;
+    left: -2377px;
     @media (min-width: 800px) {
         top: -1332px;
         left: -2348px;
@@ -205,11 +197,11 @@ li.STP {
 }
 
 &[data-station=STP] {
-    top: -1346px;
-    left: -2357px;
+    top: -1365px;
+    left: -2354px;
     @media (min-width: 800px) {
-        top: -1354px;
-        left: -2366px;
+        top: -1367px;
+        left: -2375px;
     }
 }
 
@@ -226,12 +218,11 @@ li.STP {
 }
 
 &[data-station=HOL] {
-
-    top: -1388px;
-    left: -2135px;
+    top: -1400px;
+    left: -2085px;
     @media (min-width: 800px) {
-        top: -1411px;
-        left: -2046px;
+        top: -1428px;
+        left: -2101px;
     }
 }
 
@@ -245,9 +236,8 @@ li.roundel.HOL a {
 
 
 &[data-station=TCR] {
-    top: -1386px;
-    left: -1910px;
-
+    top: -1402px;
+    left: -1915px;
     @media (min-width: 800px) {
         top: -1428px;
         left: -1926px;
@@ -273,11 +263,11 @@ li.TCR a.below::after {
 
 
 &[data-station=OXC] {
-    top: -1299px;
-    left: -1778px;
+    top: -1293px;
+    left: -1775px;
     @media (min-width: 800px) {
-        top: -1248px;
-        left: -1750px;
+        top: -1256px;
+        left: -1745px;
     }
 }
 
@@ -292,11 +282,11 @@ li.OXC a.above {
 
 
 &[data-station=BDS] {
-    top: -1299px;
-    left: -1650px;
+    top: -1294px;
+    left: -1647px;
     @media (min-width: 800px) {
-        top: -1248px;
-        left: -1622px;
+        top: -1256px;
+        left: -1617px;
     }
 }
 
@@ -320,15 +310,12 @@ li.BDS a.above  {
 }
 
 &[data-station=LAN] {
-
-    top: -1306px;
-    left: -1473px;
+    top: -1294px;
+    left: -1491px;
     @media (min-width: 800px) {
-        top: -1246px;
+        top: -1256px;
         left: -1463px;
     }
-
-
 }
 
 &[data-station=QWY] {
@@ -342,11 +329,11 @@ li.BDS a.above  {
 
 
 &[data-station=NHG] {
-    top: -1299px;
-    left: -1312px;
+    top: -1293px;
+    left: -1307px;
     @media (min-width: 800px) {
-        top: -1248px;
-        left: -1283px;
+        top: -1256px;
+        left: -1277px;
     }
 }
 
@@ -371,33 +358,40 @@ li#cen016.NHG a.active {
 }
 
 &[data-station=SBC] {
-    top: -1299px;
-    left: -1137px;
-
+    top: -1294px;
+    left: -1134px;
     @media (min-width: 800px) {
-        top: -1249px;
+        top: -1256px;
         left: -1105px;
     }
 
 }
 
 &[data-station=WCT] {
-    top: -1299px;
-    left: -989px;
+    top: -1293px;
+    left: -985px;
     @media (min-width: 800px) {
-        top: -1248px;
-        left: -961px;
+        top: -1256px;
+        left: -958px;
+    }
+}
 
+li.roundel.WCT a {
+    left: 19px;
+    &.active {
+        left: 0;
+        @media (min-width: 800px) {
+            left: -44px;
+        }
     }
 }
 
 &[data-station=EAC] {
-
-    top: -1306px;
-    left: -878px;
+    top: -1294px;
+    left: -898px;
     @media (min-width: 800px) {
-        top: -1246px;
-        left: -868px;
+        top: -1256px;
+        left: -869px;
     }
 
 }
@@ -424,18 +418,17 @@ li#cen016.NHG a.active {
     top: -1357px;
     left: -318px;
     @media (min-width: 800px) {
-        top: -1427px;
-        left: -699px;
+        top: -1358px;
+        left: 33px;
     }
 }
 
 &[data-station=HLN] {
-    top: -1112px;
-    left: -361px;
-
+    top: -1111px;
+    left: -395px;
     @media (min-width: 800px) {
-        top: -1103px;
-        left: -139px;
+        top: -1114px;
+        left: -129px;
     }
 
 
@@ -461,23 +454,20 @@ li.HLN, li.PER {
 }
 
 &[data-station=PER] {
-
-    top: -1025px;
-    left: -310px;
+    top: -1024px;
+    left: -344px;
     @media (min-width: 800px) {
-        top: -1016px;
-        left: -183px;
+        top: -1027px;
+        left: -172px;
     }
 }
 
 &[data-station=GFD] {
-
-    top: -920px;
-    left: -195px;
-
+    top: -926px;
+    left: -235px;
     @media (min-width: 800px) {
-        top: -911px;
-        left: -15px;
+        top: -929px;
+        left: -10px;
     }
 }
 
