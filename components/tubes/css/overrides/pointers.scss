@@ -1,4 +1,3 @@
-// start pointers
 &::before,
 &::after {
   content: "";
@@ -6,152 +5,157 @@
   border-style: solid;
   display: block;
   width: 0;
-  opacity: 1;
+  opacity: 0;
   border-color:transparent;
   transition: all .2s ease-out;
 }
 
-&.left {
-&::before,
-&::after {
-    bottom: auto;
-    top: 17px;
-    border-width: 6px 0 6px 8px;
 
+&.point::before,
+&.point::after {
+	opacity: 1;
 }
-&::before {
-    right: -10px;
-    border-color: transparent #7A7E8B;
-}
-&::after {
-    right: -6px;
-    border-color: transparent #fff;
-}
+
+
+
+
+&.left {
+  &::before,
+  &::after {
+	  bottom: auto;
+	  top: 17px;
+	  border-width: 6px 0 6px 8px;
+
+  }
+  &::before {
+	  right: -10px;
+	  border-color: transparent #7A7E8B;
+  }
+  &::after {
+	  right: -6px;
+	  border-color: transparent #fff;
+  }
 }
 &.right {
-&::before,
-&::after {
-    bottom: auto;
-    top: 40%;
-    border-width: 6px 8px 6px  0 ;
+	&::before,
+	&::after {
+		bottom: auto;
+		top: 40%;
+		border-width: 6px 8px 6px  0 ;
 
-}
-&::before {
-    left: -10px;
-    border-color: transparent #7A7E8B;
-}
-&::after {
-    left: -6px;
-    border-color: transparent #fff;
-}
+	}
+	&::before {
+		left: -10px;
+		border-color: transparent #7A7E8B;
+	}
+	&::after {
+		left: -6px;
+		border-color: transparent #fff;
+	}
 }
 
 &.above {
 
-&::before,
-&::after {
-    left: 61px;
-    bottom: 0;
-    border-width: 7px 7px 0;
-}
+	&::before,
+	&::after {
+		left: 61px;
+		bottom: 0;
+		border-width: 7px 7px 0;
+	}
 
-&::before {
-    bottom: -10px;
-    border-color: #7A7E8B transparent;
-}
-&::after {
-    bottom: -6px;
-    border-color: #fff transparent;
-}
+	&::before {
+		bottom: -10px;
+		border-color: #7A7E8B transparent;
+	}
+	&::after {
+		bottom: -6px;
+		border-color: #fff transparent;
+	}
 }
 
 
 &.below {
-&::before,
-&::after {
-    left: 51px;
-    top: 0;
-    border-width: 0 7px 7px;
-}
-&::before {
-    top: -10px;
-    border-color: #7A7E8B transparent;
-}
-&::after {
-    top: -6px;
-    border-color: #fff transparent;
-}
+	&::before,
+	&::after {
+		left: 51px;
+		top: 0;
+		border-width: 0 7px 7px;
+	}
+	&::before {
+		top: -10px;
+		border-color: #7A7E8B transparent;
+	}
+	&::after {
+		top: -6px;
+		border-color: #fff transparent;
+	}
 }
 
 
 @media (min-width: 800px) {
+	&.left {
+		position: absolute;
+		top: -.67em;
+		right: 0px;
+		&::before,
+		&::after {
+		   top: 35%;
+		   border-width: 10px 0 10px 16px;
+		}
+		&::before {
+			right:-18px;
+		}
+		&::after {
+			right:-14px;
+		}
+	}
 
+	&.right {
+		&::before,
+		&::after {
+			top: 35%;
+			left: 0;
+			border-width: 10px 16px 10px 0;
+		}
+		&::before {
+			left:-18px;
+		}
+		&::after {
+			left:-13px;
+		}
+	}
 
-&.left {
-    position: absolute;
-    top: -.67em;
-    right: 0px;
-   &::before,
-   &::after {
-       top: 35%;
-       border-width: 10px 0 10px 16px;
-   }
-   &::before {
-    right:-18px;
-   }
-   &::after {
-        right:-14px;
-   }
+	&.above {
+		top: -2em;
+		left: -50px;
+		&::before,
+		&::after {
+			left: 100px;
+			border-width: 14px 14px 0;
+		}
+		&::before {
+			bottom: -17px;
+		}
+		&::after {
+			bottom: -13px;
+		}
+	}
 
+	&.below {
+	  	top: 8px;
+
+		&::before,
+		&::after {
+			left: 46px;
+			border-width: 0 12px 12px ;
+		}
+		&::before {
+		 	top: -14px;
+		}
+		&::after{
+		 	top: -10px;
+		}
+	}
 }
 
-&.right {
-   &::before,
-   &::after {
-       top: 35%;
-       left: 0;
-       border-width: 10px 16px 10px 0;
-   }
-   &::before {
-        left:-18px;
-   }
-   &::after {
-    left:-13px;
-    }
-}
 
-&.above {
-top: -2em;
-left: -50px;
-   &::before,
-   &::after {
-       left: 100px;
-       border-width: 14px 14px 0;
-   }
-   &::before {
-        bottom: -17px;
-   }
-   &::after {
-        bottom: -13px;
-    }
-
-}
-
-&.below {
-top: 8px;
-   &::before,
-   &::after {
-       left: 46px;
-       border-width: 0 12px 12px ;
-   }
-    &::before {
-        top: -14px;
-    }
-    &::after{
-        top: -10px;
-    }
-}
-
-
-}
-// end pointers
