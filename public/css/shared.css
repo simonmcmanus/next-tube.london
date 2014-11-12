@@ -6547,7 +6547,7 @@ header li:hover a {
   overflow: visible;
   transition: all 1.5s ease-out;
   transform: translate3d(0, 0, 0);
-  transition-delay: .5s; }
+  transition-delay: .3s; }
   #map-container #piccadilly,
   #map-container #metropolitan,
   #map-container #district,
