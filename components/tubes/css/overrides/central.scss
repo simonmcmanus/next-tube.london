@@ -233,13 +233,14 @@ li.STP {
     }
 }
 
-li.roundel.HOL a {
+li.roundel.HOL {
     a {
         left: 40px;
     }
 
     &.active a {
-        left: 10px;
+        top: 26px;
+        left: 11px;
     }
 }
 

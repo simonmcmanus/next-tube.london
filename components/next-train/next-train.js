@@ -33,9 +33,9 @@ exports.getStationData = function (stationCode, socket) {
             exports.render(data);
             exports.resize()
             var endTime = Date.now();
-            if(startTime  > endTime - 500) {
+            if(startTime  > endTime - 1000) {
                 // never less than 500ms so other animations can finish;
-                setTimeout(hideLoader, 500 - (endTime - startTime));
+                setTimeout(hideLoader, 1000 - (endTime - startTime));
             }else {
                 hideLoader();
             }

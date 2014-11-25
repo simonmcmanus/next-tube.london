@@ -6545,7 +6545,7 @@ header li:hover a {
 
 #map-container {
   overflow: visible;
-  transition: all 1.5s ease-out;
+  transition: all .8s ease-out;
   transform: translate3d(0, 0, 0);
   transition-delay: .3s; }
   #map-container #piccadilly,
@@ -6597,17 +6597,16 @@ header li:hover a {
     #map-container li a.below {
       left: 3px;
       top: 0px; }
+  @media (min-width: 800px) {
+    #map-container li.roundel.active a.left {
+      right: 20px;
+      top: -.5em; }
+    #map-container li.roundel.active a.right {
+      margin-left: 17px;
+      top: -32px; } }
   #map-container li.roundel a.left {
     top: -12px;
     right: 13px; }
-    @media (min-width: 800px) {
-      #map-container li.roundel a.left.active {
-        right: 20px;
-        top: -.5em; } }
-  @media (min-width: 800px) {
-    #map-container li.roundel a.right.active {
-      margin-left: 17px;
-      top: -32px; } }
   #map-container li.roundel a.above {
     left: 1px;
     top: -59px; }
@@ -6618,7 +6617,7 @@ header li:hover a {
     z-index: 1000 !important; }
     #map-container li.active a {
       transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
-      transition-delay: .5s,       .5s,      .5s,         .5s,       .5s,  .4s,    .4s,     .3s,  .3s;
+      transition-delay: .6s,       .6s,      .6s,         .6s,       .6s,  .6s,    .7s,     .4s,  .4s;
       background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
       border: 3px solid #7A7E8B;
       z-index: 1000 !important; }
@@ -6647,7 +6646,7 @@ header li:hover a {
         width: 0;
         opacity: 0;
         border-color: transparent;
-        transition: all .2s ease-out; }
+        transition: all .8s ease-out; }
       #map-container li.active a.point::before, #map-container li.active a.point::after {
         opacity: 1; }
       #map-container li.active a.left::before, #map-container li.active a.left::after {
@@ -6730,10 +6729,10 @@ header li:hover a {
           #map-container li.active a.below::after {
             top: -10px; } }
   @media (min-width: 800px) {
-    #map-container li.roundel a.active.above {
+    #map-container li.roundel.active a.above {
       left: -46px; } }
   @media (min-width: 800px) {
-    #map-container li.roundel a.active.below {
+    #map-container li.roundel.active a.below {
       top: 26px; } }
   #map-container .roundel strong,
   #map-container .station strong {
@@ -6912,10 +6911,11 @@ header li:hover a {
       #map-container[data-station=HOL] {
         top: -1428px;
         left: -2101px; } }
-  #map-container li.roundel.HOL a a {
+  #map-container li.roundel.HOL a {
     left: 40px; }
-  #map-container li.roundel.HOL a.active a {
-    left: 10px; }
+  #map-container li.roundel.HOL.active a {
+    top: 26px;
+    left: 11px; }
   #map-container[data-station=TCR] {
     top: -1402px;
     left: -1915px; }

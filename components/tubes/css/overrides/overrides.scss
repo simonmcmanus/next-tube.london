@@ -1,6 +1,6 @@
 #map-container{
     overflow: visible;
-    transition: all 1.5s ease-out;
+    transition: all .8s ease-out;
     transform: translate3d(0,0,0);
     transition-delay: .3s;
     #piccadilly,
@@ -64,26 +64,29 @@
             }
         }
 
+
+        &.roundel {
+            &.active {
+                a {
+                    @media (min-width: 800px) {
+                        &.left {
+                            right: 20px;
+                            top: -.5em;
+                        }
+                        &.right {
+                            margin-left: 17px;
+                            top: -32px;
+                        }
+                    }
+                }
+            }
+        }
         &.roundel a {
             &.left {
                 top: -12px;
                 right: 13px;
-                @media (min-width: 800px) {
-                    &.active {
-                        right: 20px;
-                        top: -.5em;
-                    }
-                }
             }
 
-            &.right {
-                @media (min-width: 800px) {
-                    &.active {
-                        margin-left: 17px;
-                        top: -32px;
-                    }
-                }
-            }
             &.above {
                 left: 1px;
                 top: -59px;
@@ -100,7 +103,7 @@
             a {
                 transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
 
-                transition-delay   : .5s,       .5s,      .5s,         .5s,       .5s,  .4s,    .4s,     .3s,  .3s;
+                transition-delay   : .6s,       .6s,      .6s,         .6s,       .6s,  .6s,    .7s,     .4s,  .4s;
 
                 background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
 
@@ -137,7 +140,7 @@
             }
         }
 
-        &.roundel a.active {
+        &.roundel.active a {
             &.above {
                 @media (min-width: 800px) {
                     left: -46px;
