@@ -99,14 +99,15 @@
 		border-color: #7A7E8B transparent;
 
 	}
-	&.point::before {
-		top: -14px;
-	}
 	&::after {
 		border-color: #fff transparent;
 	}
+
+	&.point::before {
+		top: -10px;
+	}
 	&.point::after {
-		top: -8px;
+		top: -5px;
 	}
 }
 

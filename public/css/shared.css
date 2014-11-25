@@ -32,7 +32,7 @@ h3 {
 #floater {
   margin: 1em;
   margin-top: 170px;
-  box-shadow: 0px 0px 50px rgba(129, 122, 145, 0.84);
+  box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
   z-index: 2000;
   transition: all .8s ease-in-out;
   border-radius: .5em;
@@ -6689,12 +6689,12 @@ header li:hover a {
         border-width: 0 7px 7px; }
       #map-container li.active a.below::before {
         border-color: #7A7E8B transparent; }
-      #map-container li.active a.below.point::before {
-        top: -14px; }
       #map-container li.active a.below::after {
         border-color: #fff transparent; }
+      #map-container li.active a.below.point::before {
+        top: -10px; }
       #map-container li.active a.below.point::after {
-        top: -8px; }
+        top: -5px; }
       @media (min-width: 800px) {
         #map-container li.active a.left {
           position: absolute;
@@ -7234,10 +7234,11 @@ header li:hover a {
 #nextTrain .trains {
   padding-right: 20px; }
 #nextTrain .settings {
-  background: linear-gradient(#f4f4f4 0px, #fff 10px, #f4f4f4 100px);
+  background: rgba(122, 126, 139, 0.81);
+  color: #fff;
   padding: 1em;
   border-top: 1px solid #E9EDFA;
-  border-radius: 0 0 0.5em 0.5em;
+  border-radius: 0 0 0.3em 0.3em;
   height: auto;
   overflow: hidden;
   -webkit-transition: all .8s ease;
