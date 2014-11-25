@@ -6645,19 +6645,22 @@ header li:hover a {
         width: 0;
         opacity: 0;
         border-color: transparent;
-        transition: all .8s ease-out; }
+        transition: all .4s ease-out; }
       #map-container li.active a.point::before, #map-container li.active a.point::after {
         opacity: 1; }
       #map-container li.active a.left::before, #map-container li.active a.left::after {
         bottom: auto;
         top: 17px;
+        right: 0;
         border-width: 6px 0 6px 8px; }
       #map-container li.active a.left::before {
-        right: -10px;
         border-color: transparent #7A7E8B; }
       #map-container li.active a.left::after {
-        right: -6px;
         border-color: transparent #fff; }
+      #map-container li.active a.left.point::before {
+        right: -10px; }
+      #map-container li.active a.left.point::after {
+        right: -6px; }
       #map-container li.active a.right::before, #map-container li.active a.right::after {
         bottom: auto;
         top: 40%;
@@ -6683,11 +6686,13 @@ header li:hover a {
         top: 0;
         border-width: 0 7px 7px; }
       #map-container li.active a.below::before {
-        top: -10px;
         border-color: #7A7E8B transparent; }
+      #map-container li.active a.below.point::before {
+        top: -14px; }
       #map-container li.active a.below::after {
-        top: -6px;
         border-color: #fff transparent; }
+      #map-container li.active a.below.point::after {
+        top: -8px; }
       @media (min-width: 800px) {
         #map-container li.active a.left {
           position: absolute;
@@ -6696,9 +6701,9 @@ header li:hover a {
           #map-container li.active a.left::before, #map-container li.active a.left::after {
             top: 35%;
             border-width: 10px 0 10px 16px; }
-          #map-container li.active a.left::before {
+          #map-container li.active a.left.point::before {
             right: -18px; }
-          #map-container li.active a.left::after {
+          #map-container li.active a.left.point::after {
             right: -14px; }
         #map-container li.active a.right::before, #map-container li.active a.right::after {
           top: 35%;

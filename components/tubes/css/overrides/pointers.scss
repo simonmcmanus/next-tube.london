@@ -7,13 +7,15 @@
   width: 0;
   opacity: 0;
   border-color:transparent;
-  transition: all .8s ease-out;
+  transition: all .4s ease-out;
+  //transition-delay: 1s;
 }
 
-
-&.point::before,
-&.point::after {
-	opacity: 1;
+&.point {
+	&::before,
+	&::after {
+		opacity: 1;
+	}
 }
 
 &.left {
@@ -21,16 +23,23 @@
   &::after {
 	  bottom: auto;
 	  top: 17px;
+	  right: 0;
 	  border-width: 6px 0 6px 8px;
 
   }
   &::before {
-	  right: -10px;
 	  border-color: transparent #7A7E8B;
   }
   &::after {
-	  right: -6px;
 	  border-color: transparent #fff;
+  }
+  &.point {
+  	&::before {
+  		right: -10px;
+  	}
+  	&::after {
+  		right: -6px;
+  	}
   }
 }
 &.right {
@@ -79,12 +88,17 @@
 		border-width: 0 7px 7px;
 	}
 	&::before {
-		top: -10px;
 		border-color: #7A7E8B transparent;
+
+	}
+	&.point::before {
+		top: -14px;
 	}
 	&::after {
-		top: -6px;
 		border-color: #fff transparent;
+	}
+	&.point::after {
+		top: -8px;
 	}
 }
 
@@ -99,10 +113,11 @@
 		   top: 35%;
 		   border-width: 10px 0 10px 16px;
 		}
-		&::before {
+
+		&.point::before {
 			right:-18px;
 		}
-		&::after {
+		&.point::after {
 			right:-14px;
 		}
 	}
