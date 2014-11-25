@@ -70,12 +70,20 @@
 	}
 
 	&::before {
-		bottom: -10px;
 		border-color: #7A7E8B transparent;
 	}
 	&::after {
-		bottom: -6px;
 		border-color: #fff transparent;
+	}
+
+	&.point {
+		&::before {
+			bottom: -10px;
+
+		}
+		&::after {
+			bottom: -6px;
+		}
 	}
 }
 
@@ -145,11 +153,13 @@
 			left: 100px;
 			border-width: 14px 14px 0;
 		}
-		&::before {
-			bottom: -17px;
-		}
-		&::after {
-			bottom: -13px;
+		&.point {
+			&::before {
+				bottom: -17px;
+			}
+			&::after {
+				bottom: -13px;
+			}
 		}
 	}
 
@@ -161,11 +171,13 @@
 			left: 46px;
 			border-width: 0 12px 12px ;
 		}
-		&::before {
-		 	top: -14px;
-		}
-		&::after{
-		 	top: -10px;
+		&.point {
+			&::before {
+			 	top: -14px;
+			}
+			&::after{
+			 	top: -10px;
+			}
 		}
 	}
 }

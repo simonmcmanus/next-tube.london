@@ -6676,11 +6676,13 @@ header li:hover a {
         bottom: 0;
         border-width: 7px 7px 0; }
       #map-container li.active a.above::before {
-        bottom: -10px;
         border-color: #7A7E8B transparent; }
       #map-container li.active a.above::after {
-        bottom: -6px;
         border-color: #fff transparent; }
+      #map-container li.active a.above.point::before {
+        bottom: -10px; }
+      #map-container li.active a.above.point::after {
+        bottom: -6px; }
       #map-container li.active a.below::before, #map-container li.active a.below::after {
         left: 51px;
         top: 0;
@@ -6719,18 +6721,18 @@ header li:hover a {
           #map-container li.active a.above::before, #map-container li.active a.above::after {
             left: 100px;
             border-width: 14px 14px 0; }
-          #map-container li.active a.above::before {
+          #map-container li.active a.above.point::before {
             bottom: -17px; }
-          #map-container li.active a.above::after {
+          #map-container li.active a.above.point::after {
             bottom: -13px; }
         #map-container li.active a.below {
           top: 8px; }
           #map-container li.active a.below::before, #map-container li.active a.below::after {
             left: 46px;
             border-width: 0 12px 12px; }
-          #map-container li.active a.below::before {
+          #map-container li.active a.below.point::before {
             top: -14px; }
-          #map-container li.active a.below::after {
+          #map-container li.active a.below.point::after {
             top: -10px; } }
   @media (min-width: 800px) {
     #map-container li.roundel.active a.above {
