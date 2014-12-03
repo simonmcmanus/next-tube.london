@@ -52,14 +52,15 @@ h3 {
   color: #838383;
   position: relative;
   .container {
+    opacity: 1;
     transition: opacity .1s ease-in;
   }
   transition: height .4s ease-in-out;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
   &.loading {
-    border-color: #ccc;
-    background: url(/loading.gif) no-repeat #fff;
+    background: url(/ajax-loader.gif) no-repeat ;
     background-position: center 10em;
+    
     .container {
       opacity: 0;
     }
