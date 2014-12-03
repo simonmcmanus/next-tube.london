@@ -8,7 +8,6 @@
   opacity: 0;
   border-color:transparent;
   transition: all .4s ease-out;
-  //transition-delay: 1s;
 }
 
 &.point {
@@ -28,7 +27,7 @@
 
   }
   &::before {
-	  border-color: transparent #7A7E8B;
+	  border-color: transparent $border-color;
   }
   &::after {
 	  border-color: transparent #fff;
@@ -52,7 +51,7 @@
 	}
 	&::before {
 		left: -10px;
-		border-color: transparent #7A7E8B;
+		border-color: transparent $border-color;
 	}
 	&::after {
 		left: -6px;
@@ -70,7 +69,7 @@
 	}
 
 	&::before {
-		border-color: #7A7E8B transparent;
+		border-color: $border-color transparent;
 	}
 	&::after {
 		border-color: #fff transparent;
@@ -78,7 +77,7 @@
 
 	&.point {
 		&::before {
-			bottom: -10px;
+			bottom: -9px;
 
 		}
 		&::after {
@@ -92,11 +91,12 @@
 	&::before,
 	&::after {
 		left: 51px;
-		top: 0;
+		top: -2px;
 		border-width: 0 7px 7px;
 	}
 	&::before {
-		border-color: #7A7E8B transparent;
+		top: 0px;
+		border-color: $border-color transparent;
 
 	}
 	&::after {
@@ -120,14 +120,14 @@
 		&::before,
 		&::after {
 		   top: 35%;
-		   border-width: 10px 0 10px 16px;
+		   border-width: 7px 0 7px 10px;
 		}
 
 		&.point::before {
-			right:-18px;
+			right:-10px;
 		}
 		&.point::after {
-			right:-14px;
+			right:-7px;
 		}
 	}
 
@@ -152,14 +152,14 @@
 		&::before,
 		&::after {
 			left: 100px;
-			border-width: 14px 14px 0;
+			border-width: 10px 10px 0;
 		}
 		&.point {
 			&::before {
-				bottom: -17px;
+				bottom: -11px;
 			}
 			&::after {
-				bottom: -13px;
+				bottom: -8px;
 			}
 		}
 	}
@@ -170,14 +170,14 @@
 		&::before,
 		&::after {
 			left: 46px;
-			border-width: 0 12px 12px ;
+			border-width: 0 10px 10px ;
 		}
 		&.point {
 			&::before {
-			 	top: -14px;
+			 	top: -10px;
 			}
 			&::after{
-			 	top: -10px;
+			 	top: -7px;
 			}
 		}
 	}

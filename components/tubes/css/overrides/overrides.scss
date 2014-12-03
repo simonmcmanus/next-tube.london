@@ -107,7 +107,7 @@
 
                 background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
 
-                border: 3px solid #7A7E8B;
+                border: 2px solid #989FB3;
                 z-index: 1000 !important;
 
                 &.left {
@@ -133,8 +133,7 @@
                 }
 
                 @media (min-width: 800px) {
-                    font-size: 4em;
-                    box-shadow: rgba(129, 122, 145, 0.84) 0.1em 0.1em 40px;
+                    font-size: 3em;
                 }
                 @import './pointers.scss';
             }
