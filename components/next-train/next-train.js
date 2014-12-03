@@ -89,6 +89,7 @@ exports.render = function(data) {
 
 exports.resize = function() {
     $('#floater').height($('.container').height());
+    //$('#floater').width($('.container').width());
 };
 // called on first page load.
 exports.bind = function($node, socket) {

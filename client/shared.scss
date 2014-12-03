@@ -1,4 +1,4 @@
-$border-color: #989FB3;
+$border-color: rgba(197, 199, 208, 0.83);
 $porder-pixels: 2;
 
 @font-face {
@@ -47,10 +47,9 @@ h3 {
   box-shadow: rgba(129, 122, 145, 0.84) 0 0 0px;
   z-index: 2000;
   transition: all .8s ease-in-out;
-  border-radius: .5em;
-  background-color: #7A7E8B;
+  border-radius: 4px;
   border: 2px solid $border-color;
-  background-image: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 100px);
+  background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, .9) 100px);
   vertical-align: top;
   color: #838383;
   position: relative;
@@ -58,13 +57,14 @@ h3 {
     opacity: 1;
     transition: opacity .1s ease-in;
   }
-  transition-property: height, border;
-  transition-duration: 1s    , 1s;
+  transition-property: height, width, border, background-color;
+  transition-duration: 1s    , 1s     , 1s;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
   &.loading {
-    background: url(/ajax-loader.gif) no-repeat ;
-    background-position: center 10em;
+    background: url(/ajax-loader.gif) no-repeat center 10em,  linear-gradient(#fff 0px, #fff 10px, rgba(255, 255, 255, .3) 100px);
+    //background-position: center 10em;
     border-color: rgba(122, 126, 139, 0.2);
+
     .container {
       opacity: 0;
     }
@@ -129,7 +129,6 @@ h3 {
   top: 3em;
   z-index: 20000 !important;
   margin-left: 1em;
-  display:none;
 
 }
 

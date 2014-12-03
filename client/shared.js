@@ -33,7 +33,7 @@ page('/central/:stationName', function(context, next) {
         $('li.' + code ).addClass('active');
         setTimeout(function() {
             $('ul.line li.' + code + ' a').addClass('point');
-        }, 1000);
+        }, 1250);
     }
 });
 
