@@ -103,7 +103,8 @@ h3 {
   left: 0em;
   top: 3em;
   z-index: 20000 !important;
-  margin-left: 1em; }
+  margin-left: 1em;
+  display: none; }
 
 #placement.above {
   top: 2em; }
@@ -6571,6 +6572,10 @@ header li:hover a {
   #map-container #emirates,
   #map-container .cablecar-symbol {
     opacity: .1; }
+  #map-container ul#central li a {
+    opacity: .3; }
+  #map-container ul#central li.active a {
+    opacity: 09; }
   #map-container .links {
     display: none; }
   #map-container li a {
@@ -6588,7 +6593,6 @@ header li:hover a {
     border: 3px solid transparent;
     height: 1em;
     line-height: 1em;
-    opacity: 1 !important;
     white-space: nowrap;
     border-radius: 8px;
     padding: 15px 25px;
@@ -7047,22 +7051,22 @@ header li:hover a {
     left: -854px; }
     @media (min-width: 800px) {
       #map-container[data-station=NAC] {
-        top: -1427px;
-        left: -870px; } }
+        top: -1397px;
+        left: -869px; } }
   #map-container[data-station=WAC] {
     top: -1398px;
     left: -684px; }
     @media (min-width: 800px) {
       #map-container[data-station=WAC] {
-        top: -1427px;
-        left: -700px; } }
+        top: -1396px;
+        left: -699px; } }
   #map-container[data-station=EBY] {
     top: -1357px;
     left: -318px; }
     @media (min-width: 800px) {
       #map-container[data-station=EBY] {
-        top: -1358px;
-        left: 33px; } }
+        top: -1367px;
+        left: -96px; } }
   #map-container li.roundel.active.EBY a {
     right: 12px;
     top: -25px; }
@@ -7071,8 +7075,8 @@ header li:hover a {
     left: -395px; }
     @media (min-width: 800px) {
       #map-container[data-station=HLN] {
-        top: -1114px;
-        left: -129px; } }
+        top: -1107px;
+        left: -236px; } }
   #map-container li.HLN a, #map-container li.PER a {
     position: inherit;
     -ms-transform: rotate(45deg);
@@ -7094,15 +7098,15 @@ header li:hover a {
     left: -344px; }
     @media (min-width: 800px) {
       #map-container[data-station=PER] {
-        top: -1027px;
-        left: -172px; } }
+        top: -1020px;
+        left: -249px; } }
   #map-container[data-station=GFD] {
     top: -926px;
     left: -235px; }
     @media (min-width: 800px) {
       #map-container[data-station=GFD] {
-        top: -929px;
-        left: -10px; } }
+        top: -924px;
+        left: -95px; } }
   #map-container li.GFD a {
     position: inherit;
     -ms-transform: rotate(45deg);
@@ -7124,15 +7128,15 @@ header li:hover a {
     left: -223px; }
     @media (min-width: 800px) {
       #map-container[data-station=NHT] {
-        top: -762px;
-        left: -32px; } }
+        top: -759px;
+        left: -110px; } }
   #map-container[data-station=SRP] {
     top: -650px;
     left: -178px; }
     @media (min-width: 800px) {
       #map-container[data-station=SRP] {
-        top: -652px;
-        left: 104px; } }
+        top: -645px;
+        left: -4px; } }
   #map-container li.active.roundel.SRP a {
     right: 11px;
     top: -25px; }
@@ -7141,15 +7145,15 @@ header li:hover a {
     left: -164px; }
     @media (min-width: 800px) {
       #map-container[data-station=RUG] {
-        top: -540px;
-        left: 178px; } }
+        top: -537px;
+        left: 51px; } }
   #map-container[data-station=WRP] {
     top: -321px;
     left: -180px; }
     @media (min-width: 800px) {
       #map-container[data-station=WRP] {
-        top: -322px;
-        left: 95px; } }
+        top: -315px;
+        left: -13px; } }
   #map-container li.active.roundel.WRP a {
     right: 10px;
     top: -25px; }
