@@ -70,12 +70,12 @@
                 a {
                     @media (min-width: 800px) {
                         &.left {
-                            right: 20px;
-                            top: -.5em;
+                            right: 15px;
+                            top: -21px;
                         }
                         &.right {
-                            margin-left: 17px;
-                            top: -32px;
+                            margin-left: 10px;
+                            top: -23px;
                         }
                     }
                 }
@@ -142,7 +142,9 @@
         &.roundel.active a {
             &.above {
                 @media (min-width: 800px) {
-                    left: -46px;
+                    position:absolute;
+                    top: -101px;
+                    left: -43px;
                 }
             }
             &.below {

@@ -116,7 +116,7 @@
 	&.left {
 		position: absolute;
 		top: -.67em;
-		right: 0px;
+		right: -10px;
 		&::before,
 		&::after {
 		   top: 35%;
@@ -136,13 +136,13 @@
 		&::after {
 			top: 35%;
 			left: 0;
-			border-width: 10px 16px 10px 0;
+			border-width: 7px 10px 7px 0;
 		}
 		&::before {
-			left:-18px;
+			left:-10px;
 		}
 		&::after {
-			left:-13px;
+			left:-7px;
 		}
 	}
 
@@ -151,7 +151,7 @@
 		left: -50px;
 		&::before,
 		&::after {
-			left: 100px;
+			left: 103px;
 			border-width: 10px 10px 0;
 		}
 		&.point {
@@ -169,7 +169,7 @@
 
 		&::before,
 		&::after {
-			left: 46px;
+			left: 49px;
 			border-width: 0 10px 10px ;
 		}
 		&.point {

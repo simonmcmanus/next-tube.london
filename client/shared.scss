@@ -129,7 +129,14 @@ h3 {
   top: 3em;
   z-index: 20000 !important;
   margin-left: 1em;
-  display: none;
+
+}
+
+#placement.above {
+  top: 2em;
+}
+#placement.below {
+  top: 4em;
 }
 
 @media (min-width: 1100px) {
