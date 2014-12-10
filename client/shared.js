@@ -29,6 +29,7 @@ page('/central/:stationName', function(context, next) {
         nextTrain.load(context.params.stationName, socket);
         $('#map-container').attr('data-station', code);
         $('li.active').removeClass('active');
+        //$('html, body').animate({scrollTop : 0}, 500);
         $('li a.point').removeClass('point');
         $('li.' + code ).addClass('active');
         setTimeout(function() {

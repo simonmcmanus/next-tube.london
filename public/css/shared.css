@@ -37,7 +37,7 @@ h3 {
   transition: all .8s ease-in-out;
   border-radius: 4px;
   border: 2px solid rgba(197, 199, 208, 0.83);
-  background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, 0.9) 100px);
+  background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, 0.95) 100px);
   vertical-align: top;
   color: #838383;
   position: relative;
@@ -48,7 +48,7 @@ h3 {
     opacity: 1;
     transition: opacity .1s ease-in; }
   #floater.loading {
-    background: url(/ajax-loader.gif) no-repeat center 10em, linear-gradient(#fff 0px, #fff 10px, rgba(255, 255, 255, 0.3) 100px);
+    background: url(/ajax-loader.gif) no-repeat center 10em, linear-gradient(#fff 0px, #f2f2f2 10px, rgba(255, 255, 255, 0.3) 100px);
     border-color: rgba(122, 126, 139, 0.2); }
     #floater.loading .container {
       opacity: 0; }
@@ -64,11 +64,12 @@ h3 {
     .direction ul.trains li {
       padding: .3em 0; }
     .direction ul.trains .detail {
+      background: #fff;
       font-size: 0.7em;
       margin-left: 80px;
       position: relative;
       top: -3px;
-      width: 100%;
+      width: auto;
       display: block;
       display: inline-block;
       color: #A0A9CD; }
@@ -101,7 +102,8 @@ h3 {
   left: 0em;
   top: 3em;
   z-index: 20000 !important;
-  margin-left: 1em; }
+  margin-left: 1em;
+  display: none; }
 
 #placement.above {
   top: 2em; }
@@ -6571,7 +6573,8 @@ header li:hover a {
     opacity: .1; }
   #map-container ul#central li a {
     opacity: .3; }
-  #map-container ul#central li.active a {
+  #map-container ul#central li.active a,
+  #map-container ul#central li a:hover {
     opacity: 1; }
   #map-container .links {
     display: none; }
@@ -6579,8 +6582,8 @@ header li:hover a {
     z-index: 1;
     position: absolute;
     text-decoration: none;
-    transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
-    transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s;
+    transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width, opacity;
+    transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
     transition-delay: 0;
     transition-timing-function: ease-out;
     transform: translate3d(0, 0, 0);
@@ -6877,7 +6880,7 @@ header li:hover a {
         top: -1197px;
         left: -2560px; } }
   #map-container[data-station=BNK] {
-    top: -1405px;
+    top: -1369px;
     left: -2376px; }
     @media (min-width: 800px) {
       #map-container[data-station=BNK] {
@@ -6910,7 +6913,7 @@ header li:hover a {
         left: 41px; } }
   #map-container[data-station=STP] {
     top: -1365px;
-    left: -2354px; }
+    left: -2325px; }
     @media (min-width: 800px) {
       #map-container[data-station=STP] {
         top: -1363px;
@@ -7161,17 +7164,21 @@ header li:hover a {
       #map-container[data-station=ROD] {
         top: -253px;
         left: -3403px; } }
+    #map-container[data-station=ROD] .ROD.active.roundel a.above {
+      top: -63px;
+      left: 5px; }
+      @media (min-width: 800px) {
+        #map-container[data-station=ROD] .ROD.active.roundel a.above {
+          top: -99px;
+          left: -40px; } }
     #map-container[data-station=ROD] .ROD a br {
       display: none; }
-    #map-container[data-station=ROD] .ROD.active.roundel a.above {
-      top: -99px;
-      left: -40px; }
   #map-container[data-station=CHG] {
     top: -332px;
     left: -3509px; }
     @media (min-width: 800px) {
       #map-container[data-station=CHG] {
-        top: -396px;
+        top: -366px;
         left: -3523px; } }
   #map-container[data-station=GRH] {
     top: -262px;
@@ -7229,6 +7236,8 @@ header li:hover a {
       #map-container[data-station=WAN] {
         top: -657px;
         left: -3460px; } }
+  #map-container li.WAN a {
+    z-index: 200; }
   #map-container #cen025, #map-container #cen026 {
     z-index: 999; }
 

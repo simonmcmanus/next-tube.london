@@ -160,7 +160,7 @@ li.BNG {
 }
 
 &[data-station=BNK] {
-    top: -1405px;
+    top: -1369px;
     left: -2376px;
     @media (min-width: 800px) {
         top: -1361px;
@@ -205,7 +205,7 @@ li.STP {
 
 &[data-station=STP] {
     top: -1365px;
-    left: -2354px;
+    left: -2325px;
     @media (min-width: 800px) {
         top: -1363px;
         left: -2343px;
@@ -551,21 +551,28 @@ li.active.roundel.WRP a {
 &[data-station=ROD] {
     top: -260px;
     left: -3429px;
+
     @media (min-width: 800px) {
         top: -253px;
         left: -3403px;
+
     }
 
     .ROD {
+        &.active.roundel a.above{
+            top: -63px;
+            left: 5px;
+            @media (min-width: 800px) {
+                top: -99px;
+                left: -40px;
+            }
+        }
         a {
             br {
                 display: none;
             }
         }
-        &.active.roundel a.above{
-            top: -99px;
-            left: -40px;
-        }
+
     }
 }
 
@@ -573,7 +580,7 @@ li.active.roundel.WRP a {
     top: -332px;
     left: -3509px;
     @media (min-width: 800px) {
-        top: -396px;
+        top: -366px;
         left: -3523px;
     }
 }
@@ -649,6 +656,10 @@ li.active.roundel.WRP a {
         top: -657px;
         left: -3460px;
     }
+}
+
+li.WAN a {
+    z-index: 200;
 }
 // keeps st pauls visible.
 #cen025, #cen026{
