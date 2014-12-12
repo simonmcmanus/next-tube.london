@@ -7156,7 +7156,10 @@ header li:hover a {
         left: -13px; } }
   #map-container li.active.roundel.WRP a {
     right: 10px;
-    top: -25px; }
+    top: -16px; }
+    @media (min-width: 800px) {
+      #map-container li.active.roundel.WRP a {
+        top: -25px; } }
   #map-container[data-station=ROD] {
     top: -260px;
     left: -3429px; }

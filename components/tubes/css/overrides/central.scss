@@ -545,7 +545,10 @@ li.active.roundel.SRP a {
 
 li.active.roundel.WRP a {
     right: 10px;
-    top: -25px;
+    top: -16px;
+    @media (min-width: 800px) {
+        top: -25px;
+    }
 }
 
 &[data-station=ROD] {
