@@ -49,9 +49,8 @@ exports.getAllStations = function () {
 };
 
 // stop listening to a station for a session id.
-exports.remove = function (socket, station) {
+exports.remove = function (socketId, station) {
     console.log('remove', station);
-    var socketId = socket.id;
     if (active.sessions[station]) { // not sure this check should be necessary.
         delete active.sessions[station][socketId];
     }
@@ -68,9 +67,8 @@ exports.disconnect = function (sessionId) {
     });
 };
 
-exports.add = function (socket, stationId) {
+exports.add = function (socketId, stationId) {
     console.log('add', stationId);
-    var socketId = socket.id;
     if (active.stations.indexOf(stationId) === -1) {
         active.stations.push(stationId);
     }

@@ -86,7 +86,6 @@ exports.render = function(data) {
     exports.resize();
 };
 
-
 exports.resize = function() {
     $('#floater').height($('.container').height());
     //$('#floater').width($('.container').width());

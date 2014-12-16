@@ -3,17 +3,7 @@ div.trains
     if station
         each trains, direction in station.trains
             if trains.length > 0
-                .direction
-                    h3=direction
-                    ul.trains
-                        each train in trains
-                            li
-                                .due-container
-                                    span.due=train.dueIn
-                                //a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())
-                                span.destination=train.destination
-                                br
-                                span.detail=train.location
+                include ../direction/direction.jade
                 - noTrains = false;
     if noTrains
         h3.noTrains No Trains

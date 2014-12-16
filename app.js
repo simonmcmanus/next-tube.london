@@ -6,6 +6,10 @@ var async = require('async');
 var socket = require('socket.io');
 var http = require('http');
 
+
+
+var O = require('observed');
+
 var deepClone = require('underscore.deepclone');
 
 var POLL_INTERVAL = 5000;
@@ -14,6 +18,15 @@ var nextTrain = require('./fetchers/next-train/next-train.js');
 var stations = require('./components/tubes/stations.json');
 // requests always served from the cache and then updated over websockets.
 var cache = {};
+
+
+ Object.observe(cache, function(a) {
+    if(a[0].type === 'add')
+    console.log('-->', a);
+});
+
+
+
 
 /**
  * Gets the latest values for all the widgets.
@@ -26,6 +39,10 @@ function fetchAllWidgetData(callback) {
         //nextBus: require('./fetchers/next-bus.js')
     };
     async.parallel(methods, function (error, data) {
+        if(error) {
+          return callback(error);
+        }
+        cache = data;
         callback(null, data);
     });
 }
@@ -37,21 +54,9 @@ function notifyAllClients(widget, data) {
     io.emit(widget, data);
 }
 
-// check all feeds
 setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
-        for (var widget in cache) {
-            if (widget === 'nextTrain') {
-                nextTrain.checkForChanges(ds, cache, function(stationId, newData) {
-                    io.emit('next-train:station:' + stationId, newData);
-                });
-            } else {
-                if (JSON.stringify(cache[widget]) !== JSON.stringify(ds[widget])) {
-                    notifyAllClients(widget, ds[widget]);
-                }
-            }
-        }
-        cache = ds;
+        cache.nextTrain = ds.nextTrain;
     });
 }, POLL_INTERVAL);
 
@@ -114,7 +119,7 @@ var port =  process.env.PORT || 4000;
 
 // on startup get the latest data.
 fetchAllWidgetData(function (errorSet, dataSet) {
-    cache = dataSet;
+    cache.nextTrain = dataSet.nextTrain;
 });
 
 server.listen(port, function () {
@@ -125,6 +130,7 @@ var io = socket.listen(server);
 
 io.sockets.on('connection', function (socket) {
     Object.keys(nextTrain.events).forEach(function (ev) {
-        socket.on(ev, nextTrain.events[ev].bind(null, socket));
+        // listen to nextTrain events on the socket.
+        socket.on(ev, nextTrain.events[ev].bind(null, socket.id));
     });
 });
