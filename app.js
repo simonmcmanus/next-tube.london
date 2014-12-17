@@ -1,14 +1,15 @@
 'use strict';
 
+
+
 var express = require('express');
 var app = express();
 var async = require('async');
 var socket = require('socket.io');
 var http = require('http');
 
+var objectMapping = require('knockout.mapping');
 
-
-var O = require('observed');
 
 var deepClone = require('underscore.deepclone');
 
@@ -17,16 +18,25 @@ var POLL_INTERVAL = 5000;
 var nextTrain = require('./fetchers/next-train/next-train.js');
 var stations = require('./components/tubes/stations.json');
 // requests always served from the cache and then updated over websockets.
-var cache = {};
+var cache = {
+    nextTrain: {
+        stations:{}
+    }
+};
 
 
- Object.observe(cache, function(a) {
-    if(a[0].type === 'add')
+ Object.observe(cache.nextTrain.stations, function(a) {
+    //if(a[0].type === 'add')
     console.log('-->', a);
 });
 
+cache.nextTrain.stations.bacn = 2;
 
+cache.nextTrain.stations  = objectMapping.fromJSON({
+        c: 'd'
+});
 
+return;
 
 /**
  * Gets the latest values for all the widgets.
@@ -56,7 +66,8 @@ function notifyAllClients(widget, data) {
 
 setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
-        cache.nextTrain = ds.nextTrain;
+        //console.log(ds.nextTrain)
+        cache.nextTrain.stations = ds.nextTrain.stations;
     });
 }, POLL_INTERVAL);
 
@@ -70,7 +81,7 @@ app.get('/', function (req, res) {
     cache.tubes = {
         stations : stations,
         currentStationCode: 'WFD'
-    }
+    };
     res.render('layout.jade', cache);
 });
 
