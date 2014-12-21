@@ -1,0 +1,12 @@
+div.settings
+    form(method="get", action="/")
+        label(for="stationCode") Station:
+        - currentlyListening =  '';
+        if station
+            - currentlyListening = station.code;
+        select(name="stationCode", id="stationCode", data-currently-listening=currentlyListening)
+            each stationCode, id in nextTrain.stationCodes
+                - var selected = false;
+                if station && station.code === id
+                        - selected = true
+                option(value=id, selected=selected)=stationCode

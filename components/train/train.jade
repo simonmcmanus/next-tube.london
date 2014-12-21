@@ -1,0 +1,7 @@
+li.train
+    .due-container
+        span.due=train.dueIn
+    //a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())
+    span.destination=train.destination
+    br
+    span.detail=train.location
