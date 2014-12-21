@@ -16,6 +16,7 @@ exports.get = function (stationCode, callback) {
         return trains.map(function (train) {
             train = train.$;
             return {
+                id: train.LCID,
                 dueIn: train.TimeTo,
                 destination: train.Destination,
                 isStalled: (train.IsStalled === 1),
@@ -23,7 +24,7 @@ exports.get = function (stationCode, callback) {
             };
         });
     };
-    console.log('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/' + stationCode);
+
     request('http://cloud.tfl.gov.uk/TrackerNet/PredictionDetailed/C/' + stationCode, function (error, data) {
         if(error || !data.body) {
             return callback(true);
@@ -34,17 +35,17 @@ exports.get = function (stationCode, callback) {
             }
             var platforms = result.ROOT.S[0].P;
             var out = {
-                    code: stationCode,
-                    name: result.ROOT.S[0].$.N,
-                    trains: {}
+                code: stationCode,
+                name: result.ROOT.S[0].$.N,
+                trains: {}
             };
             Object.keys(platforms).forEach(function (platform) {
                 var direction = platforms[platform].$.N.split(' - ')[0];
                 var trains = sortTrains(platforms[platform].T);
-
                 if (!out.trains[direction]) {
                     out.trains[direction] = [];
                 }
+
                 out.trains[direction].push.apply(out.trains[direction], trains);
             });
             callback(null, out);

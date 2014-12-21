@@ -1,8 +1,11 @@
 'use strict';
 
+
 var page = require('../../public/libs/page.js');
-var templateTrains = require('./trains.jade');
+var station = require('../station/station.js');
 var templateError = require('./error.jade');
+
+var templateTrains = require('../station/station.jade');
 //var templateTitle = require('./title.jade');
 var urlCodes = require('../../fetchers/next-train/url-codes.json');
 
@@ -10,6 +13,16 @@ var listen = function (newStation, socket) {
     console.log('listen', newStation);
     socket.emit('next-train:station:listen:start', newStation);
     socket.on('next-train:station:' + newStation, exports.render);
+    socket.on('next-train:station:' + newStation + ':change', function(changes) {
+        changes.forEach(function(change) {
+            console.log(change);
+        });
+    });
+};
+
+var resize = exports.resize = function() {
+    $('#floater').height($('.container').height());
+    //$('#floater').width($('.container').width());
 };
 
 var hideLoader = function() {
@@ -21,9 +34,7 @@ var showLoader = function() {
 };
 
 exports.getStationData = function (stationCode, socket) {
-
     var startTime = Date.now();
-
     $.ajax({
         url: '/central/' + stationCode + '?ajax=true' ,
         headers: {
@@ -31,7 +42,7 @@ exports.getStationData = function (stationCode, socket) {
         },
         success: function(data) {
             exports.render(data);
-            exports.resize()
+            resize()
             var endTime = Date.now();
             if(startTime  > endTime - 1000) {
                 // never less than 500ms so other animations can finish;
@@ -43,7 +54,7 @@ exports.getStationData = function (stationCode, socket) {
         }
     }).fail(function(e) {
         $('#floater .trains').html(templateError({stationCode: stationCode}));
-        exports.resize();
+        resize();
         hideLoader();
     });
 };
@@ -83,14 +94,11 @@ exports.render = function(data) {
     $('select').val(data.code);
     //$('body').scrollTop(0);
     $node.find('.trains').replaceWith($(templateTrains({ station: data })));
-    exports.resize();
+    resize();
 };
 
 
-exports.resize = function() {
-    $('#floater').height($('.container').height());
-    //$('#floater').width($('.container').width());
-};
+
 // called on first page load.
 exports.bind = function($node, socket) {
     var $select = $node.find('select#stationCode');
@@ -98,4 +106,5 @@ exports.bind = function($node, socket) {
     var newStation = $select.data('currentlyListening');
     exports.active = newStation;
     listen(newStation, socket);
+    station.bind($node.find('div.nextTrain'), socket);
 };

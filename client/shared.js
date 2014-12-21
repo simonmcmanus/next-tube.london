@@ -7,9 +7,11 @@ var trainStatus = require('../components/train-status/train-status.js');
 var url;
 if(window.location.hostname === 'woodford.today') {
     url = 'http://woodford.today:80/';
-}else {
+} else {
     url = 'http://localhost/';
 }
+
+
 var socket = io(url);
 
 nextTrain.bind($('#nextTrain'), socket);

@@ -8,12 +8,15 @@ var http = require('http');
 
 var deepClone = require('underscore.deepclone');
 
-var POLL_INTERVAL = 5000;
+var POLL_INTERVAL = 1000;
 
 var nextTrain = require('./fetchers/next-train/next-train.js');
 var stations = require('./components/tubes/stations.json');
 // requests always served from the cache and then updated over websockets.
 var cache = {};
+
+
+var changePath = require('../changePath/index');
 
 /**
  * Gets the latest values for all the widgets.
@@ -30,30 +33,7 @@ function fetchAllWidgetData(callback) {
     });
 }
 
- /**
- * Notify connected clients that there is a new value.
- */
-function notifyAllClients(widget, data) {
-    io.emit(widget, data);
-}
 
-// check all feeds
-setInterval(function () {
-    fetchAllWidgetData(function (es, ds) {
-        for (var widget in cache) {
-            if (widget === 'nextTrain') {
-                nextTrain.checkForChanges(ds, cache, function(stationId, newData) {
-                    io.emit('next-train:station:' + stationId, newData);
-                });
-            } else {
-                if (JSON.stringify(cache[widget]) !== JSON.stringify(ds[widget])) {
-                    notifyAllClients(widget, ds[widget]);
-                }
-            }
-        }
-        cache = ds;
-    });
-}, POLL_INTERVAL);
 
 app.use(express.static('public'));
 
@@ -122,6 +102,19 @@ server.listen(port, function () {
 });
 
 var io = socket.listen(server);
+
+
+// check all feeds
+setInterval(function () {
+    fetchAllWidgetData(function (es, ds) {
+        var changes = changePath('=',  cache.nextTrain.stations.WFD, ds.nextTrain.stations.WFD);
+        console.log('changes are:', changes);
+        if(changes.length) {
+            io.emit('next-train:station:WFD:change', changes);
+        }
+        cache = ds;
+    });
+}, POLL_INTERVAL);
 
 io.sockets.on('connection', function (socket) {
     Object.keys(nextTrain.events).forEach(function (ev) {
