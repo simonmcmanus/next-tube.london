@@ -28,5 +28,5 @@ gulp.task('autoprefixer', function () {
 
 gulp.task('watch', function () {
     gulp.watch(['components/**/*.scss', 'pages/**/*.scss'], ['build:css', 'autoprefixer']);
-    gulp.watch(['components/**/*.js', 'components/**/*.jade', 'views/**', 'pages/**.js'], ['build:js']);
+    gulp.watch(['components/**/*.js', 'components/**/*.jade', 'views/**', 'pages/*/*.js'], ['build:js']);
 });

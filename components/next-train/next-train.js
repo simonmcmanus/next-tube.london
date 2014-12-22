@@ -4,8 +4,6 @@
 // component functionality includes.
 var page = require('../../public/libs/page');
 var station = require('../station/station');
-var floater = require('../floater/floater');
-var stationSwitcher = require('../station-switcher/station-switcher');
 
 // data includes
 var stationCodes = require('../../fetchers/next-train/url-codes.json');
@@ -15,20 +13,36 @@ var urlCodes = require('../../fetchers/next-train/url-codes.json');
 var templateError = require('./error.jade');
 var templateTrains = require('../station/station.jade');
 
-// called on first page load.
-exports.bind = function($el, socket, bus) {
-    var $select = $el.find('select');
-    var newStation = $select.data('currentlyListening');
-    exports.active = newStation;
-    listen(newStation, socket);
 
-    // setup external components
-    station.bind($el.find('div.nextTrain'), socket);
-    stationSwitcher.bind($select, bus);
+
+module.exports = {
+    'nextTrain:fetch': fetch,
+    'nextTrain:setup': setup,
+    'nextTrain:getStationData': getStationData,
+    'nextTrain:gotStationData': render,
 };
 
-exports.fetch = function(stationName, socket, bus) {
+function render(data, $el, trigger) {
+    if(exports.active !== data.code) {
+        return false;
+    }
+    var $select = $el.find('select');
+    $select.attr('data-currently-listening', data.code);
+    $select.val(data.code);
+    //$('body').scrollTop(0);
+    $el.find('.trains').replaceWith($(templateTrains({ station: data })));
+    trigger('resize');
+};
+
+
+function setup() {
+    bind($('#nextTrain'), socket);
+};
+
+
+function fetch(stationName, $el, trigger) {
     var code = stationCodes[stationName];
+    trigger('nextTrain:gotStationData');
     exports.load(stationName, socket, bus);
     $('#map-container').attr('data-station', code);
     $('li.active').removeClass('active');
@@ -38,63 +52,51 @@ exports.fetch = function(stationName, socket, bus) {
     setTimeout(function() {
         $('ul.line li.' + code + ' a').addClass('point');
     }, 1250);
-
-};
-
-var listen = function (newStation, socket) {
-    console.log('listen', newStation);
-    socket.emit('next-train:station:listen:start', newStation);
-    socket.on('next-train:station:' + newStation, exports.render);
-    socket.on('next-train:station:' + newStation + ':change', function(changes) {
-        changes.forEach(function(change) {
-            if (change.change === 'value changed' ) {
-                bus.emit();
-                console.log(change);
-            }
-        });
-    });
-};
+}
 
 
-
-exports.getStationData = function (stationCode, socket) {
+function getStationData(stationCode, $el, trigger) {
     var startTime = Date.now();
     $.ajax({
         url: '/central/' + stationCode + '?ajax=true' ,
         headers: {
             Accept: 'application/json'
-        },   
+        },
         success: function(data) {
             exports.render(data);
-            floater.resize()
+            trigger('resize');
             var endTime = Date.now();
             if(startTime  > endTime - 1000) {
                 // never less than 500ms so other animations can finish;
-                setTimeout(hideLoader, 1000 - (endTime - startTime));
+                setTimeout(function() {
+                    trigger('loader:show');
+                }, 1000 - (endTime - startTime));
             }else {
-                hideLoader();
+                trigger('loader:hide');
             }
-            listen(data.code, socket);
+            listen(data.code);
         }
-    }).fail(function(e) {
+    }).fail(function() {
         $('#floater .trains').html(templateError({stationCode: stationCode}));
-        floater.resize();
-        hideLoader();
+        trigger('resize');
+        trigger('loader:hide');
     });
-};
+}
 
-var stopListening = function(oldStation, socket) {
-    console.log('stop listening', oldStation);
-    socket.emit('next-train:station:listen:stop', oldStation);
-    socket.off('next-train:station:' + oldStation);
-};
 
-exports.setup = function() {
-    exports.bind($('#nextTrain'), socket);
+function init($el, trigger) {
+    var $select = $el.find('select');
+    var newStation = $select.data('currentlyListening');
+    exports.active = newStation;
+    listen(newStation, socket);
+
+    // setup external components
+    station.bind($el.find('div.nextTrain'), socket, bus);
+    stationSwitcher.bind($select, bus);
 };
 
 // page changed.
-exports.load = function(stationName, socket) {
+exports.load = function(stationName, socket, bus) {
     stopListening(exports.active, socket);
     exports.active = urlCodes[stationName];
     bus.trigger('loader:show');
@@ -102,17 +104,6 @@ exports.load = function(stationName, socket) {
 };
 
 
-// renders the data, either from ws or http.
-exports.render = function(data) {
-    var $node = $('#nextTrain');
-    if(exports.active !== data.code) {
-        return false;
-    }
-    $node.find('select').attr('data-currently-listening', data.code);
-    $('select').val(data.code);
-    //$('body').scrollTop(0);
-    $node.find('.trains').replaceWith($(templateTrains({ station: data })));
-    floater.resize();
-};
+
 
 

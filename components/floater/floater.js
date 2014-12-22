@@ -1,28 +1,23 @@
 'use strict';
 
-var $el = exports.$el = null;
-
-var hideLoader = function() {
+function hideLoader($el) {
+    console.log('hide loader');
     $el.removeClass('loading');
-};
+}
 
-var showLoader = function() {
+function showLoader($el) {
+    console.log('show loader');
     $el.addClass('loading');
-};
+}
 
-var resize = exports.resize = function() {
+function resize($el) {
+    console.log('resize', data, $el, trigger);
     $el.height($el.find('.container').height());
     //$('#floater').width($('.container').width());
+}
+
+module.exports = {
+    'loader:show': showLoader,
+    'loader:hide': hideLoader,
+    'resize': resize
 };
-
-exports.bind = function($el, bus) {
-    $el = $el;
-    bus.on('loader:show', showLoader);
-    bus.on('loader:hide', hideLoader);
-    bus.on('resize', resize);
-};
-
-
-
-
-

@@ -6,7 +6,6 @@ $porder-pixels: 2;
   src: url("/fonts/7LED.ttf");
 }
 
-
 @font-face {
   font-family: 'london_tubenormal';
   src: url("/fonts/london-tube-webfont.eot");
@@ -42,18 +41,17 @@ h3 {
   width: 505px;
   height: 275px;
 }
+
+
 #floater {
   margin: 1em;
   margin-top: 170px;
   box-shadow: rgba(129, 122, 145, 0.84) 0 0 0px;
-  z-index: 2000;
-  transition: all .8s ease-in-out;
   border-radius: 4px;
   border: 2px solid $border-color;
   background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, .95) 100px);
   vertical-align: top;
   color: #838383;
-  position: relative;
   .container {
     opacity: 1;
     transition: opacity .1s ease-in;
@@ -61,15 +59,7 @@ h3 {
   transition-property: height, width, border, background-color;
   transition-duration: 1s    , 1s     , 1s;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
-  &.loading {
-    background: url(/ajax-loader.gif) no-repeat center 10em,  linear-gradient(#fff 0px, #f2f2f2 10px, rgba(255, 255, 255, .3) 100px);
-    //background-position: center 10em;
-    border-color: rgba(122, 126, 139, 0.2);
 
-    .container {
-      opacity: 0;
-    }
-  }
   .error {
     padding: 1em;
   }
@@ -131,14 +121,15 @@ h3 {
   z-index: 20000 !important;
   margin-left: 1em;
   display: none;
+  &.above {
+    top: 2em;
+  }
+  &.below {
+    top: 4em;
+  }
+
 }
 
-#placement.above {
-  top: 2em;
-}
-#placement.below {
-  top: 4em;
-}
 
 @media (min-width: 1100px) {
   body.debug #placement {
@@ -149,7 +140,7 @@ h3 {
     margin-left: 20%;
   }
 }
-
+@import '../../components/floater/floater.scss';
 @import '../../components/tubes/css/styles.scss';
 @import '../../components/next-train/next-train.scss';
 @import '../../components/train-status/train-status.scss';
