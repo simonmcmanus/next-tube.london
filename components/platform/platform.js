@@ -7,17 +7,15 @@
 var train = require('../train/train');
 
 var $el = exports.$el = null;
-exports.bind = function($el, bus) {
-    $el = $el;
-    train.bind($el.find('.train'));
-    console.log('train');
+
+exports.init = function($el, bus) {
+    train.init($el.find('.train'));
     // bus.on('new train' newTrain);
     // bus.on('remove train', removeTrain);
 };
 
 function newTrain() {
     console.log('add new train');
-
 }
 
 function removeTrain() {

@@ -16,92 +16,113 @@ var templateTrains = require('../station/station.jade');
 
 
 module.exports = {
+    'init': init,
     'nextTrain:fetch': fetch,
-    'nextTrain:setup': setup,
     'nextTrain:getStationData': getStationData,
-    'nextTrain:gotStationData': render,
+    'nextTrain:gotStationData': render
 };
 
-function render(data, $el, trigger) {
-    if(exports.active !== data.code) {
-        return false;
-    }
+
+
+function init($el, bus) {
+    var $select = $el.find('select');
+    var newStation = $select.data('currentlyListening');
+    exports.active = newStation;
+    station.init($el.find('div.nextTrain'), bus);
+    bus.on();
+};
+
+function render(data, $el, bus) {
+
+    // if(exports.active !== data.code) {
+    //     return false;
+    // }
     var $select = $el.find('select');
     $select.attr('data-currently-listening', data.code);
     $select.val(data.code);
     //$('body').scrollTop(0);
+    //
+    console.log('in refher', $el.find('.trains'));
     $el.find('.trains').replaceWith($(templateTrains({ station: data })));
-    trigger('resize');
+    bus.trigger('resize');
 };
 
 
-function setup() {
-    bind($('#nextTrain'), socket);
-};
 
 
-function fetch(stationName, $el, trigger) {
+function fetch(stationName, $el, bus) {
     var code = stationCodes[stationName];
-    trigger('nextTrain:gotStationData');
-    exports.load(stationName, socket, bus);
-    $('#map-container').attr('data-station', code);
-    $('li.active').removeClass('active');
+//    exports.load(stationName, socket, bus);
+//    $('#map-container').attr('data-station', code);
+ //   $('li.active').removeClass('active');
     //$('html, body').animate({scrollTop : 0}, 500);
-    $('li a.point').removeClass('point');
-    $('li.' + code ).addClass('active');
-    setTimeout(function() {
-        $('ul.line li.' + code + ' a').addClass('point');
-    }, 1250);
+    // $('li a.point').removeClass('point');
+    // $('li.' + code ).addClass('active');
+    // setTimeout(function() {
+    //     $('ul.line li.' + code + ' a').addClass('point');
+    // }, 1250);
 }
 
 
-function getStationData(stationCode, $el, trigger) {
-    var startTime = Date.now();
+function getStationData(stationName, $el, bus) {
+    console.log('aaa', arguments);
     $.ajax({
-        url: '/central/' + stationCode + '?ajax=true' ,
+        url: '/central/' + stationName + '?ajax=true' ,
         headers: {
             Accept: 'application/json'
         },
         success: function(data) {
-            exports.render(data);
-            trigger('resize');
-            var endTime = Date.now();
-            if(startTime  > endTime - 1000) {
-                // never less than 500ms so other animations can finish;
-                setTimeout(function() {
-                    trigger('loader:show');
-                }, 1000 - (endTime - startTime));
-            }else {
-                trigger('loader:hide');
-            }
-            listen(data.code);
+            bus.trigger('nextTrain:gotStationData', data);
         }
-    }).fail(function() {
-        $('#floater .trains').html(templateError({stationCode: stationCode}));
-        trigger('resize');
-        trigger('loader:hide');
-    });
+    }).fail(errorCallback.bind(null, stationName, bus));
 }
 
 
-function init($el, trigger) {
-    var $select = $el.find('select');
-    var newStation = $select.data('currentlyListening');
-    exports.active = newStation;
-    listen(newStation, socket);
+function errorCallback(stationCode, bus) {
+    $el.html(templateError({stationCode: stationCode}));
+    bus.trigger('resize');
+    bus.trigger('loader:hide');
+}
 
-    // setup external components
-    station.bind($el.find('div.nextTrain'), socket, bus);
-    stationSwitcher.bind($select, bus);
-};
 
-// page changed.
-exports.load = function(stationName, socket, bus) {
-    stopListening(exports.active, socket);
-    exports.active = urlCodes[stationName];
-    bus.trigger('loader:show');
-    exports.getStationData(stationName, socket);
-};
+
+// function getStationData(stationCode, $el, bus) {
+//     var startTime = Date.now();
+//     $.ajax({
+//         url: '/central/' + stationCode + '?ajax=true' ,
+//         headers: {
+//             Accept: 'application/json'
+//         },
+//         success: function(data) {
+//             exports.render(data);
+//             bus.trigger('resize');
+//             var endTime = Date.now();
+//             if(startTime  > endTime - 1000) {
+//                 // never less than 500ms so other animations can finish;
+//                 setTimeout(function() {
+//                     bus.trigger('loader:show');
+//                 }, 1000 - (endTime - startTime));
+//             }else {
+//                 bus.trigger('loader:hide');
+//             }
+//             listen(data.code);
+//         }
+//     }).fail(function() {
+//         $('#floater .trains').html(templateError({stationCode: stationCode}));
+//         bus.trigger('resize');
+//         bus.trigger('loader:hide');
+//     });
+// }
+
+
+
+// // page changed.
+// exports.load = function(stationName, socket, bus) {
+//     stopListening(exports.active, socket);
+//     exports.active = urlCodes[stationName];
+//     bus.trigger('loader:show');
+//     exports.getStationData(stationName, socket);
+// };
 
 
 

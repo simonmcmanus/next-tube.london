@@ -2,8 +2,8 @@
 
 var platform = require('../platform/platform');
 
-exports.bind = function($el, bus) {
-    platform.bind($el.find('.platform'), bus);
+exports.init = function($el, bus) {
+    platform.init($el.find('.platform'), bus);
     bus.on('new platform', newPlatform);
     bus.on('remove platform', removePlatform);
 };

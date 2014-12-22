@@ -1,5 +1,6 @@
 // property updated
 
-exports.bind = function($el, bus) {
+exports.init = function($el, bus) {
+    console.log('init train');
 
 };

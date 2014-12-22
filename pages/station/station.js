@@ -8,17 +8,18 @@ var page = require('../../public/libs/page.js');
 
 
 bus.on('page:load', function(newUrl) {
-    console.log('new page', newUrl)
+    console.log('new page', newUrl);
     page(newUrl);
 })
 
+
 var $floater = $('#floater');
 
-var components = [
-    // {
-    //     $el: $floater.find('#nextTrain'),
-    //     events: require('../../components/next-train/next-train.js')
-    // },
+[
+    {
+        $el: $floater.find('#nextTrain'),
+        events: require('../../components/next-train/next-train.js')
+    },
 
     {
         $el: $floater.find('select'),
@@ -29,19 +30,18 @@ var components = [
         events: require('../../components/floater/floater.js')
     }
 ].forEach(function(component) {
+    component.events.init && component.events.init(component.$el, bus);
     for (var ev in component.events) {
-
-        component.events.init && component.events.init(component.$el, bus);
-        bus.on(ev, function() {
-            // make arguments real array so we add add params to the end.
-            var mainArguments = Array.prototype.slice.call(arguments);
-            mainArguments.push(component.$el, bus.trigger);
-            component.events[ev].apply(null, mainArguments);
-        });
+        bus.on(ev, function(ev, events) {
+            // strip args added for bind and create array.
+            var mainArguments = Array.prototype.slice.call(arguments, 2);
+            // add $el and bus.
+            mainArguments.push(component.$el, bus);
+            // apply with modified arguments.
+            events[ev].apply(null, mainArguments);
+        }.bind(null, ev, component.events));
     }
-
 });
-
 
 var listen = function (newStation, socket) {
     socket.emit('next-train:station:listen:start', newStation);
@@ -55,16 +55,10 @@ var listen = function (newStation, socket) {
     });
 };
 
-
-
-
 var stopListening = function(oldStation, socket) {
     socket.emit('next-train:station:listen:stop', oldStation);
     socket.off('next-train:station:' + oldStation);
 };
-
-
-
 
 
 var url;
@@ -89,11 +83,13 @@ page();
 page('/central/:stationName', function(context) {
     if(context.init) {
         // first page load.
+        // nextTrain:getStationDat
         //nextTrain.setup(context.params.stationName, socket, bus);
     } else {
-        // go get the data first.
-        //nextTrain.fetch(context.params.stationName, socket, bus);
+        bus.trigger('nextTrain:getStationData', context.params.stationName);
     }
 });
 
-window.onresize = nextTrain.resize;
+// window.onresize = function() {
+
+// }

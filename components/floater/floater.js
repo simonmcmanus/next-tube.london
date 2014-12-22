@@ -11,7 +11,6 @@ function showLoader($el) {
 }
 
 function resize($el) {
-    console.log('resize', data, $el, trigger);
     $el.height($el.find('.container').height());
     //$('#floater').width($('.container').width());
 }
