@@ -1,13 +1,45 @@
 'use strict';
 
 
-var page = require('../../public/libs/page.js');
-var station = require('../station/station.js');
-var templateError = require('./error.jade');
+// component functionality includes.
+var page = require('../../public/libs/page');
+var station = require('../station/station');
+var floater = require('../floater/floater');
+var stationSwitcher = require('../station-switcher/station-switcher');
 
-var templateTrains = require('../station/station.jade');
-//var templateTitle = require('./title.jade');
+// data includes
+var stationCodes = require('../../fetchers/next-train/url-codes.json');
 var urlCodes = require('../../fetchers/next-train/url-codes.json');
+
+// template includes
+var templateError = require('./error.jade');
+var templateTrains = require('../station/station.jade');
+
+// called on first page load.
+exports.bind = function($el, socket, bus) {
+    var $select = $el.find('select');
+    var newStation = $select.data('currentlyListening');
+    exports.active = newStation;
+    listen(newStation, socket);
+
+    // setup external components
+    station.bind($el.find('div.nextTrain'), socket);
+    stationSwitcher.bind($select, bus);
+};
+
+exports.fetch = function(stationName, socket, bus) {
+    var code = stationCodes[stationName];
+    exports.load(stationName, socket, bus);
+    $('#map-container').attr('data-station', code);
+    $('li.active').removeClass('active');
+    //$('html, body').animate({scrollTop : 0}, 500);
+    $('li a.point').removeClass('point');
+    $('li.' + code ).addClass('active');
+    setTimeout(function() {
+        $('ul.line li.' + code + ' a').addClass('point');
+    }, 1250);
+
+};
 
 var listen = function (newStation, socket) {
     console.log('listen', newStation);
@@ -15,23 +47,15 @@ var listen = function (newStation, socket) {
     socket.on('next-train:station:' + newStation, exports.render);
     socket.on('next-train:station:' + newStation + ':change', function(changes) {
         changes.forEach(function(change) {
-            console.log(change);
+            if (change.change === 'value changed' ) {
+                bus.emit();
+                console.log(change);
+            }
         });
     });
 };
 
-var resize = exports.resize = function() {
-    $('#floater').height($('.container').height());
-    //$('#floater').width($('.container').width());
-};
 
-var hideLoader = function() {
-    $('#floater').removeClass('loading');
-};
-
-var showLoader = function() {
-    $('#floater').addClass('loading');
-};
 
 exports.getStationData = function (stationCode, socket) {
     var startTime = Date.now();
@@ -39,10 +63,10 @@ exports.getStationData = function (stationCode, socket) {
         url: '/central/' + stationCode + '?ajax=true' ,
         headers: {
             Accept: 'application/json'
-        },
+        },   
         success: function(data) {
             exports.render(data);
-            resize()
+            floater.resize()
             var endTime = Date.now();
             if(startTime  > endTime - 1000) {
                 // never less than 500ms so other animations can finish;
@@ -54,7 +78,7 @@ exports.getStationData = function (stationCode, socket) {
         }
     }).fail(function(e) {
         $('#floater .trains').html(templateError({stationCode: stationCode}));
-        resize();
+        floater.resize();
         hideLoader();
     });
 };
@@ -73,16 +97,10 @@ exports.setup = function() {
 exports.load = function(stationName, socket) {
     stopListening(exports.active, socket);
     exports.active = urlCodes[stationName];
-    showLoader();
+    bus.trigger('loader:show');
     exports.getStationData(stationName, socket);
 };
 
-// triggered by select drop down.
-var stationChange = function(socket, e) {
-    // woo hack! - should come from the json file.
-    var newStationSlug = e.currentTarget.selectedOptions[0].label.replace(/ /g, '-').toLowerCase();
-    page('/central/' + newStationSlug);
-};
 
 // renders the data, either from ws or http.
 exports.render = function(data) {
@@ -94,17 +112,7 @@ exports.render = function(data) {
     $('select').val(data.code);
     //$('body').scrollTop(0);
     $node.find('.trains').replaceWith($(templateTrains({ station: data })));
-    resize();
+    floater.resize();
 };
 
 
-
-// called on first page load.
-exports.bind = function($node, socket) {
-    var $select = $node.find('select#stationCode');
-    $select.change(stationChange.bind(null, socket));
-    var newStation = $select.data('currentlyListening');
-    exports.active = newStation;
-    listen(newStation, socket);
-    station.bind($node.find('div.nextTrain'), socket);
-};

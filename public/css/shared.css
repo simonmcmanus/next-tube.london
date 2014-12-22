@@ -34,20 +34,27 @@ h3 {
   margin-top: 170px;
   box-shadow: rgba(129, 122, 145, 0.84) 0 0 0px;
   z-index: 2000;
-  transition: all .8s ease-in-out;
+  -webkit-transition: all .8s ease-in-out;
+          transition: all .8s ease-in-out;
   border-radius: 4px;
   border: 2px solid rgba(197, 199, 208, 0.83);
+  background: -webkit-linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, 0.95) 100px);
   background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, 0.95) 100px);
   vertical-align: top;
   color: #838383;
   position: relative;
-  transition-property: height, width, border, background-color;
-  transition-duration: 1s    , 1s     , 1s;
-  transform: translate3d(0, 0, 0); }
+  -webkit-transition-property: height, width, border, background-color;
+          transition-property: height, width, border, background-color;
+  -webkit-transition-duration: 1s    , 1s     , 1s;
+          transition-duration: 1s    , 1s     , 1s;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
   #floater .container {
     opacity: 1;
-    transition: opacity .1s ease-in; }
+    -webkit-transition: opacity .1s ease-in;
+            transition: opacity .1s ease-in; }
   #floater.loading {
+    background: url(/ajax-loader.gif) no-repeat center 10em, -webkit-linear-gradient(#fff 0px, #f2f2f2 10px, rgba(255, 255, 255, 0.3) 100px);
     background: url(/ajax-loader.gif) no-repeat center 10em, linear-gradient(#fff 0px, #f2f2f2 10px, rgba(255, 255, 255, 0.3) 100px);
     border-color: rgba(122, 126, 139, 0.2); }
     #floater.loading .container {
@@ -2917,8 +2924,7 @@ header li:hover a {
   z-index: -1 !important; }
 
 #dis066:after {
-  background: -webkit-linear-gradient(right, #ffffff 20%, #85cebc 13%, #85cebc 37%, #ffffff 33%);
-  background: -moz-linear-gradient(right, #ffffff 20%, #85cebc 13%, #85cebc 37%, #ffffff 33%); }
+  background: -webkit-linear-gradient(right, #ffffff 20%, #85cebc 13%, #85cebc 37%, #ffffff 33%); }
 
 #dis067 {
   top: 1524px;
@@ -2977,8 +2983,7 @@ header li:hover a {
   left: 1364px; }
 
 #dis078:after {
-  background: -webkit-linear-gradient(left, #ffffff 28%, #1c3f95 13%, #1c3f95 52%, #ffffff 42%);
-  background: -moz-linear-gradient(left, #ffffff 28%, #1c3f95 13%, #1c3f95 52%, #ffffff 42%); }
+  background: -webkit-linear-gradient(left, #ffffff 28%, #1c3f95 13%, #1c3f95 52%, #ffffff 42%); }
 
 #dis079 {
   top: 1178px;
@@ -3017,7 +3022,6 @@ header li:hover a {
   height: 112px;
   background-color: #fff !important;
   border: 2px solid #00853e;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   z-index: 10 !important;
   border-width: 2px 2px 0; }
@@ -3028,7 +3032,6 @@ header li:hover a {
   background-color: #fff !important;
   border: 2px solid #00853e;
   border-top: 0px;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   z-index: -1 !important; }
 
@@ -3303,8 +3306,7 @@ header li:hover a {
   left: 1395px; }
 
 #cir028:after {
-  background: -webkit-linear-gradient(top, #ffffff 23%, #1c3f95 13%, #1c3f95 48%, #ffffff 42%);
-  background: -moz-linear-gradient(top, #ffffff 23%, #1c3f95 13%, #1c3f95 48%, #ffffff 42%); }
+  background: -webkit-linear-gradient(top, #ffffff 23%, #1c3f95 13%, #1c3f95 48%, #ffffff 42%); }
 
 #cir029 {
   top: 1686px;
@@ -4660,7 +4662,6 @@ header li:hover a {
 
 #overground .route {
   background-color: #fff;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: 3px solid #f58026;
   border-width: 0 3px; }
@@ -5428,7 +5429,6 @@ header li:hover a {
 
 #dlr .route {
   background-color: #fff;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: 3px solid #959ca1;
   border-width: 0 3px; }
@@ -5918,7 +5918,6 @@ header li:hover a {
 
 #emirates .route {
   background-color: #fff;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: 2px solid #e51937;
   border-width: 0 2px;
@@ -6553,9 +6552,12 @@ header li:hover a {
 
 #map-container {
   overflow: visible;
-  transition: all .8s ease-out;
-  transform: translate3d(0, 0, 0);
-  transition-delay: .3s; }
+  -webkit-transition: all .8s ease-out;
+          transition: all .8s ease-out;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s; }
   #map-container #piccadilly,
   #map-container #metropolitan,
   #map-container #district,
@@ -6582,11 +6584,16 @@ header li:hover a {
     z-index: 1;
     position: absolute;
     text-decoration: none;
-    transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width, opacity;
-    transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
-    transition-delay: 0;
-    transition-timing-function: ease-out;
-    transform: translate3d(0, 0, 0);
+    -webkit-transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width, opacity;
+            transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width, opacity;
+    -webkit-transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
+            transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
+    -webkit-transition-delay: 0;
+            transition-delay: 0;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
     color: #4A70CB;
     cursor: hand;
     font-weight: bold;
@@ -6628,8 +6635,11 @@ header li:hover a {
   #map-container li.active {
     z-index: 1000 !important; }
     #map-container li.active a {
-      transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
-      transition-delay: .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;
+      -webkit-transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
+              transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
+      -webkit-transition-delay: .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;
+              transition-delay: .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;
+      background: -webkit-linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
       background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
       border: 2px solid rgba(197, 199, 208, 0.83);
       z-index: 1000 !important; }
@@ -6657,7 +6667,8 @@ header li:hover a {
         width: 0;
         opacity: 0;
         border-color: transparent;
-        transition: all .4s ease-out; }
+        -webkit-transition: all .4s ease-out;
+                transition: all .4s ease-out; }
       #map-container li.active a.point::before, #map-container li.active a.point::after {
         opacity: 1; }
       #map-container li.active a.left::before, #map-container li.active a.left::after {
@@ -6757,7 +6768,8 @@ header li:hover a {
       top: 26px; } }
   #map-container .roundel strong,
   #map-container .station strong {
-    transition: opacity .3s ease-out;
+    -webkit-transition: opacity .3s ease-out;
+            transition: opacity .3s ease-out;
     opacity: 0; }
   #map-container .roundel:hover a,
   #map-container .station:hover a,
@@ -7275,7 +7287,6 @@ header li:hover a {
   height: auto;
   overflow: hidden;
   -webkit-transition: all .8s ease;
-  -moz-transition: all .8s ease;
   transition: all .8s ease;
   text-align: center; }
   #nextTrain .settings form {
@@ -7345,5 +7356,3 @@ header li:hover a {
       background: #e86a10; }
     #tflStatus ul li.line.DLR {
       background: #00AFAD; }
-
-/*# sourceMappingURL=shared.css.map */

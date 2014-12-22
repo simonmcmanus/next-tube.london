@@ -6,7 +6,9 @@
 
 var train = require('../train/train');
 
+var $el = exports.$el = null;
 exports.bind = function($el, bus) {
+    $el = $el;
     train.bind($el.find('.train'));
     console.log('train');
     // bus.on('new train' newTrain);
