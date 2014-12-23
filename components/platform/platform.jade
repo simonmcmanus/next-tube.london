@@ -1,6 +1,5 @@
-.platform.direction
+div.platform.direction
     h3=direction
-    ul.trains
+    ul(data-direction=direction class='trains')
         each train in trains
-            li
-                include ../train/train.jade
+            include ../train/train.jade

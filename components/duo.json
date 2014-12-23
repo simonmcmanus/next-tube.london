@@ -102,8 +102,8 @@
   "components/platform/platform.js": {
     "id": "components/platform/platform.js",
     "type": "js",
-    "mtime": 1419276053000,
-    "src": "'use strict';\n\n// train left\n// new train added\n// complete refresh\n\nvar train = require('../train/train');\n\n\nexports.init = function($el, bus) {\n    train.init($el.find('.train'));\n    bus.on('WFD.trains.Westbound', newTrain.bind(null, $el));\n    bus.on('WFD.trains.Eastbound', newTrain.bind(null, $el));\n    // bus.on('remove train', removeTrain);\n};\n\nfunction newTrain($el) \n{\n    debugger;\n    $el.append($('<h1>hhiii</h1>'))\n}\n\nfunction removeTrain() {\n    alert('remove train');\n}",
+    "mtime": 1419347734000,
+    "src": "'use strict';\n\n// train left\n// new train added\n// complete refresh\n\nvar train = require('../train/train');\n\n\nexports.init = function($el, bus) {\n    train.init($el.find('.train'));\n    bus.on('WFD.trains.Westbound', newTrain.bind(null, 'Westbound', $el));\n    bus.on('WFD.trains.Eastbound', newTrain.bind(null, 'Eastbound', $el));\n    // bus.on('remove train', removeTrain);\n};\n\nfunction newTrain(direction, $el) {\n    $el.find('ul[data-direction=' + direction + ']').append($('<h1>hhiii</h1>'))\n    debugger;\n}\n\nfunction removeTrain() {\n    alert('remove train');\n}",
     "deps": {
       "../train/train": "components/train/train.js"
     }
