@@ -68,7 +68,9 @@ var stopListening = function(oldStation, socket) {
 };
 
 
-
+bus.on('page:load', function(path) {
+    page(path);
+});
 
 bus.on('station', function(station) {
     stopListening(station, socket);
