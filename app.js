@@ -8,7 +8,7 @@ var http = require('http');
 
 var deepClone = require('underscore.deepclone');
 
-var POLL_INTERVAL = 1000;
+var POLL_INTERVAL = 5000;
 
 var nextTrain = require('./fetchers/next-train/next-train.js');
 var stations = require('./components/tubes/stations.json');
@@ -82,6 +82,7 @@ app.get('/central/:station', function (req, res) {
         };
 
         if (req.headers.accept === 'application/json') {
+            data.nextTrain
             res.json(data);
         } else {
             res.render('layout.jade', newOut);
@@ -107,11 +108,13 @@ var io = socket.listen(server);
 // check all feeds
 setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
-        var changes = changePath('=',  cache.nextTrain.stations.WFD, ds.nextTrain.stations.WFD);
+        ds.nextTrain.stations.WFD.trains.Westbound.push({
+            id:'321',
+            destination: 'bacon'
+        });
+        var changes = changePath('WFD',  cache.nextTrain.stations.WFD, ds.nextTrain.stations.WFD);
         console.log('changes are:', changes);
-        if(changes.length) {
-            io.emit('next-train:station:WFD:change', changes);
-        }
+        io.emit('station:WFD:change', changes);
         cache = ds;
     });
 }, POLL_INTERVAL);

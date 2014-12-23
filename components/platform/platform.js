@@ -6,18 +6,20 @@
 
 var train = require('../train/train');
 
-var $el = exports.$el = null;
 
 exports.init = function($el, bus) {
     train.init($el.find('.train'));
-    // bus.on('new train' newTrain);
+    bus.on('WFD.trains.Westbound', newTrain.bind(null, $el));
+    bus.on('WFD.trains.Eastbound', newTrain.bind(null, $el));
     // bus.on('remove train', removeTrain);
 };
 
-function newTrain() {
-    console.log('add new train');
+function newTrain($el) 
+{
+    debugger;
+    $el.append($('<h1>hhiii</h1>'))
 }
 
 function removeTrain() {
-    console.log('remove train');
+    alert('remove train');
 }

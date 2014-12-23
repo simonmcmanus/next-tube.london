@@ -7257,6 +7257,19 @@ header li:hover a {
 #nextTrain h3 {
   padding: 0.5em 0 .6em .7em;
   font-size: 1.5em; }
+#nextTrain .error {
+  padding: .5em; }
+  #nextTrain .error h2 {
+    background: #4A70CB;
+    color: #fff;
+    margin: .5em 0;
+    padding: .5em; }
+  #nextTrain .error .detail {
+    margin: .5em 0;
+    padding: .5em; }
+  #nextTrain .error hr {
+    border: 0;
+    border-top: 1px solid #4A70CB; }
 #nextTrain a.change {
   float: right; }
 #nextTrain .title,

@@ -8,6 +8,25 @@
   }
 
 
+  .error {
+    padding: .5em;
+    h2 {
+        background: #4A70CB;
+        color: #fff;
+        margin: .5em 0;
+        padding: .5em;
+    }
+    .detail {
+      margin: .5em 0;
+      padding: .5em;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #4A70CB;
+    }
+  }
+
+
   a.change {
     float: right;
   }
