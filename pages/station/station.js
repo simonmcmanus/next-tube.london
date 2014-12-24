@@ -4,6 +4,7 @@
 // internal browser events bus.
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
 
+var activeStation = null;
 // router
 var page = require('../../public/libs/page.js');
 var urlCodes = require('../../fetchers/next-train/url-codes.json');
@@ -43,8 +44,11 @@ var $floater = $('#floater');
 
 
 function listen(station, socket) {
+    activeStation = station.code;
     console.log('listen called', station.code);
     socket.emit('station:listen:start', station.code);
+
+    console.log('listen, ', 'station:' + station.code + ':change');
     socket.on('station:' + station.code + ':change', function(changes) {
         changes.forEach(function(change) {
 
@@ -63,19 +67,22 @@ function listen(station, socket) {
     });
 };
 
-var stopListening = function(oldStation, socket) {
-    console.log('stop listen called', oldStation.code);
-    socket.emit('station:listen:stop', oldStation.code);
-    socket.off('station:' + oldStation.code);
+var stopListening = function(socket) {
+    console.log('stop listen called', activeStation);
+    socket.emit('station:listen:stop', activeStation);
+    socket.off('station:' + activeStation);
+    activeStation = null;
 };
 
 
+
+// allows page change to be triggered by an event.
 bus.on('page:load', function(path) {
     page(path);
 });
 
 bus.on('station', function(station) {
-    stopListening(station, socket);
+    stopListening(socket);
 });
 bus.on('nextTrain:gotStationData', function(station) {
     listen(station, socket);
@@ -92,15 +99,23 @@ if(window.location.hostname === 'woodford.today') {
 
 var socket = io(url);
 
-page();
 
 console.log('000');
 
 page('/central/:stationName', function(context) {
-    bus.trigger('station', {
-        slug: context.params.stationName,
-        code: urlCodes[context.params.stationName]
-    });
+    if(context.init) {
+        listen({
+            code: urlCodes[context.params.stationName]
+        }, socket);
+    } else {
+        bus.trigger('station', {
+            slug: context.params.stationName,
+            code: urlCodes[context.params.stationName]
+        });
+    }
+
 });
+
+page();
 
 // window.onresize = function() {};

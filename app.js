@@ -6,7 +6,6 @@ var async = require('async');
 var socket = require('socket.io');
 var http = require('http');
 
-var deepClone = require('underscore.deepclone');
 
 var POLL_INTERVAL = 5000;
 
@@ -106,8 +105,11 @@ var io = socket.listen(server);
 // check all feeds
 setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
-        var changes = changePath('WFD',  cache.nextTrain.stations.WFD, ds.nextTrain.stations.WFD);
-        io.emit('station:WFD:change', changes);
+        for (var station in ds.nextTrain.stations) {
+            var changes = changePath(station,  cache.nextTrain.stations[station], ds.nextTrain.stations[station]);
+            io.emit('station:' + station + ':change', changes);
+        }
+
         cache = ds;
     });
 }, POLL_INTERVAL);

@@ -73,27 +73,8 @@ exports.getAll = function (io, callback) {
     });
 };
 
-exports.checkForChanges = function (ds, cache, changeFound) {
-    // should not be needed.
-    if(!ds.nextTrain)  {
-        return ;
-    }
-    for (var station in ds.nextTrain.stations) {
-        if (cache.nextTrain.stations[station] && ds.nextTrain.stations[station]) {
-            var oldTrains = cache.nextTrain.stations[station].trains;
-            var newTrains = ds.nextTrain.stations[station].trains;
-            if (JSON.stringify(oldTrains) !== JSON.stringify(newTrains)) {
-                changeFound(station, ds.nextTrain.stations[station]);
-            }
-        } else if(!cache.nextTrain.stations[station] ) {
-            // its not in the cache so let say its changed just in case.
-            changeFound(station, ds.nextTrain.stations[station]);
-        }
-    }
-};
-
 exports.events = {
-    'next-train:station:listen:start':  stationLister.add,
-    'next-train:station:listen:stop': stationLister.remove,
+    'station:listen:start':  stationLister.add,
+    'station:listen:stop': stationLister.remove,
     'disconnect': stationLister.disconnect
 };

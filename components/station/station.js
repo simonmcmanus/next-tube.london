@@ -30,6 +30,9 @@ function directionInit(newStation, $el, bus) {
 }
 
 function render(data, $el, bus) {
+
+    // all falls apart here for some reason.
+    // 
     return;
     var $select = $el.find('select');
     $select.attr('data-currently-listening', data.code);
@@ -49,7 +52,6 @@ function getStationData(station, $el, bus) {
             Accept: 'application/json'
         },
         complete: function(xhr, status) {
-            console.log('complete', status)
             if(status === 'error') {
                 errorCallback(station.slug, $el, bus);
             }
