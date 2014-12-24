@@ -49,6 +49,7 @@ function listen(station, socket) {
         changes.forEach(function(change) {
 
             if(change.parent) {
+                console.log('trigger:-->', change);
                 //console.log('trigger', change.parent, change);
                 // chagne is not goin through
                 bus.trigger(change.parent, change);

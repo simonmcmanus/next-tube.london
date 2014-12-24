@@ -20,12 +20,12 @@ function init($el, bus) {
     var $select = $el.find('select');
     var newStation = $select.data('currentlyListening');
     exports.active = newStation;
-    directionInit($el, bus);
+    directionInit(newStation, $el, bus);
 }
 
-function directionInit($el, bus) {
+function directionInit(newStation, $el, bus) {
     $el.find('[data-direction]').each(function() {
-        direction.init(this.dataset.direction, $(this), bus);
+        direction.init(newStation, this.dataset.direction, $(this), bus);
     });
 }
 
@@ -38,7 +38,7 @@ function render(data, $el, bus) {
     $el.find('.trains').html($(templateTrains({
         station: data
     })));
-    directionInit($el, bus);
+    directionInit(data.code, $el, bus);
     bus.trigger('resize');
 }
 
