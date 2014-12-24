@@ -1,9 +1,7 @@
-div.trains.station-detail
-    - var noTrains = true;
-    if station
-        each trains, direction in station.trains
-            if trains.length > 0
-                include ../platform/platform.jade
-                - noTrains = false;
-    if noTrains
-        h3.noTrains No Trains
+//.station(data-station-code=station.code)
+#station
+    div.trains
+        include ./trains.jade
+    include ../station-switcher/station-switcher.jade
+    .error
+

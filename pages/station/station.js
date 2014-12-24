@@ -20,8 +20,8 @@ var $floater = $('#floater');
         events: require('../../components/floater/floater.js')
     },
     {
-        $el: $floater.find('#nextTrain'),
-        events: require('../../components/next-train/next-train.js')
+        $el: $floater.find('#station'),
+        events: require('../../components/station/station.js')
     },
     {
         $el: $floater.find('select'),
@@ -49,7 +49,8 @@ function listen(station, socket) {
         changes.forEach(function(change) {
 
             if(change.parent) {
-                console.log('trigger', change.parent);
+                //console.log('trigger', change.parent, change);
+                // chagne is not goin through
                 bus.trigger(change.parent, change);
             }
         });

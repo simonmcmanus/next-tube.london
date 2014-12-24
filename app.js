@@ -26,13 +26,11 @@ function fetchAllWidgetData(callback) {
     var methods = {
         tflStatus: require('./fetchers/tfl-status.js'),
         nextTrain: nextTrain.getAll.bind(null, io)
-        //nextBus: require('./fetchers/next-bus.js')
     };
     async.parallel(methods, function (error, data) {
         callback(null, data);
     });
 }
-
 
 
 app.use(express.static('public'));
@@ -43,7 +41,7 @@ app.get('/', function (req, res) {
     }
 
     cache.tubes = {
-        stations : stations,
+        nextTrain : stations,
         currentStationCode: 'WFD'
     }
     res.render('layout.jade', cache);
@@ -108,12 +106,7 @@ var io = socket.listen(server);
 // check all feeds
 setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
-        ds.nextTrain.stations.WFD.trains.Westbound.push({
-            id:'321',
-            destination: 'bacon'
-        });
         var changes = changePath('WFD',  cache.nextTrain.stations.WFD, ds.nextTrain.stations.WFD);
-        console.log('changes are:', changes);
         io.emit('station:WFD:change', changes);
         cache = ds;
     });

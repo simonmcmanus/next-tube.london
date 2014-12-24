@@ -7252,34 +7252,34 @@ header li:hover a {
 .roundel strong, .station strong {
   font-size: 1em; }
 
-#nextTrain h2 {
+html body .station h2 {
   border-bottom: 0; }
-#nextTrain h3 {
+html body .station h3 {
   padding: 0.5em 0 .6em .7em;
   font-size: 1.5em; }
-#nextTrain .error {
+html body .station .error {
   padding: .5em; }
-  #nextTrain .error h2 {
+  html body .station .error h2 {
     background: #4A70CB;
     color: #fff;
     margin: .5em 0;
     padding: .5em; }
-  #nextTrain .error .detail {
+  html body .station .error .detail {
     margin: .5em 0;
     padding: .5em; }
-  #nextTrain .error hr {
+  html body .station .error hr {
     border: 0;
     border-top: 1px solid #4A70CB; }
-#nextTrain a.change {
+html body .station a.change {
   float: right; }
-#nextTrain .title,
-#nextTrain .title a {
+html body .station .title,
+html body .station .title a {
   font-size: .7em; }
-#nextTrain .loading {
+html body .station .loading {
   height: 200px; }
-#nextTrain .trains {
+html body .station .trains {
   padding-right: 20px; }
-#nextTrain .settings {
+html body .station .settings {
   background: rgba(235, 236, 240, 0.1);
   color: #242330;
   padding: 1em;
@@ -7291,29 +7291,29 @@ header li:hover a {
   -moz-transition: all .8s ease;
   transition: all .8s ease;
   text-align: center; }
-  #nextTrain .settings form {
+  html body .station .settings form {
     margin: 0; }
-    #nextTrain .settings form label {
+    html body .station .settings form label {
       padding: .5em;
       font-size: 0.8em;
       font-family: london_tubenormal;
       display: inline-block;
       text-align: right; }
-    #nextTrain .settings form select {
+    html body .station .settings form select {
       font-size: 2em; }
-  #nextTrain .settings.hidden {
+  html body .station .settings.hidden {
     height: 0;
     padding: 0 .5em; }
-#nextTrain .noTrains {
+html body .station .noTrains {
   margin-bottom: 0; }
 @media (min-width: 550px) {
-  #nextTrain a.change {
+  html body .station a.change {
     position: absolute;
     width: 94%;
     text-align: right;
     text-decoration: none;
     margin-top: -2em; }
-  #nextTrain .direction {
+  html body .station .platform {
     display: inline-block; } }
 
 #tflStatus small {
