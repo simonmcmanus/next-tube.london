@@ -24,23 +24,26 @@ function init($el, bus) {
 }
 
 function directionInit(newStation, $el, bus) {
+    console.log('direction init', $el.find('[data-direction]'));
     $el.find('[data-direction]').each(function() {
         direction.init(newStation, this.dataset.direction, $(this), bus);
     });
 }
 
+// whats passing $el here?
+//  its different the second time in directionsInit
 function render(data, $el, bus) {
-
-    // all falls apart here for some reason.
-    // 
-    return;
     var $select = $el.find('select');
     $select.attr('data-currently-listening', data.code);
     $select.val(data.code);
     $el.find('.error').empty();
-    $el.find('.trains').html($(templateTrains({
+    //debugger;
+    console.log('newData', data);
+    var $newMarkup = $(templateTrains({
         station: data
-    })));
+    }))
+    $el.find('div.listing').html($newMarkup);
+//    $el.empty();
     directionInit(data.code, $el, bus);
     bus.trigger('resize');
 }
@@ -63,7 +66,6 @@ function getStationData(station, $el, bus) {
 }
 
 function errorCallback(stationCode, $el, bus) {
-    console.log('ERROR CALLBACK');
     $el.find('.trains').empty();
     $el.find('.error').html(templateError({stationCode: stationCode}));
     bus.trigger('resize');

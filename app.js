@@ -12,7 +12,11 @@ var POLL_INTERVAL = 5000;
 var nextTrain = require('./fetchers/next-train/next-train.js');
 var stations = require('./components/tubes/stations.json');
 // requests always served from the cache and then updated over websockets.
-var cache = {};
+var cache = {
+    nextTrain: {
+        station : {}
+    }
+};
 
 
 var changePath = require('../changePath/index');
@@ -35,23 +39,17 @@ function fetchAllWidgetData(callback) {
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    if (req.query.data === 'true') {
-        return res.json(cache);
-    }
-
-    cache.tubes = {
-        nextTrain : stations,
-        currentStationCode: 'WFD'
-    }
-    res.render('layout.jade', cache);
+    res.send('hi');
 });
 
 var getStationData = function(stationCode, callback) {
-    if (cache.nextTrain[stationCode]) {
-        callback(null, cache.nextTrain[stationCode]);
+    if (cache.nextTrain.stations[stationCode]) {
+        console.log(stationCode, 'fromCache')
+        callback(null, cache.nextTrain.stations[stationCode]);
     } else {
         nextTrain.get(stationCode, function(e, d) {
-            cache.nextTrain[stationCode] = d;
+            console.log(stationCode, 'fromLive', d)
+            cache.nextTrain.stations[stationCode] = d;
             callback(e, d);
         });
     }
@@ -60,6 +58,7 @@ var getStationData = function(stationCode, callback) {
 var urlCodes = require('./fetchers/next-train/url-codes.json');
 
 app.get('/central/:station', function (req, res) {
+    var start = +new Date();
     var stationCode = urlCodes[req.params.station];
 
     if (!stationCode) {
@@ -67,21 +66,23 @@ app.get('/central/:station', function (req, res) {
     }
 
     getStationData(stationCode, function (err, data) {
+
+        console.log('d', data);
         var newOut = {
             station: data,
-            nextTrain: {
-                stationCodes: cache.nextTrain.stationCodes
-            },
+            stationCodes: cache.nextTrain.stationCodes,
             tubes: {
                 stations: stations,
                 currentStationCode: stationCode
             }
         };
 
-        if (req.headers.accept === 'application/json') {
+        if (req.headers.accept === 'application/json' || req.query.data === 'true') {
             data.nextTrain
             res.json(data);
         } else {
+
+            console.log('serve reqest', newOut.station, start - +new Date(), newOut);
             res.render('layout.jade', newOut);
         }
     });

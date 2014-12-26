@@ -31,29 +31,25 @@ var $floater = $('#floater');
 ].forEach(function(component) {
     component.events.init && component.events.init(component.$el, bus);
     for (var ev in component.events) {
-        bus.on(ev, function(ev, events) {
+        bus.on(ev, function(ev, component) {
             // strip args added for bind and create array.
             var mainArguments = Array.prototype.slice.call(arguments, 2);
             // add $el and bus.
             mainArguments.push(component.$el, bus);
             // apply with modified arguments.
-            events[ev].apply(null, mainArguments);
-        }.bind(null, ev, component.events));
+            component.events[ev].apply(null, mainArguments);
+        }.bind(null, ev, component));
     }
 });
 
-
 function listen(station, socket) {
     activeStation = station.code;
-    console.log('listen called', station.code);
     socket.emit('station:listen:start', station.code);
-
-    console.log('listen, ', 'station:' + station.code + ':change');
     socket.on('station:' + station.code + ':change', function(changes) {
         changes.forEach(function(change) {
 
             if(change.parent) {
-                console.log('trigger:-->', change);
+                console.log('trigger:-->', change.parent);
                 //console.log('trigger', change.parent, change);
                 // chagne is not goin through
                 bus.trigger(change.parent, change);
@@ -68,7 +64,6 @@ function listen(station, socket) {
 };
 
 var stopListening = function(socket) {
-    console.log('stop listen called', activeStation);
     socket.emit('station:listen:stop', activeStation);
     socket.off('station:' + activeStation);
     activeStation = null;
@@ -99,8 +94,6 @@ if(window.location.hostname === 'woodford.today') {
 
 var socket = io(url);
 
-
-console.log('000');
 
 page('/central/:stationName', function(context) {
     if(context.init) {

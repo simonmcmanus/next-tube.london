@@ -5,7 +5,7 @@ div.settings
         if station
             - currentlyListening = station.code;
         select(name="stationCode", id="stationCode", data-currently-listening=currentlyListening)
-            each stationCode, id in nextTrain.stationCodes
+            each stationCode, id in stationCodes
                 - var selected = false;
                 if station && station.code === id
                         - selected = true
