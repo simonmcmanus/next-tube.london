@@ -1,0 +1,11 @@
+- var noTrains = true;
+if station
+
+    each trains, direction in station.trains
+        -console.log('st',direction, trains)
+        if trains.length > 0
+            include ../direction/direction.jade
+            - noTrains = false;
+if noTrains
+    h3.noTrains No Trains
+

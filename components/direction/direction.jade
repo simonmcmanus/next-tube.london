@@ -1,0 +1,7 @@
+- console.log('in direction template')
+div(data-direction=direction class='direction')
+    h3=direction
+    ul.trains
+        each train in trains
+            include ../train/train.jade
+            

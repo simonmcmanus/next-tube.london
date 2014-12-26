@@ -113,8 +113,8 @@
   "components/train/train.js": {
     "id": "components/train/train.js",
     "type": "js",
-    "mtime": 1419437823000,
-    "src": "// property updated\n\nvar trainTemplate = require('./train.jade');\n\nexports.init = function(stationCode, direction, position, $el, bus) {\n    console.log('init', stationCode, direction, position);\n    bus.on(stationCode + '.trains.' + direction + '[' + position + ']', function(change) {\n        switch(change.property) {\n            case 'location' :\n                $el.find('.detail').css('background-color', 'yellow');\n                $el.find('.detail').html(change.newValue);\n                break;\n            case  'dueIn' :\n                $el.find('.due').css('background-color', 'yellow');\n                $el.find('.due').html(change.newValue);\n                break;\n        }\n    });\n};",
+    "mtime": 1419593898000,
+    "src": "// property updated\n\nvar trainTemplate = require('./train.jade');\n\nexports.init = function(stationCode, direction, position, $el, bus) {\n    console.log('init', stationCode, direction, position);\n    bus.on(stationCode + '.trains.' + direction + '[' + position + ']', function(change) {\n        switch(change.property) {\n            case 'location' :\n                $el.find('.detail').css('background-color', 'yellow');\n                $el.find('.detail').html(change.newValue);\n                break;\n            case  'dueIn' :\n                $el.find('.due').css('background-color', 'blue');\n                $el.find('.due').html(change.newValue);\n                break;\n        }\n    });\n};",
     "deps": {
       "./train.jade": "components/train/train.jade"
     }

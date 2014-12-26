@@ -47,6 +47,12 @@ exports.get = function (stationCode, callback) {
                 }
 
                 out.trains[direction].push.apply(out.trains[direction], trains);
+                out.trains[direction] = out.trains[direction].sort(function(train1, train2) {
+                    if(train1.dueIn === '-') {
+                        return -1;
+                    }
+                    return parseInt(train1.dueIn) - parseInt(train2.dueIn);
+                });
             });
             callback(null, out);
         });
