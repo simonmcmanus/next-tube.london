@@ -14,11 +14,39 @@ $porder-pixels: 2;
   font-style: normal;
 }
 
+
+.listing {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
 body {
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px;
 }
 
+.error {
+  padding: .5em;
+  .listing {
+    display: none;
+  }
+  h2 {
+      background: #4A70CB;
+      color: #fff;
+      margin: .5em 0;
+      padding: .5em;
+  }
+  .detail {
+    margin: .5em 0;
+    padding: .5em;
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid #4A70CB;
+  }
+}
 
 li {
   list-style: none;
@@ -30,39 +58,17 @@ h2 {
   padding-bottom: 10px;
 }
 
-h3 {
+html body h3 {
   font-family: 'london_tubenormal';
   margin: .5em;
-  font-size: 1.7em;
+  padding: .2em 0;
+  font-size: 2em;
 }
 
 #key {
   border: 3px double #333;
   width: 505px;
   height: 275px;
-}
-
-
-#floater {
-  margin: 1em;
-  margin-top: 170px;
-  box-shadow: rgba(129, 122, 145, 0.84) 0 0 0px;
-  border-radius: 4px;
-  border: 2px solid $border-color;
-  background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, .95) 100px);
-  vertical-align: top;
-  color: #838383;
-  .container {
-    opacity: 1;
-    transition: opacity .1s ease-in;
-  }
-  transition-property: height, width, border, background-color;
-  transition-duration: 1s    , 1s     , 1s;
-  transform: translate3d(0,0,0); // enable hardware acc for ipad.
-
-  .error {
-    padding: 1em;
-  }
 }
 
 .direction {
@@ -127,11 +133,14 @@ h3 {
   &.below {
     top: 4em;
   }
-
 }
 
 
 @media (min-width: 1100px) {
+  .direction {
+    width: auto;
+    min-width: 300px;
+  }
   body.debug #placement {
     margin: 1em 20%;
   }
@@ -140,8 +149,71 @@ h3 {
     margin-left: 20%;
   }
 }
+
+// begin flex
+* { box-sizing: border-box; }
+#got-gridbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+#got-gridbox figure {
+  border: 1px solid #333;
+  position: relative;
+  font-size: 0; margin: 0;
+  margin: 2% 0;
+  flex: 0 0 48%;
+}
+#got-gridbox figure:nth-child(even) img { float: right;
+}
+#got-gridbox figure img {
+  width: 60%; height: auto;
+  margin-top: -2rem;
+}
+#got-gridbox figure figcaption {
+  position: absolute; right: 4%;
+  top: 5%;
+  font-family: Deseret, Trajan Pro, Trajan, Requiem, serif;
+  text-transform: uppercase;
+  font-size: 1.6rem; text-align: right;
+}
+#got-gridbox figure:nth-child(even) figcaption {
+  left: 4%; right: auto;
+  text-align: left;
+}
+#got-gridbox figure:nth-last-child(-n+2) {
+  background-image: linear-gradient(transparent, transparent 80%, #111 81%);
+}
+
+@media screen and (max-width: 900px) {
+  #got-gridbox figure figcaption {
+    font-size: 1.4rem; }
+}
+
+@media screen and (max-width: 800px) {
+  #got-gridbox figure figcaption {
+    font-size: 1.25rem; }
+}
+
+@media screen and (max-width: 750px) {
+  #got-gridbox figure {
+    flex: 0 0 100%; margin-bottom: 7%;
+  }
+  #got-gridbox figure figcaption {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #got-gridbox figure figcaption { font-size: 1.2rem; width: 50%; }
+}
+
+// end flex
+
+
+
 @import '../../components/floater/floater.scss';
+@import '../../components/station-switcher/station-switcher.scss';
 @import '../../components/tubes/css/styles.scss';
-@import '../../components/next-train/next-train.scss';
 @import '../../components/train-status/train-status.scss';
 

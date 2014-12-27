@@ -30,6 +30,9 @@ function directionInit(newStation, $el, bus) {
     });
 }
 
+window.onresize = function() {
+    bus.trigger('resize');
+}
 // whats passing $el here?
 //  its different the second time in directionsInit
 function render(data, $el, bus) {
@@ -49,6 +52,7 @@ function render(data, $el, bus) {
 }
 
 function getStationData(station, $el, bus) {
+    bus.trigger('loader:show');
     $.ajax({
         url: '/central/' + station.slug + '?ajax=true' ,
         headers: {
@@ -61,14 +65,18 @@ function getStationData(station, $el, bus) {
         },
         success: function(data) {
             bus.trigger('nextTrain:gotStationData', data);
+            bus.trigger('error:hide');
+            setTimeout(function() {
+                bus.trigger('loader:hide');
+            }, 500);
         }
     });
 }
 
 function errorCallback(stationCode, $el, bus) {
+
     $el.find('.trains').empty();
     $el.find('.error').html(templateError({stationCode: stationCode}));
-    bus.trigger('resize');
-    bus.trigger('loader:hide');
+    bus.trigger('error:show');
 }
 

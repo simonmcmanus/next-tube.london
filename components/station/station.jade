@@ -1,7 +1,33 @@
 //.station(data-station-code=station.code)
 #station
     div.listing
-        include ./trains.jade
+        #got-gridbox
+            figure
+                img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/daenerys-targaryen.png', alt='Black and white photograph of Emilia Clarke as Daenerys Targaryen')
+                | &#x9;
+                figcaption Daenerys Targaryen
+              figure#tyrion
+                img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/tyrion-lannister.png', alt='Black and white photograph of Peter Dinklage as Tyrion Lannister')
+                | &#x9;
+                figcaption Tyrion Lannister
+              figure
+                img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/jamie-lannister.png', alt='Black and white photograph of Nikolaj Coster-Waldau as Jamie Lannister')
+                | &#x9;
+                figcaption Jamie Lannister
+              figure
+                img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/jon-snow.png', alt='Black and white photograph of Kit Harington as Jon Snow')
+                | &#x9;
+                figcaption Jon Snow
+              figure
+                img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/robb-stark.png', alt='Black and white photograph of  Richard Madden as Robb Stark')
+                | &#x9;
+                figcaption Robb Stark
+              figure
+                img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/cersei-lannister.png', alt='Black and white photograph of Lena Headey as Cersei Lannister')
+                | &#x9;
+                figcaption Cersei Lannister
+
+    //        include ./trains.jade
     include ../station-switcher/station-switcher.jade
     .error
 

@@ -1,9 +1,9 @@
-
+$break1: 800px;
 
 &[data-station=EPP] {
     top: -42px;
     left: -3301px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -40px;
         left: -3218px;
     }
@@ -12,7 +12,7 @@
 &[data-station=THB] {
     top: -90px;
     left: -3245px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -87px;
         left: -3065px;
     }
@@ -21,7 +21,7 @@
 &[data-station=DEB] {
     top: -136px;
     left: -3296px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -133px;
         left: -3198px;
     }
@@ -30,7 +30,7 @@
 &[data-station=LTN] {
     top: -182px;
     left: -3281px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -179px;
         left: -3161px;
     }
@@ -39,7 +39,7 @@
 &[data-station=BHL] {
     top: -229px;
     left: -3237px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -226px;
         left: -3044px;
     }
@@ -48,7 +48,7 @@
 &[data-station=WFD] {
     top: -398px;
     left: -3271px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -396px;
         left: -3136px;
     }
@@ -57,7 +57,7 @@
 &[data-station=SWF] {
     top: -454px;
     left: -3221px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -452px;
         left: -2994px;
     }
@@ -66,7 +66,7 @@
 &[data-station=SNB] {
     top: -509px;
     left: -3256px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -506px;
         left: -3094px;
     }
@@ -75,7 +75,7 @@
 &[data-station=LYS] {
     top: -672px;
     left: -3253px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -669px;
         left: -3086px;
     }
@@ -84,7 +84,7 @@
 &[data-station=LEY] {
     top: -796px;
     left: -3301px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -793px;
         left: -3216px;
     }
@@ -93,7 +93,7 @@
 &[data-station=SFD] {
     top: -921px;
     left: -3427px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -918px;
         left: -3399px;
     }
@@ -102,7 +102,7 @@
 &[data-station=MLE] {
     top: -1130px;
     left: -3021px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1124px;
         left: -2992px;
     }
@@ -118,7 +118,7 @@ li.roundel.MLE  {
     &.active a {
         left: 1px;
         top: -72px;
-        @media (min-width: 800px) {
+        @media (min-width: break1) {
             left: -43px;
             top: -102px;
         }
@@ -130,7 +130,7 @@ li.roundel.MLE  {
 &[data-station=BNG] {
     top: -1132px;
     left: -2909px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1128px;
         left: -2881px;
     }
@@ -143,7 +143,7 @@ li.BNG {
     }
     &.active a {
         left: -6px;
-        @media (min-width: 800px) {
+        @media (min-width: break1) {
             left: -50px;
         }
     }
@@ -153,7 +153,7 @@ li.BNG {
 &[data-station=LST] {
     top: -1206px;
     left: -2588px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1197px;
         left: -2560px;
     }
@@ -162,7 +162,7 @@ li.BNG {
 &[data-station=BNK] {
     top: -1369px;
     left: -2376px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1361px;
         left: -2349px;
     }
@@ -177,7 +177,7 @@ li.roundel.BNK {
 
     &.active a {
         left: 0px;
-        @media (min-width: 800px) {
+        @media (min-width: break1) {
             left: -43px;
             top: -101px;
         }
@@ -196,7 +196,7 @@ li.STP {
     &.active a {
         left: 34px;
         top: 0;
-        @media (min-width: 800px) {
+        @media (min-width: break1) {
             top: -7px;
             left: 41px;
         }
@@ -206,7 +206,7 @@ li.STP {
 &[data-station=STP] {
     top: -1365px;
     left: -2325px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1363px;
         left: -2343px;
     }
@@ -217,7 +217,7 @@ li.STP {
 &[data-station=CYL] {
     top: -1326px;
     left: -2199px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1290px;
         left: -2171px;
     }
@@ -226,7 +226,7 @@ li.STP {
 &[data-station=HOL] {
     top: -1372px;
     left: -2085px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1398px;
         left: -2101px;
     }
@@ -247,7 +247,7 @@ li.roundel.HOL {
 &[data-station=TCR] {
     top: -1367px;
     left: -1915px;
-    @media (min-width: 800px) {
+    @media (min-width: 500px) {
         top: -1396px;
         left: -1930px;
     }
@@ -261,7 +261,7 @@ li.TCR a.below {
 li.TCR.active a.below {
     left: -56px;
     top: 21px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         left: -57px;
         top: 24px;
     }
@@ -276,7 +276,7 @@ li.TCR a.below::after {
 &[data-station=OXC] {
     top: -1325px;
     left: -1775px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1285px;
         left: -1747px;
     }
@@ -285,7 +285,7 @@ li.TCR a.below::after {
 &[data-station=BDS] {
     top: -1326px;
     left: -1646px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1285px;
         left: -1619px;
     }
@@ -296,7 +296,7 @@ li.BDS a.above  {
 }
 
 li.BDS.active a.above  {
-    @media (max-width: 800px) {
+    @media (max-width: break1) {
         left: 0;
     }
 }
@@ -305,7 +305,7 @@ li.BDS.active a.above  {
 &[data-station=MAR] {
     top: -1363px;
     left: -1570px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1397px;
         left: -1585px;
     }
@@ -314,7 +314,7 @@ li.BDS.active a.above  {
 &[data-station=LAN] {
     top: -1326px;
     left: -1491px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1290px;
         left: -1463px;
     }
@@ -323,7 +323,7 @@ li.BDS.active a.above  {
 &[data-station=QWY] {
     top: -1362px;
     left: -1423px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1398px;
         left: -1437px;
     }
@@ -333,7 +333,7 @@ li.BDS.active a.above  {
 &[data-station=NHG] {
     top: -1326px;
     left: -1307px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1285px;
         left: -1277px;
     }
@@ -345,7 +345,7 @@ li#cen016.NHG a {
 
 li#cen016.NHG.active a {
     left: 0;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         left: -46px;
     }
 }
@@ -353,7 +353,7 @@ li#cen016.NHG.active a {
 &[data-station=HPK] {
     top: -1362px;
     left: -1233px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1397px;
         left: -1248px;
     }
@@ -362,7 +362,7 @@ li#cen016.NHG.active a {
 &[data-station=SBC] {
     top: -1325px;
     left: -1134px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1285px;
         left: -1106px;
 
@@ -373,7 +373,7 @@ li#cen016.NHG.active a {
 &[data-station=WCT] {
     top: -1325px;
     left: -985px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1285px;
         left: -957px;
     }
@@ -385,7 +385,7 @@ li.roundel.WCT a {
 
 li.roundel.WCT.active a {
     left: 0;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         left: -44px;
     }
 }
@@ -393,7 +393,7 @@ li.roundel.WCT.active a {
 &[data-station=EAC] {
     top: -1326px;
     left: -897px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1289px;
         left: -869px;
     }
@@ -403,7 +403,7 @@ li.roundel.WCT.active a {
 &[data-station=NAC] {
     top: -1363px;
     left: -854px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1397px;
         left: -869px;
     }
@@ -412,7 +412,7 @@ li.roundel.WCT.active a {
 &[data-station=WAC] {
     top: -1398px;
     left: -684px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1396px;
         left: -699px;
     }
@@ -421,7 +421,7 @@ li.roundel.WCT.active a {
 &[data-station=EBY] {
     top: -1357px;
     left: -318px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1367px;
         left: -96px;
     }
@@ -436,7 +436,7 @@ li.roundel.active.EBY a{
 &[data-station=HLN] {
     top: -1111px;
     left: -395px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1107px;
         left: -236px;
     }
@@ -456,7 +456,7 @@ li.HLN, li.PER {
     &.active a {
         top: -47px !important;
         right: 10px !important;
-        @media (min-width: 800px) {
+        @media (min-width: break1) {
             top: -60px !important;
             right: 20px !important;
         }
@@ -466,7 +466,7 @@ li.HLN, li.PER {
 &[data-station=PER] {
     top: -1024px;
     left: -344px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -1020px;
         left: -249px;
     }
@@ -475,7 +475,7 @@ li.HLN, li.PER {
 &[data-station=GFD] {
     top: -926px;
     left: -235px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -924px;
         left: -95px;
     }
@@ -494,7 +494,7 @@ li.GFD {
     &.active a {
         top: -44px !important;
         right: 19px !important;
-        @media (min-width: 800px) {
+        @media (min-width: break1) {
             top: -61px !important;
             right: 36px !important;
         }
@@ -504,7 +504,7 @@ li.GFD {
 &[data-station=NHT] {
     top: -762px;
     left: -223px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -759px;
         left: -110px;
     }
@@ -513,7 +513,7 @@ li.GFD {
 &[data-station=SRP] {
     top: -650px;
     left: -178px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -645px;
         left: -4px;
     }
@@ -528,7 +528,7 @@ li.active.roundel.SRP a {
 &[data-station=RUG] {
     top: -540px;
     left: -164px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -537px;
         left: 51px;
     }
@@ -537,7 +537,7 @@ li.active.roundel.SRP a {
 &[data-station=WRP] {
     top: -321px;
     left: -180px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -315px;
         left: -13px;
     }
@@ -546,7 +546,7 @@ li.active.roundel.SRP a {
 li.active.roundel.WRP a {
     right: 10px;
     top: -16px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -25px;
     }
 }
@@ -555,7 +555,7 @@ li.active.roundel.WRP a {
     top: -260px;
     left: -3429px;
 
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -253px;
         left: -3403px;
 
@@ -565,7 +565,7 @@ li.active.roundel.WRP a {
         &.active.roundel a.above{
             top: -63px;
             left: 5px;
-            @media (min-width: 800px) {
+            @media (min-width: break1) {
                 top: -99px;
                 left: -40px;
             }
@@ -582,7 +582,7 @@ li.active.roundel.WRP a {
 &[data-station=CHG] {
     top: -332px;
     left: -3509px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -366px;
         left: -3523px;
     }
@@ -591,7 +591,7 @@ li.active.roundel.WRP a {
 &[data-station=GRH] {
     top: -262px;
     left: -3553px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -259px;
         left: -3525px;
     }
@@ -600,7 +600,7 @@ li.active.roundel.WRP a {
 &[data-station=HAI] {
     top: -375px;
     left: -3544px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -373px;
         left: -3435px;
     }
@@ -609,7 +609,7 @@ li.active.roundel.WRP a {
 &[data-station=FLP] {
     top: -430px;
     left: -3558px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -427px;
         left: -3474px;
     }
@@ -618,7 +618,7 @@ li.active.roundel.WRP a {
 &[data-station=BDE] {
     top: -483px;
     left: -3522px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -480px;
         left: -3374px;
     }
@@ -627,7 +627,7 @@ li.active.roundel.WRP a {
 &[data-station=NEP] {
     top: -537px;
     left: -3502px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -534px;
         left: -3313px;
     }
@@ -636,7 +636,7 @@ li.active.roundel.WRP a {
 &[data-station=GHL] {
     top: -622px;
     left: -3577px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -657px;
         left: -3591px;
     }
@@ -646,7 +646,7 @@ li.active.roundel.WRP a {
 
     top: -554px;
     left: -3501px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -550px;
         left: -3473px;
     }
@@ -655,7 +655,7 @@ li.active.roundel.WRP a {
 &[data-station=WAN] {
     top: -622px;
     left: -3446px;
-    @media (min-width: 800px) {
+    @media (min-width: break1) {
         top: -657px;
         left: -3460px;
     }

@@ -27,6 +27,7 @@ function listChange($el, bus, data) {
         $el.find('li[data-id='+data.item + ']').css('background-color', 'red');
         setTimeout(function($el) {
             $el.remove();
+            bus.trigger('resize');
 
         }.bind(null, $el.find('li[data-id='+data.item + ']')), 1000);
     } else if(data.newValue) { // new item added.
@@ -36,5 +37,6 @@ function listChange($el, bus, data) {
             train: data.newValue
         })).css('background-color', 'green');
         $el.find('ul').append($newTrainMarkup);
+        bus.trigger('resize');
     }
 }
