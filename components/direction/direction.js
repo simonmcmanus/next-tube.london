@@ -37,11 +37,10 @@ function delNode($el, bus) {
 }
 
 function addNode($el, bus, data) {
-    console.log('train', data);
     var $newTrainMarkup = $(trainTemplate({
         train: data.newValue
     })).css('background-color', 'green');
-    $el.find('ul').append($newTrainMarkup);
+    $el.find('li').eq(data.position).before($newTrainMarkup)
     bus.trigger('resize');
 }
 
