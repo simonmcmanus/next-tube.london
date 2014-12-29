@@ -44,7 +44,7 @@ function render(data, $el, bus) {
     console.log('newData', data);
     var $newMarkup = $(templateTrains({
         station: data
-    }))
+    }));
     $el.find('div.listing').html($newMarkup);
 //    $el.empty();
     directionInit(data.code, $el, bus);
