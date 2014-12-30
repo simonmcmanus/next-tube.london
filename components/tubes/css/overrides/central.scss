@@ -1,5 +1,13 @@
 $break1: 800px;
 
+
+&[data-station=HOME] {
+    transform: scale(.2);
+    top: -72em;
+    left: -111em;
+}
+
+
 &[data-station=EPP] {
     top: -42px;
     left: -3301px;

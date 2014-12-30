@@ -4,8 +4,8 @@ head
     meta(name="viewport", content="width=device-width, initial-scale=1")
 
 body
-    include ../components/floater/floater.jade
-    include ../components/tubes/tubes.jade
+    #page
+        block content
     script(src='/libs/jquery.js')
     script(src='/socket.io/socket.io.js')
     script(src='/pages/js/bundle.js')

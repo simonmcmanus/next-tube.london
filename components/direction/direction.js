@@ -27,20 +27,25 @@ function delNode($el, bus) {
      */
     $el.css('height', $el.outerHeight());
     setTimeout(function() {
-        $el.addClass('deleted');
+        $el.addClass('colapsed');
     }, 0);
     // should listen for transition end event.
     setTimeout(function() {
         $el.remove();
         bus.trigger('resize');
-    }, 4000);
+    }, 2000);
 }
 
 function addNode($el, bus, data) {
+    debugger
     var $newTrainMarkup = $(trainTemplate({
         train: data.newValue
-    })).css('background-color', 'green');
-    $el.find('li').eq(data.position).before($newTrainMarkup)
+    })).addClass('added colapsed');
+    $el.find('li').eq(data.position).before($newTrainMarkup);
+    $newTrainMarkup.removeClass('colapsed');
+    setTimeout(function() {
+        $newTrainMarkup.removeClass('added');
+    }, 5000);
     bus.trigger('resize');
 }
 
@@ -49,7 +54,6 @@ function listChange($el, bus, data) {
         var $li = $el.find('li[data-id='+data.item + ']');
         delNode($li, bus);
     } else if(data.change === 'new item added to list') { // new item added.
-        // item added to list
         addNode($el, bus, data);
     }
 }

@@ -3,16 +3,16 @@
 var trainTemplate = require('./train.jade');
 
 exports.init = function(stationCode, direction, position, $el, bus) {
-    console.log('init', stationCode, direction, position);
     bus.on(stationCode + '.trains.' + direction + '[' + position + ']', function(change) {
+        var $node;
         switch(change.property) {
             case 'location' :
-                $el.find('.detail').css('background-color', 'yellow');
-                $el.find('.detail').html(change.newValue);
+                $node = $el.find('.detail');
+                $node.html(change.newValue);
                 break;
             case  'dueIn' :
-                $el.find('.due').css('background-color', 'blue');
-                $el.find('.due').html(change.newValue);
+                $node = $el.find('.due');
+                $node.html(change.newValue);
                 break;
         }
     });

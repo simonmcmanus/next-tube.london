@@ -39,7 +39,11 @@ function fetchAllWidgetData(callback) {
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    res.send('hi');
+    res.render('../pages/home/home.jade', {
+        tubes: {
+            currentStationCode: 'HOME'
+        }
+    });
 });
 
 var getStationData = function(stationCode, callback) {
@@ -83,7 +87,7 @@ app.get('/central/:station', function (req, res) {
         } else {
 
             console.log('serve reqest', newOut.station, start - +new Date(), newOut);
-            res.render('layout.jade', newOut);
+            res.render('../pages/station/station.jade', newOut);
         }
     });
 });

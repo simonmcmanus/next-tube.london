@@ -42,7 +42,14 @@
             transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
             transition-delay   :0;
             transition-timing-function: ease-out;
+
+            // force gpu.
             transform: translate3d(0,0,0);
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000;
+
+
             color: #4A70CB;
             cursor: hand;
             font-weight: bold;
