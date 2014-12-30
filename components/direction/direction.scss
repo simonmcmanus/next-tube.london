@@ -1,0 +1,21 @@
+
+.trains {
+    .train {
+        opacity: 1;
+        transition-property: height, opacity, margin, padding;
+        transition-duration: 1s    , 1s     , 1s,     1s     ;
+        transition-delay   : 1s    , 0s     , 1s,     1s     ;
+
+//        transition: all 3s;
+        &.colapsed {
+            height: 0 !important;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+        }
+        &.added {
+            background-color: green;
+        }
+    }
+}
+
