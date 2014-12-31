@@ -15,31 +15,26 @@
 var _ = require('underscore');
 
 var  active = exports.active = {
-    stations: ['WFD'],
-    sessions: {
-        'WFD': {}
-    }
+    stations: [],
+    sessions: {}
 };
 
 // remove the station from the keys,
 var deleteStation = function (stationId) {
-    // always check woodford so we have something upto date for first page load.
-    if (stationId !== 'WFD') {
-        active.stations = _.without(active.stations, stationId);
-    }
+    active.stations = _.without(active.stations, stationId);
 };
 
 // does station have any active sessions listening.
-var isStationEmpty = function (sessionId, station) {
+var isStationEmpty = function (station) {
     if (!active.sessions[station]) { // if we dont know about the station
         return true;
     }
-    return (active.sessions[station] === {});
+    return _.isEmpty(active.sessions[station]);
 };
 
 // stops polling the api for this station.
 var cleanupStation = function (sessionId, station) {
-    if (isStationEmpty(sessionId, station)) {
+    if (isStationEmpty(station)) {
         deleteStation(station);
     }
 };

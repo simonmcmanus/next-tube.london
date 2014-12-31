@@ -48,11 +48,9 @@ app.get('/', function (req, res) {
 
 var getStationData = function(stationCode, callback) {
     if (cache.nextTrain.stations[stationCode]) {
-        console.log(stationCode, 'fromCache')
         callback(null, cache.nextTrain.stations[stationCode]);
     } else {
         nextTrain.get(stationCode, function(e, d) {
-            console.log(stationCode, 'fromLive', d)
             cache.nextTrain.stations[stationCode] = d;
             callback(e, d);
         });
@@ -70,8 +68,6 @@ app.get('/central/:station', function (req, res) {
     }
 
     getStationData(stationCode, function (err, data) {
-
-        console.log('d', data);
         var newOut = {
             station: data,
             stationCodes: cache.nextTrain.stationCodes,
@@ -82,11 +78,8 @@ app.get('/central/:station', function (req, res) {
         };
 
         if (req.headers.accept === 'application/json' || req.query.data === 'true') {
-            data.nextTrain
             res.json(data);
         } else {
-
-            console.log('serve reqest', newOut.station, start - +new Date(), newOut);
             res.render('../pages/station/station.jade', newOut);
         }
     });

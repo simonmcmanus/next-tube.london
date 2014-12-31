@@ -24,7 +24,6 @@ function init($el, bus) {
 }
 
 function directionInit(newStation, $el, bus) {
-    console.log('direction init', $el.find('[data-direction]'));
     $el.find('[data-direction]').each(function() {
         direction.init(newStation, this.dataset.direction, $(this), bus);
     });
@@ -33,15 +32,12 @@ function directionInit(newStation, $el, bus) {
 window.onresize = function() {
     bus.trigger('resize');
 }
-// whats passing $el here?
-//  its different the second time in directionsInit
+
 function render(data, $el, bus) {
     var $select = $el.find('select');
     $select.attr('data-currently-listening', data.code);
     $select.val(data.code);
     $el.find('.error').empty();
-    //debugger;
-    console.log('newData', data);
     var $newMarkup = $(templateTrains({
         station: data
     }));
@@ -66,6 +62,8 @@ function getStationData(station, $el, bus) {
         success: function(data) {
             bus.trigger('nextTrain:gotStationData', data);
             bus.trigger('error:hide');
+
+            // todo: remove timeout.
             setTimeout(function() {
                 bus.trigger('loader:hide');
             }, 500);

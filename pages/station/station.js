@@ -49,21 +49,15 @@ function listen(station, socket) {
         changes.forEach(function(change) {
 
             if(change.parent) {
-                console.log('trigger:-->', change.parent);
-                //console.log('trigger', change.parent, change);
-                // chagne is not goin through
+                console.info('trigger:-->', change.parent);
                 bus.trigger(change.parent, change);
             }
         });
-        // changes.forEach(function(change) {
-        //     if (change.change === 'value changed' ) {
-        //         bus.emit();
-        //     }
-        // });
     });
 };
 
 var stopListening = function(socket) {
+    console.log('stop listening', activeStation);
     socket.emit('station:listen:stop', activeStation);
     socket.off('station:' + activeStation);
     activeStation = null;

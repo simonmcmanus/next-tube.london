@@ -37,7 +37,7 @@ function delNode($el, bus) {
 }
 
 function addNode($el, bus, data) {
-    debugger
+    //debugger;
     var $newTrainMarkup = $(trainTemplate({
         train: data.newValue
     })).addClass('added colapsed');
@@ -53,7 +53,7 @@ function listChange($el, bus, data) {
     if(data.change === 'item removed from list') {
         var $li = $el.find('li[data-id='+data.item + ']');
         delNode($li, bus);
-    } else if(data.change === 'new item added to list') { // new item added.
+    } else if(data.change === 'new item added to list') {
         addNode($el, bus, data);
     }
 }
