@@ -37,7 +37,6 @@ function delNode($el, bus) {
 }
 
 function addNode($el, bus, data) {
-    
     var $newTrainMarkup = $(trainTemplate({
         train: data.newValue
     })).addClass('added add');
@@ -45,13 +44,11 @@ function addNode($el, bus, data) {
     $el.find('li').eq(data.position).before($newTrainMarkup);
     setTimeout(function() {
         $newTrainMarkup.removeClass('added');
-
-        setTimeout()
         $newTrainMarkup.bind('transitionend', function() {
+            bus.trigger('resize');
             $(this).removeClass('add');
         });
     }, 0);
-    bus.trigger('resize');
 }
 
 function listChange($el, bus, data) {

@@ -2,7 +2,7 @@
 .trains {
     .train {
         opacity: 1;
-        max-height: 9em;
+        max-height: 3em;
         transition-property: height, opacity, margin, padding;
         transition-duration: 1s    , 1s     , 1s,     1s     ;
         transition-delay   : 1s    , 0s     , 1s,     1s     ;
