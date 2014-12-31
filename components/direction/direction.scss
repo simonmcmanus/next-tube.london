@@ -2,6 +2,7 @@
 .trains {
     .train {
         opacity: 1;
+        max-height: 9em;
         transition-property: height, opacity, margin, padding;
         transition-duration: 1s    , 1s     , 1s,     1s     ;
         transition-delay   : 1s    , 0s     , 1s,     1s     ;
@@ -13,8 +14,18 @@
             margin: 0;
             padding: 0;
         }
-        &.added {
-            background-color: green;
+        &.add {
+            transition-property: max-height, opacity, margin, padding;
+            transition-duration: 1s        , 1s     , 1s    , 1s     ;
+            transition-delay   : 0s        , 1s     , 0s    , 0s     ;
+            &.added {
+                background-color: green;
+                max-height: 0;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                opacity: 0;
+            }
         }
     }
 }

@@ -37,15 +37,20 @@ function delNode($el, bus) {
 }
 
 function addNode($el, bus, data) {
-    //debugger;
+    
     var $newTrainMarkup = $(trainTemplate({
         train: data.newValue
-    })).addClass('added colapsed');
+    })).addClass('added add');
+
     $el.find('li').eq(data.position).before($newTrainMarkup);
-    $newTrainMarkup.removeClass('colapsed');
     setTimeout(function() {
         $newTrainMarkup.removeClass('added');
-    }, 5000);
+
+        setTimeout()
+        $newTrainMarkup.bind('transitionend', function() {
+            $(this).removeClass('add');
+        });
+    }, 0);
     bus.trigger('resize');
 }
 

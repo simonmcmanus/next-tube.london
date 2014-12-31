@@ -4,7 +4,9 @@
 // internal browser events bus.
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
 
-var activeStation = null;
+// only here for debugging.
+// todo: remove from window.
+window.activeStation = null;
 // router
 var page = require('../../public/libs/page.js');
 var urlCodes = require('../../fetchers/next-train/url-codes.json');
