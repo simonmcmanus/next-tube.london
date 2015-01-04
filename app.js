@@ -131,11 +131,6 @@ setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
         for (var station in ds.nextTrain.stations) {
             var changes = changePath(station,  cache.nextTrain.stations[station], ds.nextTrain.stations[station]);
-            if(cache.nextTrain.stations[station].trains.Westbound) {
-                console.log('OD:', cache.nextTrain.stations[station].trains.Westbound.map(function(c){return c.id;} ));
-                
-            }
-            console.log('ND:', ds.nextTrain.stations[station].trains.Westbound.map(function(c){return c.id;} ));
             io.emit('station:' + station + ':change', changes);
         }
 

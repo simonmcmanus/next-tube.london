@@ -3,6 +3,7 @@
 var trainTemplate = require('./train.jade');
 
 exports.init = function(stationCode, direction, position, $el, bus) {
+    console.log('train init', stationCode + '.trains.' + direction + '[' + position + ']');
     bus.on(stationCode + '.trains.' + direction + '[' + position + ']', function(change) {
         var $node;
         switch(change.property) {

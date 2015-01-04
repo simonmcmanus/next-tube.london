@@ -8,9 +8,14 @@ var train = require('../train/train');
 
 var trainTemplate = require('../train/train.jade');
 
+var stationCode = null;
+var direction = null;
+
 
 exports.init = function(stationCode, direction, $el, bus) {
     initChildren($el, stationCode, direction, bus);
+    stationCode = stationCode;
+    direction = direction;
     bus.on(stationCode + '.trains.' + direction, listChange.bind(null, $el, bus));
 };
 
@@ -42,6 +47,10 @@ function addNode($el, bus, data) {
     })).addClass('added add');
     // todo - check the li exists before beforeig it? but should that be necessary?
     $el.find('li').eq(data.position).before($newTrainMarkup);
+
+    train.init(stationCode, direction, data.newPosition, $newTrainMarkup, bus);
+
+
     setTimeout(function() {
         $newTrainMarkup.removeClass('added');
         $newTrainMarkup.bind('transitionend', function() {
