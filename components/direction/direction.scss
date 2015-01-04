@@ -1,11 +1,16 @@
 
 .trains {
+
+    .holder {
+        height: 0;
+        transition: all 1s;
+    }
     .train {
         opacity: 1;
         max-height: 3em;
-        transition-property: height, opacity, margin, padding;
-        transition-duration: 1s    , 1s     , 1s,     1s     ;
-        transition-delay   : 1s    , 0s     , 1s,     1s     ;
+        transition-property: height, opacity, margin, padding, top;
+        transition-duration: 1s    , 1s     , 1s,     1s     , 1s;
+        transition-delay   : 1s    , 0s     , 1s,     1s     , 0;
 
 //        transition: all 3s;
         &.colapsed {

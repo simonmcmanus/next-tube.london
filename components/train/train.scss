@@ -1,4 +1,21 @@
 .direction ul.trains .train .changed{
-    background: yellow;
+    //background: yellow;
 }
 
+
+.changed {
+    text-shadow: -1px 1px 20px yellow, 1px -1px 20px #fff;
+}
+
+.due,
+.detail {
+    transition: all 1s linear 0s;
+}
+
+.due.changed {
+    color: yellow;
+}
+
+html body .direction ul.trains li.train span.detail.changed {
+    background-color: yellow !important;
+}

@@ -9,10 +9,18 @@ exports.init = function(stationCode, direction, position, $el, bus) {
             case 'location' :
                 $node = $el.find('.detail');
                 $node.html(change.newValue);
+                $node.addClass('changed');
+                setTimeout(function() {
+                    $node.removeClass('changed');
+                }, 2000);
                 break;
             case  'dueIn' :
                 $node = $el.find('.due');
+                $node.addClass('changed');
                 $node.html(change.newValue);
+                setTimeout(function() {
+                    $node.removeClass('changed');
+                }, 2000);
                 break;
         }
     });

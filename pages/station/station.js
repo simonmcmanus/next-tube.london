@@ -52,6 +52,7 @@ function listen(station, socket) {
 
             if(change.parent) {
                 //console.info('trigger:-->', change.parent, change);
+                change.orig = changes;
                 bus.trigger(change.parent, change);
             }
         });

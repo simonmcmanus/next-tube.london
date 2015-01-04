@@ -61,7 +61,44 @@ function listChange($el, bus, data) {
             addNode($el, bus, data);
         break;
         case 'ITEM_MOVE':
-        debugger;
+        var $nextNewEl = $el.find('.train').eq( data.newPosition + 1 );
+        var $item  = $el.find('.train').eq(data.originalPosition);
+        var itemHeight = $item.outerHeight();
+        var $holderOld = $('<div class="holder">').css({
+            height: $item.outerHeight()
+        })
+
+        $holderOld.insertAfter($item);
+
+        $item.css({
+            position: 'absolute',
+            top: $holderOld.position().top - itemHeight,
+            left: $holderOld.position().left,
+        });
+
+        $holderOld.height(0);
+
+        var $holderNew = $('<div class="holder">');
+        $holderNew.insertBefore($nextNewEl);
+
+        $holderNew.css({
+            height: $item.outerHeight()
+        })
+        $item.insertBefore($nextNewEl);
+        $item.css({
+            top: $holderNew.position().top - itemHeight,
+            left: $holderNew.position().left,
+        });
+        setTimeout(function() {
+            $holderNew.remove();
+            $holderOld.remove();
+            $item.css({
+                position: 'relative',
+                top: 'auto',
+                left: 'auto'
+            });
+        }, 1000);
+
         console.log('mover', data)
         break;
 
