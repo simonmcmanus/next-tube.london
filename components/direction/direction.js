@@ -40,7 +40,7 @@ function addNode($el, bus, data) {
     var $newTrainMarkup = $(trainTemplate({
         train: data.newValue
     })).addClass('added add');
-
+    // todo - check the li exists before beforeig it? but should that be necessary?
     $el.find('li').eq(data.position).before($newTrainMarkup);
     setTimeout(function() {
         $newTrainMarkup.removeClass('added');
@@ -52,10 +52,19 @@ function addNode($el, bus, data) {
 }
 
 function listChange($el, bus, data) {
-    if(data.change === 'item removed from list') {
-        var $li = $el.find('li[data-id='+data.item + ']');
-        delNode($li, bus);
-    } else if(data.change === 'new item added to list') {
-        addNode($el, bus, data);
+    switch(data.code) {
+        case 'ITEM_DELETE':
+            var $li = $el.find('li[data-id=' + data.item + ']');
+            delNode($li, bus);
+        break;
+        case 'ITEM_CREATE':
+            addNode($el, bus, data);
+        break;
+        case 'ITEM_MOVE':
+        debugger;
+        console.log('mover', data)
+        break;
+
+
     }
 }

@@ -51,7 +51,7 @@ function listen(station, socket) {
         changes.forEach(function(change) {
 
             if(change.parent) {
-                console.info('trigger:-->', change.parent);
+                //console.info('trigger:-->', change.parent, change);
                 bus.trigger(change.parent, change);
             }
         });

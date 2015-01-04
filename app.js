@@ -85,6 +85,32 @@ app.get('/central/:station', function (req, res) {
     });
 });
 
+app.get('/central/:station/2', function (req, res) {
+    var start = +new Date();
+    var stationCode = urlCodes[req.params.station];
+
+    if (!stationCode) {
+        return res.send(404);
+    }
+
+    getStationData(stationCode, function (err, data) {
+        var newOut = {
+            station: data,
+            stationCodes: cache.nextTrain.stationCodes,
+            tubes: {
+                stations: stations,
+                currentStationCode: stationCode
+            }
+        };
+
+        res.json(data.trains.Westbound.map(function(a) {
+            return {
+                id: a.id
+            }
+        }));
+    });
+});
+
 var server = http.createServer(app);
 var port =  process.env.PORT || 4000;
 
