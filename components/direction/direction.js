@@ -70,7 +70,7 @@ function listChange($el, bus, data) {
             addNode($el, bus, data);
         break;
         case 'ITEM_MOVE':
-        var $nextNewEl = $el.find('.train').eq( data.newPosition + 1 );
+        var $nextNewEl = $el.find('.train').eq( data.newPosition  );
         var $item  = $el.find('.train').eq(data.originalPosition);
         var itemHeight = $item.outerHeight();
         var $holderOld = $('<div class="holder">').css({
@@ -88,12 +88,15 @@ function listChange($el, bus, data) {
         $holderOld.height(0);
 
         var $holderNew = $('<div class="holder">');
-        $holderNew.insertBefore($nextNewEl);
+        $holderNew.insertAfter($nextNewEl);
 
         $holderNew.css({
             height: $item.outerHeight()
         })
-        $item.insertBefore($nextNewEl);
+        if($nextNewEl.length < 1) {
+            alert('not found');
+        }
+        $item.insertAfter($nextNewEl);
         $item.css({
             top: $holderNew.position().top - itemHeight,
             left: $holderNew.position().left,
@@ -108,9 +111,7 @@ function listChange($el, bus, data) {
             });
         }, 1000);
 
-        console.log('mover', data)
+        console.log('mover', data);
         break;
-
-
     }
 }
