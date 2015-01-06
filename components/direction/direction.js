@@ -61,8 +61,13 @@ function addNode($el, bus, data) {
 }
 
 function mover($el, bus, data) {
+    var up = (data.originalPosition > data.newPosition);
+    
     var $nextNewEl = $el.find('.train').eq( data.newPosition  );
-    var $item  = $el.find('.train').eq(data.originalPosition);
+
+
+
+    var $item  = $el.find('.train').eq(data.originalPosition );
     var itemHeight = $item.outerHeight();
     var $holderOld = $('<div class="holder">').css({
         height: $item.outerHeight()
@@ -79,19 +84,35 @@ function mover($el, bus, data) {
     $holderOld.height(0);
 
     var $holderNew = $('<div class="holder">');
-    $holderNew.insertAfter($nextNewEl);
+
+
+    if(up) {
+        $holderNew.insertBefore($nextNewEl);
+    } else {
+        $holderNew.insertAfter($nextNewEl);
+    }
 
     $holderNew.css({
+        background: 'red',
         height: $item.outerHeight()
     })
     if($nextNewEl.length < 1) {
         alert('not found');
     }
 
-    $item.insertAfter($nextNewEl);
+    var newTop;
+    if(up) {
+        console.log('goin up')
+        $item.insertBefore($nextNewEl);
+        newTop = $holderNew.position().top ;
+    }else {
+        console.log('goin down')
+        $item.insertAfter($nextNewEl);
+        newTop = $holderNew.position().top - itemHeight;;
+    }
 
     $item.css({
-        top: $holderNew.position().top - itemHeight,
+        top: newTop,
         left: $holderNew.position().left,
     });
 
@@ -106,7 +127,6 @@ function mover($el, bus, data) {
         });
     }, 1000);
 
-    console.log('mover', data);
 }
 
 function listChange($el, bus, data) {
