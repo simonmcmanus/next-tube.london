@@ -2,6 +2,8 @@ li.train(data-id=train.id)
     .due-container
         span.due=train.dueIn
     //a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())
-    span.destination=train.destination + ' - ' + train.id
+    //span.destination=train.destination + ' - ' + train.id
+    span.destination=train.destination
+    //span.platform=train.platform
     br
     span.detail=train.location

@@ -1,21 +1,27 @@
-.direction ul.trains .train .changed{
-    //background: yellow;
-}
-
+$glow:#809BD3;
 
 .changed {
-    text-shadow: -1px 1px 20px yellow, 1px -1px 20px #fff;
+    text-shadow: -1px 1px 20px $glow, 1px -1px 20px #fff;
 }
 
 .due,
 .detail {
-    transition: all 1s linear 0s;
+    transition: all .5s linear 0s;
 }
 
-.due.changed {
-    color: yellow;
+.direction ul.trains .due-container .due.changed {
+    color: #EFEFEF;
 }
 
 html body .direction ul.trains li.train span.detail.changed {
-    background-color: yellow !important;
+    //background-color: $glow !important;
+}
+
+.platform {
+    font-size: 0.4em;
+}
+
+
+.detail.changed {
+    opacity: 0;
 }

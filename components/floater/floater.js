@@ -1,10 +1,27 @@
 'use strict';
 
 function hideLoader($el) {
-    $el.removeClass('loading');
+    var loadedTime = $el.data('loadTime');
+    var now = +new Date();
+
+    now - loadedTime;
+    var timeSoFar = now - loadedTime;
+    var minTime = 1000;
+
+    if(timeSoFar < minTime) {
+
+        var wait = minTime - timeSoFar;
+        setTimeout(function() {
+            $el.removeClass('loading');
+        }, wait);
+    }else {
+        $el.removeClass('loading');
+    }
 }
 
 function showLoader($el) {
+    var loaderStartTime = +new Date();
+    $el.data('loadTime', loaderStartTime)
     $el.addClass('loading');
 }
 

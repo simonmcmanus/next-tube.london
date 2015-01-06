@@ -8,6 +8,7 @@
     .train {
         opacity: 1;
         max-height: 3em;
+        min-width: 18em;
         transition-property: height, opacity, margin, padding, top;
         transition-duration: 1s    , 1s     , 1s,     1s     , 1s;
         transition-delay   : 1s    , 0s     , 1s,     1s     , 0;
