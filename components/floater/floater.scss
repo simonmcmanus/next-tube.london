@@ -14,7 +14,7 @@
   position: relative;
 
   transition-property: height, width, border, background-color;
-  transition-duration: 1s    , 1s   , 1s    , 1s;
+  transition-duration: .5s    , 1s   , 1s    , 1s;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
   &.error {
       .container {

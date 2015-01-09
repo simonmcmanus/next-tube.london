@@ -25,3 +25,7 @@ html body .direction ul.trains li.train span.detail.changed {
 .detail.changed {
     opacity: 0;
 }
+
+.train.moving {
+    background: yellow;
+}

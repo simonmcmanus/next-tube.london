@@ -12,20 +12,71 @@ var stationCode = null;
 var direction = null;
 
 
-exports.init = function(stationCode, direction, $el, bus) {
-    initChildren($el, stationCode, direction, bus);
-    stationCode = stationCode;
-    direction = direction;
-    bus.on(stationCode + '.trains.' + direction, listChange.bind(null, $el, bus));
+var direction = module.exports = function(stationCode, direction, $el, bus) {
+    this.stationCode = stationCode;
+    this.direction = direction;
+    this.trains = {};
+    this.$el = $el;
+    this.bus = bus;
+    this.initChildren();
+    bus.on(stationCode + '.trains.' + direction, this.listChange);
 };
 
-function initChildren($el, stationCode, direction, bus) {
-    $el.find('li.train[data-id]').each(function(index) {
-        train.init(stationCode, direction, index, $(this), bus);
-    });
-}
 
-function delNode($el, bus) {
+
+direction.prototype.initChildren = function() {
+    var self = this;
+    self.$el.find('li.train[data-id]').each(function() {
+        var trainId = $(this).data('id');
+        var newTrain = train(self.stationCode, self.direction, trainId, $(this), self.bus);
+        self.trains[trainId] = newTrain;
+    });
+};
+
+
+direction.prototype.destroy = function() {
+    var trains = this.trains;
+    Object.keys(trains).forEach(function(train) {
+        console.log('calling destroy on train', train);
+        trains[train].destroy();
+        delete trains[train];
+    });
+};
+
+direction.prototype.addNode = function(data) {
+    var $newTrainMarkup = $(trainTemplate({
+        train: data.newValue
+    })).addClass('added add');
+    // todo - check the li exists before beforeig it? but should that be necessary?
+
+
+    var $putAfter = $el.find('li').eq(data.position);
+
+    if(this.$el.find('li').eq(data.position).length < 1) {
+        $putAfter = this.$el.find('li:last');
+        console.log('got a  laster');
+    }
+
+    $putAfter.after($newTrainMarkup) ;
+
+
+    var newTrain = new train.init(this.stationCode, this.direction, data.item, $newTrainMarkup, this.bus);
+    this.trains[data.item] = newTrain;
+    var self = this;
+    setTimeout(function() {
+        $newTrainMarkup.removeClass('added');
+        $newTrainMarkup.bind('transitionend', function() {
+            self.bus.trigger('resize');
+            $(this).removeClass('add');
+        });
+    }, 0);
+};
+
+
+
+direction.prototype.delNode = function(id) {
+    var self = this;
+    var $el = self.$el.find('li[data-id=' + id + ']');
     /**
      * As css transistions dont work with height
      * auto we set the height explicitly.
@@ -37,41 +88,22 @@ function delNode($el, bus) {
     // should listen for transition end event.
     setTimeout(function() {
         $el.remove();
-        bus.trigger('resize');
+        self.bus.trigger('resize');
     }, 2000);
-}
-
-function addNode($el, bus, data) {
-    var $newTrainMarkup = $(trainTemplate({
-        train: data.newValue
-    })).addClass('added add');
-    // todo - check the li exists before beforeig it? but should that be necessary?
-    $el.find('li').eq(data.position).before($newTrainMarkup);
-
-    train.init(stationCode, direction, data.newPosition, $newTrainMarkup, bus);
+};
 
 
-    setTimeout(function() {
-        $newTrainMarkup.removeClass('added');
-        $newTrainMarkup.bind('transitionend', function() {
-            bus.trigger('resize');
-            $(this).removeClass('add');
-        });
-    }, 0);
-}
 
-function mover($el, bus, data) {
+direction.prototype.mover = function (data) {
     var up = (data.originalPosition > data.newPosition);
-    
-    var $nextNewEl = $el.find('.train').eq( data.newPosition  );
+    var $nextNewEl = this.$el.find('.train').eq( data.newPosition  );
 
-
-
-    var $item  = $el.find('.train').eq(data.originalPosition );
+    var $item  = this.$el.find('.train[data-id="' + data.item + '"]');
+    $item.addClass('moving');
     var itemHeight = $item.outerHeight();
     var $holderOld = $('<div class="holder">').css({
         height: $item.outerHeight()
-    })
+    });
 
     $holderOld.insertAfter($item);
 
@@ -85,7 +117,6 @@ function mover($el, bus, data) {
 
     var $holderNew = $('<div class="holder">');
 
-
     if(up) {
         $holderNew.insertBefore($nextNewEl);
     } else {
@@ -93,22 +124,19 @@ function mover($el, bus, data) {
     }
 
     $holderNew.css({
-        background: 'red',
         height: $item.outerHeight()
     })
     if($nextNewEl.length < 1) {
-        alert('not found');
+     //   alert('not found');
     }
 
     var newTop;
     if(up) {
-        console.log('goin up')
         $item.insertBefore($nextNewEl);
         newTop = $holderNew.position().top ;
     }else {
-        console.log('goin down')
         $item.insertAfter($nextNewEl);
-        newTop = $holderNew.position().top - itemHeight;;
+        newTop = $holderNew.position().top - itemHeight;
     }
 
     $item.css({
@@ -116,10 +144,12 @@ function mover($el, bus, data) {
         left: $holderNew.position().left,
     });
 
+//        debugger
 
     setTimeout(function() {
         $holderNew.remove();
         $holderOld.remove();
+        $item.removeClass('moving');
         $item.css({
             position: 'relative',
             top: 'auto',
@@ -127,19 +157,18 @@ function mover($el, bus, data) {
         });
     }, 1000);
 
-}
+};
 
-function listChange($el, bus, data) {
+direction.prototype.listChange = function(data) {
     switch(data.code) {
         case 'ITEM_DELETE':
-            var $li = $el.find('li[data-id=' + data.item + ']');
-            delNode($li, bus);
+            this.delNode(data.item);
         break;
         case 'ITEM_CREATE':
-            addNode($el, bus, data);
+            this.addNode(data);
         break;
         case 'ITEM_MOVE':
-            mover($el, bus, data);
+            this.mover(data);
         break;
     }
 }

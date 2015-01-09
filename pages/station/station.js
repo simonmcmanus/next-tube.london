@@ -16,43 +16,38 @@ var $floater = $('#floater');
 [
     {
         $el: $mapContainer,
-        events: require('../../components/tubes/tubes.js')
+        init: require('../../components/tubes/tubes.js')
     },
     {
         $el: $floater,
-        events: require('../../components/floater/floater.js')
+        init: require('../../components/floater/floater.js')
     },
     {
         $el: $floater.find('#station'),
-        events: require('../../components/station/station.js')
+        init: require('../../components/station/station.js')
     },
     {
         $el: $floater.find('select'),
-        events: require('../../components/station-switcher/station-switcher.js')
+        init: require('../../components/station-switcher/station-switcher.js')
     }
 ].forEach(function(component) {
-    component.events.init && component.events.init(component.$el, bus);
-    for (var ev in component.events) {
-        bus.on(ev, function(ev, component) {
-            // strip args added for bind and create array.
-            var mainArguments = Array.prototype.slice.call(arguments, 2);
-            // add $el and bus.
-            mainArguments.push(component.$el, bus);
-            // apply with modified arguments.
-            component.events[ev].apply(null, mainArguments);
-        }.bind(null, ev, component));
-    }
+    component.init && new component.init(component.$el, bus);
 });
+
 
 function listen(station, socket) {
     activeStation = station.code;
     socket.emit('station:listen:start', station.code);
     socket.on('station:' + station.code + ':change', function(changes) {
+
+
+var types = changes.map(function(i) {
+    return i.code;
+} )
+        console.log(types)
         changes.forEach(function(change) {
 
             if(change.parent) {
-                //console.info('trigger:-->', change.parent, change);
-                change.orig = changes;
                 bus.trigger(change.parent, change);
             }
         });

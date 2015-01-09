@@ -10,30 +10,43 @@ var templateTrains = require('../station/trains.jade');
 
 //var stationCodes = require('../../fetchers/')
 
-module.exports = {
-    'init': init,
-    'station': getStationData,
-    'nextTrain:gotStationData': render
+
+var station = module.exports = function($el, bus) {
+    console.log('station init');
+    var $select = $el.find('select');
+    this.directions = {};
+    this.bus = bus;
+    this.$el = $el;
+    this.code = $select.data('currentlyListening');
+    this.directionInit();
+    bus.on('nextTrain:gotStationData', this.render.bind(this));
+    bus.on('station', this.getStationData.bind(this));
 };
 
-function init($el, bus) {
-    var $select = $el.find('select');
-    var newStation = $select.data('currentlyListening');
-    exports.active = newStation;
-    directionInit(newStation, $el, bus);
-}
-
-function directionInit(newStation, $el, bus) {
-    $el.find('[data-direction]').each(function() {
-        direction.init(newStation, this.dataset.direction, $(this), bus);
+station.prototype.destroy = function() {
+    var directions = this.directions;
+    Object.keys(directions).forEach(function(direction) {
+        directions[direction].destroy();
     });
-}
+};
+
+
+
+station.prototype.directionInit = function() {
+    var self = this;
+    self.$el.find('[data-direction]').each(function() {
+        
+        var dir = new direction(self.code, this.dataset.direction, $(this), self.bus);
+        self.directions[this.dataset.direction] = dir;
+    });
+};
 
 window.onresize = function() {
     bus.trigger('resize');
-}
+};
 
-function render(data, $el, bus) {
+station.prototype.render = function(data) {
+    var $el = this.$el;
     var $select = $el.find('select');
     $select.attr('data-currently-listening', data.code);
     $select.val(data.code);
@@ -42,13 +55,12 @@ function render(data, $el, bus) {
         station: data
     }));
     $el.find('div.listing').html($newMarkup);
-//    $el.empty();
-    directionInit(data.code, $el, bus);
-    bus.trigger('resize');
-}
+    this.directionInit(data.code, $el, this.bus);
+    this.bus.trigger('resize');
+};
 
-function getStationData(station, $el, bus) {
-    bus.trigger('loader:show');
+station.prototype.getStationData = function(station) {
+    this.bus.trigger('loader:show');
     $.ajax({
         url: '/central/' + station.slug + '?ajax=true' ,
         headers: {

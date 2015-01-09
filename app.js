@@ -131,7 +131,9 @@ setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
         for (var station in ds.nextTrain.stations) {
             var changes = changePath(station,  cache.nextTrain.stations[station], ds.nextTrain.stations[station]);
-            io.emit('station:' + station + ':change', changes);
+            if(changes.length > 0) {
+                io.emit('station:' + station + ':change', changes);
+            }
         }
 
         cache = ds;

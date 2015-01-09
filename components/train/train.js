@@ -1,10 +1,14 @@
 // property updated
 
-var trainTemplate = require('./train.jade');
+function makeKey(stationCode, direction, id) {
+    return stationCode + '.trains.' + direction + '["' + id + '"]';
+};
 
-exports.init = function(stationCode, direction, position, $el, bus) {
-    console.log('train init', stationCode + '.trains.' + direction + '[' + position + ']');
-    bus.on(stationCode + '.trains.' + direction + '[' + position + ']', function(change) {
+var train = module.exports = function(stationCode, direction, id, $el, bus) {
+    var key = makeKey(stationCode, direction, id);
+    console.log('train init', key);
+    bus.on(key, function(change) {
+        console.log('update', key);
         var $node;
         switch(change.property) {
             case 'location' :
@@ -29,4 +33,9 @@ exports.init = function(stationCode, direction, position, $el, bus) {
                 break;
         }
     });
+};
+
+train.prototype.destroy = function($el, bus) {
+    var key = makeKey(stationCode, direction, id);
+    bus.off(stationCode + '.trains.' + direction + '["' + id + '"]');
 };
