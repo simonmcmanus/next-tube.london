@@ -6,8 +6,12 @@ function makeKey(stationCode, direction, id) {
 
 var train = module.exports = function(stationCode, direction, id, $el, bus) {
     var key = makeKey(stationCode, direction, id);
-    console.log('train init', key);
-    bus.on(key, function(change) {
+
+    this.stationCode = stationCode;
+    this.direction = direction;
+    this.id = id;
+    this.bus = bus;
+    this.bus.on(key, function(change) {
         console.log('update', key);
         var $node;
         switch(change.property) {
@@ -35,7 +39,7 @@ var train = module.exports = function(stationCode, direction, id, $el, bus) {
     });
 };
 
-train.prototype.destroy = function($el, bus) {
-    var key = makeKey(stationCode, direction, id);
-    bus.off(stationCode + '.trains.' + direction + '["' + id + '"]');
+train.prototype.destroy = function() {
+    var key = makeKey(this.stationCode, this.direction, this.id);
+    this.bus.off(key);
 };

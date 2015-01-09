@@ -19,7 +19,7 @@ var direction = module.exports = function(stationCode, direction, $el, bus) {
     this.$el = $el;
     this.bus = bus;
     this.initChildren();
-    bus.on(stationCode + '.trains.' + direction, this.listChange);
+    bus.on(stationCode + '.trains.' + direction, this.listChange.bind(this));
 };
 
 
@@ -28,7 +28,7 @@ direction.prototype.initChildren = function() {
     var self = this;
     self.$el.find('li.train[data-id]').each(function() {
         var trainId = $(this).data('id');
-        var newTrain = train(self.stationCode, self.direction, trainId, $(this), self.bus);
+        var newTrain = new train(self.stationCode, self.direction, trainId, $(this), self.bus);
         self.trains[trainId] = newTrain;
     });
 };
@@ -37,9 +37,9 @@ direction.prototype.initChildren = function() {
 direction.prototype.destroy = function() {
     var trains = this.trains;
     Object.keys(trains).forEach(function(train) {
-        console.log('calling destroy on train', train);
+//        console.log('calling destroy on train', trains, trains[train]);
         trains[train].destroy();
-        delete trains[train];
+        //delete trains[train];
     });
 };
 
@@ -50,7 +50,7 @@ direction.prototype.addNode = function(data) {
     // todo - check the li exists before beforeig it? but should that be necessary?
 
 
-    var $putAfter = $el.find('li').eq(data.position);
+    var $putAfter = this.$el.find('li').eq(data.position);
 
     if(this.$el.find('li').eq(data.position).length < 1) {
         $putAfter = this.$el.find('li:last');

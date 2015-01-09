@@ -12,7 +12,6 @@ var templateTrains = require('../station/trains.jade');
 
 
 var station = module.exports = function($el, bus) {
-    console.log('station init');
     var $select = $el.find('select');
     this.directions = {};
     this.bus = bus;
@@ -20,14 +19,17 @@ var station = module.exports = function($el, bus) {
     this.code = $select.data('currentlyListening');
     this.directionInit();
     bus.on('nextTrain:gotStationData', this.render.bind(this));
-    bus.on('station', this.getStationData.bind(this));
+    bus.on('station', this.changeStation.bind(this));
 };
 
-station.prototype.destroy = function() {
+station.prototype.changeStation = function(newStation) {
+
     var directions = this.directions;
+    this.code = newStation.code;
     Object.keys(directions).forEach(function(direction) {
         directions[direction].destroy();
     });
+    this.getStationData(newStation);
 };
 
 
@@ -35,7 +37,6 @@ station.prototype.destroy = function() {
 station.prototype.directionInit = function() {
     var self = this;
     self.$el.find('[data-direction]').each(function() {
-        
         var dir = new direction(self.code, this.dataset.direction, $(this), self.bus);
         self.directions[this.dataset.direction] = dir;
     });
@@ -60,7 +61,8 @@ station.prototype.render = function(data) {
 };
 
 station.prototype.getStationData = function(station) {
-    this.bus.trigger('loader:show');
+    var self = this;
+    self.bus.trigger('loader:show');
     $.ajax({
         url: '/central/' + station.slug + '?ajax=true' ,
         headers: {
@@ -68,16 +70,16 @@ station.prototype.getStationData = function(station) {
         },
         complete: function(xhr, status) {
             if(status === 'error') {
-                errorCallback(station.slug, $el, bus);
+                self.errorCallback(station.slug);
             }
         },
         success: function(data) {
-            bus.trigger('nextTrain:gotStationData', data);
-            bus.trigger('error:hide');
+            self.bus.trigger('nextTrain:gotStationData', data);
+            self.bus.trigger('error:hide');
 
             // todo: remove timeout.
             setTimeout(function() {
-                bus.trigger('loader:hide');
+                self.bus.trigger('loader:hide');
             }, 500);
         }
     });
