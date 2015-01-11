@@ -129,6 +129,9 @@ var io = socket.listen(server);
 // check all feeds
 setInterval(function () {
     fetchAllWidgetData(function (es, ds) {
+        if(!ds.nextTrain || !ds.nextTrain.stations) {
+            return;
+        }
         for (var station in ds.nextTrain.stations) {
             var changes = changePath(station,  cache.nextTrain.stations[station], ds.nextTrain.stations[station]);
             if(changes.length > 0) {

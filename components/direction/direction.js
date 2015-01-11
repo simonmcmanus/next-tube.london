@@ -49,7 +49,6 @@ direction.prototype.addNode = function(data) {
     })).addClass('added add');
     // todo - check the li exists before beforeig it? but should that be necessary?
 
-
     var $putAfter = this.$el.find('li').eq(data.position);
 
     if(this.$el.find('li').eq(data.position).length < 1) {
@@ -59,8 +58,7 @@ direction.prototype.addNode = function(data) {
 
     $putAfter.after($newTrainMarkup) ;
 
-
-    var newTrain = new train.init(this.stationCode, this.direction, data.item, $newTrainMarkup, this.bus);
+    var newTrain = new train(this.stationCode, this.direction, data.item, $newTrainMarkup, this.bus);
     this.trains[data.item] = newTrain;
     var self = this;
     setTimeout(function() {
@@ -96,12 +94,12 @@ direction.prototype.delNode = function(id) {
 
 direction.prototype.mover = function (data) {
     var up = (data.originalPosition > data.newPosition);
-    var $nextNewEl = this.$el.find('.train').eq( data.newPosition  );
+    var $nextNewEl = this.$el.find('.train').eq( data.newPosition );
 
     var $item  = this.$el.find('.train[data-id="' + data.item + '"]');
     $item.addClass('moving');
     var itemHeight = $item.outerHeight();
-    var $holderOld = $('<div class="holder">').css({
+    var $holderOld = $('<div class="holder sss">').css({
         height: $item.outerHeight()
     });
 
@@ -115,7 +113,7 @@ direction.prototype.mover = function (data) {
 
     $holderOld.height(0);
 
-    var $holderNew = $('<div class="holder">');
+    var $holderNew = $('<div class="holder aaa">');
 
     if(up) {
         $holderNew.insertBefore($nextNewEl);
@@ -145,7 +143,6 @@ direction.prototype.mover = function (data) {
     });
 
 //        debugger
-
     setTimeout(function() {
         $holderNew.remove();
         $holderOld.remove();

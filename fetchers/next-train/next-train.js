@@ -4,7 +4,7 @@ var async = require('async');
 var parseString = require('xml2js').parseString;
 
 var stationLister = require('./station-lister');
-
+var fix = require('./train-fixer');
 var stationCodes = require('./stations.json');
 
 exports.get = function (stationCode, callback) {
@@ -51,7 +51,12 @@ exports.get = function (stationCode, callback) {
 
             });
             Object.keys(out.trains).forEach(function(direction) {
-                out.trains[direction] = out.trains[direction].sort(function(train1, train2) {
+
+                // stip out duplicate trains. 
+            out.trains[direction] = fix(out.trains[direction], 'platform');
+
+            //console.log('direction', direction, out.trains[direction]);
+               out.trains[direction].sort(function(train1, train2) {
                     if(train1.dueIn === '-'  ) {
                         return -1;
                     }
