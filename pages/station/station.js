@@ -37,11 +37,12 @@ var $floater = $('#floater');
 
 function listen(station, socket) {
     activeStation = station.code;
-
+    console.log('listen', 'station:' + station.code );
     socket.on('station:' + station.code , function(changes) {
-        console.log('got changes to changes', station.code)
+        console.log('got changes to changes', changes)
         changes.forEach(function(change) {
             if(change.parent) {
+                console.log('sending')
                 bus.trigger(change.parent, change);
             }
         });

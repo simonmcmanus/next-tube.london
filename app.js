@@ -10,23 +10,16 @@ var Models = require('./model/Models.base');
 var HOME = require('./routes/home');
 var STATION = require('./routes/station');
 
-var nextTrain = require('./fetchers/next-train/next-train');
-
-
-
 app.use(express.static('public'));
-
 
 var server = http.createServer(app);
 var port =  process.env.PORT || 4000;
-
 
 server.listen(port, function () {
     console.log('Listening on ' + port);
 });
 
 var io = socket.listen(server);
-
 
 var models = new Models({
     station: require('./model/station'),
@@ -36,12 +29,3 @@ var models = new Models({
 
 app.get('/', HOME);
 app.get('/central/:station', STATION.bind(null, models.station));
-
-
-
-
-// io.sockets.on('connection', function (socket) {
-//     Object.keys(nextTrain.events).forEach(function (ev) {
-//         socket.on(ev, nextTrain.events[ev].bind(null, socket));
-//     });
-// });

@@ -1,5 +1,6 @@
-div(data-direction=direction class='direction')
-    h3=direction
-    ul.trains
-        each train in trains
-            include ../train/train.jade
+if platform
+    div(data-direction=platformId class='direction')
+        h3=platform.name
+        ul.trains
+            each train in platform.trains
+                include ../train/train.jade

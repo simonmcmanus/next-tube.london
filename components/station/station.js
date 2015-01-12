@@ -52,6 +52,7 @@ station.prototype.render = function(data) {
     $select.attr('data-currently-listening', data.code);
     $select.val(data.code);
     $el.find('.error').empty();
+    console.log('sending:', data);
     var $newMarkup = $(templateTrains({
         station: data
     }));

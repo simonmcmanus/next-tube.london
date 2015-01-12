@@ -1,7 +1,8 @@
 - var noTrains = true;
 if station
-    each trains, direction in station.trains
-        if trains.length > 0
+    - console.log('-->', station);
+    each platform, platformId in station.platforms
+        if platform.trains.length > 0
             include ../direction/direction.jade
             - noTrains = false;
 if noTrains
