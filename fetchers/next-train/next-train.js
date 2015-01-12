@@ -57,7 +57,7 @@ exports.get = function (stationCode, callback) {
 
             //console.log('direction', direction, out.trains[direction]);
                out.trains[direction].sort(function(train1, train2) {
-                    if(train1.dueIn === '-'  ) {
+                    if(train1.dueIn === '-'  || train2.dueIn === '-') {
                         return -1;
                     }
                     return parseInt(train1.dueIn) - parseInt(train2.dueIn);

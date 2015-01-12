@@ -34,24 +34,26 @@ module.exports = function(arr, field) {
     return arr.reduceRight(function (returned, item, pos, arr) {
         var id = item.id;
 
-        if(keys[id] && keys[id].length > 0) {
-            if(typeof arr[keys[id][0]][field] === 'string') {
-                arr[keys[id][0]][field] = [arr[keys[id][0]][field]];
+        function strToArr(field) {
+            if(typeof field === 'string') {
+                return [field];
+            } else {
+                // could do an object check here.
+                return field;
             }
+        }
 
-            if(typeof arr[pos][field] === 'string') {
-                arr[pos][field] = [arr[pos][field]];
-            }
+        if(keys[id] && keys[id].length > 0) {
+            arr[keys[id][0]][field] = strToArr(arr[keys[id][0]][field]);
+            arr[pos][field] = strToArr(arr[pos][field]);
 
             if(pos !== keys[id][0]) {
                 Array.prototype.push.apply(arr[keys[id][0]][field], arr[pos][field]);
-                delete arr[pos];
+                arr.splice(pos, 1);
             }
         }
         return  arr;
-    }, []).filter(function(item) {
-        return (typeof item.id !== 'undefined');
-    });
+    }, []);
 };
 
 //reduce test

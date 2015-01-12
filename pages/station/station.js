@@ -37,26 +37,19 @@ var $floater = $('#floater');
 
 function listen(station, socket) {
     activeStation = station.code;
-    socket.emit('station:listen:start', station.code);
-    socket.on('station:' + station.code + ':change', function(changes) {
 
-
-var types = changes.map(function(i) {
-    return i.code;
-} )
-        console.log(types)
+    socket.on('station:' + station.code , function(changes) {
+        console.log('got changes to changes', station.code)
         changes.forEach(function(change) {
-
             if(change.parent) {
                 bus.trigger(change.parent, change);
             }
         });
-    });
+   });
 };
 
 var stopListening = function(socket) {
     console.log('stop listening', activeStation);
-    socket.emit('station:listen:stop', activeStation);
     socket.off('station:' + activeStation);
     activeStation = null;
 };

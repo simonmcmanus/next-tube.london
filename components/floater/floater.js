@@ -43,8 +43,8 @@ floater.prototype.showLoader = function() {
 
 floater.prototype.showError = function() {
     this.$el.addClass('error');
-    this.resize($el);
-    this.hideLoader($el);
+    this.resize(this.$el);
+    this.hideLoader(this.$el);
 }
 
 floater.prototype.hideError = function() {

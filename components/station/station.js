@@ -55,9 +55,13 @@ station.prototype.render = function(data) {
     var $newMarkup = $(templateTrains({
         station: data
     }));
-    $el.find('div.listing').html($newMarkup);
-    this.directionInit(data.code, $el, this.bus);
-    this.bus.trigger('resize');
+    var self = this;
+    // should listen for floater
+    setTimeout(function() {
+        $el.find('div.listing').html($newMarkup);
+        self.directionInit(data.code, $el, self.bus);
+        self.bus.trigger('resize');
+    }, 400);
 };
 
 station.prototype.getStationData = function(station) {
@@ -85,10 +89,9 @@ station.prototype.getStationData = function(station) {
     });
 }
 
-function errorCallback(stationCode, $el, bus) {
-
-    $el.find('.trains').empty();
-    $el.find('.error').html(templateError({stationCode: stationCode}));
-    bus.trigger('error:show');
+station.prototype.errorCallback = function(stationCode) {
+    this.$el.find('.trains').empty();
+    this.$el.find('.error').html(templateError({stationCode: stationCode}));
+    this.bus.trigger('error:show');
 }
 
