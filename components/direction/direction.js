@@ -19,7 +19,7 @@ var direction = module.exports = function(stationCode, direction, $el, bus) {
     this.$el = $el;
     this.bus = bus;
     this.initChildren();
-    bus.on(stationCode + '.trains.' + direction, this.listChange.bind(this));
+    bus.on(stationCode + '.platforms.' + direction + '.trains', this.listChange.bind(this));
 };
 
 

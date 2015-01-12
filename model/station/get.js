@@ -86,7 +86,6 @@ module.exports = function(stationCode, callback, incChanges, bustCache) {
                         data: cache[ key ],
                         changes: changes
                     };
-                    console.log('changes', changes);
                 }
                 callback(null, out);
             });

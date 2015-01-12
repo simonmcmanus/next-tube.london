@@ -33,7 +33,6 @@ station.prototype.changeStation = function(newStation) {
 };
 
 
-
 station.prototype.directionInit = function() {
     var self = this;
     self.$el.find('[data-direction]').each(function() {
@@ -52,7 +51,6 @@ station.prototype.render = function(data) {
     $select.attr('data-currently-listening', data.code);
     $select.val(data.code);
     $el.find('.error').empty();
-    console.log('sending:', data);
     var $newMarkup = $(templateTrains({
         station: data
     }));

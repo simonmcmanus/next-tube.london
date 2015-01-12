@@ -1,1 +1,3 @@
-alert('in your homepage.')
+module.exports = function() {
+    console.log('homepage init');
+}
