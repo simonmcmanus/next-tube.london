@@ -3,43 +3,16 @@
 var urlCodes = require('./station-url-codes.json');
 var activeStation = null;
 
-var $mapContainer = $('#map-container');
-var $floater = $('#floater');
-
-
-var components = [
-    {
-        $el: $mapContainer,
-        init: require('../../components/tubes/tubes.js')
-    },
-    {
-        $el: $floater,
-        init: require('../../components/floater/floater.js')
-    },
-    {
-        $el: $floater.find('#station'),
-        init: require('../../components/station/station.js')
-    },
-    {
-        $el: $floater.find('select'),
-        init: require('../../components/station-switcher/station-switcher.js')
-    }
-];
 
 
 module.exports = function(page, socket) {
-    page('/central/:stationName', function(context) {
+    page('/:line/:stationName', function(context) {
         bus.trigger('router:station', context);
 
         if(context.init) {
             listen({
                 code: urlCodes[context.params.stationName]
             }, socket);
-
-            components.forEach(function(component) {
-                component.init && new component.init(component.$el, bus);
-            });
-
         } else {
             bus.trigger('station', {
                 slug: context.params.stationName,

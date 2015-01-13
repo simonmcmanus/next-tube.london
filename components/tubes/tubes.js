@@ -1,6 +1,7 @@
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
     bus.on('station', this.focus.bind(this));
+    bus.on('search:highlight', this.highlight.bind(this));
 };
 
 tubes.prototype.focus = function(station) {
@@ -12,4 +13,16 @@ tubes.prototype.focus = function(station) {
         $('ul.line li  a.point').removeClass('point');
         $('ul.line li.' + station.code + ' a').addClass('point');
     }, 1250);
+};
+
+tubes.prototype.highlight = function(stations) {
+    var self = this;
+    self.$el.find('.highlight').removeClass('highlight');
+    stations.forEach(function(station) {
+        //
+        console.log(        self.$el.find('.' + station));
+        self.$el.find('.' + station).addClass('highlight');
+    });
+
+    console.log('got stations', stations);
 };

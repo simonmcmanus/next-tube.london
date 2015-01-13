@@ -4,7 +4,13 @@ var request = require('request');
 var async = require('async');
 var fix = require('./train-fixer')
 var parseString = require('xml2js').parseString;
+var stationCodes = require('../../components/station-switcher/lib/all-stations');
 
+stationCodes.unshift({
+    id: '',
+    name: 'Please select'
+});
+console.log('sc', stationCodes);
 var changePath = require('../../../changePath/index');
 
 
@@ -31,6 +37,7 @@ function processStation(stationXml, callback) {
         var out = {
             code: result.ROOT.S[0].$.Code,
             name: result.ROOT.S[0].$.N,
+            stationCodes: stationCodes,
             platforms: {}
         };
 

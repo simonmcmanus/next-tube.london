@@ -4,11 +4,6 @@ div.settings
         - currentlyListening =  '';
         if station
             - currentlyListening = station.code;
-        input
-        button Go
-        select(name="stationCode", id="stationCode", data-currently-listening=currentlyListening)
-            //- each stationCode, id in stationCodes
-            //-     - var selected = false;
-            //-     if station && station.code === id
-            //-             - selected = true
-            //-     option(value=id, selected=selected)=stationCode
+        select(name="stationCode", id="stationCode", data-currently-listening=currentlyListening, placeholder='Please select...')
+            each station in stationCodes
+                option(value=station.slug)=station.name

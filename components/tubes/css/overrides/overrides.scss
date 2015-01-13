@@ -120,6 +120,24 @@
             }
         }
 
+        &.selected {
+            font-size: 4em;
+        }
+        &.highlight {
+            text-shadow: -1px 1px 20px red, 1px -1px 20px #fff;
+            font-size: 2em;
+            border: 2px solid $border-color;
+            background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
+            z-index: 1000 !important;
+            a {
+               opacity: 1 !important;
+            }
+        }
+        &.selected {
+            font-size: 4em;
+        }
+
+
         &.active {
             z-index: 1000 !important;
             a {

@@ -27,5 +27,5 @@ var models = new Models({
 }, io, 5000);
 
 
-app.get('/', HOME);
-app.get('/central/:station', STATION.bind(null, models.station));
+app.get('/', HOME.bind(null, models.station));
+app.get('/:line/:station', STATION.bind(null, models.station));

@@ -1,8 +1,11 @@
 #floater {
-  overflow: hidden;
-  min-height: 48px;
+  &.station {
+    overflow:hidden;
+    margin-top: 170px;
+
+  }
+  min-height: 60px;
   margin: 1em;
-  margin-top: 170px;
   box-shadow: rgba(129, 122, 145, 0.84) 0 0 0px;
   border-radius: 4px;
   border: 2px solid $border-color;
