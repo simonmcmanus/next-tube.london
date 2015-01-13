@@ -6,4 +6,5 @@ div.settings
             - currentlyListening = station.code;
         select(name="stationCode", id="stationCode", data-currently-listening=currentlyListening, placeholder='Please select...')
             each station in stationCodes
-                option(value=station.slug)=station.name
+                var str = { code:  station.id }
+                option(value=station.slug, data-code=str)=station.name

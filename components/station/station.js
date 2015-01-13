@@ -48,9 +48,9 @@ window.onresize = function() {
 station.prototype.render = function(data) {
     var $el = this.$el;
     var $select = $el.find('select');
-    $select.attr('data-currently-listening', data.code);
-    $select.val(data.code);
-    $el.find('.error').empty();
+    // $select.attr('data-currently-listening', data.code);
+    // $select.val(data.code);
+//    $el.find('.error').empty();
     var $newMarkup = $(templateTrains({
         station: data
     }));
