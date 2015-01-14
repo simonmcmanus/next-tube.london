@@ -127,7 +127,6 @@ html body h3 {
   }
 }
 
-
 @media (min-width: 1100px) {
   .direction {
     width: auto;
@@ -135,11 +134,6 @@ html body h3 {
   }
   body.debug #placement {
     margin: 1em 20%;
-  }
-  html body #floater {
-    display: inline-block;
-    margin-left: 20%;
-    margin-top: 13em;
   }
 }
 

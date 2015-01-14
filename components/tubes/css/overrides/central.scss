@@ -2,25 +2,37 @@ $break1: 800px;
 
 
 &[data-station=HOME] {
-    transform:  scale(0.3)
+    display:none;
+    
+    @media (min-width: 500px) {
+    display: block;
+    transform:  scale(0.13)
                 translateX(-119%)
                 translateY(-71%);
-    // margin-top: -13em;
-    // margin-left: 10em;
+
+    }
+    @media (min-width: 800px) {
+        transform: scale(0.2) translateX(-8920%) translateY(-71%);
+
+    }
+
+    @media (min-width: 1600px) {
+        transform: scale(0.4) translateX(-8920%) translateY(-71%);
+
+    }
+
 }
 
 
 &[data-station=EPP] {
-    transform:  translateX(-3400px)
-                translateY(100px)
-                scale(1.2)
-                ;
-
+    transform:  translateX(-3885px) translateY(100px) scale(1.2);
 }
 
 &[data-station=THB] {
-    top: -90px;
-    left: -3245px;
+    transform:  translateX(-3400px)
+                translateY(0px)
+                scale(1.2);
+
     @media (min-width: break1) {
         top: -87px;
         left: -3065px;
