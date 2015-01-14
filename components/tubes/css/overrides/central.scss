@@ -6,17 +6,35 @@ $break1: 800px;
     
     @media (min-width: 500px) {
     display: block;
+//    margin-left:10%;
     transform:  scale(0.13)
                 translateX(-119%)
                 translateY(-71%);
 
     }
     @media (min-width: 800px) {
+        margin-left: 20%;
         transform: scale(0.2) translateX(-8920%) translateY(-71%);
+    }
 
+    @media (min-width: 900px) {
+        margin-left: 24%;
+    }
+
+    @media (min-width: 1000px) {
+        margin-left: 27%;
+    }
+
+    @media (min-width: 1200px) {
+        margin-left: 30%;
+    }
+
+    @media (min-width: 1400px) {
+        margin-left: 35%;
     }
 
     @media (min-width: 1600px) {
+        margin-left: 30%;
         transform: scale(0.4) translateX(-8920%) translateY(-71%);
 
     }
@@ -25,26 +43,23 @@ $break1: 800px;
 
 
 &[data-station=EPP] {
-    transform:  translateX(-3885px) translateY(100px) scale(1.2);
+    transform: translateX(-3303px) translateY(18px) scale(1);
+    @media (min-width: 800px) {
+        transform:  translateX(-3238px) translateY(42px) scale(1);
+    }
 }
 
 &[data-station=THB] {
-    transform:  translateX(-3400px)
-                translateY(0px)
-                scale(1.2);
-
-    @media (min-width: break1) {
-        top: -87px;
-        left: -3065px;
+    transform: translateX(-3248px) translateY(-29px) scale(1);
+   @media (min-width:800px) {
+        transform: translateX(-3107px) translateY(-10px) scale(1);
     }
 }
 
 &[data-station=DEB] {
-    top: -136px;
-    left: -3296px;
-    @media (min-width: break1) {
-        top: -133px;
-        left: -3198px;
+    transform: translateX(-3296px) translateY(-76px) scale(1);
+    @media (min-width:800px) {
+         transform: translateX(-3222px) translateY(-56px) scale(1);
     }
 }
 
