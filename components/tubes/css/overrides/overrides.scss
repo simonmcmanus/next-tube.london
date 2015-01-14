@@ -1,6 +1,7 @@
 #map-container{
     transform:  translateZ(0) scale(.2);
-    position: relative;
+    position: absolute;
+    margin-left: 0;
     //transition: all 3s;
     //transform-origin: 20%;
     //
@@ -9,9 +10,9 @@
     // transition-property:transform, transform-origin;
     // transition-delay   :0s       , 3s;
     // transition-duration:3s       , 3s;
-
-    //transition: all 2s linear;
-    margin-left: 10%;
+//
+    transition: all 2s linear;
+    transform-origin: 10%;
     #piccadilly,
     #metropolitan,
     #district,
