@@ -1,12 +1,22 @@
-.settings form {
-    font-size: 0.9em;
-    background: #fff;
-    font-weight: normal;
-    
-    border-top: 1px solid #eee;
-    padding: 1em 0;
-    label {
-        padding: .3em;
+.settings  {
+
+    &.hide {
+        position: relative;
+        top: -8em;
+    }
+
+
+
+    form {
+        font-size: 0.9em;
+        background: #fff;
+        font-weight: normal;
+        
+        border-top: 1px solid #eee;
+        padding: 1em 0;
+        label {
+            padding: .3em;
+        }
     }
 }
 

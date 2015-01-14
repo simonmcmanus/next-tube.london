@@ -29,6 +29,7 @@ module.exports = function(model, req, res) {
 
     model.get(stationCode, function (err, data) {
         var newOut = {
+            pageId: 'station',
             station: data,
             stationCodes: [],
             tubes: {

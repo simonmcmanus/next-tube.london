@@ -2,20 +2,57 @@ $break1: 800px;
 
 
 &[data-station=HOME] {
+    // margin-top: -13em;
+    // margin-left: 10em;
+}
+
+// @-webkit-keyframes NAME-YOUR-ANIMATION {
+//   0%   {
+//     transform: scale(.2);
+//     transform-origin: 20%;
+//   }
+//   50% {
+//     transform-origin: 20%;
+//   }
+//   60% {
+//  transform-origin: 400%;
+//   }
+//   100% {
+//   }
+//   // 100% {
+//   //   transform-origin: 1620%;
+//   //}
+// }
+
+
+@-webkit-keyframes NAME-YOUR-ANIMATION {
+  0%   {
     transform: scale(.2);
-    margin-top: 12em;
-    top: -72em;
-    left: -103em;
+    margin-left: 10%;
+  }
+  100% {
+    margin-left: -3200px;
+    margin-top: 9%;
+  }
 }
 
 
 &[data-station=EPP] {
-    top: -42px;
-    left: -3301px;
-    @media (min-width: break1) {
-        top: -40px;
-        left: -3218px;
-    }
+   -webkit-animation: NAME-YOUR-ANIMATION 2s; /* Safari 4+ */
+
+       transform: scale(1.2);
+       margin-left: -3200px;
+       margin-top: 9%;
+
+   // transform: scale(1.2);
+   // transform-origin: 1600%;
+    // transform: scale(1.2, 1.2);
+    // transform-origin: 1620%;
+
+    //transform-origin: 1601% -30%;
+    // @media (min-width: break1) {
+    // 
+    // }
 }
 
 &[data-station=THB] {

@@ -1,15 +1,17 @@
 #map-container{
-    overflow: visible;
-    transition: all .8s ease-out;
+    transform:  translateZ(0) scale(.2);
+    position: relative;
+    //transition: all 3s;
+    //transform-origin: 20%;
+    //
+    //transform-origin: 20% 50%;
+                        // zoom     // pos
+    // transition-property:transform, transform-origin;
+    // transition-delay   :0s       , 3s;
+    // transition-duration:3s       , 3s;
 
-        // force gpu.
-    transform: translate3d(0,0,0);
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000;
-
-
-    transition-delay: .3s;
+    //transition: all 2s linear;
+    margin-left: 10%;
     #piccadilly,
     #metropolitan,
     #district,
@@ -212,7 +214,7 @@
 @media (min-width: 800px) {
     #placement ,
     #map-container  {
-        margin-left: 20%;
+        //margin-left: 20%;
     }
 }
 

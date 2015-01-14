@@ -7,6 +7,7 @@ var activeStation = null;
 
 module.exports = function(page, socket) {
     page('/:line/:stationName', function(context) {
+        bus.trigger('search:hide');
         bus.trigger('router:station', context);
 
         if(context.init) {
@@ -14,6 +15,8 @@ module.exports = function(page, socket) {
                 code: urlCodes[context.params.stationName]
             }, socket);
         } else {
+
+            $('.page').attr('id', 'station');
             bus.trigger('station', {
                 slug: context.params.stationName,
                 code: urlCodes[context.params.stationName]
