@@ -2,62 +2,20 @@ $break1: 800px;
 
 
 &[data-station=HOME] {
+    transform:  scale(0.3)
+                translateX(-119%)
+                translateY(-71%);
     // margin-top: -13em;
     // margin-left: 10em;
 }
 
-// @-webkit-keyframes NAME-YOUR-ANIMATION {
-//   0%   {
-//     transform: scale(.2);
-//     transform-origin: 20%;
-//   }
-//   50% {
-//     transform-origin: 20%;
-//   }
-//   60% {
-//  transform-origin: 400%;
-//   }
-//   100% {
-//   }
-//   // 100% {
-//   //   transform-origin: 1620%;
-//   //}
-// }
-
-
-@-webkit-keyframes zoom-in {
-  0%   {
-    transform: scale(.2);
-    margin-left: 0;
-  }
-  2% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -3500px;
-    transform: scale(1.2);
-  }
-}
-
 
 &[data-station=EPP] {
-   -webkit-animation: zoom-in 5s; /* Safari 4+ */
-        //transform-origin: 19053px;
-        transform: scale(1.2);
-        margin-left: -3500px;
+    transform:  translateX(-3400px)
+                translateY(100px)
+                scale(1.2)
+                ;
 
-
-       //margin-top: 9%;
-
-   // transform: scale(1.2);
-   // transform-origin: 1600%;
-    // transform: scale(1.2, 1.2);
-    // transform-origin: 1620%;
-
-    //transform-origin: 1601% -30%;
-    // @media (min-width: break1) {
-    // 
-    // }
 }
 
 &[data-station=THB] {
