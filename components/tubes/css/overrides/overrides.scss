@@ -1,7 +1,9 @@
 #map-container{
-    
     position: absolute;
-    //transition: transform 4s;
+    //-webkit-transform: scale3d(.3);
+//    transform-style: preserve-3d;
+    transform: scale3d(0.4,0.4,0.4);
+    transition: transform 4s;
     #piccadilly,
     #metropolitan,
     #district,
@@ -128,11 +130,10 @@
         &.selected {
             font-size: 4em;
         }
-
-
         &.active {
             z-index: 1000 !important;
             a {
+
                 transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
 
                 transition-delay   : .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;

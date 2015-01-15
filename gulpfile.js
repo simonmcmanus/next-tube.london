@@ -20,13 +20,13 @@ gulp.task('build', shell.task([
 
 
 gulp.task('autoprefixer', function () {
-    return gulp.src('./public/css/shared.css')
+    return gulp.src('./public/pages/css/style.css')
         .pipe(autoprefixer())
-        .pipe(gulp.dest('./public/css/'));
+        .pipe(gulp.dest('./public/pages/css/'));
 });
 
 
 gulp.task('watch', function () {
-    gulp.watch(['components/**/*.scss', 'pages/**/*.scss'], ['build:css', 'autoprefixer']);
+    gulp.watch(['components/**/*.scss', 'pages/**/*.scss'], ['build:css']);
     gulp.watch(['components/**/*.js', 'components/**/*.jade', 'views/**', 'pages/*/*.js'], ['build:js']);
 });

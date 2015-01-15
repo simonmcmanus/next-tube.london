@@ -2,45 +2,40 @@ $break1: 800px;
 $scale: scale(1);
 
 &[data-station=HOME] {
-    display:none;
-    
-    @media (min-width: 500px) {
-    display: block;
-//    margin-left:10%;
-    transform:  scale(0.13)
-                translateX(-119%)
-                translateY(-71%);
+    //transform: scale(.5);
+    //display:none;
+// one of these feckers is crashing things on my ipad mini.    
+    // @media (min-width: 500px) {
+    //     display: block;
+    //     transform:  scale(0.1);
+    // }
+    // @media (min-width: 800px) {
+    //     margin-left: 20%;
+    //     transform: scale(0.2) translateX(-8920%) translateY(-71%);
+    // }
 
-    }
-    @media (min-width: 800px) {
-        margin-left: 20%;
-        transform: scale(0.2) translateX(-8920%) translateY(-71%);
-    }
+    // @media (min-width: 900px) {
+    //     margin-left: 24%;
+    // }
 
-    @media (min-width: 900px) {
-        margin-left: 24%;
-    }
+    // @media (min-width: 1000px) {
+    //     margin-left: 27%;
+    // }
 
-    @media (min-width: 1000px) {
-        margin-left: 27%;
-    }
+    // @media (min-width: 1200px) {
+    //     margin-left: 30%;
+    // }
 
-    @media (min-width: 1200px) {
-        margin-left: 30%;
-    }
+    // @media (min-width: 1400px) {
+    //     margin-left: 35%;
+    // }
 
-    @media (min-width: 1400px) {
-        margin-left: 35%;
-    }
+    // @media (min-width: 1600px) {
+    //     margin-left: 30%;
+    //     transform: scale(0.4) translateX(-8920%) translateY(-71%);
 
-    @media (min-width: 1600px) {
-        margin-left: 30%;
-        transform: scale(0.4) translateX(-8920%) translateY(-71%);
-
-    }
-
+    // }
 }
-
 
 &[data-station=EPP] {
     transform: translate(-3303px, -10px);
@@ -113,20 +108,18 @@ $scale: scale(1);
 }
 
 &[data-station=SFD] {
-    transform: translate(-3302px, -764px);
+    transform: translate(-3382px, -889px);
+    @media (min-width:$break1) {
+         transform: translate(-3240px, -732px);
+    }
+}
+
+&[data-station=MLE] {
+    transform: translate(-3022px, -1099px);
     @media (min-width:$break1) {
          transform: translate(-3240px, -732px);
     }
 
-}
-
-&[data-station=MLE] {
-    top: -1130px;
-    left: -3021px;
-    @media (min-width: break1) {
-        top: -1124px;
-        left: -2992px;
-    }
 }
 
 
@@ -139,23 +132,16 @@ li.roundel.MLE  {
     &.active a {
         left: 1px;
         top: -72px;
-        @media (min-width: break1) {
-            left: -43px;
-            top: -102px;
-        }
     }
 }
 
 
 
 &[data-station=BNG] {
-    top: -1132px;
-    left: -2909px;
-    @media (min-width: break1) {
-        top: -1128px;
-        left: -2881px;
+    transform: translate(-2909px, -1100px);
+    @media (min-width:$break1) {
+         transform: translate(-3240px, -732px);
     }
-
 }
 
 li.BNG {
@@ -172,8 +158,7 @@ li.BNG {
 
 
 &[data-station=LST] {
-    top: -1206px;
-    left: -2588px;
+    transform: translate(-2588px, -1174px);
     @media (min-width: break1) {
         top: -1197px;
         left: -2560px;
@@ -181,8 +166,7 @@ li.BNG {
 }
 
 &[data-station=BNK] {
-    top: -1369px;
-    left: -2376px;
+    transform: translate(-2376px, -1341px);
     @media (min-width: break1) {
         top: -1361px;
         left: -2349px;

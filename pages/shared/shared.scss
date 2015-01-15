@@ -16,10 +16,15 @@ $porder-pixels: 2;
   font-style: normal;
 }
 
-html body h1 {
-    margin: 1em;
-    background-color: #fff;
-    z-index: 99999 !important;
+html body a {
+    position: relative;
+    text-decoration: none;
+    h1 {
+        height: 1em;
+        margin: 1em;
+        background-color: #fff;
+        z-index: 99999 !important;
+    }
 }
 .page {
     @media (min-width: 800px) {
