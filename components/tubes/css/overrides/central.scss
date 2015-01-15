@@ -2,6 +2,7 @@ $break1: 800px;
 $scale: scale(1);
 
 &[data-station=HOME] {
+    transform: scale3d(0.1,0.1,0.1);
     //transform: scale(.5);
     //display:none;
 // one of these feckers is crashing things on my ipad mini.    
@@ -40,7 +41,7 @@ $scale: scale(1);
 &[data-station=EPP] {
     transform: translate(-3303px, -10px);
     @media (min-width:$break1) {
-        transform:  translate(-3238px, 42px);
+        transform:  translate(-3239px, 13px);
     }
 }
 
@@ -557,9 +558,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=ROD] {
-    top: -260px;
-    left: -3429px;
-
+    transform: translate(-3432px, -234px);
     @media (min-width: break1) {
         top: -253px;
         left: -3403px;
@@ -585,8 +584,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=CHG] {
-    top: -332px;
-    left: -3509px;
+    transform: translate(-3509px, -335px);
     @media (min-width: break1) {
         top: -366px;
         left: -3523px;
@@ -594,8 +592,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=GRH] {
-    top: -262px;
-    left: -3553px;
+    transform: translate(-3553px, -231px);
     @media (min-width: break1) {
         top: -259px;
         left: -3525px;
@@ -603,8 +600,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=HAI] {
-    top: -375px;
-    left: -3544px;
+    transform: translate(-3545px, -343px);
     @media (min-width: break1) {
         top: -373px;
         left: -3435px;
@@ -612,8 +608,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=FLP] {
-    top: -430px;
-    left: -3558px;
+    transform: translate(-3560px, -398px);
     @media (min-width: break1) {
         top: -427px;
         left: -3474px;
@@ -621,8 +616,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=BDE] {
-    top: -483px;
-    left: -3522px;
+    transform: translate(-3523px, -451px);
     @media (min-width: break1) {
         top: -480px;
         left: -3374px;
@@ -630,8 +624,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=NEP] {
-    top: -537px;
-    left: -3502px;
+    transform: translate(-3503px, -505px);
     @media (min-width: break1) {
         top: -534px;
         left: -3313px;
@@ -639,8 +632,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=GHL] {
-    top: -622px;
-    left: -3577px;
+    transform: translate(-3577px, -626px);
     @media (min-width: break1) {
         top: -657px;
         left: -3591px;
@@ -648,9 +640,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=RED] {
-
-    top: -554px;
-    left: -3501px;
+    transform: translate(-3501px, -522px);
     @media (min-width: break1) {
         top: -550px;
         left: -3473px;
@@ -658,12 +648,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=WAN] {
-    top: -622px;
-    left: -3446px;
-    @media (min-width: break1) {
-        top: -657px;
-        left: -3460px;
-    }
+    transform: translate(-3446px, -626px);
 }
 
 li.WAN a {

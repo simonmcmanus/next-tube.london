@@ -27,8 +27,17 @@ html body a {
     }
 }
 .page {
+    transform-style: preserve-3d;
     @media (min-width: 800px) {
-        margin: 0 20%;
+
+        #map-container,
+        div.settings {
+            margin: 0 20%;
+        }
+        h1 {
+            margin-left: 20%;
+        }
+        //margin: 0 20%;
     }
 }
 body {
