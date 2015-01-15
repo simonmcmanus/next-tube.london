@@ -3,6 +3,13 @@ var bus = window.bus = require("../../node_modules/backbone-events-standalone").
 var page = require('../../public/libs/page.js');
 
 
+// only exposing for debugging.
+window.NT = {
+    bus: bus,
+    page: page
+}
+
+
 var $mapContainer = $('#map-container');
 var $floater = $('#floater');
 var components = [

@@ -16,11 +16,23 @@ $porder-pixels: 2;
   font-style: normal;
 }
 
-
+html body h1 {
+    margin: 1em;
+    background-color: #fff;
+    z-index: 99999 !important;
+}
+.page {
+    @media (min-width: 800px) {
+        margin: 0 20%;
+    }
+}
 body {
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px;
 }
+
+
+
 
 
 @import "../home/home.scss";

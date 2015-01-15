@@ -1,10 +1,10 @@
 div.settings
     form(method="get", action="/")
-        label(for="stationCode") Station:
-        - currentlyListening =  '';
-        if station
-            - currentlyListening = station.code;
-        select(name="stationCode", id="stationCode", data-currently-listening=currentlyListening, placeholder='Please select...')
-            each station in stationCodes
-                var str = { code:  station.id }
-                option(value=station.slug, data-code=str)=station.name
+        input.stationSearch
+        ////if station
+//- /            - currentlyListening = station.code;
+        //- select(name="stationCode", id="stationCode", data-currently-listening=currentlyListening, placeholder='Please select...')
+        //-     each station in stationCodes
+        //-         var str = { code:  station.id }
+        //-         option(value=station.slug, data-code=str)=station.name
+div.clear

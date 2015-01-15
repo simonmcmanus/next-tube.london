@@ -12,7 +12,6 @@
   flex: 0 0 50%;
 }
 
-
 @media screen and (max-width: 750px) {
   .listing .direction {
     flex: 0 0 100%;
@@ -110,16 +109,16 @@ html body h3 {
 }
 
 #placement {
-  display: none;
-  border: 2px solid green;
+  //display: none;
+  
+  border: 1px solid green;
   position: absolute;
   width: 400px;
   height: 3em;
   left: 0em;
-  top: 3em;
+  top: 12em;
   z-index: 20000 !important;
   margin-left: 1em;
-  
   &.above {
     top: 2em;
   }
@@ -128,14 +127,16 @@ html body h3 {
   }
 }
 
+
 @media (min-width: 800px) {
   .direction {
     width: auto;
     min-width: auto;
   }
   body #placement {
-        margin: 1em 20% 0 20%;
+        top: 12em;
 
+        margin: 1em 20% 0 20%;
 
   }
 }

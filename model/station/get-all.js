@@ -11,10 +11,15 @@ module.exports = function (io, callback) {
     var stations = Object.keys(require('../station-lister/stations.json'));
     async.map(stations, function(station, next) {
         getStations(station, function(e, data) {
-            if(data.changes && data.changes.length > 0) {
+            if(data && data.changes && data.changes.length > 0) {
                 io.emit('station:' + station, data.changes);
             }
-            next(data.data);
+            if(data && data.data) {
+                next(data.data);
+            }else {
+                console.log('ERROR - data was', data);
+                next(true);
+            }
         }, true, true);
     }, callback);
 };

@@ -3,8 +3,6 @@
 var urlCodes = require('./station-url-codes.json');
 var activeStation = null;
 
-
-
 module.exports = function(page, socket) {
     page('/:line/:stationName', function(context) {
         bus.trigger('search:hide');

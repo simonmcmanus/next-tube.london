@@ -1,5 +1,5 @@
 $break1: 800px;
-
+$scale: scale(1);
 
 &[data-station=HOME] {
     display:none;
@@ -43,96 +43,81 @@ $break1: 800px;
 
 
 &[data-station=EPP] {
-    transform: translateX(-3303px) translateY(18px) scale(1);
-    @media (min-width: 800px) {
-        transform:  translateX(-3238px) translateY(42px) scale(1);
+    transform: translate(-3303px, -10px);
+    @media (min-width:$break1) {
+        transform:  translate(-3238px, 42px);
     }
 }
 
 &[data-station=THB] {
-    transform: translateX(-3248px) translateY(-29px) scale(1);
-   @media (min-width:800px) {
-        transform: translateX(-3107px) translateY(-10px) scale(1);
+    transform: translate(-3247px, -58px);
+   @media (min-width:$break1) {
+        transform: translate(-3107px, -10px);
     }
 }
 
 &[data-station=DEB] {
-    transform: translateX(-3296px) translateY(-76px) scale(1);
-    @media (min-width:800px) {
-         transform: translateX(-3222px) translateY(-56px) scale(1);
+    transform: translate(-3297px, -104px);
+    @media (min-width:$break1) {
+         transform: translate(-3222px, -56px);
     }
 }
 
 &[data-station=LTN] {
-    top: -182px;
-    left: -3281px;
-    @media (min-width: break1) {
-        top: -179px;
-        left: -3161px;
+    transform: translate(-3283px, -150px);
+    @media (min-width:$break1) {
+    transform: translate(-3297px, -104px);
     }
 }
 
 &[data-station=BHL] {
-    top: -229px;
-    left: -3237px;
-    @media (min-width: break1) {
-        top: -226px;
-        left: -3044px;
+    transform: translate(-3239px, -197px);
+    @media (min-width:$break1) {
+        transform: translate(-3297px, -104px);
     }
 }
 
 &[data-station=WFD] {
-    top: -398px;
-    left: -3271px;
-    @media (min-width: break1) {
-        top: -396px;
-        left: -3136px;
+    transform: translate(-3273px, -366px);
+    @media (min-width:$break1) {
+         transform: translate(-2991px, -350px);
     }
 }
 
 &[data-station=SWF] {
-    top: -454px;
-    left: -3221px;
-    @media (min-width: break1) {
-        top: -452px;
-        left: -2994px;
+    transform: translate(-3223px, -422px);
+    @media (min-width:$break1) {
+         transform: translate(-2991px, -350px);
     }
 }
 
 &[data-station=SNB] {
-    top: -509px;
-    left: -3256px;
-    @media (min-width: break1) {
-        top: -506px;
-        left: -3094px;
+    transform: translate(-3258px, -477px);
+    @media (min-width:$break1) {
+         transform: translate(-2991px, -350px);
     }
 }
 
 &[data-station=LYS] {
-    top: -672px;
-    left: -3253px;
-    @media (min-width: break1) {
-        top: -669px;
-        left: -3086px;
+    transform: translate(-3255px, -640px);
+    @media (min-width:$break1) {
+         transform: translate(-3256px, -600px);
     }
 }
 
 &[data-station=LEY] {
-    top: -796px;
-    left: -3301px;
-    @media (min-width: break1) {
-        top: -793px;
-        left: -3216px;
+    transform: translate(-3302px, -764px);
+    @media (min-width:$break1) {
+         transform: translate(-3240px, -732px);
     }
 }
 
 &[data-station=SFD] {
-    top: -921px;
-    left: -3427px;
-    @media (min-width: break1) {
-        top: -918px;
-        left: -3399px;
+    transform: translate(-3302px, -764px);
+    @media (min-width:$break1) {
+         transform: translate(-3240px, -732px);
     }
+
 }
 
 &[data-station=MLE] {
