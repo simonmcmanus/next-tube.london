@@ -1,39 +1,4 @@
 
-header{
-	background-color: #1c3f95;
-	height: 70px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: auto;
-	z-index: 500;	
-}
-header a{
-	color: #fff;
-	text-decoration: none;
-	cursor: pointer;
-}
-header nav{
-	float: right;
-	margin-top: 13px;
-}
-header li{
-	float: left;
-	margin-left: 10px;
-	position: relative;
-	overflow: hidden;
-}
-header li a{
-	display: block;
-	border: 4px solid #fff;
-	height: 36px;
-	width: 36px;
-	border-radius: 100%;
-	text-indent: -9999px;
-	z-index: 2;
-	opacity: 0.3;
-}
 h1{
 	font-size: 30px;
 	margin-top: 20px;

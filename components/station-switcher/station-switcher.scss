@@ -1,27 +1,31 @@
 .settings  {
-
+    position: relative;
+    transition-property: top,  height;
+    transition-duration: 1s;
+    top: 0;
+    height: 2em;
     &.hide {
-        position: relative;
-        top: -8em;
+        height: 0;
+        top: -5em;
     }
 
 
     margin: 1em;
-
-
-
     form {
         font-size: 0.9em;
         background: #fff;
         font-weight: normal;
-        border-top: 1px solid #eee;
-        padding: 1em 0;
+
         label {
             padding: .3em;
         }
     }
 }
 
+
+
 @import "lib/_selectize.scss";
 @import "lib/selectize_overrides.scss";
+
+
 

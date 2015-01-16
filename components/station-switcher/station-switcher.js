@@ -25,7 +25,8 @@ var switcher = module.exports = function($el, bus) {
             }
         },
 
-        onType: function() {
+        onType: function(search) {
+            bus.trigger('page:load', '/search' );
            var possibles = this.currentResults.items.map(function(i) { return i.id } );
            bus.trigger('search:highlight', possibles);
         },
@@ -34,7 +35,7 @@ var switcher = module.exports = function($el, bus) {
 
 
 switcher.prototype.hide = function() {
-    //this.$el.addClass('hide');
+    this.$el.addClass('hide');
 };
 
 switcher.prototype.show = function() {

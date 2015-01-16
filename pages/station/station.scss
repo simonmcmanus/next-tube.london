@@ -108,25 +108,28 @@ html body h3 {
   }
 }
 
-#placement {
-  //display: none;
-  
-  border: 1px solid green;
-  position: absolute;
-  width: 400px;
-  height: 3em;
-  left: 0em;
-  top: 12em;
-  z-index: 20000 !important;
-  margin-left: 1em;
-  &.above {
-    top: 2em;
-  }
-  &.below {
-    top: 4em;
+
+
+#station.page {
+
+  #placement {
+    //display: none;
+    border: 1px solid green;
+    position: absolute;
+    width: 400px;
+    height: 3em;
+    left: 0em;
+    top: 12em;
+    z-index: 20000 !important;
+    margin-left: 1em;
+    &.above {
+      top: 2em;
+    }
+    &.below {
+      top: 4em;
+    }
   }
 }
-
 
 @media (min-width: 800px) {
   .direction {

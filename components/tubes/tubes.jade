@@ -1,5 +1,6 @@
 // modified from csstubemap.co.uk
-section#map-container(data-station=tubes.currentStationCode)
+.map-wrapper
+  section#map-container(data-station=tubes.currentStationCode)
     ul#central.line
        li#cen001.roundel.connection.WRP(class=((tubes.currentStationCode === 'WRP') ? 'active': '' ))
           a.rail.left(href='/central/west-ruislip', class=(tubes.currentStationCode === 'WRP') ? ' point' : '') West Ruislip

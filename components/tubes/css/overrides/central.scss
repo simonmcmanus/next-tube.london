@@ -2,7 +2,6 @@ $break1: 800px;
 $scale: scale(1);
 
 &[data-station=HOME] {
-    transform: scale3d(0.1,0.1,0.1);
     //transform: scale(.5);
     //display:none;
 // one of these feckers is crashing things on my ipad mini.    
@@ -48,56 +47,56 @@ $scale: scale(1);
 &[data-station=THB] {
     transform: translate(-3247px, -58px);
    @media (min-width:$break1) {
-        transform: translate(-3107px, -10px);
+        transform:translate(-3107px, -23px);
     }
 }
 
 &[data-station=DEB] {
     transform: translate(-3297px, -104px);
     @media (min-width:$break1) {
-         transform: translate(-3222px, -56px);
+         transform: translate(-3223px, -69px);
     }
 }
 
 &[data-station=LTN] {
     transform: translate(-3283px, -150px);
     @media (min-width:$break1) {
-    transform: translate(-3297px, -104px);
+    transform: translate(-3190px, -114px);
     }
 }
 
 &[data-station=BHL] {
     transform: translate(-3239px, -197px);
     @media (min-width:$break1) {
-        transform: translate(-3297px, -104px);
+        transform: translate(-3087px, -162px);
     }
 }
 
 &[data-station=WFD] {
     transform: translate(-3273px, -366px);
     @media (min-width:$break1) {
-         transform: translate(-2991px, -350px);
+         transform: translate(-3168px, -328px);
     }
 }
 
 &[data-station=SWF] {
     transform: translate(-3223px, -422px);
     @media (min-width:$break1) {
-         transform: translate(-2991px, -350px);
+         transform: translate(-3046px, -388px);
     }
 }
 
 &[data-station=SNB] {
     transform: translate(-3258px, -477px);
     @media (min-width:$break1) {
-         transform: translate(-2991px, -350px);
+         transform: translate(-3131px, -442px);
     }
 }
 
 &[data-station=LYS] {
     transform: translate(-3255px, -640px);
     @media (min-width:$break1) {
-         transform: translate(-3256px, -600px);
+         transform: translate(-3126px, -604px);
     }
 }
 
@@ -111,29 +110,16 @@ $scale: scale(1);
 &[data-station=SFD] {
     transform: translate(-3382px, -889px);
     @media (min-width:$break1) {
-         transform: translate(-3240px, -732px);
+         transform: translate(-3399px, -849px);
     }
 }
 
 &[data-station=MLE] {
     transform: translate(-3022px, -1099px);
     @media (min-width:$break1) {
-         transform: translate(-3240px, -732px);
+        transform: translate(-2993px, -1058px);
     }
 
-}
-
-
-li.roundel.MLE  {
-    a {
-        left: 7px;
-        top: -64px;
-
-    }
-    &.active a {
-        left: 1px;
-        top: -72px;
-    }
 }
 
 
@@ -141,53 +127,26 @@ li.roundel.MLE  {
 &[data-station=BNG] {
     transform: translate(-2909px, -1100px);
     @media (min-width:$break1) {
-         transform: translate(-3240px, -732px);
+         transform: translate(-2881px, -1074px);
     }
 }
 
-li.BNG {
-    a {
-        left: 4px;
-    }
-    &.active a {
-        left: -6px;
-        @media (min-width: break1) {
-            left: -50px;
-        }
-    }
-}
+
 
 
 &[data-station=LST] {
     transform: translate(-2588px, -1174px);
     @media (min-width: break1) {
-        top: -1197px;
-        left: -2560px;
+        transform: translate(-2560px, -1130px);
     }
 }
 
 &[data-station=BNK] {
     transform: translate(-2376px, -1341px);
     @media (min-width: break1) {
-        top: -1361px;
-        left: -2349px;
+        transform: translate(-2350px, -1294px);
     }
 
-}
-
-li.roundel.BNK {
-    a {
-        left: 15px;
-        top: -66px;
-    }
-
-    &.active a {
-        left: 0px;
-        @media (min-width: break1) {
-            left: -43px;
-            top: -101px;
-        }
-    }
 }
 
 li.STP {
@@ -560,9 +519,7 @@ li.active.roundel.WRP a {
 &[data-station=ROD] {
     transform: translate(-3432px, -234px);
     @media (min-width: break1) {
-        top: -253px;
-        left: -3403px;
-
+        transform: translate(-3448px, -205px);
     }
 
     .ROD {
@@ -602,32 +559,28 @@ li.active.roundel.WRP a {
 &[data-station=HAI] {
     transform: translate(-3545px, -343px);
     @media (min-width: break1) {
-        top: -373px;
-        left: -3435px;
+        transform: translate(-3459px, -305px);
     }
 }
 
 &[data-station=FLP] {
     transform: translate(-3560px, -398px);
     @media (min-width: break1) {
-        top: -427px;
-        left: -3474px;
+        transform: translate(-3459px, -305px);
     }
 }
 
 &[data-station=BDE] {
     transform: translate(-3523px, -451px);
     @media (min-width: break1) {
-        top: -480px;
-        left: -3374px;
+        transform: translate(-3459px, -305px);
     }
 }
 
 &[data-station=NEP] {
     transform: translate(-3503px, -505px);
     @media (min-width: break1) {
-        top: -534px;
-        left: -3313px;
+        transform: translate(-3459px, -305px);
     }
 }
 
@@ -649,6 +602,9 @@ li.active.roundel.WRP a {
 
 &[data-station=WAN] {
     transform: translate(-3446px, -626px);
+    @media (min-width: break1) {
+        transform: translate(-3463px, -594px);
+    }
 }
 
 li.WAN a {
