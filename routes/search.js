@@ -2,7 +2,7 @@
 var stationCodes = require('../components/station-switcher/lib/all-stations');
 
 module.exports = function(req, res) {
-    res.render('../pages/home/home.jade', {
+    res.renderPjax('home/home', {
         pageId: 'search',
         stationCodes: stationCodes,
         tubes: {

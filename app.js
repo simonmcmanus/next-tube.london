@@ -7,12 +7,19 @@ var http = require('http');
 
 var Models = require('./model/Models.base');
 
+var pjax = require('express-pjax');
+var partials = require('express-partials')
+
 var HOME = require('./routes/home');
 var ABOUT = require('./routes/about');
 var SEARCH = require('./routes/search');
 var STATION = require('./routes/station');
 
 app.use(express.static('public'));
+app.use(pjax());
+app.use(partials());
+app.set('views', __dirname + '/pages');
+app.set('view engine', 'jade');
 
 var server = http.createServer(app);
 var port =  process.env.PORT || 4000;

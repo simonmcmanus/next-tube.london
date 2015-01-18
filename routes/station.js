@@ -41,7 +41,7 @@ module.exports = function(model, req, res) {
         if (req.headers.accept === 'application/json' || req.query.data === 'true') {
             res.json(data);
         } else {
-            res.render('../pages/station/station.jade', newOut);
+            res.renderPjax('station/station', newOut);
         }
     }, false);
 };
