@@ -1,4 +1,4 @@
-$border-color: rgba(197, 199, 208, 0.83);
+$border-color: #B8B8B8;
 $porder-pixels: 2;
 
 
@@ -18,34 +18,74 @@ $porder-pixels: 2;
 
 html body header {
   height: 4em;
-  border-bottom: 1px solid #eee;
-  border-right: 1px solid #eee;
+  border-bottom: 1px solid #B8B8B8;
   position: relative;
-  background: #fff;
-  margin: 0em 1em 0 0;
+  background: rgba(255,255,255,.95);
+  margin:  0 0;
   padding: 1em 20%;
   z-index: 99999;
-  border-radius: 5px
+  //border-radius: 5px
+
+}
+
+
+nav {
   a {
+    top:13px;
+    margin: 0 .2em .2em 0;
+    height: 34px;
+    width: 34px;
+    display: block;
+    transition: height 2s;
+    background-repeat: no-repeat;
+    //transform: rotate(30deg);
+    content: "";
     display: inline-block;
-  }
-  h1 {
+    text-indent: -10000em;
+    background-color: #eee;
+    border-radius: .1em;
+    border: 1px solid #c8c8c8;
+    background-position: 5px 5px;
+    // transition-property: top,  height;
+    // transition-duration: 1s;
+    transition: all 1s;
+    &:hover {
       background-color: #fff;
+      border: 1px solid#222;
+    }
   }
-
 }
 
+.error {
+  display: none;
+}
+
+
+
+
+
+
+a.home {
+  background-image: url('https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-007_house_home-24.png');
+}
 a.search {
-  top: -4px;
-  margin-left: 20%;
-  transition: height 1s;
+  background-image: url('https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-015_search_zoom_find-24.png');
+}
+a.info {
+  background-image: url('https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-125_information-24.png'); 
 }
 
-#search.page {
-  a.search {
-    top: -34px;
-  }
+
+
+#home.page a.home,
+#about.page a.info,
+#search.page a.search {
+    border-color: transparent;
+    background-color: transparent;
+    cursor: default;
 }
+
+
 
 
 
@@ -63,7 +103,7 @@ html body a {
             margin: 0 20%;
         }
         div.settings {
-          margin-top: 1em;
+          //margin-top: 1em;
         }
         h1 {
         }
@@ -74,7 +114,6 @@ body {
   background-color: rgba(221, 77, 77, 0.76);
   font-size: 126px;
 }
-
 
 
 

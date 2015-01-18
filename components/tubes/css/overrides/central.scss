@@ -1,42 +1,6 @@
 $break1: 800px;
 $scale: scale(1);
 
-&[data-station=HOME] {
-    //transform: scale(.5);
-    //display:none;
-// one of these feckers is crashing things on my ipad mini.    
-    // @media (min-width: 500px) {
-    //     display: block;
-    //     transform:  scale(0.1);
-    // }
-    // @media (min-width: 800px) {
-    //     margin-left: 20%;
-    //     transform: scale(0.2) translateX(-8920%) translateY(-71%);
-    // }
-
-    // @media (min-width: 900px) {
-    //     margin-left: 24%;
-    // }
-
-    // @media (min-width: 1000px) {
-    //     margin-left: 27%;
-    // }
-
-    // @media (min-width: 1200px) {
-    //     margin-left: 30%;
-    // }
-
-    // @media (min-width: 1400px) {
-    //     margin-left: 35%;
-    // }
-
-    // @media (min-width: 1600px) {
-    //     margin-left: 30%;
-    //     transform: scale(0.4) translateX(-8920%) translateY(-71%);
-
-    // }
-}
-
 &[data-station=EPP] {
     transform: translate(-3303px, -10px);
     @media (min-width:$break1) {
@@ -169,31 +133,26 @@ li.STP {
 }
 
 &[data-station=STP] {
-    top: -1365px;
-    left: -2325px;
+    transform: translate(-2592px, -1300px);
     @media (min-width: break1) {
-        top: -1363px;
-        left: -2343px;
+        transform: translate(-2333px, -1300px);
     }
 }
 
 
 
 &[data-station=CYL] {
-    top: -1326px;
-    left: -2199px;
+    transform: translate(-2525px, -1248px);
     @media (min-width: break1) {
-        top: -1290px;
-        left: -2171px;
+        transform: translate(-2335px, -1300px);
     }
+
 }
 
 &[data-station=HOL] {
-    top: -1372px;
-    left: -2085px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -1398px;
-        left: -2101px;
+        transform: translate(-2135px, -1300px);
     }
 }
 
@@ -210,11 +169,9 @@ li.roundel.HOL {
 
 
 &[data-station=TCR] {
-    top: -1367px;
-    left: -1915px;
-    @media (min-width: 500px) {
-        top: -1396px;
-        left: -1930px;
+    transform: translate(-2276px, -1335px);
+    @media (min-width: break1) {
+        transform: translate(-2135px, -1300px);
     }
 }
 
@@ -239,20 +196,16 @@ li.TCR a.below::after {
 
 
 &[data-station=OXC] {
-    top: -1325px;
-    left: -1775px;
+    transform: translate(-2111px, -1242px);
     @media (min-width: break1) {
-        top: -1285px;
-        left: -1747px;
+        transform: translate(-1745px, -1203px);
     }
 }
 
 &[data-station=BDS] {
-    top: -1326px;
-    left: -1646px;
+    transform: translate(-1893px, -1242px);
     @media (min-width: break1) {
-        top: -1285px;
-        left: -1619px;
+        transform: translate(-1623px, -1212px);
     }
 }
 
@@ -268,39 +221,31 @@ li.BDS.active a.above  {
 
 
 &[data-station=MAR] {
-    top: -1363px;
-    left: -1570px;
+    transform: translate(-1831px, -1333px);
     @media (min-width: break1) {
-        top: -1397px;
-        left: -1585px;
+        transform: translate(-1591px, -1314px);
     }
 }
 
 &[data-station=LAN] {
-    top: -1326px;
-    left: -1491px;
+    transform: translate(-1804px, -1268px);
     @media (min-width: break1) {
-        top: -1290px;
-        left: -1463px;
+        transform: translate(-1462px, -1211px);
     }
 }
 
 &[data-station=QWY] {
-    top: -1362px;
-    left: -1423px;
+    transform: translate(-1682px, -1332px);
     @media (min-width: break1) {
-        top: -1398px;
-        left: -1437px;
+        transform: translate(-1442px, -1332px);
     }
 }
 
 
 &[data-station=NHG] {
-    top: -1326px;
-    left: -1307px;
+    transform: translate(-1582px, -1232px);
     @media (min-width: break1) {
-        top: -1285px;
-        left: -1277px;
+        transform: translate(-1315px, -1202px);
     }
 }
 
@@ -316,31 +261,23 @@ li#cen016.NHG.active a {
 }
 
 &[data-station=HPK] {
-    top: -1362px;
-    left: -1233px;
+    transform: translate(-1482px, -1332px);
     @media (min-width: break1) {
-        top: -1397px;
-        left: -1248px;
+        transform: translate(-1282px, -1332px);
     }
 }
 
 &[data-station=SBC] {
-    top: -1325px;
-    left: -1134px;
+    transform: translate(-1449px, -1268px);
     @media (min-width: break1) {
-        top: -1285px;
-        left: -1106px;
-
+        transform: translate(-1106px, -1195px);
     }
-
 }
 
 &[data-station=WCT] {
-    top: -1325px;
-    left: -985px;
+    transform: translate(-1449px, -1268px);
     @media (min-width: break1) {
-        top: -1285px;
-        left: -957px;
+        transform: translate(-1106px, -1195px);
     }
 }
 
@@ -356,39 +293,30 @@ li.roundel.WCT.active a {
 }
 
 &[data-station=EAC] {
-    top: -1326px;
-    left: -897px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -1289px;
-        left: -869px;
+        transform: translate(-2135px, -1300px);
     }
-
 }
 
 &[data-station=NAC] {
-    top: -1363px;
-    left: -854px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -1397px;
-        left: -869px;
+        transform: translate(-2135px, -1300px);
     }
 }
 
 &[data-station=WAC] {
-    top: -1398px;
-    left: -684px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -1396px;
-        left: -699px;
+        transform: translate(-2135px, -1300px);
     }
 }
 
 &[data-station=EBY] {
-    top: -1357px;
-    left: -318px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -1367px;
-        left: -96px;
+        transform: translate(-2135px, -1300px);
     }
 }
 
@@ -399,14 +327,10 @@ li.roundel.active.EBY a{
 }
 
 &[data-station=HLN] {
-    top: -1111px;
-    left: -395px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -1107px;
-        left: -236px;
+        transform: translate(-2135px, -1300px);
     }
-
-
 }
 
 li.HLN, li.PER {
@@ -429,20 +353,16 @@ li.HLN, li.PER {
 }
 
 &[data-station=PER] {
-    top: -1024px;
-    left: -344px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -1020px;
-        left: -249px;
+        transform: translate(-2135px, -1300px);
     }
 }
 
 &[data-station=GFD] {
-    top: -926px;
-    left: -235px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -924px;
-        left: -95px;
+        transform: translate(-2135px, -1300px);
     }
 }
 
@@ -467,22 +387,17 @@ li.GFD {
 }
 
 &[data-station=NHT] {
-    top: -762px;
-    left: -223px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -759px;
-        left: -110px;
+        transform: translate(-2135px, -1300px);
     }
 }
 
 &[data-station=SRP] {
-    top: -650px;
-    left: -178px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -645px;
-        left: -4px;
+        transform: translate(-2135px, -1300px);
     }
-
 }
 
 li.active.roundel.SRP a {
@@ -491,20 +406,16 @@ li.active.roundel.SRP a {
 }
 
 &[data-station=RUG] {
-    top: -540px;
-    left: -164px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -537px;
-        left: 51px;
+        transform: translate(-2135px, -1300px);
     }
 }
 
 &[data-station=WRP] {
-    top: -321px;
-    left: -180px;
+    transform: translate(-2411px, -1335px);
     @media (min-width: break1) {
-        top: -315px;
-        left: -13px;
+        transform: translate(-2135px, -1300px);
     }
 }
 

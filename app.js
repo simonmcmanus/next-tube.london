@@ -8,6 +8,8 @@ var http = require('http');
 var Models = require('./model/Models.base');
 
 var HOME = require('./routes/home');
+var ABOUT = require('./routes/about');
+var SEARCH = require('./routes/search');
 var STATION = require('./routes/station');
 
 app.use(express.static('public'));
@@ -28,4 +30,6 @@ var models = new Models({
 
 
 app.get('/', HOME.bind(null, models.station));
+app.get('/search', SEARCH);
+app.get('/about', ABOUT);
 app.get('/:line/:station', STATION.bind(null, models.station));

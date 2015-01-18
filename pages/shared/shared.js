@@ -7,8 +7,7 @@ var page = require('../../public/libs/page.js');
 window.NT = {
     bus: bus,
     page: page
-}
-
+};
 
 var $mapContainer = $('#map-container');
 var $floater = $('#floater');
@@ -51,8 +50,21 @@ if(window.location.hostname === 'woodford.today') {
 
 var socket = io(url);
 
+// page(function(context, next) {
+//     if(!context.init) {
+//         $.ajax({
+//             url: context.canonicalPath + '?&pjax=true',
+//             success: function(data) {
+//                 debugger;
+//             }
+//         });
+//     }
+// })
+
 require('../home/home')(page, socket);
 require('../station/station')(page, socket);
+require('../search/search')(page, socket);
+require('../about/about')(page, socket);
 
 
 page();

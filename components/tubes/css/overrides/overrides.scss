@@ -104,7 +104,7 @@
             color: #4A70CB;
             cursor: hand;
             font-weight: bold;
-            border: 2px solid rgba(0,0,0,0);
+            border: 1px solid rgba(0,0,0,0);
             height: 1em;
             line-height: 1em;
             white-space: nowrap;
@@ -170,7 +170,7 @@
         &.highlight {
             text-shadow: -1px 1px 20px red, 1px -1px 20px #fff;
             font-size: 2em;
-            border: 2px solid $border-color;
+            border: 1px solid $border-color;
             background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
             z-index: 1000 !important;
             a {
@@ -190,7 +190,7 @@
 
                 background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
 
-                border: 2px solid $border-color;
+                border: 1px solid $border-color;
                 z-index: 1000 !important;
 
                 &.left {

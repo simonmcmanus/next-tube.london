@@ -9,11 +9,5 @@ module.exports = function(page) {
         $('.page').attr('id', 'home');
 
     });
-
-    page('/search/', function() {
-        console.log('trigger search');
-        bus.trigger('search:show');
-        $('.page').attr('id', 'search');
-    });
     console.log('homepage init');
 }

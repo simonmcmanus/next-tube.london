@@ -2,11 +2,11 @@
     position: relative;
     transition-property: top,  height;
     transition-duration: 1s;
-    top: 0;
+    top: 1.2em;
     height: 2em;
     &.hide {
         height: 0;
-        top: -5em;
+        top: -7em;
     }
 
 
