@@ -18,6 +18,11 @@ tubes.prototype.focus = function(station) {
     }, 1250);
 };
 
+tubes.prototype.unfocus = function() {
+    $('ul.line li  a.point').removeClass('point');
+    this.$el.find('li.active').removeClass('active');
+};
+
 tubes.prototype.highlight = function(stations) {
     var self = this;
     self.$el.find('.highlight').removeClass('highlight');
@@ -28,4 +33,5 @@ tubes.prototype.highlight = function(stations) {
 
 tubes.prototype.zoomOut = function() {
     this.$el.attr('data-station', '');
+    this.unfocus();
 };

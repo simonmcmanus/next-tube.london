@@ -7,8 +7,9 @@ var switcherComp = require('../../components/station-switcher/station-switcher.j
 var search = module.exports = function(NT) {
     NT.page('/search', function(context) {
         console.log('in search')
-         NT.activePage = 'search';
+        NT.activePage = 'search';
         if(!context.init) {
+            NT.bus.trigger('zoom:out');
             $('.page').attr('id', 'search');
             $('#content').html(template());
             $('#content').removeClass('hideTop');
