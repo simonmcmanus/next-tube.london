@@ -2,9 +2,10 @@
 
 var template = require('./home.jade');
 
-module.exports = function(NT) {
+var home = module.exports = function(NT) {
     NT.page('/', function() {
-        bus.trigger('zoom:out');
+        console.log('in home')
+        NT.bus.trigger('zoom:out');
         NT.activePage = 'home';
         $('.page').attr('id', 'home');
         $('#content').html(template({
@@ -12,5 +13,12 @@ module.exports = function(NT) {
                 currentStationCode: 'HOME'
             }
         }));
+//        $('#content').removeClass('hideTop');
     });
+    return this;
 };
+
+home.prototype.destroy = function(callback) {
+    callback();
+    console.log('desory home');
+}

@@ -2,13 +2,17 @@
 
 var template = require('./about.jade');
 
-module.exports = function(NT) {
+var about = module.exports = function(NT) {
     NT.page('/about', function() {
-        NT.bus.trigger('search:hide');
+        NT.activePage = 'about';
         $('.page').attr('id', 'about');
-        console.log(template(), template);
         $('#content').html(template());
+        $('#content').removeClass('hideTop');
     });
     console.log('homepage init');
 }
 
+
+about.prototype.destroy = function(callback) {
+    setTimeout(callback, 500);
+};

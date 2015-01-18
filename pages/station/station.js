@@ -4,14 +4,14 @@ var floaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');
 var activeStation = null;
 
-module.exports = function(NT, socket) {
+var station = module.exports = function(NT, socket) {
     var bus = NT.bus;
     bus.on('setup', function() {
         new stationComp($('#station'), bus);
         new floaterComp($('#floater'), bus);
     });
-
     NT.page('/:line/:stationName', function(context) {
+        console.log('got for station /line/station')
         bus.trigger('search:hide');
         bus.trigger('router:station', context);
         if(context.init) {
@@ -26,8 +26,17 @@ module.exports = function(NT, socket) {
                 code: urlCodes[context.params.stationName]
             });
         }
+        //$('#content').removeClass('hideTop');
 
     });
+    return this;
+};
+
+
+station.prototype.destroy = function(callback) {
+    console.log('1');
+    callback();
+
 };
 
 function listen(station, socket) {
