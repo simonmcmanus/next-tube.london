@@ -3,6 +3,7 @@
 var switcher = module.exports = function($el, bus) {
     var $select = $el.find('input.stationSearch');
     this.$el = $el;
+    console.log('$select', this.hide);
     bus.on('search:hide', this.hide.bind(this));
     bus.on('search:show', this.show.bind(this));
     $select.selectize({

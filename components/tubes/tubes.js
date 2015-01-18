@@ -1,6 +1,9 @@
+'use strict';
+
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
     bus.on('station', this.focus.bind(this));
+    bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
 };
 
@@ -19,10 +22,10 @@ tubes.prototype.highlight = function(stations) {
     var self = this;
     self.$el.find('.highlight').removeClass('highlight');
     stations.forEach(function(station) {
-        //
-        console.log(        self.$el.find('.' + station));
         self.$el.find('.' + station).addClass('highlight');
     });
+};
 
-    console.log('got stations', stations);
+tubes.prototype.zoomOut = function() {
+    this.$el.attr('data-station', '');
 };

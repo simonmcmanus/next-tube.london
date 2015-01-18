@@ -89,12 +89,24 @@ a.info {
 
 
 
+
 html body a {
     position: relative;
     text-decoration: none;
 
 }
 .page {
+
+    #content {
+      transition: all 2s;
+      top: 0;
+      margin: 1em 20% 0 20%;
+      position: relative;
+      border: 1px solid red;
+      &.hideTop {
+        top: -20em;
+      }
+    }
     transform-style: preserve-3d;
     @media (min-width: 800px) {
 

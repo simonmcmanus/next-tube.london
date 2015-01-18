@@ -1,40 +1,39 @@
-// internal browser events bus.
+'use strict';
+
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
 var page = require('../../public/libs/page.js');
 
+var tubesComponent = require('../../components/tubes/tubes.js');
 
-// only exposing for debugging.
-window.NT = {
+var NT = {
     bus: bus,
-    page: page
+    page: page,
+    activePage: null,
+    pages: {}
 };
 
-var $mapContainer = $('#map-container');
-var $floater = $('#floater');
-var components = [
-    {
-        $el: $mapContainer,
-        init: require('../../components/tubes/tubes.js')
-    },
-    {
-        $el: $floater,
-        init: require('../../components/floater/floater.js')
-    },
-    {
-        $el: $floater.find('#station'),
-        init: require('../../components/station/station.js')
-    },
-    {
-        $el: $('div.settings'),
-        init: require('../../components/station-switcher/station-switcher.js')
-    }
-];
+// page(function(context, next) {
+//     if(!context.init && NT.activePage) {
+//         alert('destory '+ NT.activePage);
+//         pages[activePage].destroy();
+//     }
+//     next();
+// });
+
 
 $(document).ready(function() {
-    components.forEach(function(component) {
-        component.init && new component.init(component.$el, bus);
-    });
-})
+    new tubesComponent($('#map-container'), bus);
+    // init all the pages.
+    NT.pages = {
+        home: require('../home/home')(NT, socket),
+        //station: require('../station/station')(NT, socket),
+        search: require('../search/search')(NT, socket),
+        about: require('../about/about')(NT, socket)
+    };
+
+    page();
+    bus.trigger('document:ready');
+});
 
 // allows page change to be triggered by an event.
 bus.on('page:load', function(path) {
@@ -49,24 +48,3 @@ if(window.location.hostname === 'woodford.today') {
 }
 
 var socket = io(url);
-
-// page(function(context, next) {
-//     if(!context.init) {
-//         $.ajax({
-//             url: context.canonicalPath + '?&pjax=true',
-//             success: function(data) {
-//                 debugger;
-//             }
-//         });
-//     }
-// })
-
-require('../home/home')(page, socket);
-require('../station/station')(page, socket);
-require('../search/search')(page, socket);
-require('../about/about')(page, socket);
-
-
-page();
-
-// window.onresize = function() {};
