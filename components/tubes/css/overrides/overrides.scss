@@ -1,13 +1,11 @@
 .map-wrapper {
     width: 100%;
     height: 100%;
+    //margin-top: 6em;
 }
 
 #map-container{
-
     z-index:1;
-
-    // one of these feckers is crashing th
     position: absolute;
     display: none;
     @media (min-width: 400px) {
@@ -20,22 +18,22 @@
         transform:  translate(-324px, -200px) scale(0.16);
     }
     @media (min-width: 800px) {
-        transform:  translate(-107px, -200px) scale(0.2);
+        transform: translate(-387px, -200px) scale(0.2);
     }
     @media (min-width: 1000px) {
-        transform: translate(-198px, -200px) scale(0.26);
+        transform: translate(-500px, -200px) scale(0.26);
     }
     @media (min-width: 1200px) {
-        transform:  translate(-192px, -200px) scale(0.3);
+        transform:  translate(-592px, -200px) scale(0.3);
     }
     @media (min-width: 1400px) {
-        transform:  translate(-230px, -200px) scale(0.34);
+        transform: translate(-650px, -200px) scale(0.34);
     }
     @media (min-width: 1600px) {
-        transform:  translate(-301px, -200px) scale(0.4);
+        transform:  translate(-819px, -200px) scale(0.4);
     }
     @media (min-width: 1800px) {
-        transform:  translate(-405px, -100px) scale(0.5);
+        transform: translate(-944px, -100px) scale(0.5)
     }
     // need bigger screens to test on :(
     // @media (min-width: 2000px) {

@@ -6,7 +6,8 @@ var switcherComp = require('../../components/station-switcher/station-switcher.j
 
 var search = module.exports = function(NT) {
     NT.page('/search', function(context) {
-        console.log('in search')
+        console.log('search init');
+
         NT.activePage = 'search';
         if(!context.init) {
             NT.bus.trigger('zoom:out');
@@ -18,7 +19,6 @@ var search = module.exports = function(NT) {
         console.log('setup search')
         new switcherComp($('div.settings'), bus);
     });
-    console.log('search init');
 };
 
 
