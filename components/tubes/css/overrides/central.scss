@@ -4,7 +4,7 @@ $scale: scale(1);
 &[data-station=EPP] {
     transform: translate(-3303px, -10px);
     @media (min-width:$break1) {
-        transform:  translate(-3239px, 13px);
+        transform: translate(-3239px, 110px)
     }
 }
 
@@ -37,7 +37,7 @@ $scale: scale(1);
 }
 
 &[data-station=WFD] {
-    transform: translate(-3273px, -366px);
+    transform: translate(-3273px, -166px);
     @media (min-width:$break1) {
          transform: translate(-3168px, -328px);
     }

@@ -1,6 +1,5 @@
 #floater {
   overflow:hidden;
-  display: none;
   min-height: 60px;
   margin: 10em 1em 1em 1em;
   box-shadow: rgba(129, 122, 145, 0.84) 0 0 0px;
@@ -47,7 +46,7 @@
 @media (min-width: 800px) {
   .page {
     #map-container {
-      margin-left:20%;
+      margin-left: 20% auto;
     }
   }
   html body #floater {

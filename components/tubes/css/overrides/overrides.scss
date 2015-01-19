@@ -2,39 +2,47 @@
     width: 100%;
     height: 100%;
     //margin-top: 6em;
+    @media (min-width:800px) {
+        padding-left: 20%;
+    }
+
 }
 
 #map-container{
     z-index:1;
     position: absolute;
-    display: none;
-    @media (min-width: 400px) {
-        display: block;
-        margin: auto 50%;
-        transform:  translate(-201px, -200px) scale(0.1);
+    display: block;
+    padding-left: 0;
+    &[data-station=""] {
+        @media (min-width: 400px) {
+            margin: auto 30%;
+            transform:  translate(-548px) scale(0.1)
+
+        }
+        @media (min-width: 600px) {
+            transform:  translate(-659px) scale(0.16);
+        }
+        @media (min-width: 800px) {
+            transform: translate(-712px) scale(0.2);
+        }
+        @media (min-width: 1000px) {
+            transform: translate(-811px) scale(0.26);
+        }
+        @media (min-width: 1200px) {
+            transform:  translate(-912px) scale(0.3);
+        }
+        @media (min-width: 1400px) {
+            transform: translate(-650px) scale(0.34);
+        }
+        @media (min-width: 1600px) {
+            transform:  translate(-1000px) scale(0.4);
+        }
+        @media (min-width: 1800px) {
+            transform: translate(-1200px) scale(0.5)
+        }
 
     }
-    @media (min-width: 600px) {
-        transform:  translate(-324px, -200px) scale(0.16);
-    }
-    @media (min-width: 800px) {
-        transform: translate(-387px, -200px) scale(0.2);
-    }
-    @media (min-width: 1000px) {
-        transform: translate(-500px, -200px) scale(0.26);
-    }
-    @media (min-width: 1200px) {
-        transform:  translate(-592px, -200px) scale(0.3);
-    }
-    @media (min-width: 1400px) {
-        transform: translate(-650px, -200px) scale(0.34);
-    }
-    @media (min-width: 1600px) {
-        transform:  translate(-819px, -200px) scale(0.4);
-    }
-    @media (min-width: 1800px) {
-        transform: translate(-944px, -100px) scale(0.5)
-    }
+
     // need bigger screens to test on :(
     // @media (min-width: 2000px) {
     //     transform:  translate(-500px, -200px) scale(0.56);
@@ -43,18 +51,14 @@
     //     transform:  translate(-600px, -200px) scale(0.68);
     // }
 
-//    transform-style: preserve-3d;
     height: 556px;
     width: 807px;
-
-    transform-origin: 0px;
-
-    transition-property: transform, margin-left;
+    transition-property: transform, margin;
     transition-duration: 4s;
     #piccadilly,
     #metropolitan,
     #district,
-#circle,
+    #circle,
     #hammersmith-and-city,
     #bakerloo,
     #victoria,

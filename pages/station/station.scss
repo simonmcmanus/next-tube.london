@@ -1,6 +1,10 @@
 #station.page {
   height: 0;
-  #content {
+  #map-container {
+    @media (min-width:800px) {
+        padding-left: 20%;
+    }
+
     //margin-top: 10em;
   }
 }
@@ -134,7 +138,8 @@ html body h3 {
           height: 4em;
 
     }
-    position: relative;
+    position: absolute;
+    top: 7.6em;
     background: red;
     z-index: 999 !important;
 
