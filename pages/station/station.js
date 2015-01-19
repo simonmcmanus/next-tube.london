@@ -5,27 +5,35 @@ var urlCodes = require('./station-url-codes.json');
 var activeStation = null;
 
 var station = module.exports = function(NT, socket) {
-    var bus = NT.bus;
-    bus.on('setup', function() {
+    var self = this;
+    self.bus = NT.bus;
+    self.bus.on('setup', function() {
         new stationComp($('#station'), bus);
         new floaterComp($('#floater'), bus);
     });
     NT.page('/:line/:stationName', function(context) {
-        console.log('got for station /line/station')
-        bus.trigger('search:hide');
-        bus.trigger('router:station', context);
-        if(context.init) {
-            listen({
-                code: urlCodes[context.params.stationName]
-            }, socket);
-        } else {
+        self.bus.trigger('loader:show');
+        self.getStationData(context.canonicalPath, function() {
 
-            $('.page').attr('id', 'station');
-            bus.trigger('station', {
-                slug: context.params.stationName,
-                code: urlCodes[context.params.stationName]
-            });
-        }
+            //debugger;
+
+        });
+        // console.log('got for station /line/station');
+
+
+        // bus.trigger('router:station', context);
+        // if(context.init) {
+        //     listen({
+        //         code: urlCodes[context.params.stationName]
+        //     }, socket);
+        // } else {
+
+        //     $('.page').attr('id', 'station');
+        //     bus.trigger('station', {
+        //         slug: context.params.stationName,
+        //         code: urlCodes[context.params.stationName]
+        //     });
+        // }
         //$('#content').removeClass('hideTop');
 
     });
@@ -38,6 +46,43 @@ station.prototype.destroy = function(callback) {
     callback();
 
 };
+
+
+station.prototype.getStationData = function(path, callback) {
+    var self = this;
+    $('.page').attr('id', 'station');
+    $.ajax({
+        url: path + '?ajax=true' ,
+        headers: {
+            //'Accept': 'application/json',
+            'X-PJAX': 'true'
+        },
+        complete: function(xhr, status) {
+            if(status === 'error') {
+                console.log("ERRROR");
+                callback(true);
+            }
+        },
+        success: function(data) {
+            $('#content').html(data);
+  //          callback(null, data);
+return;
+//            console.log(data);
+            // self.bus.trigger('nextTrain:gotStationData', data);
+            // self.bus.trigger('error:hide');
+            // // todo: remove timeout.
+            // setTimeout(function() {
+            //     self.bus.trigger('loader:hide');
+            // }, 500);
+        }
+    });
+};
+
+station.prototype.errorCallback = function(stationCode) {
+    this.$el.find('.trains').empty();
+    this.$el.find('.error').html(templateError({stationCode: stationCode}));
+    this.bus.trigger('error:show');
+}
 
 function listen(station, socket) {
     activeStation = station.code;

@@ -32,7 +32,6 @@ station.prototype.changeStation = function(newStation) {
     this.getStationData(newStation);
 };
 
-
 station.prototype.directionInit = function() {
     var self = this;
     self.$el.find('[data-direction]').each(function() {
@@ -62,35 +61,4 @@ station.prototype.render = function(data) {
         self.bus.trigger('resize');
     }, 400);
 };
-
-station.prototype.getStationData = function(station) {
-    var self = this;
-    self.bus.trigger('loader:show');
-    $.ajax({
-        url: '/central/' + station.slug + '?ajax=true' ,
-        headers: {
-            Accept: 'application/json'
-        },
-        complete: function(xhr, status) {
-            if(status === 'error') {
-                self.errorCallback(station.slug);
-            }
-        },
-        success: function(data) {
-            self.bus.trigger('nextTrain:gotStationData', data);
-            self.bus.trigger('error:hide');
-
-            // todo: remove timeout.
-            setTimeout(function() {
-                self.bus.trigger('loader:hide');
-            }, 500);
-        }
-    });
-}
-
-station.prototype.errorCallback = function(stationCode) {
-    this.$el.find('.trains').empty();
-    this.$el.find('.error').html(templateError({stationCode: stationCode}));
-    this.bus.trigger('error:show');
-}
 

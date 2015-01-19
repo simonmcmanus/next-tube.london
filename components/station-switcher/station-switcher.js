@@ -19,6 +19,7 @@ var switcher = module.exports = function($el, bus) {
         // dataAttr: 'data-code',
         // allowEmptyOption: true,
         onChange: function(item) {
+            console.log('change')
             if(item !== '') {
                 var url = this.options[item].slug;
                 bus.trigger('search:highlight', []);
@@ -27,7 +28,8 @@ var switcher = module.exports = function($el, bus) {
         },
 
         onType: function(search) {
-            bus.trigger('page:load', '/search' );
+            console.log('type')
+//            bus.trigger('page:load', '/search' );
            var possibles = this.currentResults.items.map(function(i) { return i.id } );
            bus.trigger('search:highlight', possibles);
         },
