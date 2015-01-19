@@ -12,12 +12,18 @@ var station = module.exports = function(NT, socket) {
         new floaterComp($('#floater'), bus);
     });
     NT.page('/:line/:stationName', function(context) {
-        self.bus.trigger('loader:show');
-        self.getStationData(context.canonicalPath, function() {
 
-            //debugger;
+        if(!context.init) {
+            self.bus.trigger('loader:show');
+            var stationCode = urlCodes[context.params.stationName];
+            
+            self.getStationData(context.canonicalPath, function() {
+                console.log('got', stationCode);
+                self.bus.trigger('station', {code: stationCode});
 
-        });
+                //debugger;
+            });
+        }
         // console.log('got for station /line/station');
 
 
@@ -65,8 +71,7 @@ station.prototype.getStationData = function(path, callback) {
         },
         success: function(data) {
             $('#content').html(data);
-  //          callback(null, data);
-return;
+            callback(null);
 //            console.log(data);
             // self.bus.trigger('nextTrain:gotStationData', data);
             // self.bus.trigger('error:hide');
