@@ -53,8 +53,9 @@
 
     height: 556px;
     width: 807px;
-    // transition-property: transform, margin;
-    // transition-duration: 4s;
+    transition-property: transform, margin;
+    transition-duration: 2s, 1s;
+    transition-delay:  1, 0s;
     #piccadilly,
     #metropolitan,
     #district,

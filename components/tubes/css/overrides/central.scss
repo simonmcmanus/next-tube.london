@@ -18,14 +18,14 @@ $scale: scale(1);
 &[data-station=DEB] {
     transform: translate(-3300px, 13px);
     @media (min-width:$break1) {
-         transform: translate(-3219px, 11px);
+         transform: translate(-3225px, 21px);
     }
 }
 
 &[data-station=LTN] {
     transform: translate(-3283px, -150px);
     @media (min-width:$break1) {
-    transform: translate(-3190px, -34px);
+    transform: translate(-3192px, -25px);
     }
 }
 
@@ -79,9 +79,9 @@ $scale: scale(1);
 }
 
 &[data-station=MLE] {
-    transform: translate(-3022px, -1099px);
-    @media (min-width:$break1) {
-        transform: translate(-2993px, -1058px);
+    transform: translate(-3021px, -991px);
+    @media (min-width: 800px) {
+        transform: translate(-2993px, -969px);
     }
 
 }
@@ -89,9 +89,9 @@ $scale: scale(1);
 
 
 &[data-station=BNG] {
-    transform: translate(-2909px, -1100px);
+    transform: translate(-2909px, -991px);
     @media (min-width:$break1) {
-         transform: translate(-2881px, -1074px);
+         transform: translate(-2881px, -985px);
     }
 }
 
@@ -99,16 +99,16 @@ $scale: scale(1);
 
 
 &[data-station=LST] {
-    transform: translate(-2588px, -1174px);
-    @media (min-width: break1) {
-        transform: translate(-2560px, -1130px);
+    transform: translate(-2588px, -1063px);
+    @media (min-width: 800px) {
+        transform: translate(-2560px, -1063px);
     }
 }
 
 &[data-station=BNK] {
-    transform: translate(-2376px, -1341px);
-    @media (min-width: break1) {
-        transform: translate(-2350px, -1294px);
+    transform: translate(-2377px, -1212px);
+    @media (min-width: 800px) {
+        transform: translate(-2349px, -1205px);
     }
 
 }
@@ -123,36 +123,36 @@ li.STP {
         left: 24px;
     }
     &.active a {
-        left: 34px;
-        top: 0;
-        @media (min-width: break1) {
-            top: -7px;
-            left: 41px;
+        left: 31px;
+        top: 1px;
+        @media (min-width: 800px) {
+            left: 37px;
+            top: -6px;
         }
     }
 }
 
 &[data-station=STP] {
-    transform: translate(-2592px, -1300px);
-    @media (min-width: break1) {
-        transform: translate(-2333px, -1300px);
+    transform: translate(-2328px, -1201px);
+    @media (min-width: 800px) {
+        transform: translate(-2338px, -1208px);
     }
 }
 
 
 
 &[data-station=CYL] {
-    transform: translate(-2525px, -1248px);
-    @media (min-width: break1) {
-        transform: translate(-2335px, -1300px);
+    transform: translate(-2199px, -1151px);
+    @media (min-width: 800px) {
+        transform: translate(-2171px, -1146px)
     }
 
 }
 
 &[data-station=HOL] {
     transform: translate(-2411px, -1335px);
-    @media (min-width: break1) {
-        transform: translate(-2135px, -1300px);
+    @media (min-width: 800px) {
+        transform: translate(-2101px, -1234px);
     }
 }
 
@@ -170,8 +170,8 @@ li.roundel.HOL {
 
 &[data-station=TCR] {
     transform: translate(-2276px, -1335px);
-    @media (min-width: break1) {
-        transform: translate(-2135px, -1300px);
+    @media (min-width: 800px) {
+        transform: translate(-1931px, -1229px);
     }
 }
 
@@ -183,7 +183,7 @@ li.TCR a.below {
 li.TCR.active a.below {
     left: -56px;
     top: 21px;
-    @media (min-width: break1) {
+    @media (min-width: 800px) {
         left: -57px;
         top: 24px;
     }
@@ -197,15 +197,15 @@ li.TCR a.below::after {
 
 &[data-station=OXC] {
     transform: translate(-2111px, -1242px);
-    @media (min-width: break1) {
-        transform: translate(-1745px, -1203px);
+    @media (min-width: 800px) {
+        transform: translate(-1747px, -1129px);
     }
 }
 
 &[data-station=BDS] {
     transform: translate(-1893px, -1242px);
-    @media (min-width: break1) {
-        transform: translate(-1623px, -1212px);
+    @media (min-width: 800px) {
+        transform: translate(-1619px, -1130px);
     }
 }
 
@@ -228,24 +228,24 @@ li.BDS.active a.above  {
 }
 
 &[data-station=LAN] {
-    transform: translate(-1804px, -1268px);
-    @media (min-width: break1) {
-        transform: translate(-1462px, -1211px);
+    transform: translate(-1491px, -1151px);
+    @media (min-width: 800px) {
+        transform: translate(-1463px, -1148px);
     }
 }
 
 &[data-station=QWY] {
-    transform: translate(-1682px, -1332px);
-    @media (min-width: break1) {
-        transform: translate(-1442px, -1332px);
+    transform: translate(-1423px, -1223px);
+    @media (min-width: 800px) {
+        transform:translate(-1439px, -1233px);
     }
 }
 
 
 &[data-station=NHG] {
-    transform: translate(-1582px, -1232px);
-    @media (min-width: break1) {
-        transform: translate(-1315px, -1202px);
+    transform: translate(-1307px, -1152px);
+    @media (min-width: 800px) {
+        transform: translate(-1280px, -1129px)
     }
 }
 
@@ -255,29 +255,29 @@ li#cen016.NHG a {
 
 li#cen016.NHG.active a {
     left: 0;
-    @media (min-width: break1) {
-        left: -46px;
+    @media (min-width: 800px) {
+        left: -43px;
     }
 }
 
 &[data-station=HPK] {
-    transform: translate(-1482px, -1332px);
-    @media (min-width: break1) {
-        transform: translate(-1282px, -1332px);
+    transform: translate(-1233px, -1223px);
+    @media (min-width: 800px) {
+        transform: translate(-1249px, -1233px);
     }
 }
 
 &[data-station=SBC] {
-    transform: translate(-1449px, -1268px);
-    @media (min-width: break1) {
-        transform: translate(-1106px, -1195px);
+    transform: translate(-1134px, -1151px);
+    @media (min-width: 800px) {
+        transform: translate(-1106px, -1111px);
     }
 }
 
 &[data-station=WCT] {
-    transform: translate(-1449px, -1268px);
-    @media (min-width: break1) {
-        transform: translate(-1106px, -1195px);
+    transform: translate(-985px, -1154px);
+    @media (min-width: 800px) {
+        transform: translate(-957px, -1130px);
     }
 }
 
@@ -287,37 +287,39 @@ li.roundel.WCT a {
 
 li.roundel.WCT.active a {
     left: 0;
-    @media (min-width: break1) {
+    @media (min-width: 800px) {
         left: -44px;
     }
 }
 
 &[data-station=EAC] {
-    transform: translate(-2411px, -1335px);
-    @media (min-width: break1) {
-        transform: translate(-2135px, -1300px);
+    transform: translate(-897px, -1152px);
+    @media (min-width: 800px) {
+        transform: translate(-869px, -1148px);
     }
 }
 
 &[data-station=NAC] {
-    transform: translate(-2411px, -1335px);
-    @media (min-width: break1) {
-        transform: translate(-2135px, -1300px);
+    transform: translate(-855px, -1222px);
+    @media (min-width: 800px) {
+        transform: translate(-871px, -1233px);
     }
 }
 
 &[data-station=WAC] {
-    transform: translate(-2411px, -1335px);
-    @media (min-width: break1) {
-        transform: translate(-2135px, -1300px);
+    transform: translate(-855px, -1222px);
+    @media (min-width: 800px) {
+        transform: translate(-685px, -1222px);
     }
+
 }
 
 &[data-station=EBY] {
-    transform: translate(-2411px, -1335px);
-    @media (min-width: break1) {
-        transform: translate(-2135px, -1300px);
+    transform: translate(-322px, -1197px);
+    @media (min-width: 800px) {
+        transform: translate(-145px, -1193px);
     }
+
 }
 
 
@@ -428,18 +430,18 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=ROD] {
-    transform: translate(-3432px, -234px);
-    @media (min-width: break1) {
-        transform: translate(-3448px, -205px);
+    transform: translate(-3433px, -109px);
+    @media (min-width: 800px) {
+        transform: translate(-3404px, -106px);
     }
 
     .ROD {
         &.active.roundel a.above{
-            top: -63px;
-            left: 5px;
-            @media (min-width: break1) {
-                top: -99px;
-                left: -40px;
+            top: -62px;
+            left: 6px;
+            @media (min-width: 800px) {
+                top: -89px !important;
+                left: -38px !important;
             }
         }
         a {
@@ -452,69 +454,65 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=CHG] {
-    transform: translate(-3509px, -335px);
-    @media (min-width: break1) {
-        top: -366px;
-        left: -3523px;
+    transform: translate(-3509px, -191px);
+    @media (min-width: 800px) {
+        transform: translate(-3525px, -191px);
     }
 }
 
 &[data-station=GRH] {
-    transform: translate(-3553px, -231px);
-    @media (min-width: break1) {
-        top: -259px;
-        left: -3525px;
+    transform: translate(-3553px, -105px);
+    @media (min-width: 800px) {
+       transform: translate(-3524px, -97px);
     }
 }
 
 &[data-station=HAI] {
-    transform: translate(-3545px, -343px);
+    transform: translate(-3546px, -217px);
     @media (min-width: break1) {
-        transform: translate(-3459px, -305px);
+        transform: translate(-3461px, -215px);
     }
 }
 
 &[data-station=FLP] {
-    transform: translate(-3560px, -398px);
-    @media (min-width: break1) {
-        transform: translate(-3459px, -305px);
+    transform: translate(-3561px, -272px);
+    @media (min-width: 800px) {
+        transform: translate(-3461px, -215px);
     }
 }
 
 &[data-station=BDE] {
-    transform: translate(-3523px, -451px);
-    @media (min-width: break1) {
-        transform: translate(-3459px, -305px);
+    transform: translate(-3524px, -325px);
+    @media (min-width: 800px) {
+        transform: translate(-3409px, -326px);
     }
 }
 
 &[data-station=NEP] {
-    transform: translate(-3503px, -505px);
-    @media (min-width: break1) {
-        transform: translate(-3459px, -305px);
+    transform:translate(-3505px, -379px);
+    @media (min-width: 800px) {
+        transform: translate(-3357px, -380px);
     }
 }
 
 &[data-station=GHL] {
-    transform: translate(-3577px, -626px);
-    @media (min-width: break1) {
-        top: -657px;
-        left: -3591px;
+    transform: translate(-3577px, -483px);
+    @media (min-width: 800px) {
+       transform: translate(-3593px, -493px);
     }
 }
 
 &[data-station=RED] {
-    transform: translate(-3501px, -522px);
-    @media (min-width: break1) {
-        top: -550px;
-        left: -3473px;
+    transform: translate(-3501px, -412px);
+    @media (min-width: 800px) {
+        transform: translate(-3473px, -408px);
     }
 }
 
 &[data-station=WAN] {
-    transform: translate(-3446px, -626px);
-    @media (min-width: break1) {
-        transform: translate(-3463px, -594px);
+    transform: translate(-3446px, -483px);
+    @media (min-width: 800px) {
+        transform: translate(-3462px, -493px);
     }
 }
 
