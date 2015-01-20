@@ -1,9 +1,12 @@
 .map-wrapper {
     width: 100%;
     height: 100%;
+    transform: translate(0%);
+    transition-property: transform;
+    transition-duration: 2s;
     //margin-top: 6em;
     @media (min-width:800px) {
-        padding-left: 20%;
+        transform: translate(20%);
     }
 
 }
@@ -15,30 +18,29 @@
     padding-left: 0;
     &[data-station=""] {
         @media (min-width: 400px) {
-            margin: auto 30%;
-            transform: translate(-456px) scale(0.1);
+            transform: translate(-60%) scale(0.1);
 
         }
         @media (min-width: 600px) {
-            transform: translate(-512px) scale(0.16);
+            transform: translate(-60%) scale(0.16);
         }
         @media (min-width: 800px) {
-            transform: translate(-712px) scale(0.2);
+            transform: translate(-60%) scale(0.2);
         }
         @media (min-width: 1000px) {
-            transform: translate(-811px) scale(0.26);
+            transform: translate(-60%) scale(0.26);
         }
         @media (min-width: 1200px) {
-            transform:  translate(-912px) scale(0.3);
+            transform:  translate(-60%) scale(0.3);
         }
         @media (min-width: 1400px) {
-            transform: translate(-933px) scale(0.34);
+            transform: translate(-60%) scale(0.34);
         }
         @media (min-width: 1600px) {
-            transform:  translate(-1000px) scale(0.4);
+            transform:  translate(-60%) scale(0.4);
         }
         @media (min-width: 1800px) {
-            transform: translate(-1200px) scale(0.5)
+            transform: translate(-60%) scale(0.5)
         }
 
     }
@@ -53,7 +55,7 @@
 
     height: 556px;
     width: 807px;
-    transition-property: transform, margin;
+    transition-property: transform;
     transition-duration: 2s;
     //transition-delay:  3s;
     #piccadilly,
