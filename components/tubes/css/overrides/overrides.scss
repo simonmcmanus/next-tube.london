@@ -6,6 +6,7 @@
     transition-duration: 2s;
     //margin-top: 6em;
     @media (min-width:800px) {
+        // this still causes some janking.
         transform: translate(20%);
     }
 
