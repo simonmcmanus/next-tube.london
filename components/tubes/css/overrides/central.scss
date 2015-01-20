@@ -2,58 +2,58 @@ $break1: 800px;
 $scale: scale(1);
 
 &[data-station=EPP] {
-    transform: translate(-3303px, -10px);
+    transform: translate(-3240px, 118px);
     @media (min-width:$break1) {
-        transform: translate(-3239px, 110px)
+        transform: translate(-3240px, 110px);
     }
 }
 
 &[data-station=THB] {
-    transform: translate(-3247px, -58px);
+    transform: translate(-3247px, 60px);
    @media (min-width:$break1) {
-        transform:translate(-3107px, -23px);
+        transform: translate(-3110px, 67px);
     }
 }
 
 &[data-station=DEB] {
-    transform: translate(-3297px, -104px);
+    transform: translate(-3300px, 13px);
     @media (min-width:$break1) {
-         transform: translate(-3223px, -69px);
+         transform: translate(-3219px, 11px);
     }
 }
 
 &[data-station=LTN] {
     transform: translate(-3283px, -150px);
     @media (min-width:$break1) {
-    transform: translate(-3190px, -114px);
+    transform: translate(-3190px, -34px);
     }
 }
 
 &[data-station=BHL] {
     transform: translate(-3239px, -197px);
     @media (min-width:$break1) {
-        transform: translate(-3087px, -162px);
+        transform: translate(-3087px, -72px);
     }
 }
 
 &[data-station=WFD] {
-    transform: translate(-3273px, -166px);
+    transform: translate(-3275px, -240px);
     @media (min-width:$break1) {
-         transform: translate(-3168px, -328px);
+         transform: translate(-3170px, -238px);
     }
 }
 
 &[data-station=SWF] {
-    transform: translate(-3223px, -422px);
+    transform: translate(-3225px, -296px);
     @media (min-width:$break1) {
-         transform: translate(-3046px, -388px);
+         transform: translate(-3048px, -297px);
     }
 }
 
 &[data-station=SNB] {
-    transform: translate(-3258px, -477px);
+    transform: translate(-3259px, -351px);
     @media (min-width:$break1) {
-         transform: translate(-3131px, -442px);
+         transform: translate(-3132px, -352px);
     }
 }
 
@@ -65,9 +65,9 @@ $scale: scale(1);
 }
 
 &[data-station=LEY] {
-    transform: translate(-3302px, -764px);
+    transform: translate(-3304px, -638px);
     @media (min-width:$break1) {
-         transform: translate(-3240px, -732px);
+         transform: translate(-3240px, -639px);
     }
 }
 

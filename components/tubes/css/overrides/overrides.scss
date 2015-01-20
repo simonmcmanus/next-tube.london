@@ -16,11 +16,11 @@
     &[data-station=""] {
         @media (min-width: 400px) {
             margin: auto 30%;
-            transform:  translate(-548px) scale(0.1)
+            transform: translate(-456px) scale(0.1);
 
         }
         @media (min-width: 600px) {
-            transform:  translate(-659px) scale(0.16);
+            transform: translate(-512px) scale(0.16);
         }
         @media (min-width: 800px) {
             transform: translate(-712px) scale(0.2);
@@ -32,7 +32,7 @@
             transform:  translate(-912px) scale(0.3);
         }
         @media (min-width: 1400px) {
-            transform: translate(-650px) scale(0.34);
+            transform: translate(-933px) scale(0.34);
         }
         @media (min-width: 1600px) {
             transform:  translate(-1000px) scale(0.4);
@@ -53,8 +53,8 @@
 
     height: 556px;
     width: 807px;
-    transition-property: transform, margin;
-    transition-duration: 4s;
+    // transition-property: transform, margin;
+    // transition-duration: 4s;
     #piccadilly,
     #metropolitan,
     #district,
