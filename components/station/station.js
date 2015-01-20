@@ -20,6 +20,7 @@ var station = module.exports = function($el, bus) {
     this.directionInit();
     bus.on('nextTrain:gotStationData', this.render.bind(this));
     bus.on('station', this.changeStation.bind(this));
+    bus.trigger('loading:hide');
 };
 
 station.prototype.changeStation = function(newStation) {

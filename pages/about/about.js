@@ -7,6 +7,7 @@ var about = module.exports = function(NT) {
         NT.activePage = 'about';
         $('.page').attr('id', 'about');
         $('#content').html(template());
+        NT.bus.trigger('zoom:out');
         $('#content').removeClass('hideTop');
     });
     console.log('homepage init');

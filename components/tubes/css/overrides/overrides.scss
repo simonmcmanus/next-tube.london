@@ -17,8 +17,7 @@
     padding-left: 0;
     &[data-station=""] {
         @media (min-width: 400px) {
-            transform: translate(-38%, 4em) scale(0.1);
-
+            transform: translate(-38%) scale(0.1);
         }
         @media (min-width: 600px) {
             transform: translate(-40%) scale(0.16);

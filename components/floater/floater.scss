@@ -13,7 +13,7 @@
   transition: all .8s ease-in-out;
   position: absolute;
   transition-property: height, width, border, background-color;
-  transition-duration: .5s    , 1s   , 1s    , 1s;
+  transition-duration: .5s   , 1s   , 1s    , 1s              ;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
   &.error {
       .container {
@@ -28,9 +28,9 @@
   }
   &.loading {
     background: url(/ajax-loader.gif) no-repeat center 10em,  linear-gradient(#fff 0px, #f2f2f2 10px, rgba(255, 255, 255, .3) 100px);
-    //background-position: center 10em;
+    background-position: center;
     border-color: rgba(122, 126, 139, 0.2);
-    height: 200px;
+    height: 140px;
     .container {
       opacity: 0;
     }

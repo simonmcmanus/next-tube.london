@@ -7,45 +7,48 @@ var activeStation = null;
 var station = module.exports = function(NT, socket) {
     var self = this;
     self.bus = NT.bus;
-    self.bus.on('setup', function() {
-        new stationComp($('#station'), bus);
-        new floaterComp($('#floater'), bus);
-    });
     NT.page('/:line/:stationName', function(context) {
+        self.setup();
 
         if(!context.init) {
             self.bus.trigger('loader:show');
+
             $('#content').removeClass('hideTop');
             var stationCode = urlCodes[context.params.stationName];
-            self.getStationData(context.canonicalPath, function() {
-                console.log('got', stationCode);
+            self.getStationData(context.canonicalPath, function(data) {
+                $('#content').html(data);
+                self.bus.trigger('loader:show');
+                self.setup();
                 self.bus.trigger('station', {code: stationCode});
-
-                //debugger;
             });
         }
         // console.log('got for station /line/station');
 
 
-        // bus.trigger('router:station', context);
-        // if(context.init) {
-        //     listen({
-        //         code: urlCodes[context.params.stationName]
-        //     }, socket);
-        // } else {
+        bus.trigger('router:station', context);
+        if(context.init) {
+            listen({
+                code: urlCodes[context.params.stationName]
+            }, socket);
+        } else {
 
-        //     $('.page').attr('id', 'station');
-        //     bus.trigger('station', {
-        //         slug: context.params.stationName,
-        //         code: urlCodes[context.params.stationName]
-        //     });
-        // }
-        //$('#content').removeClass('hideTop');
+            $('.page').attr('id', 'station');
+            bus.trigger('station', {
+                slug: context.params.stationName,
+                code: urlCodes[context.params.stationName]
+            });
+        }
+        $('#content').removeClass('hideTop');
 
     });
     return this;
 };
 
+
+station.prototype.setup = function() {
+    new stationComp($('#station'), this.bus);
+    new floaterComp($('#floater'), this.bus);
+};
 
 station.prototype.destroy = function(callback) {
     console.log('1');
@@ -70,8 +73,8 @@ station.prototype.getStationData = function(path, callback) {
             }
         },
         success: function(data) {
-            $('#content').html(data);
-            callback(null);
+            
+            callback(data);
 //            console.log(data);
             // self.bus.trigger('nextTrain:gotStationData', data);
             // self.bus.trigger('error:hide');

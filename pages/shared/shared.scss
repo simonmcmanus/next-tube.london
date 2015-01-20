@@ -107,6 +107,7 @@ html body a {
     position: absolute;
       &.hideTop {
         top: -10em;
+        height: 0;
       }
     }
     transform-style: preserve-3d;
@@ -139,3 +140,4 @@ body {
 
 @import "../home/home.scss";
 @import "../station/station.scss";
+@import "../about/about.scss";
