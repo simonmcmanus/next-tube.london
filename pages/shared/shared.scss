@@ -106,7 +106,7 @@ html body a {
     margin: 1em 20% 0 0;
     position: absolute;
       &.hideTop {
-        //top: -10em;
+        top: -10em;
       }
     }
     transform-style: preserve-3d;
@@ -114,10 +114,7 @@ html body a {
       #floater {
         margin: 9em 20% auto 20%
       }
-      #placement {
-        margin: 1em !important;
-      }
-    
+
 
 
         

@@ -2,8 +2,6 @@
     width: 100%;
     height: 100%;
     transform: translate(0%);
-    transition-property: transform;
-    transition-duration: 2s;
     //margin-top: 6em;
     @media (min-width:800px) {
         // this still causes some janking.
@@ -19,11 +17,11 @@
     padding-left: 0;
     &[data-station=""] {
         @media (min-width: 400px) {
-            transform: translate(-60%) scale(0.1);
+            transform: translate(-38%, 4em) scale(0.1);
 
         }
         @media (min-width: 600px) {
-            transform: translate(-60%) scale(0.16);
+            transform: translate(-40%) scale(0.16);
         }
         @media (min-width: 800px) {
             transform: translate(-60%) scale(0.2);
@@ -57,7 +55,8 @@
     height: 556px;
     width: 807px;
     transition-property: transform;
-    transition-duration: 2s;
+    transition-duration: 1.8s;
+    transition-timing-function: ease-out;
     //transition-delay:  3s;
     #piccadilly,
     #metropolitan,
@@ -96,15 +95,14 @@
             position: absolute;
             text-decoration: none;
             transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width, opacity;
-            transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
-            transition-delay   :0;
-            transition-timing-function: ease-out;
+            //transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
+            transition-duration: .8s;
+            transition-delay: .5s;
+            //transition-delay   :4s,         4s,       4s,          4s,         4s,  4s,        5s ,     4s, 5s,5s ;
 
-            // force gpu.
-            transform: translate3d(0,0,0);
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            perspective: 1000;
+            transition-timing-function: ease-out;
+            // force gpu
+            transform:translateZ(0);
 
 
             color: #4A70CB;
@@ -118,6 +116,10 @@
             padding: 15px 25px;
             width: auto;
             z-index: 1;
+
+            &.active {
+                transition-delay   :2s;
+            }
             // default positioning.
             &.left {
                 top: -22px;
@@ -244,17 +246,17 @@
         }
     }
 
-    .roundel strong,
-    .station strong  {
-        transition: opacity .3s ease-out;
-         opacity: 0;
-    }
-    .roundel:hover a,
-    .station:hover a,
-    .roundel:hover strong,
-    .station:hover strong {
-        opacity: 1;
-    }
+    // .roundel strong,
+    // .station strong  {
+    //     transition: opacity .3s ease-out;
+    //      opacity: 0;
+    // }
+    // .roundel:hover a,
+    // .station:hover a,
+    // .roundel:hover strong,
+    // .station:hover strong {
+    //     opacity: 1;
+    // }
    @import './central.scss';
 }
 

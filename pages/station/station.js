@@ -15,8 +15,8 @@ var station = module.exports = function(NT, socket) {
 
         if(!context.init) {
             self.bus.trigger('loader:show');
+            $('#content').removeClass('hideTop');
             var stationCode = urlCodes[context.params.stationName];
-            
             self.getStationData(context.canonicalPath, function() {
                 console.log('got', stationCode);
                 self.bus.trigger('station', {code: stationCode});

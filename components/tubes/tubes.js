@@ -27,9 +27,9 @@ tubes.prototype.unfocus = function() {
 
 tubes.prototype.highlight = function(stations) {
     var self = this;
-    self.$el.find('.highlight').removeClass('highlight');
+    self.$el.find('.active').removeClass('active');
     stations.forEach(function(station) {
-        self.$el.find('.' + station).addClass('highlight');
+        self.$el.find('.' + station).addClass('active');
     });
 };
 

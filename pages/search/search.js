@@ -7,7 +7,6 @@ var switcherComp = require('../../components/station-switcher/station-switcher.j
 var search = module.exports = function(NT) {
     NT.page('/search', function(context) {
         console.log('search init');
-
         NT.activePage = 'search';
         if(!context.init) {
             NT.bus.trigger('zoom:out');
@@ -15,9 +14,11 @@ var search = module.exports = function(NT) {
             $('#content').html(template());
             $('#content').removeClass('hideTop');
         }
-
         console.log('setup search')
         new switcherComp($('div.settings'), bus);
+        setTimeout(function() {
+            $('input').eq(1).focus();
+        }, 500);
     });
 };
 

@@ -22,7 +22,7 @@ var switcher = module.exports = function($el, bus) {
             console.log('change')
             if(item !== '') {
                 var url = this.options[item].slug;
-                bus.trigger('search:highlight', []);
+                bus.trigger('search:highlight', [item]);
                 bus.trigger('page:load', '/' + url);
             }
         },
