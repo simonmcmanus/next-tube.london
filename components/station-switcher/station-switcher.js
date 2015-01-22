@@ -39,7 +39,6 @@ var switcher = module.exports = function($el, bus) {
     });
 };
 
-
 switcher.prototype.hide = function() {
     this.$el.addClass('hide');
 };

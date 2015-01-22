@@ -12,7 +12,6 @@ var floater = module.exports = function($el, bus) {
     bus.on('resize', this.resize.bind(this));
 };
 
-
 var targetHeight = null;
 
 floater.prototype.hideLoader = function() {

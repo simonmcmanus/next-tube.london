@@ -3,12 +3,16 @@
 var express = require('express');
 var app = express();
 var socket = require('socket.io');
+var compression = require('compression'); // html
 var http = require('http');
 
 var Models = require('./model/Models.base');
 
 var pjax = require('express-pjax');
 var partials = require('express-partials');
+
+app.use(compression());
+
 
 var HOME = require('./routes/home');
 var ABOUT = require('./routes/about');
