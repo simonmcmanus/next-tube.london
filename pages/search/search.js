@@ -1,5 +1,7 @@
 'use strict';
 
+var $ = require('jquery');
+
 var template = require('./search.jade');
 
 var switcherComp = require('../../components/station-switcher/station-switcher.js');

@@ -1,4 +1,7 @@
 'use strict';
+
+var $ = require('jquery');
+
 var stationComp = require('../../components/station/station.js');
 var floaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');

@@ -1,5 +1,7 @@
 'use strict';
 
+var $ = require('jquery');
+
 var template = require('./home.jade');
 
 var home = module.exports = function(NT) {

@@ -1,5 +1,9 @@
 'use strict';
 
+var $ = require('jquery');
+var io = require('socket.io-client');
+
+
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
 var page = require('../../public/libs/page.js');
 
@@ -31,7 +35,6 @@ page(function(context, next) {
     }
 });
 
-
 $(document).ready(function() {
     new tubesComponent($('#map-container'), bus);
     // init all the pages.
@@ -54,9 +57,9 @@ bus.on('page:load', function(path) {
 
 var url;
 if(window.location.hostname === 'woodford.today') {
-    url = 'http://woodford.today:80/';
+    url = 'http://www.next-tube.london/';
 } else {
-    url = 'http://localhost/';
+    url = 'http://127.0.0.1:4000/';
 }
 
 var socket = io(url);

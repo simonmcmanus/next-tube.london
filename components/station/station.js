@@ -1,5 +1,7 @@
 'use strict';
 
+var $ = require('jquery');
+
 // component functionality includes.
 var direction = require('../direction/direction');
 
@@ -33,7 +35,7 @@ station.prototype.changeStation = function(newStation) {
     Object.keys(directions).forEach(function(direction) {
         directions[direction].destroy();
     });
-    this.getStationData(newStation);
+    //this.getStationData(newStation);
 };
 
 station.prototype.directionInit = function() {

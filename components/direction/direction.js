@@ -1,5 +1,6 @@
 'use strict';
 
+var $ = require('jquery');
 // train left
 // new train added
 // complete refresh

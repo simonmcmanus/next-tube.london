@@ -1,5 +1,7 @@
 'use strict';
 
+var $ = require('jquery');
+
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
     bus.on('station', this.focus.bind(this));
