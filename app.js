@@ -37,10 +37,12 @@ var io = socket.listen(server);
 var models = new Models({
     station: require('./model/station'),
     //status: require('./fetchers/tfl-status')
-}, io, 5000);
+}, io, 1005000);
 
 
 app.get('/', HOME.bind(null, models.station));
 app.get('/search', SEARCH);
 app.get('/about', ABOUT);
 app.get('/:line/:station', STATION.bind(null, models.station));
+
+console.log('running in', process.env['NODE_ENV'], app.get('view cache'));
