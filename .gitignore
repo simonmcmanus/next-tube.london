@@ -20,4 +20,4 @@ public/css/shared.css.map
 components/duo.json
 
 public/pages/**
-public/pages/css/style.css
+#public/pages/css/style.css
