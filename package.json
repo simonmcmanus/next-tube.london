@@ -17,7 +17,11 @@
     "underscore": "^1.7.0",
     "underscore.deepclone": "^0.1.0",
     "xml2js": "0.4.4",
-    "xml2json": "0.5.1"
+    "xml2json": "0.5.1",
+    "gulp": "^3.8.8",
+    "gulp-shell": "^0.2.9",
+    "browserify": "*",
+    "jadify":"*"
   },
   "engines": {
     "node": "0.10.x"
@@ -25,8 +29,6 @@
   "devDependencies": {
     "duo": "^0.8.4",
     "duo-jade": "0.0.5",
-    "gulp": "^3.8.8",
-    "gulp-shell": "^0.2.9",
     "duosass": "^1.0.2"
   },
   "scripts": {
