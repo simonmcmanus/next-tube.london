@@ -3,12 +3,14 @@
 var template = require('./about.jade');
 
 var about = module.exports = function(NT) {
-    NT.page('/about', function() {
-        NT.activePage = 'about';
-        $('.page').attr('id', 'about');
-        $('#content').html(template());
+    NT.page('/about', function(context) {
+        if(!context.init) {
+            NT.activePage = 'about';
+            $('.page').attr('id', 'about');
+            $('#content').html(template());
+            $('#content').removeClass('hideTop');
+        }
         NT.bus.trigger('zoom:out');
-        $('#content').removeClass('hideTop');
     });
     console.log('homepage init');
 }

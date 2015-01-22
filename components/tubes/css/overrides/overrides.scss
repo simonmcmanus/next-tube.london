@@ -16,14 +16,16 @@
     display: block;
     padding-left: 0;
     &[data-station=""] {
+        display: none;
         @media (min-width: 400px) {
-            transform: translate(-38%) scale(0.1);
+            display: block;
+            transform: translate(-41%) scale(0.1);
         }
         @media (min-width: 600px) {
-            transform: translate(-40%) scale(0.16);
+            transform: translate(-43%) scale(0.16);
         }
         @media (min-width: 800px) {
-            transform: translate(-60%) scale(0.2);
+            transform: translate(-54%) scale(0.2);
         }
         @media (min-width: 1000px) {
             transform: translate(-60%) scale(0.26);
@@ -38,7 +40,7 @@
             transform:  translate(-60%) scale(0.4);
         }
         @media (min-width: 1800px) {
-            transform: translate(-60%) scale(0.5)
+            transform: translate(-78%) scale(0.5)
         }
 
     }
