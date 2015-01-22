@@ -4,23 +4,24 @@ var $ = require('jquery');
 
 var template = require('./home.jade');
 
+var switcherComp = require('../../components/station-switcher/station-switcher.js');
+
 var home = module.exports = function(NT) {
-    NT.page('/', function() {
-        console.log('in home')
-        NT.bus.trigger('zoom:out');
+    NT.page('/', function(context) {
         NT.activePage = 'home';
-        $('.page').attr('id', 'home');
-        $('#content').html(template({
-            tubes: {
-                currentStationCode: 'HOME'
-            }
-        }));
-//        $('#content').removeClass('hideTop');
+        NT.bus.trigger('zoom:out');
+        if(!context.init) {
+            $('.page').attr('id', 'search');
+            $('#content').html(template());
+            $('#content').removeClass('hideTop');
+        }
+        new switcherComp($('div.settings'), bus);
+        setTimeout(function() {
+            $('input').eq(1).focus();
+        }, 500);
     });
-    return this;
 };
 
 home.prototype.destroy = function(callback) {
-    callback();
-    console.log('desory home');
-}
+    setTimeout(callback, 500);
+};

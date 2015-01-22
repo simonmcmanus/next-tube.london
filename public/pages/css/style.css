@@ -5,7 +5,6 @@ nav a{top:13px;margin:0 .2em .2em 0;height:34px;width:34px;background-repeat:no-
 nav a:hover{background-color:#fff;border:1px solid #222}
 .error{display:none}
 a.home{background-image:url(https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-007_house_home-24.png)}
-a.search{background-image:url(https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-015_search_zoom_find-24.png)}
 a.info{background-image:url(https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-125_information-24.png)}
 #about.page a.info,#home.page a.home,#search.page a.search{border-color:transparent;background-color:transparent;cursor:default}
 html body a{position:relative;text-decoration:none}
@@ -15,7 +14,6 @@ html body a{position:relative;text-decoration:none}
 @media (min-width:800px){.page #floater{margin:9em 20% auto}
 .page div.settings{margin:0 20%}}
 body{background-color:rgba(221,77,77,.76)}
-#home.page #floater{opacity:0}
 #station.page{height:0}
 .listing,.listing *{box-sizing:border-box}
 .listing{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;margin-right:14px}

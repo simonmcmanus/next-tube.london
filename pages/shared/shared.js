@@ -8,7 +8,7 @@ var bus = window.bus = require("../../node_modules/backbone-events-standalone").
 var page = require('../../public/libs/page.js');
 
 var tubesComponent = require('../../components/tubes/tubes.js');
-var SearchPage = require('../search/search');
+//var SearchPage = require('../search/search');
 var HomePage = require('../home/home');
 var StationPage = require('../station/station');
 var AboutPage = require('../about/about');
@@ -42,7 +42,7 @@ $(document).ready(function() {
     NT.pages = {
         home: new HomePage(NT, socket),
         station: new StationPage(NT, socket),
-        search: new SearchPage(NT, socket),
+//        search: new SearchPage(NT, socket),
         about: new AboutPage(NT, socket)
     };
 

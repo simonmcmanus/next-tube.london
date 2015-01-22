@@ -66,9 +66,9 @@ nav {
 a.home {
   background-image: url('https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-007_house_home-24.png');
 }
-a.search {
-  background-image: url('https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-015_search_zoom_find-24.png');
-}
+// a.search {
+//   background-image: url('https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-015_search_zoom_find-24.png');
+// }
 a.info {
   background-image: url('https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-125_information-24.png'); 
 }
@@ -136,6 +136,5 @@ body {
 
 
 
-@import "../home/home.scss";
 @import "../station/station.scss";
 @import "../about/about.scss";
