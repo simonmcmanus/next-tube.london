@@ -23,5 +23,5 @@ var home = module.exports = function(NT) {
 };
 
 home.prototype.destroy = function(callback) {
-    setTimeout(callback, 500);
+    callback();
 };

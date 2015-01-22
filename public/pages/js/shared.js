@@ -21989,7 +21989,7 @@ var about = module.exports = function(NT) {
 
 
 about.prototype.destroy = function(callback) {
-    setTimeout(callback, 500);
+    callback();
 };
 },{"./about.jade":67,"jquery":16}],69:[function(require,module,exports){
 var jade = require("jade/runtime");
@@ -22027,7 +22027,7 @@ var home = module.exports = function(NT) {
 };
 
 home.prototype.destroy = function(callback) {
-    setTimeout(callback, 500);
+    callback();
 };
 },{"../../components/station-switcher/station-switcher.js":5,"./home.jade":69,"jquery":16}],71:[function(require,module,exports){
 'use strict';

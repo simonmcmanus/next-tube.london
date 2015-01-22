@@ -19,5 +19,5 @@ var about = module.exports = function(NT) {
 
 
 about.prototype.destroy = function(callback) {
-    setTimeout(callback, 500);
+    callback();
 };
