@@ -12,6 +12,7 @@
     "express": "4.9.6",
     "express-partials": "^0.3.0",
     "express-pjax": "0.0.1",
+    "fastclick": "^1.0.3",
     "gulp": "^3.8.8",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-minify-css": "^0.4.2",

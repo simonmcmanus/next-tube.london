@@ -3,6 +3,9 @@
 var $ = require('jquery');
 var io = require('socket.io-client');
 
+var attachFastClick = require('fastclick');
+attachFastClick(document.body);
+
 
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
 var page = require('../../public/libs/page.js');
