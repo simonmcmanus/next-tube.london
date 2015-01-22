@@ -5,7 +5,7 @@ mkdir ./public/pages/css/
 #rm -Rf .sass-cache
 
 
-scss --sourcemap=inline ./pages/shared/shared.scss public/pages/css/style.css2
+scss --sourcemap=inline ./pages/shared/shared.scss public/pages/css/style.css
 
 
 
