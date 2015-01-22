@@ -7,7 +7,7 @@ var parseString = require('xml2js').parseString;
 var stationCodes = require('../../components/station-switcher/lib/all-stations');
 
 
-var changePath = require('../../../changePath/index');
+var changePath = require('change-path');
 
 
 var convertTrain = function (train) {

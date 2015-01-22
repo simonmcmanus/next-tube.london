@@ -8,7 +8,7 @@ var http = require('http');
 var Models = require('./model/Models.base');
 
 var pjax = require('express-pjax');
-var partials = require('express-partials')
+var partials = require('express-partials');
 
 var HOME = require('./routes/home');
 var ABOUT = require('./routes/about');
