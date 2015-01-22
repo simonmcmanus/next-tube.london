@@ -55,9 +55,11 @@
 
     height: 556px;
     width: 807px;
-    transition-property: transform;
-    transition-duration: 1.8s;
-    transition-timing-function: ease-out;
+    &.loaded {
+        transition-property: transform;
+        transition-duration: 1.8s;
+        transition-timing-function: ease-out;
+    }
     //transition-delay:  3s;
     #piccadilly,
     #metropolitan,

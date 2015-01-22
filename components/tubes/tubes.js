@@ -10,6 +10,8 @@ var tubes = module.exports = function($el, bus) {
 };
 
 tubes.prototype.focus = function(station) {
+    this.$el.addClass('loaded');
+
     console.log('station', station);
 
     this.$el.attr('data-station', station.code);
