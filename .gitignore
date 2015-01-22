@@ -3,7 +3,6 @@ node_modules/*
 .DS_Store
 npm-debug.log
 .sass-cache/
-public/css/
 public/css/shared.css.map
 .sass-cache/c8353a0324541dbe225bfd56e1a2ec19d3c9ae94/central.scssc
 
