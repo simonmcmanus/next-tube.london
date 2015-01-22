@@ -13,7 +13,7 @@ var HomePage = require('../home/home');
 var StationPage = require('../station/station');
 var AboutPage = require('../about/about');
 
-var NT = {
+window.NT = {
     bus: bus,
     page: page,
     activePage: null,

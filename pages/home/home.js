@@ -11,7 +11,7 @@ var home = module.exports = function(NT) {
         NT.activePage = 'home';
         NT.bus.trigger('zoom:out');
         if(!context.init) {
-            $('.page').attr('id', 'search');
+            $('.page').attr('id', 'home');
             $('#content').html(template());
             $('#content').removeClass('hideTop');
         }
