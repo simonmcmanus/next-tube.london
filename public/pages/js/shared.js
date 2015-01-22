@@ -22058,7 +22058,7 @@ window.NT = {
 page(function(context, next) {
     var nextCalled = false;
     if(!context.init && NT.activePage) {
-        $('#content').addClass('hide');
+        //$('#content').addClass('hide');
         if(NT.pages[NT.activePage].destroy) {
             console.log('do destroy::::');
             NT.pages[NT.activePage].destroy(next);
@@ -22176,6 +22176,7 @@ station.prototype.route = function(context) {
     if(!context.init) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');
+        self.bus.trigger('loader:show');
         self.getStationData(context.canonicalPath, function(data) {
             $('#content').html(data);
             self.setup();

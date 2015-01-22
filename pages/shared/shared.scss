@@ -112,7 +112,7 @@ html body a {
     margin: 1em 20% 0 0;
     position: absolute;
       &.hide {
-        opacity: 0;
+        opacity: 0.1;
       }
       &.hideTop {
         top: -10em;

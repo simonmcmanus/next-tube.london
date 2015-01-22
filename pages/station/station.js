@@ -22,6 +22,7 @@ station.prototype.route = function(context) {
     if(!context.init) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');
+        self.bus.trigger('loader:show');
         self.getStationData(context.canonicalPath, function(data) {
             $('#content').html(data);
             self.setup();
