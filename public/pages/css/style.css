@@ -11,7 +11,8 @@ a.home{background-image:url(https://www.iconfinder.com/icons/292869/671276/32/ra
 #about.page a.info,#home.page a.home,#search.page a.search{border-color:transparent;background-color:transparent;cursor:default}
 html body a{position:relative;text-decoration:none}
 .page{position:relative;z-index:1000;height:0;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
-.page #content{transition:all 2s;top:6em;min-width:100%;margin:1em 20% 0 0;position:absolute}
+.page #content{transition:all .6s;top:6em;min-width:100%;margin:1em 20% 0 0;position:absolute}
+.page #content.hide{opacity:0}
 .page #content.hideTop{top:-10em;height:0}
 @media (min-width:800px){.page #floater{margin:9em 20% auto}
 .page div.settings{margin:0 20%}}
@@ -45,7 +46,7 @@ body #placement{top:12em;margin:1em 20% 0!important}}
 #floater{overflow:hidden;min-height:60px;margin:10em 1em 1em;box-shadow:rgba(129,122,145,.84) 0 0 0;border-radius:4px;border:1px solid #B8B8B8;background:linear-gradient(#fff 0,#f2f2f2 5px,rgba(255,255,255,.95) 100px);vertical-align:top;color:#838383;width:auto;z-index:2000;transition:all .8s ease-in-out;position:absolute;transition-property:height,width,border,background-color;transition-duration:.5s,1s,1s,1s;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
 #floater.error .container .error{opacity:1}
 #floater .container{opacity:1;transition:opacity .25s ease-in}
-#floater.loading{background:url(/ajax-loader.gif) center no-repeat,linear-gradient(#fff 0,#f2f2f2 10px,rgba(255,255,255,.3) 100px) center;border-color:rgba(122,126,139,.2);height:140px}
+#floater.loading{background:url(/ajax-loader.gif) center no-repeat,linear-gradient(#fff 0,#f2f2f2 10px,rgba(255,255,255,.3) 100px) center;border-color:rgba(122,126,139,.2);height:140px;opacity:0}
 #floater.loading .container{opacity:0}
 #floater .error{padding:1em}
 @media (min-width:800px){.page #map-container{margin-left:20% auto}

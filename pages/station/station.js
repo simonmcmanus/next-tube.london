@@ -10,41 +10,37 @@ var activeStation = null;
 var station = module.exports = function(NT, socket) {
     var self = this;
     self.bus = NT.bus;
-    NT.page('/:line/:stationName', function(context) {
-        self.setup();
-
-        if(!context.init) {
-            self.bus.trigger('loader:show');
-
-            $('#content').removeClass('hideTop');
-            var stationCode = urlCodes[context.params.stationName];
-            self.getStationData(context.canonicalPath, function(data) {
-                $('#content').html(data);
-                self.bus.trigger('loader:show');
-                self.setup();
-                self.bus.trigger('station', {code: stationCode});
-            });
-        }
-        // console.log('got for station /line/station');
-
-
-        bus.trigger('router:station', context);
-        if(context.init) {
-            listen({
-                code: urlCodes[context.params.stationName]
-            }, socket);
-        } else {
-
-            $('.page').attr('id', 'station');
-            bus.trigger('station', {
-                slug: context.params.stationName,
-                code: urlCodes[context.params.stationName]
-            });
-        }
-        $('#content').removeClass('hideTop');
-
-    });
+    self.socket = socket;
+    NT.page('/:line/:stationName', self.route.bind(this));
     return this;
+};
+
+
+station.prototype.route = function(context) {
+    var self = this;
+    self.setup();
+    if(!context.init) {
+        $('#content').addClass('hide');
+        $('.page').attr('id', 'station');
+        self.getStationData(context.canonicalPath, function(data) {
+            $('#content').html(data);
+            self.setup();
+            setTimeout(function() {
+                $('#content').removeClass('hide');
+            },  1200);
+            var stationCode = urlCodes[context.params.stationName];
+            self.bus.trigger('station', {code: stationCode});
+        });
+
+        // self.bus.trigger('station', {
+        //     slug: context.params.stationName,
+        //     code: urlCodes[context.params.stationName]
+        // });
+    }else {
+        listen({
+            code: urlCodes[context.params.stationName]
+        }, self.socket);
+    }
 };
 
 
@@ -75,17 +71,7 @@ station.prototype.getStationData = function(path, callback) {
                 callback(true);
             }
         },
-        success: function(data) {
-            
-            callback(data);
-//            console.log(data);
-            // self.bus.trigger('nextTrain:gotStationData', data);
-            // self.bus.trigger('error:hide');
-            // // todo: remove timeout.
-            // setTimeout(function() {
-            //     self.bus.trigger('loader:hide');
-            // }, 500);
-        }
+        success: callback
     });
 };
 

@@ -106,11 +106,14 @@ html body a {
   z-index: 1000;
   height:0;
     #content {
-    transition: all 2s;
+    transition: all .6s;
     top: 6em;
     min-width: 100%;
     margin: 1em 20% 0 0;
     position: absolute;
+      &.hide {
+        opacity: 0;
+      }
       &.hideTop {
         top: -10em;
         height: 0;
