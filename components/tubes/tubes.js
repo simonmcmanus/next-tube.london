@@ -11,9 +11,6 @@ var tubes = module.exports = function($el, bus) {
 
 tubes.prototype.focus = function(station) {
     this.$el.addClass('loaded');
-
-    console.log('station', station);
-
     this.$el.attr('data-station', station.code);
     this.$el.find('li.active').removeClass('active');
     $('html, body').animate({scrollTop : 0}, 500);

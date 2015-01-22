@@ -24,6 +24,7 @@ app.use(pjax());
 app.use(partials());
 app.set('views', __dirname + '/pages');
 app.set('view engine', 'jade');
+app.set('view cache', true);
 
 var server = http.createServer(app);
 var port =  process.env.PORT || 4000;
