@@ -6,6 +6,7 @@ var stationComp = require('../../components/station/station.js');
 var floaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');
 
+var template = require('./station.jade');
 
 var station = module.exports = function(NT, socket) {
     console.log('station setup')
@@ -31,7 +32,13 @@ station.prototype.route = function(context) {
         $('.page').attr('id', 'station');
         self.bus.trigger('loader:show');
         self.getStationData(context.canonicalPath, function(data) {
-            $('#content').html(data);
+            console.log(data);
+            document.title = data.name;
+
+            $('#content').html(template({
+                station: data
+            }));
+
             self.setup();
             setTimeout(function() {
                 $('#content').removeClass('hide');
@@ -73,8 +80,8 @@ station.prototype.getStationData = function(path, callback) {
     $.ajax({
         url: path + '?ajax=true' ,
         headers: {
-            //'Accept': 'application/json',
-            'X-PJAX': 'true'
+            'Accept': 'application/json',
+            //'X-PJAX': 'true'
         },
         complete: function(xhr, status) {
             if(status === 'error') {

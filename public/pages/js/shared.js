@@ -21975,6 +21975,7 @@ var about = module.exports = function(NT) {
     NT.page('/about', function(context) {
         if(!context.init) {
             $('body').attr('data-page', 'about');
+            document.title = 'About';
             NT.activePage = 'about';
             $('#content').html(template());
             $('#content').removeClass('hideTop');
@@ -22012,6 +22013,7 @@ var home = module.exports = function(NT) {
         NT.activePage = 'home';
         NT.bus.trigger('zoom:out');
         if(!context.init) {
+            document.title = 'Home';
             $('body').attr('data-page', 'home');
             $('#content').html(template());
             $('#content').removeClass('hideTop');
@@ -22094,7 +22096,7 @@ if(window.location.hostname === 'woodford.today') {
 
 var socket = io(url);
 
-},{"../../components/tubes/tubes.js":11,"../../node_modules/backbone-events-standalone":13,"../../public/libs/page.js":74,"../about/about":68,"../home/home":70,"../station/station":73,"fastclick":14,"jquery":16,"socket.io-client":19}],72:[function(require,module,exports){
+},{"../../components/tubes/tubes.js":11,"../../node_modules/backbone-events-standalone":13,"../../public/libs/page.js":75,"../about/about":68,"../home/home":70,"../station/station":74,"fastclick":14,"jquery":16,"socket.io-client":19}],72:[function(require,module,exports){
 module.exports={
   "bank": "BNK",
   "barkingside": "BDE",
@@ -22147,6 +22149,119 @@ module.exports={
   "woodford": "WFD"
 }
 },{}],73:[function(require,module,exports){
+var jade = require("jade/runtime");
+
+module.exports = function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+;var locals_for_with = (locals || {});(function (station) {
+buf.push("<div id=\"floater\"><div class=\"container\"><div" + (jade.attr("data-station-code", station.code, true, false)) + " class=\"stationContainer\"><div class=\"listing\">");
+var noTrains = true;
+if ( station)
+{
+// iterate station.platforms
+;(function(){
+  var $$obj = station.platforms;
+  if ('number' == typeof $$obj.length) {
+
+    for (var platformId = 0, $$l = $$obj.length; platformId < $$l; platformId++) {
+      var platform = $$obj[platformId];
+
+if ( platform.trains.length > 0)
+{
+if ( platform)
+{
+buf.push("<div" + (jade.attr("data-direction", platformId, true, false)) + " class=\"direction\"><h3>" + (jade.escape(null == (jade_interp = platform.name) ? "" : jade_interp)) + "</h3><ul class=\"trains\">");
+// iterate platform.trains
+;(function(){
+  var $$obj = platform.trains;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var train = $$obj[$index];
+
+if ( train)
+{
+buf.push("<li" + (jade.attr("data-id", train.id, true, false)) + " class=\"train\"><div class=\"due-container\"><span class=\"due\">" + (jade.escape(null == (jade_interp = train.dueIn) ? "" : jade_interp)) + "</span></div><!--a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())--><!--span.destination=train.destination + ' - ' + train.id--><span class=\"destination\">" + (jade.escape(null == (jade_interp = train.destination) ? "" : jade_interp)) + "</span><!--span.platform=train.platform--><br/><span class=\"detail\">" + (jade.escape(null == (jade_interp = train.location) ? "" : jade_interp)) + "</span></li>");
+}
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var train = $$obj[$index];
+
+if ( train)
+{
+buf.push("<li" + (jade.attr("data-id", train.id, true, false)) + " class=\"train\"><div class=\"due-container\"><span class=\"due\">" + (jade.escape(null == (jade_interp = train.dueIn) ? "" : jade_interp)) + "</span></div><!--a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())--><!--span.destination=train.destination + ' - ' + train.id--><span class=\"destination\">" + (jade.escape(null == (jade_interp = train.destination) ? "" : jade_interp)) + "</span><!--span.platform=train.platform--><br/><span class=\"detail\">" + (jade.escape(null == (jade_interp = train.location) ? "" : jade_interp)) + "</span></li>");
+}
+    }
+
+  }
+}).call(this);
+
+buf.push("</ul></div>");
+}
+noTrains = false;
+}
+    }
+
+  } else {
+    var $$l = 0;
+    for (var platformId in $$obj) {
+      $$l++;      var platform = $$obj[platformId];
+
+if ( platform.trains.length > 0)
+{
+if ( platform)
+{
+buf.push("<div" + (jade.attr("data-direction", platformId, true, false)) + " class=\"direction\"><h3>" + (jade.escape(null == (jade_interp = platform.name) ? "" : jade_interp)) + "</h3><ul class=\"trains\">");
+// iterate platform.trains
+;(function(){
+  var $$obj = platform.trains;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var train = $$obj[$index];
+
+if ( train)
+{
+buf.push("<li" + (jade.attr("data-id", train.id, true, false)) + " class=\"train\"><div class=\"due-container\"><span class=\"due\">" + (jade.escape(null == (jade_interp = train.dueIn) ? "" : jade_interp)) + "</span></div><!--a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())--><!--span.destination=train.destination + ' - ' + train.id--><span class=\"destination\">" + (jade.escape(null == (jade_interp = train.destination) ? "" : jade_interp)) + "</span><!--span.platform=train.platform--><br/><span class=\"detail\">" + (jade.escape(null == (jade_interp = train.location) ? "" : jade_interp)) + "</span></li>");
+}
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var train = $$obj[$index];
+
+if ( train)
+{
+buf.push("<li" + (jade.attr("data-id", train.id, true, false)) + " class=\"train\"><div class=\"due-container\"><span class=\"due\">" + (jade.escape(null == (jade_interp = train.dueIn) ? "" : jade_interp)) + "</span></div><!--a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())--><!--span.destination=train.destination + ' - ' + train.id--><span class=\"destination\">" + (jade.escape(null == (jade_interp = train.destination) ? "" : jade_interp)) + "</span><!--span.platform=train.platform--><br/><span class=\"detail\">" + (jade.escape(null == (jade_interp = train.location) ? "" : jade_interp)) + "</span></li>");
+}
+    }
+
+  }
+}).call(this);
+
+buf.push("</ul></div>");
+}
+noTrains = false;
+}
+    }
+
+  }
+}).call(this);
+
+}
+if ( noTrains)
+{
+buf.push("<h3 class=\"noTrains\">No Trains</h3>");
+}
+buf.push("</div><div class=\"error\"></div></div></div></div>");}.call(this,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined));;return buf.join("");
+};
+},{"jade/runtime":15}],74:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -22155,6 +22270,7 @@ var stationComp = require('../../components/station/station.js');
 var floaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');
 
+var template = require('./station.jade');
 
 var station = module.exports = function(NT, socket) {
     console.log('station setup')
@@ -22180,7 +22296,13 @@ station.prototype.route = function(context) {
         $('.page').attr('id', 'station');
         self.bus.trigger('loader:show');
         self.getStationData(context.canonicalPath, function(data) {
-            $('#content').html(data);
+            console.log(data);
+            document.title = data.name;
+
+            $('#content').html(template({
+                station: data
+            }));
+
             self.setup();
             setTimeout(function() {
                 $('#content').removeClass('hide');
@@ -22222,8 +22344,8 @@ station.prototype.getStationData = function(path, callback) {
     $.ajax({
         url: path + '?ajax=true' ,
         headers: {
-            //'Accept': 'application/json',
-            'X-PJAX': 'true'
+            'Accept': 'application/json',
+            //'X-PJAX': 'true'
         },
         complete: function(xhr, status) {
             if(status === 'error') {
@@ -22291,7 +22413,7 @@ station.prototype.stationChanges = function(changes) {
 
 
 
-},{"../../components/floater/floater.js":2,"../../components/station/station.js":7,"./station-url-codes.json":72,"jquery":16}],74:[function(require,module,exports){
+},{"../../components/floater/floater.js":2,"../../components/station/station.js":7,"./station-url-codes.json":72,"./station.jade":73,"jquery":16}],75:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.page=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 

@@ -1665,7 +1665,6 @@ header li:hover a{opacity:1}
 .platform{font-size:.4em}
 .detail.changed{opacity:0}
 .train.moving{background:#ff0}
-body[data-page=about] div.about{border:1px solid #eee;margin:1em}
 body[data-page=about] div.about h3,body[data-page=about] div.about p{padding:1em}
 body[data-page=about] div.about h3{margin:1em}
 body[data-page=about] .map-wrapper{opacity:0}

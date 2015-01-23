@@ -11,6 +11,7 @@ var home = module.exports = function(NT) {
         NT.activePage = 'home';
         NT.bus.trigger('zoom:out');
         if(!context.init) {
+            document.title = 'Home';
             $('body').attr('data-page', 'home');
             $('#content').html(template());
             $('#content').removeClass('hideTop');

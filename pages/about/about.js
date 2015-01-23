@@ -8,6 +8,7 @@ var about = module.exports = function(NT) {
     NT.page('/about', function(context) {
         if(!context.init) {
             $('body').attr('data-page', 'about');
+            document.title = 'About';
             NT.activePage = 'about';
             $('#content').html(template());
             $('#content').removeClass('hideTop');
