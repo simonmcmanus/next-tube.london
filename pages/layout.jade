@@ -2,12 +2,11 @@ head
     title=title || 'next-tube.london'
     link(rel="stylesheet", type="text/css", href="/pages/css/style.css")
     meta(name="viewport", content="user-scalable=no, width=800, width=device-width")
-body
-    .page(id=pageId)
-        include ../components/header/header.jade
-        #content
-            != body
-        #placement
+body(data-page=pageId)
+    include ../components/header/header.jade
+    #content
+        != body
+    #placement
     div.clear
     include ../components/tubes/tubes.jade
     script(src='/pages/js/shared.js')

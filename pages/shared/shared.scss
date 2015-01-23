@@ -83,7 +83,7 @@ a.home {
 
 
 
-#home.page a.home,
+[data-page='home'] a.home,
 #about.page a.info,
 #search.page a.search {
     border-color: transparent;
@@ -101,7 +101,7 @@ html body a {
     text-decoration: none;
 
 }
-.page {
+html body {
   position: relative;
   z-index: 1000;
   height:0;
