@@ -25,9 +25,12 @@ window.NT = {
 
 page(function(context, next) {
     var nextCalled = false;
+            console.log('ds', NT.activePage)
+
     if(!context.init && NT.activePage) {
-        //$('#content').addClass('hide');
+
         if(NT.pages[NT.activePage].destroy) {
+            console.log('ds', 'ya')
             console.log('do destroy::::');
             NT.pages[NT.activePage].destroy(next);
             nextCalled = true;

@@ -39,6 +39,7 @@ direction.prototype.initChildren = function() {
 
 direction.prototype.destroy = function() {
     var trains = this.trains;
+    console.log('destroy', this.direction);
     Object.keys(trains).forEach(function(train) {
 //        console.log('calling destroy on train', trains, trains[train]);
         trains[train].destroy();
@@ -22056,9 +22057,12 @@ window.NT = {
 
 page(function(context, next) {
     var nextCalled = false;
+            console.log('ds', NT.activePage)
+
     if(!context.init && NT.activePage) {
-        //$('#content').addClass('hide');
+
         if(NT.pages[NT.activePage].destroy) {
+            console.log('ds', 'ya')
             console.log('do destroy::::');
             NT.pages[NT.activePage].destroy(next);
             nextCalled = true;
@@ -22158,21 +22162,26 @@ var $ = require('jquery');
 var stationComp = require('../../components/station/station.js');
 var floaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');
-var activeStation = null;
+
 
 var station = module.exports = function(NT, socket) {
     console.log('station setup')
     var self = this;
     self.bus = NT.bus;
     self.socket = socket;
+    self.activeStation = null;
+
     NT.page('/:line/:stationName', self.route.bind(this));
     return this;
 };
 
 
 station.prototype.route = function(context) {
+
+    console.log('station route');
     var self = this;
-    self.setup();
+    // messsy
+    NT.activePage = 'station';
     if(!context.init) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');
@@ -22191,11 +22200,14 @@ station.prototype.route = function(context) {
         //     slug: context.params.stationName,
         //     code: urlCodes[context.params.stationName]
         // });
-    }else {
-        listen({
-            code: urlCodes[context.params.stationName]
-        }, self.socket);
+    } else {
+        self.setup();
     }
+
+    self.listen({
+        code: urlCodes[context.params.stationName]
+    });
+
 };
 
 
@@ -22205,8 +22217,9 @@ station.prototype.setup = function() {
 };
 
 station.prototype.destroy = function(callback) {
+    console.log('statino destroy called');
+    this.stopListen();
     callback();
-
 };
 
 
@@ -22235,18 +22248,33 @@ station.prototype.errorCallback = function(stationCode) {
     this.bus.trigger('error:show');
 }
 
-function listen(station, socket) {
-    activeStation = station.code;
-    console.log('listening to', activeStation);
-    socket.on('station:' + station.code , function(changes) {
-        changes.forEach(function(change) {
-            if(change.parent) {
-                console.log('sending', change.parent, change)
-                bus.trigger(change.parent, change);
-            }
-        });
-   });
+station.prototype.stopListen = function() {
+    console.log('stop', 'station:' + this.activeStation);
+    this.socket.off('station:' + this.activeStation);
+    this.activeStation = null;
 };
+
+
+station.prototype.listen = function(station) {
+     this.activeStation = station.code;
+     console.log('listening to', this.activeStation);
+     this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
+};
+
+
+station.prototype.stationChanges = function(changes) {
+    var self = this;
+    
+    changes.forEach(function(change) {
+        console.log('got change', change);
+        if(change.parent) {
+            self.bus.trigger(change.parent, change);
+        }
+    });
+};
+
+
+
 
 
 // var stopListening = function(socket) {
