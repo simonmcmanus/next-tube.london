@@ -7,8 +7,8 @@ var template = require('./about.jade');
 var about = module.exports = function(NT) {
     NT.page('/about', function(context) {
         if(!context.init) {
+            $('body').attr('data-page', 'about');
             NT.activePage = 'about';
-            $('.page').attr('id', 'about');
             $('#content').html(template());
             $('#content').removeClass('hideTop');
         }

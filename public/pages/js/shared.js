@@ -21977,8 +21977,8 @@ var template = require('./about.jade');
 var about = module.exports = function(NT) {
     NT.page('/about', function(context) {
         if(!context.init) {
+            $('body').attr('data-page', 'about');
             NT.activePage = 'about';
-            $('.page').attr('id', 'about');
             $('#content').html(template());
             $('#content').removeClass('hideTop');
         }
@@ -22015,7 +22015,7 @@ var home = module.exports = function(NT) {
         NT.activePage = 'home';
         NT.bus.trigger('zoom:out');
         if(!context.init) {
-            $('.page').attr('id', 'home');
+            $('body').attr('data-page', 'home');
             $('#content').html(template());
             $('#content').removeClass('hideTop');
         }
@@ -22058,7 +22058,6 @@ window.NT = {
 page(function(context, next) {
     var nextCalled = false;
     if(!context.init && NT.activePage) {
-
         if(NT.pages[NT.activePage].destroy) {
             NT.pages[NT.activePage].destroy(next);
             nextCalled = true;
@@ -22178,6 +22177,7 @@ station.prototype.route = function(context) {
     var self = this;
     // messsy
     NT.activePage = 'station';
+    $('body').attr('data-page', 'station');
     if(!context.init) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');

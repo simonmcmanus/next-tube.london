@@ -4,6 +4,8 @@
     transform: translate(0%);
     position: relative;
     top: -6em;
+    opacity: 1;
+    transition: opacity .5s;
     //margin-top: 6em;
     @media (min-width:800px) {
         // this still causes some janking.

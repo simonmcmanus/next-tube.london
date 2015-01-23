@@ -14,7 +14,7 @@ html body{position:relative;z-index:1000;height:0;-webkit-transform-style:preser
 html body #content{transition:all .6s;top:6em;min-width:100%;margin:1em 20% 0 0;position:absolute}
 html body #content.hide{opacity:.1}
 html body #content.hideTop{top:-10em;height:0}
-@media (min-width:800px){html body #floater{margin:9em 20% auto}
+@media (min-width:800px){html body #floater{margin:9em 20% 2em}
 html body div.settings{margin:0 20%}}
 body{background-color:rgba(221,77,77,.76)}
 .listing,.listing *{box-sizing:border-box}
@@ -1430,7 +1430,7 @@ header li:hover a{opacity:1}
 #lin031{top:1534px;left:3599px;width:50px}
 #lin032{top:1467px;left:2497px;width:50px}
 #lin032 .right-stop{top:-7px;left:-8px}
-.map-wrapper{width:100%;height:100%;-webkit-transform:translate(0);-ms-transform:translate(0);transform:translate(0);position:relative;top:-6em}
+.map-wrapper{width:100%;height:100%;-webkit-transform:translate(0);-ms-transform:translate(0);transform:translate(0);position:relative;top:-6em;opacity:1;transition:opacity .5s}
 @media (min-width:800px){.map-wrapper{-webkit-transform:translate(20%);-ms-transform:translate(20%);transform:translate(20%)}}
 #map-container{z-index:1;position:absolute;display:block;padding-left:0;height:556px;width:807px}
 #map-container[data-station=""]{display:none}
@@ -1665,6 +1665,7 @@ header li:hover a{opacity:1}
 .platform{font-size:.4em}
 .detail.changed{opacity:0}
 .train.moving{background:#ff0}
-div.about{border:1px solid #eee;margin:1em 20%}
-div.about h3,div.about p{padding:1em}
-div.about h3{margin:1em}
+body[data-page=about] div.about{border:1px solid #eee;margin:1em 20%}
+body[data-page=about] div.about h3,body[data-page=about] div.about p{padding:1em}
+body[data-page=about] div.about h3{margin:1em}
+body[data-page=about] .map-wrapper{opacity:0}

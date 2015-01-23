@@ -25,6 +25,7 @@ station.prototype.route = function(context) {
     var self = this;
     // messsy
     NT.activePage = 'station';
+    $('body').attr('data-page', 'station');
     if(!context.init) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');
