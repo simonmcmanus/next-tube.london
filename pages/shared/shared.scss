@@ -16,7 +16,7 @@ $porder-pixels: 2;
 
 html body header {
   height: 4em;
-  border-bottom: 4px solid #fafafa;
+  border-bottom: 1px solid #f5f3f3;
   position: relative;
   background: rgba(255,255,255,.95);
   margin:  0 0;
@@ -42,7 +42,7 @@ nav {
     text-indent: -10000em;
     background-color: #fff;
     border-radius: .1em;
-    border: 4px solid #fafafa;
+    border: 2px solid #f5f3f3;
     background-position: 2px 2px;
     // transition-property: top,  height;
     // transition-duration: 1s;
@@ -111,9 +111,9 @@ html body {
     min-width: 100%;
     margin: 1em 20% 0 0;
     position: absolute;
-      &.hide {
-        opacity: 0.1;
-      }
+      // &.hide {
+      //   opacity: 0.1;
+      // }
       &.hideTop {
         top: -10em;
         height: 0;

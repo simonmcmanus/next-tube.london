@@ -4,8 +4,6 @@ var urlCodes = require('../fetchers/next-train/url-codes.json');
 var stations = require('../components/tubes/stations.json');
 
 
-
-
 var getStationData = function(stationCode, callback) {
     if (cache.nextTrain.stations[stationCode]) {
         callback(null, cache.nextTrain.stations[stationCode]);
@@ -29,6 +27,7 @@ module.exports = function(model, req, res) {
 
     model.get(stationCode, function (err, data) {
         var newOut = {
+            title: data.name,
             pageId: 'station',
             station: data,
             stationCodes: [],

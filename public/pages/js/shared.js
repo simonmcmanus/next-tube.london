@@ -39,11 +39,8 @@ direction.prototype.initChildren = function() {
 
 direction.prototype.destroy = function() {
     var trains = this.trains;
-    console.log('destroy', this.direction);
     Object.keys(trains).forEach(function(train) {
-//        console.log('calling destroy on train', trains, trains[train]);
         trains[train].destroy();
-        //delete trains[train];
     });
 };
 
@@ -21965,7 +21962,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 
-buf.push("<div class=\"about\"><div class=\"floater\"><div class=\"container\"><h3>About</h3><p>This site was made by <a href=\"http://simonmcmanus.com\">Simon McManus</a>.</p><p>It makes extensive use of <a href=\"http://csstubemap.co.uk\">csstubemap.co.uk</a> from <a href=\"http://www.johngalantini.com/\">John Galantini</a>.</p><p>If you have any questions please contact me via email: \"mcmanus.simon@gmail.com\" or by making issues on the github page.</p><p>The source code is available at <a href=\"http://github.com/simonmcmanus\">http://github.com/simonmcmanus</a></p></div></div></div>");;return buf.join("");
+buf.push("<div class=\"about\"><div id=\"floater\"><div class=\"container\"><h3>About</h3><p>This site was made by <a href=\"http://simonmcmanus.com\">Simon McManus</a>.</p><p>It makes extensive use of <a href=\"http://csstubemap.co.uk\">csstubemap.co.uk</a> from <a href=\"http://www.johngalantini.com/\">John Galantini</a>.</p><p>If you have any questions please contact me via email: \"mcmanus.simon@gmail.com\" or by making issues on the github page.</p><p>The source code is available at <a href=\"http://github.com/simonmcmanus\">http://github.com/simonmcmanus</a></p></div></div></div>");;return buf.join("");
 };
 },{"jade/runtime":15}],68:[function(require,module,exports){
 'use strict';

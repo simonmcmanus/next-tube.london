@@ -38,11 +38,8 @@ direction.prototype.initChildren = function() {
 
 direction.prototype.destroy = function() {
     var trains = this.trains;
-    console.log('destroy', this.direction);
     Object.keys(trains).forEach(function(train) {
-//        console.log('calling destroy on train', trains, trains[train]);
         trains[train].destroy();
-        //delete trains[train];
     });
 };
 

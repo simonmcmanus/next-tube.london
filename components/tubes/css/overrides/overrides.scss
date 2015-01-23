@@ -85,12 +85,12 @@
     }
 
     ul#central li a {
-        opacity: .3;
+        //opacity: .3;
     }
 
     ul#central li.active a,
     ul#central li a:hover {
-        opacity: 1;
+        opacity: 1 !important;
     }
 
     .links {
