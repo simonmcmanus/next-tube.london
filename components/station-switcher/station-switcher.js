@@ -5,22 +5,20 @@ var $ = require('jquery');
 require('./lib/selectize');
 
 var switcher = module.exports = function($el, bus) {
-    var $select = $el.find('input.stationSearch');
+    var $select = $el.find('input.search');
     this.$el = $el;
     bus.on('search:hide', this.hide.bind(this));
     bus.on('search:show', this.show.bind(this));
     $select.selectize({
-
-        persist: false,
          maxItems: 1,
          valueField: 'id',
          labelField: 'name',
          searchField: ['name', 'id'],
          options: require('./lib/all-stations.json'),
 
-        // openOnFocus: false,
-        // dataAttr: 'data-code',
-        // allowEmptyOption: true,
+        openOnFocus: false,
+        dataAttr: 'data-code',
+        allowEmptyOption: true,
         onChange: function(item) {
             console.log('change')
             if(item !== '') {

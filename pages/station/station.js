@@ -8,6 +8,7 @@ var urlCodes = require('./station-url-codes.json');
 var activeStation = null;
 
 var station = module.exports = function(NT, socket) {
+    console.log('station setup')
     var self = this;
     self.bus = NT.bus;
     self.socket = socket;
@@ -46,12 +47,11 @@ station.prototype.route = function(context) {
 
 
 station.prototype.setup = function() {
-    new stationComp($('#station'), this.bus);
+    new stationComp($('.stationContainer'), this.bus);
     new floaterComp($('#floater'), this.bus);
 };
 
 station.prototype.destroy = function(callback) {
-    console.log('1');
     callback();
 
 };

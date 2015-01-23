@@ -1443,7 +1443,7 @@ header li:hover a{opacity:1}
 @media (min-width:1400px){#map-container[data-station=""]{-webkit-transform:translate(-60%) scale(.34);-ms-transform:translate(-60%) scale(.34);transform:translate(-60%) scale(.34)}}
 @media (min-width:1600px){#map-container[data-station=""]{-webkit-transform:translate(-60%) scale(.4);-ms-transform:translate(-60%) scale(.4);transform:translate(-60%) scale(.4)}}
 @media (min-width:1800px){#map-container[data-station=""]{-webkit-transform:translate(-78%) scale(.5);-ms-transform:translate(-78%) scale(.5);transform:translate(-78%) scale(.5)}}
-#map-container.loaded{transition-property:-webkit-transform;transition-property:transform;transition-duration:1.8s;transition-timing-function:ease-out}
+#map-container.loaded{transition-property:-webkit-transform;transition-property:transform;transition-duration:1.2s;transition-timing-function:ease-out}
 #map-container #bakerloo,#map-container #circle,#map-container #district,#map-container #dlr,#map-container #emirates,#map-container #hammersmith-and-city,#map-container #jubilee,#map-container #metropolitan,#map-container #northern,#map-container #overground,#map-container #piccadilly,#map-container #victoria,#map-container #waterloo-and-city,#map-container .cablecar-symbol{display:none;opacity:.1}
 #map-container ul#central li a{opacity:.3}
 #map-container ul#central li a:hover,#map-container ul#central li.active a{opacity:1}

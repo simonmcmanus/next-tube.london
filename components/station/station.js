@@ -14,11 +14,12 @@ var templateTrains = require('../station/trains.jade');
 
 
 var station = module.exports = function($el, bus) {
-    var $select = $el.find('select');
     this.directions = {};
     this.bus = bus;
     this.$el = $el;
-    this.code = $select.data('currentlyListening');
+    this.code = $el.data('station-code');
+
+
     this.directionInit();
     bus.on('nextTrain:gotStationData', this.render.bind(this));
     bus.on('station', this.changeStation.bind(this));

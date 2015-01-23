@@ -21,6 +21,7 @@ var direction = module.exports = function(stationCode, direction, $el, bus) {
     this.$el = $el;
     this.bus = bus;
     this.initChildren();
+    console.log('on ', stationCode + '.platforms.' + direction + '.trains');
     bus.on(stationCode + '.platforms.' + direction + '.trains', this.listChange.bind(this));
 };
 
@@ -3583,22 +3584,20 @@ var $ = require('jquery');
 require('./lib/selectize');
 
 var switcher = module.exports = function($el, bus) {
-    var $select = $el.find('input.stationSearch');
+    var $select = $el.find('input.search');
     this.$el = $el;
     bus.on('search:hide', this.hide.bind(this));
     bus.on('search:show', this.show.bind(this));
     $select.selectize({
-
-        persist: false,
          maxItems: 1,
          valueField: 'id',
          labelField: 'name',
          searchField: ['name', 'id'],
          options: require('./lib/all-stations.json'),
 
-        // openOnFocus: false,
-        // dataAttr: 'data-code',
-        // allowEmptyOption: true,
+        openOnFocus: false,
+        dataAttr: 'data-code',
+        allowEmptyOption: true,
         onChange: function(item) {
             console.log('change')
             if(item !== '') {
@@ -3652,11 +3651,12 @@ var templateTrains = require('../station/trains.jade');
 
 
 var station = module.exports = function($el, bus) {
-    var $select = $el.find('select');
     this.directions = {};
     this.bus = bus;
     this.$el = $el;
-    this.code = $select.data('currentlyListening');
+    this.code = $el.data('station-code');
+
+
     this.directionInit();
     bus.on('nextTrain:gotStationData', this.render.bind(this));
     bus.on('station', this.changeStation.bind(this));
@@ -3714,11 +3714,10 @@ module.exports = function template(locals) {
 var buf = [];
 var jade_mixins = {};
 var jade_interp;
-;var locals_for_with = (locals || {});(function (station, console) {
+;var locals_for_with = (locals || {});(function (station) {
 var noTrains = true;
 if ( station)
 {
-console.log('-->', station);
 // iterate station.platforms
 ;(function(){
   var $$obj = station.platforms;
@@ -3817,7 +3816,7 @@ noTrains = false;
 if ( noTrains)
 {
 buf.push("<h3 class=\"noTrains\">No Trains</h3>");
-}}.call(this,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined,"console" in locals_for_with?locals_for_with.console:typeof console!=="undefined"?console:undefined));;return buf.join("");
+}}.call(this,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined));;return buf.join("");
 };
 },{"jade/runtime":15}],9:[function(require,module,exports){
 var jade = require("jade/runtime");
@@ -21999,7 +21998,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 
-buf.push("<div class=\"settings hide\"><form method=\"get\" action=\"/\"><input class=\"stationSearch\"/><!--//if station--></form></div><div class=\"clear\"></div>");;return buf.join("");
+buf.push("<div class=\"settings hide\"><form method=\"get\" action=\"/search\"><input class=\"search\"/><button type=\"submit\"></button><!--//if station--></form></div><div class=\"clear\"></div>");;return buf.join("");
 };
 },{"jade/runtime":15}],70:[function(require,module,exports){
 'use strict';
@@ -22162,6 +22161,7 @@ var urlCodes = require('./station-url-codes.json');
 var activeStation = null;
 
 var station = module.exports = function(NT, socket) {
+    console.log('station setup')
     var self = this;
     self.bus = NT.bus;
     self.socket = socket;
@@ -22200,12 +22200,11 @@ station.prototype.route = function(context) {
 
 
 station.prototype.setup = function() {
-    new stationComp($('#station'), this.bus);
+    new stationComp($('.stationContainer'), this.bus);
     new floaterComp($('#floater'), this.bus);
 };
 
 station.prototype.destroy = function(callback) {
-    console.log('1');
     callback();
 
 };
