@@ -4,6 +4,7 @@ var $ = require('jquery');
 
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
+    this.$el.addClass('available');
     bus.on('station', this.focus.bind(this));
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));

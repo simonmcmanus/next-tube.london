@@ -6,7 +6,7 @@
     top: -6em;
     transition-property: transform, opacity;
     transition-duration: 2s        , 1s;
-    transition-delay:   0s; 
+    transition-delay:   0s;
     transform: scale(.2);
     transform-origin:0 400px;
     margin-left: 1em;
@@ -62,6 +62,25 @@
         transform: scale(.3);
     }
 
+    #piccadilly,
+    #metropolitan,
+    #district,
+    #circle,
+    #hammersmith-and-city,
+    #bakerloo,
+    #victoria,
+    #waterloo-and-city,
+    #northern,
+    #jubilee,
+    #overground,
+    #dlr,
+    #emirates,
+    .cablecar-symbol {
+        opacity: 1;
+        transition: opacity 5s ease-out 2s;
+    }
+
+
     &.available {
         #piccadilly,
         #metropolitan,
@@ -78,10 +97,10 @@
         #emirates,
         .cablecar-symbol
          {
-          //  display: none;
-            opacity: .1;
+            opacity: 0;
         }
     }
+
 
 
     @import './central.scss';

@@ -41,6 +41,11 @@ station.prototype.route = function(context) {
                 station: data
             }));
 
+            self.listen({
+                code: urlCodes[context.params.stationName]
+            });
+
+
             self.setup();
             setTimeout(function() {
                 $('#content').removeClass('hide');
@@ -54,11 +59,12 @@ station.prototype.route = function(context) {
         // });
     } else {
         self.setup();
+        self.listen({
+            code: urlCodes[context.params.stationName]
+        });
     }
 
-    self.listen({
-        code: urlCodes[context.params.stationName]
-    });
+
 
 };
 

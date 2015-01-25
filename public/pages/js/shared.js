@@ -3880,6 +3880,7 @@ var $ = require('jquery');
 
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
+    this.$el.addClass('available');
     bus.on('station', this.focus.bind(this));
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
@@ -22306,6 +22307,11 @@ station.prototype.route = function(context) {
                 station: data
             }));
 
+            self.listen({
+                code: urlCodes[context.params.stationName]
+            });
+
+
             self.setup();
             setTimeout(function() {
                 $('#content').removeClass('hide');
@@ -22319,11 +22325,12 @@ station.prototype.route = function(context) {
         // });
     } else {
         self.setup();
+        self.listen({
+            code: urlCodes[context.params.stationName]
+        });
     }
 
-    self.listen({
-        code: urlCodes[context.params.stationName]
-    });
+
 
 };
 
