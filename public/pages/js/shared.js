@@ -3904,6 +3904,7 @@ tubes.prototype.unfocus = function() {
 
 tubes.prototype.highlight = function(stations) {
     var self = this;
+    self.$el.addClass('available');
     self.$el.find('.active').removeClass('active');
     stations.forEach(function(station) {
         self.$el.find('.' + station).addClass('active');
@@ -21997,7 +21998,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 
-buf.push("<div class=\"settings hide\"><form method=\"get\" action=\"/search\"><input class=\"search\"/><button type=\"submit\"></button><!--//if station--></form></div><div class=\"clear\"></div>");;return buf.join("");
+buf.push("<div class=\"settings hide\"><form method=\"get\" action=\"/search\"><input class=\"search\"/><!--//if station--></form></div><div class=\"clear\"></div>");;return buf.join("");
 };
 },{"jade/runtime":15}],70:[function(require,module,exports){
 'use strict';

@@ -1431,23 +1431,25 @@ header li:hover a{opacity:1}
 #lin031{top:1534px;left:3599px;width:50px}
 #lin032{top:1467px;left:2497px;width:50px}
 #lin032 .right-stop{top:-7px;left:-8px}
-.map-wrapper{width:100%;height:100%;opacity:1;position:relative;top:-6em;transition:-webkit-transform 2s;transition:transform 2s;-webkit-transform:scale(.2);-ms-transform:scale(.2);transform:scale(.2);-webkit-transform-origin:0 200px;-ms-transform-origin:0 200px;transform-origin:0 200px;margin-left:20%}
-@media (min-width:300px){.map-wrapper{-webkit-transform:scale(.06);-ms-transform:scale(.06);transform:scale(.06)}}
-@media (min-width:400px){.map-wrapper{-webkit-transform:scale(.08);-ms-transform:scale(.08);transform:scale(.08)}}
-@media (min-width:500px){.map-wrapper{-webkit-transform:scale(.09);-ms-transform:scale(.09);transform:scale(.09)}}
-@media (min-width:600px){.map-wrapper{-webkit-transform:scale(.1);-ms-transform:scale(.1);transform:scale(.1)}}
-@media (min-width:700px){.map-wrapper{-webkit-transform:scale(.13);-ms-transform:scale(.13);transform:scale(.13)}}
-@media (min-width:800px){.map-wrapper{-webkit-transform:scale(.15);-ms-transform:scale(.15);transform:scale(.15)}}
-@media (min-width:900px){.map-wrapper{-webkit-transform:scale(.16);-ms-transform:scale(.16);transform:scale(.16)}}
-@media (min-width:1000px){.map-wrapper{-webkit-transform:scale(.18);-ms-transform:scale(.18);transform:scale(.18)}}
+.map-wrapper{width:100%;height:100%;opacity:1;position:relative;top:-6em;transition-property:-webkit-transform,opacity;transition-property:transform,opacity;transition-duration:2s,1s;transition-delay:0s;-webkit-transform:scale(.2);-ms-transform:scale(.2);transform:scale(.2);-webkit-transform-origin:0 400px;-ms-transform-origin:0 400px;transform-origin:0 400px;margin-left:1em}
+@media (min-width:800px){.map-wrapper{margin-left:20%}}
+@media (min-width:300px){.map-wrapper{-webkit-transform:scale(.08);-ms-transform:scale(.08);transform:scale(.08)}}
+@media (min-width:400px){.map-wrapper{-webkit-transform:scale(.1);-ms-transform:scale(.1);transform:scale(.1)}}
+@media (min-width:500px){.map-wrapper{-webkit-transform:scale(.13);-ms-transform:scale(.13);transform:scale(.13)}}
+@media (min-width:600px){.map-wrapper{-webkit-transform:scale(.155);-ms-transform:scale(.155);transform:scale(.155)}}
+@media (min-width:700px){.map-wrapper{-webkit-transform:scale(.17);-ms-transform:scale(.17);transform:scale(.17)}}
+@media (min-width:800px){.map-wrapper{-webkit-transform:scale(.14);-ms-transform:scale(.14);transform:scale(.14)}}
+@media (min-width:900px){.map-wrapper{-webkit-transform:scale(.15);-ms-transform:scale(.15);transform:scale(.15)}}
+@media (min-width:1000px){.map-wrapper{-webkit-transform:scale(.17);-ms-transform:scale(.17);transform:scale(.17)}}
 @media (min-width:1100px){.map-wrapper{-webkit-transform:scale(.19);-ms-transform:scale(.19);transform:scale(.19)}}
-@media (min-width:1200px){.map-wrapper{-webkit-transform:scale(.21);-ms-transform:scale(.21);transform:scale(.21)}}
-@media (min-width:1300px){.map-wrapper{-webkit-transform:scale(.23);-ms-transform:scale(.23);transform:scale(.23)}}
-@media (min-width:1400px){.map-wrapper{-webkit-transform:scale(.25);-ms-transform:scale(.25);transform:scale(.25)}}
-@media (min-width:1500px){.map-wrapper{-webkit-transform:scale(.27);-ms-transform:scale(.27);transform:scale(.27)}}
-@media (min-width:1600px){.map-wrapper{-webkit-transform:scale(.289);-ms-transform:scale(.289);transform:scale(.289)}}
-@media (min-width:1700px){.map-wrapper{-webkit-transform:scale(.3);-ms-transform:scale(.3);transform:scale(.3)}}
-@media (min-width:1800px){.map-wrapper{-webkit-transform:scale(.32);-ms-transform:scale(.32);transform:scale(.32)}}
+@media (min-width:1200px){.map-wrapper{-webkit-transform:scale(.2);-ms-transform:scale(.2);transform:scale(.2)}}
+@media (min-width:1300px){.map-wrapper{-webkit-transform:scale(.21);-ms-transform:scale(.21);transform:scale(.21)}}
+@media (min-width:1400px){.map-wrapper{-webkit-transform:scale(.22);-ms-transform:scale(.22);transform:scale(.22)}}
+@media (min-width:1500px){.map-wrapper{-webkit-transform:scale(.24);-ms-transform:scale(.24);transform:scale(.24)}}
+@media (min-width:1600px){.map-wrapper{-webkit-transform:scale(.23);-ms-transform:scale(.23);transform:scale(.23)}}
+@media (min-width:1700px){.map-wrapper{-webkit-transform:scale(.26);-ms-transform:scale(.26);transform:scale(.26)}}
+@media (min-width:1800px){.map-wrapper{-webkit-transform:scale(.3);-ms-transform:scale(.3);transform:scale(.3)}}
+.map-wrapper.available #bakerloo,.map-wrapper.available #circle,.map-wrapper.available #district,.map-wrapper.available #dlr,.map-wrapper.available #emirates,.map-wrapper.available #hammersmith-and-city,.map-wrapper.available #jubilee,.map-wrapper.available #metropolitan,.map-wrapper.available #northern,.map-wrapper.available #overground,.map-wrapper.available #piccadilly,.map-wrapper.available #victoria,.map-wrapper.available #waterloo-and-city,.map-wrapper.available .cablecar-symbol{opacity:.1}
 .map-wrapper[data-station=EPP]{-webkit-transform:translate(-3240px,118px);-ms-transform:translate(-3240px,118px);transform:translate(-3240px,118px)}
 @media (min-width:800px){.map-wrapper[data-station=EPP]{-webkit-transform:translate(-3240px,110px);-ms-transform:translate(-3240px,110px);transform:translate(-3240px,110px)}}
 .map-wrapper[data-station=THB]{-webkit-transform:translate(-3247px,60px);-ms-transform:translate(-3247px,60px);transform:translate(-3247px,60px)}

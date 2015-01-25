@@ -38,7 +38,7 @@ var io = socket.listen(server);
 var models = new Models({
     station: require('./model/station'),
     //status: require('./fetchers/tfl-status')
-}, io, 5000);
+}, io, 100000);
 
 
 app.get('/', HOME.bind(null, models.station));
