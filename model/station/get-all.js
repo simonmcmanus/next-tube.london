@@ -17,7 +17,7 @@ module.exports = function (io, callback) {
             if(data && data.data) {
                 next(data.data);
             }else {
-                console.log('ERROR - data was', data);
+                console.log('ERROR - data was', data, e);
                 next(true);
             }
         }, true, true);

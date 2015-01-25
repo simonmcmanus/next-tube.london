@@ -2,9 +2,12 @@
     width: 100%;
     height: 100%;
     opacity: 1;
-    transition: opacity .5s;
+    position: relative;
+    top: -6em;
+    transition: transform 2s;
     transform: scale(.2);
-     transform-origin:20% 200px;
+    transform-origin:0 200px;
+    margin-left: 20%;
     @media (min-width: 300px) {
         transform: scale(.06);
     }
@@ -53,36 +56,7 @@
     @media (min-width: 1800px) {
         transform: scale(.32);
     }
-
-
-    // @media (min-width: 300px) {
-    //     transform: scale(.06);
-    // }
-    // @media (min-width: 300px) {
-    //     transform: scale(.06);
-    // }
-    // @media (min-width: 300px) {
-    //     transform: scale(.06);
-    // }
-    // @media (min-width: 300px) {
-    //     transform: scale(.06);
-    // }
-    // @media (min-width: 300px) {
-    //     transform: scale(.06);
-    // }
-    // @media (min-width: 300px) {
-    //     transform: scale(.06);
-    // }
-    // @media (min-width: 300px) {
-    //     transform: scale(.06);
-    // }
-    
-    //margin: auto -50%;
-    @media (min-width:800px) {
-    //transform: translateX(20%);
-        // this still causes some janking.
-    }
-
+    @import './central.scss';
 }
 
 #map-container{
@@ -93,62 +67,9 @@
     padding-left: 0;
     &[data-station=""] {
 
-                height: 2826px;
+    height: 2826px;
     width: 4141px;
-
-//         display: none;
-//         @media (min-width: 300px) {
-//             display: block;
-//             transform: translate(0%,10%) scale(.5);
-//         }
-
-//         @media (min-width: 400px) {
-//             transform: translate(0%,10%) scale(.09);
-//         }
-
-//         @media (min-width: 400px) {
-//             transform: translate(0%,10%) scale(.07);
-//         }
-
-//         @media (min-width: 800px) {
-//             transform: translate(11%,10%) scale(.1);
-// //            transform: translate(0) scale(0.07);
-//         }
-
-
-//         // @media (min-width: 600px) {
-//         //     transform: translate(-63%) scale(0.16);
-//         // }
-//         // @media (min-width: 800px) {
-//         //     transform: translate(-54%) scale(0.2);
-//         // }
-//         // @media (min-width: 1000px) {
-//         //     transform: translate(-60%) scale(0.26);
-//         // }
-//         // @media (min-width: 1200px) {
-//         //     transform:  translate(-60%) scale(0.3);
-//         // }
-//         // @media (min-width: 1400px) {
-//         //     transform: translate(-60%) scale(0.34);
-//         // }
-//         // @media (min-width: 1600px) {
-//         //     transform:  translate(-60%) scale(0.4);
-//         // }
-//         // @media (min-width: 1800px) {
-//         //     transform: translate(-78%) scale(0.5)
-//         // }
-
-//         @media (min-width: 800px) {
-//             transform: translate(0) scale(0.2)
-//         }
-
-//         @media (min-width: 1200px) {
-//             transform: translate(0%) scale(0.3)
-//         }
-
-//         @media (min-width: 2050px) {
-//             transform: translate(0%) scale(0.5)
-//         }
+    transform: translate(20%);
     }
 
     // need bigger screens to test on :(
@@ -363,7 +284,6 @@
     // .station:hover strong {
     //     opacity: 1;
     // }
-   @import './central.scss';
 }
 
 @media (min-width: 800px) {

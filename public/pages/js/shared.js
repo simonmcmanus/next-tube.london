@@ -22068,7 +22068,7 @@ page(function(context, next) {
 });
 
 $(document).ready(function() {
-    new tubesComponent($('#map-container'), bus);
+    new tubesComponent($('.map-wrapper'), bus);
     // init all the pages.
 
     NT.pages = {
@@ -22295,6 +22295,8 @@ station.prototype.route = function(context) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');
         self.bus.trigger('loader:show');
+        var stationCode = urlCodes[context.params.stationName];
+        self.bus.trigger('station', {code: stationCode});
         self.getStationData(context.canonicalPath, function(data) {
             console.log(data);
             document.title = data.name;
@@ -22307,8 +22309,7 @@ station.prototype.route = function(context) {
             setTimeout(function() {
                 $('#content').removeClass('hide');
             },  1200);
-            var stationCode = urlCodes[context.params.stationName];
-            self.bus.trigger('station', {code: stationCode});
+
         });
 
         // self.bus.trigger('station', {

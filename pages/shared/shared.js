@@ -37,7 +37,7 @@ page(function(context, next) {
 });
 
 $(document).ready(function() {
-    new tubesComponent($('#map-container'), bus);
+    new tubesComponent($('.map-wrapper'), bus);
     // init all the pages.
 
     NT.pages = {
