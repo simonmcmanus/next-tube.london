@@ -1,15 +1,17 @@
 .map-wrapper {
     width: 100%;
     height: 100%;
-    transform: translate(0%);
+    //transform: translate(-10%);
     position: relative;
-    top: -6em;
+    //top: -6em;
     opacity: 1;
     transition: opacity .5s;
-    //margin-top: 6em;
+     transform-origin:0 0;
+
+    //margin: auto -50%;
     @media (min-width:800px) {
+    //transform: translateX(20%);
         // this still causes some janking.
-        transform: translate(20%);
     }
 
 }
@@ -17,36 +19,63 @@
 #map-container{
     z-index:1;
     position: absolute;
+     transform-origin:0 0;
     display: block;
     padding-left: 0;
     &[data-station=""] {
         display: none;
-        @media (min-width: 400px) {
+        @media (min-width: 300px) {
             display: block;
-            transform: translate(-41%) scale(0.1);
-        }
-        @media (min-width: 600px) {
-            transform: translate(-43%) scale(0.16);
-        }
-        @media (min-width: 800px) {
-            transform: translate(-54%) scale(0.2);
-        }
-        @media (min-width: 1000px) {
-            transform: translate(-60%) scale(0.26);
-        }
-        @media (min-width: 1200px) {
-            transform:  translate(-60%) scale(0.3);
-        }
-        @media (min-width: 1400px) {
-            transform: translate(-60%) scale(0.34);
-        }
-        @media (min-width: 1600px) {
-            transform:  translate(-60%) scale(0.4);
-        }
-        @media (min-width: 1800px) {
-            transform: translate(-78%) scale(0.5)
+            transform: translate(0%,10%) scale(.5);
         }
 
+        @media (min-width: 400px) {
+            transform: translate(0%,10%) scale(.09);
+        }
+
+        @media (min-width: 400px) {
+            transform: translate(0%,10%) scale(.07);
+        }
+
+        @media (min-width: 800px) {
+            transform: translate(11%,10%) scale(.1);
+//            transform: translate(0) scale(0.07);
+        }
+
+
+        // @media (min-width: 600px) {
+        //     transform: translate(-63%) scale(0.16);
+        // }
+        // @media (min-width: 800px) {
+        //     transform: translate(-54%) scale(0.2);
+        // }
+        // @media (min-width: 1000px) {
+        //     transform: translate(-60%) scale(0.26);
+        // }
+        // @media (min-width: 1200px) {
+        //     transform:  translate(-60%) scale(0.3);
+        // }
+        // @media (min-width: 1400px) {
+        //     transform: translate(-60%) scale(0.34);
+        // }
+        // @media (min-width: 1600px) {
+        //     transform:  translate(-60%) scale(0.4);
+        // }
+        // @media (min-width: 1800px) {
+        //     transform: translate(-78%) scale(0.5)
+        // }
+
+        @media (min-width: 800px) {
+            transform: translate(0) scale(0.2)
+        }
+
+        @media (min-width: 1200px) {
+            transform: translate(0%) scale(0.3)
+        }
+
+        @media (min-width: 2050px) {
+            transform: translate(0%) scale(0.5)
+        }
     }
 
     // need bigger screens to test on :(
@@ -56,9 +85,9 @@
     // @media (min-width: 2400px) {
     //     transform:  translate(-600px, -200px) scale(0.68);
     // }
-
-    height: 556px;
-    width: 807px;
+    background: blue;
+    height: 2826px;
+    width: 4141px;
     &.loaded {
         transition-property: transform;
         transition-duration: 1.2s;
@@ -80,8 +109,8 @@
     #emirates,
     .cablecar-symbol
      {
-        display: none;
-        opacity: .1;
+      //  display: none;
+        //opacity: .1;
     }
 
     ul#central li a {
