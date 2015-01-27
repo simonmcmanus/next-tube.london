@@ -5,7 +5,7 @@
     position: relative;
     top: -6em;
     transition-property: transform, opacity;
-    transition-duration: 2s        , 1s;
+    transition-duration: 1.2s        , 1s;
     transition-delay:   0s;
     transform: scale(.2);
     transform-origin:0 400px;
@@ -159,8 +159,8 @@
             text-decoration: none;
             transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width, opacity;
             //transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
-            transition-duration: .8s;
-            transition-delay: .5s;
+            transition-duration: 1s;
+            //transition-delay: .5s;
             //transition-delay   :4s,         4s,       4s,          4s,         4s,  4s,        5s ,     4s, 5s,5s ;
 
             transition-timing-function: ease-out;

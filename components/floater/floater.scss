@@ -16,7 +16,7 @@
   transition: all .8s ease-in-out;
   position: absolute;
   transition-property: height, width, border, background-color, opacity;
-  transition-duration: .5s   , 1s   , 1s    , 1s              , .5s;
+  transition-duration: .5s   , 1s   , 1s    , 1s              , .3s;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
 
 
