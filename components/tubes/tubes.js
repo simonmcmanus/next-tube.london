@@ -10,23 +10,20 @@ var tubes = module.exports = function($el, bus) {
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
     this.$el.on('transitionend', this.transitionFinished.bind(this));
+    
 
-    //this.$el.on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',   this.transitionFinished.bind(this));
 };
 
-
-
-
-
 tubes.prototype.transitionFinished = function(e) {
+    console.log('trans find')
     var pName =  e.propertyName || e.originalEvent.propertyName;
     if(pName === 'transform') {
         this.bus.trigger('zoom:finished');
     }
 };
 
-
 tubes.prototype.focus = function(station) {
+    this.bus.trigger('zoom:start');
     this.$el.addClass('loaded');
     this.$el.attr('data-station', station.code);
     this.$el.find('li.active').removeClass('active');

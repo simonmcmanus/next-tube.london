@@ -176,7 +176,7 @@ direction.prototype.listChange = function(data) {
 
 var floater = module.exports = function($el, bus) {
     this.$el = $el;
-    this.setState('hidden');
+//    this.setState('hidden');
 
     bus.on('loader:show',this.showLoader.bind(this));
     bus.on('error:show', this.showError.bind(this));
@@ -185,21 +185,50 @@ var floater = module.exports = function($el, bus) {
     bus.on('increaseHeight', this.increaseHeight.bind(this));
     bus.on('decreaseHeight', this.decreaseHeight.bind(this));
     bus.on('resize', this.resize.bind(this));
-    bus.on('zoom:finished', this.inPlace.bind(this));
+    bus.on('zoom:finished', this.zoomEnd.bind(this));
+    bus.on('zoom:start', this.zoomStart.bind(this));
+    //bus.on('data:inplace', this.dataInPlace.bind(this));
 };
+
+
+floater.prototype.zoomStart = function() {
+    this.setState('hidden');
+    return;
+}
+
+floater.prototype.zoomEnd = function() {
+    if(this.getState() === 'hidden') {
+        console.log('dip set nul')
+        this.setState('');
+    }
+
+}
+
+
+floater.prototype.dataInPlace = function() {
+
+    if(this.getState() === 'hidden') {
+        console.log('dip' , this.getState());
+       // this.setState('loadedHidden');
+    }
+}
+
 
 floater.prototype.hideFloater = function() {
-    this.setState('hidden');
+   // this.setState('hidden');
 };
 
-floater.prototype.inPlace = function() {
-    this.setState('loading');
-}
+
 
 var targetHeight = null;
 
 
+floater.prototype.getState = function() {
+    return this.$el.attr('data-state');
+};
+
 floater.prototype.setState = function(newState) {
+    console.log('set state', newState);
     this.$el.attr('data-state', newState);
 };
 
@@ -3903,23 +3932,20 @@ var tubes = module.exports = function($el, bus) {
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
     this.$el.on('transitionend', this.transitionFinished.bind(this));
+    
 
-    //this.$el.on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',   this.transitionFinished.bind(this));
 };
 
-
-
-
-
 tubes.prototype.transitionFinished = function(e) {
+    console.log('trans find')
     var pName =  e.propertyName || e.originalEvent.propertyName;
     if(pName === 'transform') {
         this.bus.trigger('zoom:finished');
     }
 };
 
-
 tubes.prototype.focus = function(station) {
+    this.bus.trigger('zoom:start');
     this.$el.addClass('loaded');
     this.$el.attr('data-station', station.code);
     this.$el.find('li.active').removeClass('active');
@@ -22336,13 +22362,15 @@ station.prototype.route = function(context) {
             console.log(data);
             document.title = data.name;
 
-            $('#content').html(template({
+            var markup = $(template({
                 station: data
-            }));
+            })).attr('data-state', 'hidden');
+            $('#content').html(markup[0].outerHTML);
 
             self.listen({
                 code: urlCodes[context.params.stationName]
             });
+            self.bus.trigger('data:inplace');
 
 
             self.setup();
@@ -22370,16 +22398,19 @@ station.prototype.route = function(context) {
 
 station.prototype.setup = function() {
     new stationComp($('.stationContainer'), this.bus);
-    new floaterComp($('#floater'), this.bus);
+    if(this.floater) {
+        this.floater.$el = $('#floater');
+    }
+    else {
+        this.floater = new floaterComp($('#floater'), this.bus);
+    }
 };
 
 station.prototype.destroy = function(callback) {
-    console.log('statino destroy called');
     $('#content').removeClass('hide');
     this.stopListen();
     callback();
 };
-
 
 station.prototype.getStationData = function(path, callback) {
     var self = this;
@@ -22407,55 +22438,26 @@ station.prototype.errorCallback = function(stationCode) {
 }
 
 station.prototype.stopListen = function() {
-    console.log('stop', 'station:' + this.activeStation);
+    //console.log('stop', 'station:' + this.activeStation);
     this.socket.off('station:' + this.activeStation);
     this.activeStation = null;
 };
 
-
 station.prototype.listen = function(station) {
      this.activeStation = station.code;
-     console.log('listening to', this.activeStation);
+     //console.log('listening to', this.activeStation);
      this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
 };
 
-
 station.prototype.stationChanges = function(changes) {
     var self = this;
-    
     changes.forEach(function(change) {
-        console.log('got change', change);
+        //console.log('got change', change);
         if(change.parent) {
             self.bus.trigger(change.parent, change);
         }
     });
 };
-
-
-
-
-
-// var stopListening = function(socket) {
-// };
-
-
-
-
-// bus.on('station', function(station) {
-//     console.log('stop listening', activeStation);
-//     socket.off('station:' + activeStation);
-//     activeStation = null;
-// });
-
-
-// bus.on('nextTrain:gotStationData', function(station) {
-//     listen(station, socket);
-// });
-
-
-
-
-
 },{"../../components/floater/floater.js":2,"../../components/station/station.js":7,"./station-url-codes.json":72,"./station.jade":73,"jquery":16}],75:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.page=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){

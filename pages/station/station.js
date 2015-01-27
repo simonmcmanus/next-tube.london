@@ -37,13 +37,15 @@ station.prototype.route = function(context) {
             console.log(data);
             document.title = data.name;
 
-            $('#content').html(template({
+            var markup = $(template({
                 station: data
-            }));
+            })).attr('data-state', 'hidden');
+            $('#content').html(markup[0].outerHTML);
 
             self.listen({
                 code: urlCodes[context.params.stationName]
             });
+            self.bus.trigger('data:inplace');
 
 
             self.setup();
@@ -71,16 +73,19 @@ station.prototype.route = function(context) {
 
 station.prototype.setup = function() {
     new stationComp($('.stationContainer'), this.bus);
-    new floaterComp($('#floater'), this.bus);
+    if(this.floater) {
+        this.floater.$el = $('#floater');
+    }
+    else {
+        this.floater = new floaterComp($('#floater'), this.bus);
+    }
 };
 
 station.prototype.destroy = function(callback) {
-    console.log('statino destroy called');
     $('#content').removeClass('hide');
     this.stopListen();
     callback();
 };
-
 
 station.prototype.getStationData = function(path, callback) {
     var self = this;
@@ -108,51 +113,23 @@ station.prototype.errorCallback = function(stationCode) {
 }
 
 station.prototype.stopListen = function() {
-    console.log('stop', 'station:' + this.activeStation);
+    //console.log('stop', 'station:' + this.activeStation);
     this.socket.off('station:' + this.activeStation);
     this.activeStation = null;
 };
 
-
 station.prototype.listen = function(station) {
      this.activeStation = station.code;
-     console.log('listening to', this.activeStation);
+     //console.log('listening to', this.activeStation);
      this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
 };
 
-
 station.prototype.stationChanges = function(changes) {
     var self = this;
-    
     changes.forEach(function(change) {
-        console.log('got change', change);
+        //console.log('got change', change);
         if(change.parent) {
             self.bus.trigger(change.parent, change);
         }
     });
 };
-
-
-
-
-
-// var stopListening = function(socket) {
-// };
-
-
-
-
-// bus.on('station', function(station) {
-//     console.log('stop listening', activeStation);
-//     socket.off('station:' + activeStation);
-//     activeStation = null;
-// });
-
-
-// bus.on('nextTrain:gotStationData', function(station) {
-//     listen(station, socket);
-// });
-
-
-
-
