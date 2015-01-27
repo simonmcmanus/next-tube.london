@@ -3,6 +3,8 @@
 
 var floater = module.exports = function($el, bus) {
     this.$el = $el;
+    this.setState('hidden');
+
     bus.on('loader:show',this.showLoader.bind(this));
     bus.on('error:show', this.showError.bind(this));
     bus.on('error:hide', this.hideError.bind(this));
@@ -10,9 +12,24 @@ var floater = module.exports = function($el, bus) {
     bus.on('increaseHeight', this.increaseHeight.bind(this));
     bus.on('decreaseHeight', this.decreaseHeight.bind(this));
     bus.on('resize', this.resize.bind(this));
+    bus.on('zoom:finished', this.inPlace.bind(this));
 };
 
+floater.prototype.hideFloater = function() {
+    this.setState('hidden');
+};
+
+floater.prototype.inPlace = function() {
+    this.setState('loading');
+}
+
 var targetHeight = null;
+
+
+floater.prototype.setState = function(newState) {
+    this.$el.attr('data-state', newState);
+};
+
 
 floater.prototype.hideLoader = function() {
     var self= this;

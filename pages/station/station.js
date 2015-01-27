@@ -48,7 +48,7 @@ station.prototype.route = function(context) {
 
             self.setup();
             setTimeout(function() {
-                $('#content').removeClass('hide');
+                //$('#content').removeClass('hide');
             },  1200);
 
         });
@@ -76,6 +76,7 @@ station.prototype.setup = function() {
 
 station.prototype.destroy = function(callback) {
     console.log('statino destroy called');
+    $('#content').removeClass('hide');
     this.stopListen();
     callback();
 };

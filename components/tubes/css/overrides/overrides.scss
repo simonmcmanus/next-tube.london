@@ -35,13 +35,13 @@
         transform: scale(.15);
     }
     @media (min-width: 1000px) {
-        transform: scale(.17);
+        transform: scale(.16);
     }
     @media (min-width: 1100px) {
-        transform: scale(.19);
+        transform: scale(.17);
     }
     @media (min-width: 1200px) {
-        transform: scale(.2);
+        transform: scale(.19);
     }
     @media (min-width: 1300px) {
         transform: scale(.21);
@@ -53,13 +53,13 @@
         transform: scale(.24);
     }
     @media (min-width: 1600px) {
-        transform: scale(.23);
+        transform: scale(.25);
     }
     @media (min-width: 1700px) {
         transform: scale(.26);
     }
     @media (min-width: 1800px) {
-        transform: scale(.3);
+        transform: scale(.28);
     }
 
     #piccadilly,
@@ -76,8 +76,13 @@
     #dlr,
     #emirates,
     .cablecar-symbol {
-        opacity: 1;
-        transition: opacity 5s ease-out 2s;
+        opacity: .7;
+        transition: opacity 2s ease-out 1s;
+        .roundel strong,
+        .station strong, {
+            display:none;
+        }
+
     }
 
 
@@ -97,7 +102,7 @@
         #emirates,
         .cablecar-symbol
          {
-            opacity: 0;
+            opacity: .1;
         }
     }
 

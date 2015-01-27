@@ -176,6 +176,8 @@ direction.prototype.listChange = function(data) {
 
 var floater = module.exports = function($el, bus) {
     this.$el = $el;
+    this.setState('hidden');
+
     bus.on('loader:show',this.showLoader.bind(this));
     bus.on('error:show', this.showError.bind(this));
     bus.on('error:hide', this.hideError.bind(this));
@@ -183,9 +185,24 @@ var floater = module.exports = function($el, bus) {
     bus.on('increaseHeight', this.increaseHeight.bind(this));
     bus.on('decreaseHeight', this.decreaseHeight.bind(this));
     bus.on('resize', this.resize.bind(this));
+    bus.on('zoom:finished', this.inPlace.bind(this));
 };
 
+floater.prototype.hideFloater = function() {
+    this.setState('hidden');
+};
+
+floater.prototype.inPlace = function() {
+    this.setState('loading');
+}
+
 var targetHeight = null;
+
+
+floater.prototype.setState = function(newState) {
+    this.$el.attr('data-state', newState);
+};
+
 
 floater.prototype.hideLoader = function() {
     var self= this;
@@ -3880,11 +3897,27 @@ var $ = require('jquery');
 
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
+    this.bus = bus;
     this.$el.addClass('available');
     bus.on('station', this.focus.bind(this));
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
+    this.$el.on('transitionend', this.transitionFinished.bind(this));
+
+    //this.$el.on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',   this.transitionFinished.bind(this));
 };
+
+
+
+
+
+tubes.prototype.transitionFinished = function(e) {
+    var pName =  e.propertyName || e.originalEvent.propertyName;
+    if(pName === 'transform') {
+        this.bus.trigger('zoom:finished');
+    }
+};
+
 
 tubes.prototype.focus = function(station) {
     this.$el.addClass('loaded');
@@ -21999,7 +22032,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 
-buf.push("<div class=\"settings hide\"><form method=\"get\" action=\"/search\"><input class=\"search\"/><!--//if station--></form></div><div class=\"clear\"></div>");;return buf.join("");
+buf.push("<div class=\"notice\">Currently only available on the central line.</div><div class=\"settings hide\"><form method=\"get\" action=\"/search\"><input class=\"search\"/><!--//if station--></form></div><div class=\"clear\"></div>");;return buf.join("");
 };
 },{"jade/runtime":15}],70:[function(require,module,exports){
 'use strict';
@@ -22314,7 +22347,7 @@ station.prototype.route = function(context) {
 
             self.setup();
             setTimeout(function() {
-                $('#content').removeClass('hide');
+                //$('#content').removeClass('hide');
             },  1200);
 
         });
@@ -22342,6 +22375,7 @@ station.prototype.setup = function() {
 
 station.prototype.destroy = function(callback) {
     console.log('statino destroy called');
+    $('#content').removeClass('hide');
     this.stopListen();
     callback();
 };

@@ -4,11 +4,27 @@ var $ = require('jquery');
 
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
+    this.bus = bus;
     this.$el.addClass('available');
     bus.on('station', this.focus.bind(this));
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
+    this.$el.on('transitionend', this.transitionFinished.bind(this));
+
+    //this.$el.on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd',   this.transitionFinished.bind(this));
 };
+
+
+
+
+
+tubes.prototype.transitionFinished = function(e) {
+    var pName =  e.propertyName || e.originalEvent.propertyName;
+    if(pName === 'transform') {
+        this.bus.trigger('zoom:finished');
+    }
+};
+
 
 tubes.prototype.focus = function(station) {
     this.$el.addClass('loaded');

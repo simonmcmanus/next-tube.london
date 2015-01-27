@@ -144,7 +144,18 @@ body {
   font-size: 126px;
 }
 
+.notice {
+  background: #C8D4F2;
+  padding: 1em;
+  border: 1px solid rgb(166, 176, 228);
+  text-align: center;
+  margin: 3em 20% 1em 20%;
+  font-size: 1em;
+  a {
+    font-size: 1em;
+  }
 
+}
 
 
 @import "../station/station.scss";
