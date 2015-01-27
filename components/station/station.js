@@ -22,11 +22,8 @@ var station = module.exports = function($el, bus) {
 
     this.directionInit();
     bus.on('nextTrain:gotStationData', this.render.bind(this));
-    bus.on('station', this.changeStation.bind(this));
+    //bus.on('station', this.changeStation.bind(this));
     var self = this;
-    setTimeout(function() {
-        self.bus.trigger('loading:hide');
-    },1000);
 };
 
 station.prototype.changeStation = function(newStation) {

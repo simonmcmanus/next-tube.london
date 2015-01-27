@@ -10,8 +10,6 @@ var tubes = module.exports = function($el, bus) {
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
     this.$el.on('transitionend', this.transitionFinished.bind(this));
-    
-
 };
 
 tubes.prototype.transitionFinished = function(e) {
@@ -24,15 +22,15 @@ tubes.prototype.transitionFinished = function(e) {
 
 tubes.prototype.focus = function(station) {
     this.bus.trigger('zoom:start');
-    this.$el.addClass('loaded');
     this.$el.attr('data-station', station.code);
     this.$el.find('li.active').removeClass('active');
     $('html, body').animate({scrollTop : 0}, 500);
     $('li.' + station.code ).addClass('active');
-    setTimeout(function() {
+
+    this.bus.on('zoom:finished', function() {
         $('ul.line li  a.point').removeClass('point');
         $('ul.line li.' + station.code + ' a').addClass('point');
-    }, 1250);
+    });
 };
 
 tubes.prototype.unfocus = function() {

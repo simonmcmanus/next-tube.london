@@ -14,36 +14,23 @@ var floater = module.exports = function($el, bus) {
     bus.on('resize', this.resize.bind(this));
     bus.on('zoom:finished', this.zoomEnd.bind(this));
     bus.on('zoom:start', this.zoomStart.bind(this));
-    //bus.on('data:inplace', this.dataInPlace.bind(this));
+    bus.on('data:inplace', this.dataInPlace.bind(this));
 };
 
 
 floater.prototype.zoomStart = function() {
-    this.setState('hidden');
-    return;
+    this.$el.addClass('hidden')
 }
 
 floater.prototype.zoomEnd = function() {
-    if(this.getState() === 'hidden') {
-        console.log('dip set nul')
-        this.setState('');
-    }
-
+    this.$el.removeClass('hidden');
 }
 
 
 floater.prototype.dataInPlace = function() {
-
-    if(this.getState() === 'hidden') {
-        console.log('dip' , this.getState());
-       // this.setState('loadedHidden');
-    }
+    this.setState('');
 }
 
-
-floater.prototype.hideFloater = function() {
-   // this.setState('hidden');
-};
 
 
 
@@ -61,29 +48,11 @@ floater.prototype.setState = function(newState) {
 
 
 floater.prototype.hideLoader = function() {
-    var self= this;
-    var loadedTime = this.$el.data('loadTime');
-    var now = +new Date();
-
-    now - loadedTime;
-    var timeSoFar = now - loadedTime;
-    var minTime = 1000;
-
-    if(timeSoFar < minTime) {
-
-        var wait = minTime - timeSoFar;
-        setTimeout(function() {
-            self.$el.removeClass('loading');
-        }, wait);
-    }else {
-        self.$el.removeClass('loading');
-    }
+    this.setState('');
 }
 
 floater.prototype.showLoader = function() {
-    var loaderStartTime = +new Date();
-    this.$el.data('loadTime', loaderStartTime);
-    this.$el.addClass('loading');
+    this.setState('loading');
 }
 
 floater.prototype.showError = function() {

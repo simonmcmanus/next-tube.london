@@ -33,26 +33,24 @@ station.prototype.route = function(context) {
         self.bus.trigger('loader:show');
         var stationCode = urlCodes[context.params.stationName];
         self.bus.trigger('station', {code: stationCode});
+        
+
+
+
+
         self.getStationData(context.canonicalPath, function(data) {
-            console.log(data);
             document.title = data.name;
 
-            var markup = $(template({
+            var markup = template({
                 station: data
-            })).attr('data-state', 'hidden');
+            });
+            console.log('m', markup);
             $('#content').html(markup[0].outerHTML);
-
+            self.bus.trigger('data:inplace');
             self.listen({
                 code: urlCodes[context.params.stationName]
             });
-            self.bus.trigger('data:inplace');
-
-
             self.setup();
-            setTimeout(function() {
-                //$('#content').removeClass('hide');
-            },  1200);
-
         });
 
         // self.bus.trigger('station', {
