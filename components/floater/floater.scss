@@ -15,20 +15,21 @@
   z-index: 2000;
   transition: all .8s ease-in-out;
   position: absolute;
-  transition-property: height, width, border, background-color, opacity;
-  transition-duration: .5s   , 1s   , 1s    , 1s              , .3s;
+  transition-property: height, width, border, background-color, opacity, -webkit-filter, background-image;
+  transition-duration: .5s   , 1s   , 1s    , 1s              , .3s    , .3s           , .1s;
+  transition-delay:    .5s   , 0    , 0     , 0               ,   .1s  , 0             , .5s;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
 
 
   &.hidden {
+    -webkit-filter: blur(4px);
     opacity: 0;
   }
 
   &[data-state="loading"] {
-    background: url(/ajax-loader.gif) no-repeat center 10em,  linear-gradient(#fff 0px, #f2f2f2 10px, rgba(255, 255, 255, .3) 100px);
+    background-image: url(/ajax-loader.gif);
+    background-repeat:  no-repeat;
     background-position: center;
-    border-color: rgba(122, 126, 139, 0.2);
-    height: 140px;
     .container {
       opacity: 0;
     }

@@ -22333,9 +22333,10 @@ station.prototype.route = function(context) {
             var markup = template({
                 station: data
             });
-            console.log('m', markup);
             $('#content').html(markup[0].outerHTML);
-            self.bus.trigger('data:inplace');
+            self.bus.on('zoom:finished', function() {
+                self.bus.trigger('data:inplace');
+            });
             self.listen({
                 code: urlCodes[context.params.stationName]
             });

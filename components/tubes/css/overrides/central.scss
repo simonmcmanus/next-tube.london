@@ -23,7 +23,7 @@ $scale: scale(1);
 }
 
 &[data-station=LTN] {
-    transform: translate(-3283px, -150px);
+    transform: translate(-3282px,-42px);
     @media (min-width:$break1) {
     transform: translate(-3192px, -25px);
     }
@@ -65,7 +65,7 @@ $scale: scale(1);
 }
 
 &[data-station=LEY] {
-    transform: translate(-3304px, -638px);
+    transform: translate(-3344px, -640px);
     @media (min-width:$break1) {
          transform: translate(-3240px, -639px);
     }

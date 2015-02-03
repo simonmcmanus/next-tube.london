@@ -4,9 +4,9 @@
     opacity: 1;
     position: relative;
     top: -6em;
-    transition-property: transform, opacity;
-    transition-duration: 1.2s        , 1s;
-    transition-delay:   0s;
+    //transition-property: transform, opacity;
+    //transition-duration: 1.2s        , 1s;
+    //transition-delay:   0s;
     transform: scale(.2);
     transform-origin:0 400px;
     margin-left: 1em;
@@ -157,22 +157,23 @@
             z-index: 1;
             position: absolute;
             text-decoration: none;
-            transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width, opacity;
+            transform: translateZ(1);
             //transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
-            transition-duration: 1s;
+            //transition-duration: 1s;
             //transition-delay: .5s;
             //transition-delay   :4s,         4s,       4s,          4s,         4s,  4s,        5s ,     4s, 5s,5s ;
 
-            transition-timing-function: ease-out;
+            //transition-timing-function: ease-out;
             // force gpu
-            transform:translateZ(0);
+
+            transition-property: font-size, top;
+            transition-duration: .8s;
 
 
             color: #4A70CB;
             cursor: hand;
             font-weight: bold;
             border: 1px solid rgba(0,0,0,0);
-            height: 1em;
             line-height: 1em;
             white-space: nowrap;
             border-radius: 4px;
@@ -265,7 +266,8 @@
                 z-index: 1000 !important;
 
                 &.left {
-                    margin-right: 30px;
+                    //transform-origin: 3em;
+//                    margin-right: 30px;
                 }
 
                 &.right {
@@ -287,8 +289,10 @@
                 }
 
                 @media (min-width: 800px) {
-                    font-size: 2.6em;
+                    transform: scale(1.3);
                 }
+                transform: scale(.9);
+
                 @import './pointers.scss';
             }
         }
