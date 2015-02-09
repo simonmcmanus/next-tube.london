@@ -179,7 +179,7 @@
             }
             &.below {
                 left: 5px;
-                top: 0px;
+                top: 5px;
             }
         }
         &.roundel a {
@@ -213,9 +213,19 @@
                 float: left;
                 transform-origin: 50% -6em;
             }
+            &.roundel .right {
+                left: 40px;
+            }
 
             .below {
                 transform-origin: 3em -3em;
+            }
+            &.roundel .below {
+                top: 23px;
+            }
+
+            &.roundel .above {
+                top: -65px;
             }
         }
 

@@ -1,15 +1,19 @@
 $break1: 800px;
 
 &[data-station=EPP] {
-    transform: translate(-3240px, 118px);
+    transform: translate(-3326px,-9px);
+    li.active.roundel .left {
+        right: 45px !important;
+        top: -8px !important;
+    }
 }
 
 &[data-station=THB] {
-    transform: translate(-3247px, 60px);
+    transform: translate(-3279px, -54px);
 }
 
 &[data-station=DEB] {
-    transform: translate(-3300px, 13px);
+    transform: translate(-3319px, -106px);
 }
 
 &[data-station=LTN] {
@@ -17,11 +21,15 @@ $break1: 800px;
 }
 
 &[data-station=BHL] {
-    transform: translate(-3139px, -40px);
+    transform: translate(-3259px, -190px);
 }
 
 &[data-station=WFD] {
     transform: translate(-3275px, -240px);
+    li.active.roundel .left {
+        right: 45px !important;
+        top: -8px !important;
+    }
 }
 
 &[data-station=SWF] {
@@ -71,7 +79,7 @@ li.STP {
     }
     &.active a {
         left: 83px;
-        top: 71px;
+        top: 71px !important;
     }
 }
 
@@ -215,12 +223,8 @@ li.HLN, li.PER {
         right: 22px !important;
     }
     &.active a {
-        top: -42px !important;
-        right: 4px !important;
-        @media (min-width: 800px) {
-            top: -56px !important;
-            right: 19px !important;
-        }
+        top: -39px !important;
+        right: 36px !important;
     }
 }
 
@@ -243,12 +247,8 @@ li.GFD {
     }
 
     &.active a {
-        top: -44px !important;
-        right: 19px !important;
-        @media (min-width: $break1) {
-            top: -61px !important;
-            right: 36px !important;
-        }
+        top: -40px !important;
+        right: 47px !important;
     }
 }
 
@@ -307,6 +307,10 @@ li.active.roundel.WRP a {
 
 &[data-station=HAI] {
     transform: translate(-3546px, -217px);
+    li.active.roundel .left {
+        right: 45px !important;
+        top: -8px !important;
+    }
 }
 
 &[data-station=FLP] {
