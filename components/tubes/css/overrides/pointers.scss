@@ -19,12 +19,10 @@
 }
 
 &.left {
-	transform-origin: -8em;
-
   &::before,
   &::after {
 	  bottom: auto;
-	  top: 18px;
+	  top: 15px;
 	  right: 0;
 	  border-width: 6px 0 6px 8px;
 
@@ -45,6 +43,7 @@
   }
 }
 &.right {
+
 	&::before,
 	&::after {
 		bottom: auto;
@@ -63,12 +62,11 @@
 }
 
 &.above {
-
 	&::before,
 	&::after {
-		left: 61px;
+		left: 63px;
 		bottom: 0;
-		border-width: 7px 7px 0;
+		border-width: 8px 7px 0;
 	}
 
 	&::before {
@@ -113,76 +111,4 @@
 		top: -7px;
 	}
 }
-
-
-@media (min-width: 800px) {
-	&.left {
-	transform-origin:  right;
-
-		&::before,
-		&::after {
-		   top: 34%;
-		   border-width: 6px 0 6px 7px;
-		}
-
-		&.point::before {
-			right:-7px;
-		}
-		&.point::after {
-			right:-6px;
-		}
-	}
-
-	&.right {
-		&::before,
-		&::after {
-			top: 35%;
-			left: 0;
-			border-width: 7px 10px 7px 0;
-		}
-		&::before {
-			left:-10px;
-		}
-		&::after {
-			left:-8px;
-		}
-	}
-
-	&.above {
-		top: -2em;
-		left: -50px;
-		&::before,
-		&::after {
-			left: 103px;
-			border-width: 10px 10px 0;
-		}
-		&.point {
-			&::before {
-				bottom: -10px;
-			}
-			&::after {
-				bottom: -9px;
-			}
-		}
-	}
-
-	&.below {
-	  	top: 8px;
-
-		&::before,
-		&::after {
-			left: 49px;
-			border-width: 0 10px 10px ;
-		}
-		&.point {
-			&::before {
-			 	top: -10px;
-			}
-			&::after{
-			 	top: -9px;
-			}
-		}
-	}
-}
-
 

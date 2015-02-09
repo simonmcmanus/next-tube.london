@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('jquery');
+var $ = require('jquery'); 
 
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
@@ -23,9 +23,9 @@ tubes.prototype.transitionFinished = function(e) {
 tubes.prototype.focus = function(station) {
     this.bus.trigger('zoom:start');
     this.$el.attr('data-station', station.code);
-    this.$el.find('li.active').removeClass('active');
+    this.$el.find('li.active').removeClass('active z-depth-1');
     $('html, body').animate({scrollTop : 0}, 500);
-    $('li.' + station.code ).addClass('active');
+    $('li.' + station.code ).addClass('active z-depth-1');
 
     this.bus.on('zoom:finished', function() {
         $('ul.line li  a.point').removeClass('point');
