@@ -5,6 +5,8 @@ $porder-pixels: 2;
   font-family: 'Erbos';
   src: url("/fonts/7LED.ttf");
 }
+$shade:red;
+
 
 @font-face {
   font-family: 'london_tubenormal';
@@ -35,17 +37,27 @@ html body header {
 
 }
 
+.shade {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(250,247,250,1) 7%, rgba(255,255,255,1) 21%, rgba(247,247,247,1) 78%, rgba(247,247,247,1) 89%, rgba(247,244,247,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(7%, rgba(250,247,250,1)), color-stop(21%, rgba(255,255,255,1)), color-stop(78%, rgba(247,247,247,1)), color-stop(89%, rgba(247,247,247,1)), color-stop(100%, rgba(247,244,247,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(250,247,250,1) 7%, rgba(255,255,255,1) 21%, rgba(247,247,247,1) 78%, rgba(247,247,247,1) 89%, rgba(247,244,247,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(250,247,250,1) 7%, rgba(255,255,255,1) 21%, rgba(247,247,247,1) 78%, rgba(247,247,247,1) 89%, rgba(247,244,247,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(250,247,250,1) 7%, rgba(255,255,255,1) 21%, rgba(247,247,247,1) 78%, rgba(247,247,247,1) 89%, rgba(247,244,247,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(250,247,250,1) 7%, rgba(255,255,255,1) 21%, rgba(247,247,247,1) 78%, rgba(247,247,247,1) 89%, rgba(247,244,247,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f4f7', GradientType=0 );
+}
 
 header::before {
   background: red;
   filter: blur(5px);
 }
 
-
 nav {
   margin: 1em !important;
   a {
-
+    @extend .shade;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
     margin-top: .4em;
     border: 1px solid #B8B8B8 !important;
     margin-right: 10px;
@@ -76,9 +88,6 @@ nav {
 .error {
   display: none;
 }
-
-
-
 
 
 
@@ -123,6 +132,8 @@ html body {
   position: relative;
   z-index: 1000;
   height:0;
+  background:rgba(247, 245, 245, 0.68);
+
   #content {
     transition: all .6s;
     top: 6em;
@@ -166,6 +177,14 @@ body {
   font-size: 126px;
 }
 
+.raised {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+h1 {
+  display: inline;
+}
+
 .notice {
   background: #C8D4F2;
   padding: 1em;
@@ -179,8 +198,12 @@ body {
 
 }
 
+.shaded {
+}
+
 @import "../station/station.scss";
 @import "../about/about.scss";
 
+@import "../../components/search/search.scss";
 
 @import "./materialize/sass/materialize.scss";

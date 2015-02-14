@@ -1,0 +1,9 @@
+form.search
+
+
+    select
+        each station in stationCodes
+            option(value=station.slug, data-code=str)=station.name
+    input(placeholder='Search Term')
+    input(type=submit value='Search')
+    a.search Search

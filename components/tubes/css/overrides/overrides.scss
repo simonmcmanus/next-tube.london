@@ -199,6 +199,9 @@
             }
         }
         &.active {
+            a {
+
+            }
             transition-delay: 2s;
 
             .left {
@@ -251,14 +254,14 @@
             a {
 
                 //@extend .z-depth-1;
+              //background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, .95) 100px);
 
-
+               
                 transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
 
                 transition-delay   : .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;
 
-                background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
-
+ 
                 border: 1px solid $border-color;
                 z-index: 1000 !important;
 
@@ -304,6 +307,10 @@
     // .station:hover strong {
     //     opacity: 1;
     // }
+}
+.bend45deg:after,
+.bend90deg:after{
+    background-color: #F9F8F8;
 }
 
 @media (min-width: 800px) {

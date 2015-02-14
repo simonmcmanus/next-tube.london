@@ -4,11 +4,10 @@
   overflow:hidden;
   min-height: 60px;
   margin: 14em 1em 1em 1em;
-  box-shadow: rgba(129, 122, 145, 0.84) 0 0 0px;
   border-radius: 4px;
   opacity: 1;
   border: 1px solid $border-color;
-  background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, .95) 100px);
+  @extend .shade;
   vertical-align: top;
   color: #838383;
   width: auto;

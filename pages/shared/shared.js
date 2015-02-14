@@ -11,6 +11,7 @@ var bus = window.bus = require("../../node_modules/backbone-events-standalone").
 var page = require('../../public/libs/page.js');
 
 var tubesComponent = require('../../components/tubes/tubes.js');
+var searchComponent = require('../../components/search/search.js');
 //var SearchPage = require('../search/search');
 var HomePage = require('../home/home');
 var StationPage = require('../station/station');
@@ -43,6 +44,7 @@ page(function(context, next) {
 
 $(document).ready(function() {
     new tubesComponent($('.map-wrapper'), bus);
+    new searchComponent($('form.search'), bus);
     // init all the pages.
 
     NT.pages = {
