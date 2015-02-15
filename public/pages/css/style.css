@@ -1604,9 +1604,48 @@ header li:hover a{opacity:1}
 body[data-page=about] div.about h3,body[data-page=about] div.about p{padding:1em}
 body[data-page=about] div.about h3{margin:1em}
 body[data-page=about] .map-wrapper{opacity:0}
-form.search{position:absolute;margin-right:20%;border-radius:2px;width:253px;top:30px;height:40px;padding:0;transition:all 1s;overflow:hidden;right:0}
-form.search a{display:inline-block;text-indent:-99999px;border-radius:2px;border:1px solid #B8B8B8;position:relative;height:32px;background-color:#fff;width:32px;top:0;right:-5px;background-position:7px 7px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACrElEQVQ4T5XSX0hTURwH8O/cXLo2d2W4fLCYgQSGtSWl9iBe8qmXbn/EhwJnIZSFtodCpECxUZEw+4MYPriHMmGNGTKI8OHSg/nUFDNco1q61DW33S2nzjnXOVPntCcPXM45l/v7/H7n3J8IaaPjyfMqeY6yWZQh1mRKszSzv2fGBCH8LvInYDabu4T0b7fWIrpoazMxWYysT6XO5w7kF0ChYJAg74VQCC6XE1NTX4Wgz88O9neP7UaSgNHUY9McLuJKjh6HimEgFmdgnQixtTgWgn9hsfOY+/lZCPm9BOndgYged/dxcpnCdoatJsFKgJBUTRCAVkGhcdcC3g9/wJzbwQ+87GTTqxC1Gk22iopKrrz0BFZiQHwdkIiBfRICEYlCwUgCw6NOOEas8Hk8hYMDPe7UHbQanwUvcOeZwkMFIJUns68RZCm6kT07E1gka5cnDPtQP2bdTvatuYtPATfudiSu1dWhSHMQGRTYzEozUyi0BERJZaFIDBbra8z/mmRf9XRuA3VN9xxXamu0p0uPbQCb56fZ6XHoPB8E/ESy299gdtrNml882AYu6ZtNJ8vKbjddrYVEQgQSQIPWSXCczPQoQgT45p7Bp49DgrHlZu6OS7ze8lCzHIk46i/XMJWnSpJnoMHkD2KVPCES7A+tYGSUx/SPqfZH9w1tOwC6uai/xSlz82zc2WpUlesgk2WRHhAhsBjHzHwA4xMOuL87CRofdE+MtFssllQvJBuJDk7fqFXKc02qPHVV8ZEiSKQEWV1FOBwQ/D7f0+UYzmXHfNrJLxOCWq1me3s3GioFbEH6xjtaRQ6jVeyXaciN8Co5xgwGg2C1WvVer7eP53lEo9EU8h+wu9fT9w0NDXqdTpdCpFIpuyeAYumIx+Px7RmgiJ4MhmFoJfX/AAmENtedtfFNAAAAAElFTkSuQmCC)}
-form.search input{width:212px;border:1px solid #B8B8B8;transition:right 1s;right:-230px;line-height:26px;height:32px;font-size:1em;top:3px;opacity:0;padding:5px;position:relative}
+/*!
+ * BSelect v0.3.3 - 2013-07-11
+ * 
+ * Created by Gustavo Henke <gustavo@injoin.com.br>
+ * http://gustavohenke.github.io/bselect/
+ */
+.bselect{position:relative;display:inline-block;white-space:nowrap}
+.bselect,.bselect button,.bselect input{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:20px}
+.bselect.open .bselect-caret{background-image:none;box-shadow:inset 0 2px 4px rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.05)}
+.bselect.disabled{opacity:.65;filter:alpha(opacity=65)}
+.bselect-caret,.bselect-label{position:relative;display:inline-block;height:20px;color:#333;font-size:14px;line-height:20px;background-color:#f5f5f5;background-image:linear-gradient(to bottom,#fff,#e6e6e6);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);border:1px solid #bbb;border-bottom-color:#a2a2a2;cursor:pointer;vertical-align:middle}
+.bselect-caret:hover,.bselect-label:hover{background-position:0 -15px;background-color:#e6e6e6;transition:background-position .1s linear}
+.bselect-label{padding:4px 12px;overflow:hidden;text-shadow:0 1px 1px rgba(255,255,255,.75);border-radius:4px 0 0 4px}
+.bselect-caret{margin-left:-1px;padding:4px 5px;border-radius:0 4px 4px 0;box-sizing:content-box}
+.bselect-caret>.caret{display:inline-block;width:0;height:0;margin:8px 0 0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid #333;content:"";vertical-align:top}
+.bselect.disabled .bselect-caret,.bselect.disabled .bselect-label{background-image:none;cursor:not-allowed;transition:none;box-shadow:none}
+.bselect.disabled .bselect-caret:hover,.bselect.disabled .bselect-label:hover{background-color:#f5f5f5}
+.bselect-dropdown{position:absolute;top:100%;left:0;z-index:1000;display:none;width:97%;margin:2px 0 0;padding:5px 1.5%;background-color:#fff;border:1px solid #000;border:1px solid rgba(0,0,0,.2);border-radius:4px;box-shadow:0 5px 10px rgba(0,0,0,.2)}
+.bselect-search{margin-bottom:10px;vertical-align:middle;white-space:nowrap}
+.bselect-search>.bselect-search-icon,.bselect-search>.bselect-search-input{display:inline-block;height:20px;vertical-align:middle}
+.bselect-search>.bselect-search-input{position:relative;padding:4px 6px;margin:0;background:#fff;border:1px solid #ccc;cursor:text;border-radius:4px 0 0 4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}
+.bselect-search>.bselect-search-input:focus{z-index:2}
+.bselect-search>.bselect-search-icon{width:auto;margin-left:-1px;padding:4px 5px;text-align:center;text-shadow:0 1px 0 #fff;background-color:#eee;border:1px solid #ccc;border-radius:0 4px 4px 0}
+.bselect-message{display:none;padding:5px 20px 5px 15px;line-height:20px;cursor:default}
+.bselect-option-list{line-height:20px;width:100%;margin:0;padding:0;list-style:none;overflow-y:auto;overflow-x:hidden}
+.bselect-option>a{display:block;padding:5px 20px 5px 15px;color:#333;text-decoration:none;white-space:normal}
+.bselect-option.grouped{padding-left:15px}
+.bselect-option:focus{outline:0}
+.bselect-option:focus a{outline:#333 dotted thin;outline-offset:-2px}
+.bselect-option a:focus,.bselect-option a:hover,.bselect-option:focus a{color:#fff;text-shadow:0 1px 0 rgba(100,100,100,.5);background-color:#0081c2;background-image:linear-gradient(to bottom,#08c,#0077b3);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0)}
+.bselect-option.active>a,.bselect-option.active>a:hover{color:#fff;background-color:#0081c2;background-image:linear-gradient(to bottom,#08c,#0077b3);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0)}
+.bselect-option-group{padding:5px 20px 5px 15px;font-weight:700;cursor:default;white-space:normal}
+.bselect.bselect-mini .bselect-caret,.bselect.bselect-mini .bselect-label{padding:1px 6px;font-size:10.5px}
+.bselect.bselect-mini .bselect-caret{padding-left:5px;padding-right:5px}
+.bselect.bselect-small .bselect-caret,.bselect.bselect-small .bselect-label{padding:2px 10px;font-size:11.9px}
+.bselect.bselect-small .bselect-caret{padding-left:5px;padding-right:5px}
+.bselect.bselect-large .bselect-caret,.bselect.bselect-large .bselect-label{padding:11px 19px;font-size:17.5px}
+.bselect.bselect-large .bselect-caret{padding-left:12px;padding-right:12px}
+.bselect.bselect-large .bselect-caret .caret{border-left-width:5px;border-right-width:5px;border-top-width:5px}
+.bselect.bselect-large,.bselect.bselect-mini,.bselect.bselect-small{margin-top:6px}
+.bselect-inaccessible{position:relative!important;top:-9999em!important;left:-9999em!important;clip:rect(0,0,0,0)!important;display:block!important;visibility:hidden!important;min-height:0!important;height:0!important;margin:0!important;padding-top:0!important;padding-bottom:0!important;border-top:0!important;border-bottom:0!important}
+form.search{position:absolute;margin-right:20%;border-radius:2px;top:30px;padding:0;transition:all 1s;width:300px;right:0}
 form.search.open input{box-shadow:inset 1px 1px 5px #E8E0E0;border-radius:2px;right:-2px;opacity:1}
 .materialize-red.lighten-5{background-color:#fdeaeb!important}
 .materialize-red-text.text-lighten-5{color:#fdeaeb!important}

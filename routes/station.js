@@ -2,6 +2,7 @@
 //
 var urlCodes = require('../fetchers/next-train/url-codes.json');
 var stations = require('../components/tubes/stations.json');
+var stationCodes = require('../components/station-switcher/lib/all-stations');
 
 
 var getStationData = function(stationCode, callback) {
@@ -30,7 +31,7 @@ module.exports = function(model, req, res) {
             title: data.name,
             pageId: 'station',
             station: data,
-            stationCodes: [],
+            stationCodes: stationCodes,
             tubes: {
                 stations: stations,
                 currentStationCode: stationCode

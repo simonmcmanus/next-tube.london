@@ -1,11 +1,13 @@
 'use strict';
 
-var $ = require('jquery');
+var $  = window.jQuery = require('jquery');
 var io = require('socket.io-client');
 
 var attachFastClick = require('fastclick');
 attachFastClick(document.body);
 
+
+ require('./bselect');
 
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
 var page = require('../../public/libs/page.js');
