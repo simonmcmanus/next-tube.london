@@ -7,16 +7,20 @@
     transition-property: transform, opacity;
     transition-duration: 1.2s        , 1s;
     transition-delay:   0s;
-    transform:  translate3d(-1500px, 2000px, -25000px);
+    transform:  translate3d(-1900px, 3000px ,-12000px);
     margin-left: 1em;
+
+    @media (min-width: 500px) {
+        transform:  translate3d(-1700px, 1400px ,-7000px);
+    }
     @media (min-width: 800px) {
         margin-left: 20%;
     }
     @media (min-width: 800px) {
-        transform:  translate3d(-1500px, 2000px, -15000px);
+        transform:  translate3d(-1400px, 1000px, -5000px);
     }
     @media (min-width: 1000px) {
-        transform:  translate3d(-1500px, 800px, -7000px);
+        transform:  translate3d(-1500px, 800px, -4000px);
     }
     // @media (min-width: 1100px) {
     //     transform: scale(.17);
@@ -57,7 +61,9 @@
     #dlr,
     #emirates,
     .cablecar-symbol {
-        opacity: .7;
+
+        // if ipad retina?
+        display: none;
         transition: opacity 2s ease-out 1s;
         .roundel strong,
         .station strong, {

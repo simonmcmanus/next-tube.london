@@ -1,18 +1,16 @@
 
 form.search {
-    position: absolute;
+    //position: absolute;
     margin-right: 20%;
     border-radius: 2px;
     // width: 253px;
-    top: 30px;
+    //top: 30px;
     //height: 40px;
-    padding: 0;
     transition: all 1s;
-    width: 300px;
     //overflow: hidden;
 
-
-    right: 0;
+    width: 100%;
+    //right: right;
     
     // input[type="submit"] {
     //     display: inline-block;
@@ -51,7 +49,7 @@ form.search {
         input {
         box-shadow: inset 1px 1px 5px #E8E0E0;
             border-radius: 2px;
-            right: -2px;
+            //right: -2px;
             opacity: 1;
         }
     }

@@ -17,6 +17,7 @@ $shade:red;
 }
 
 html body header {
+
   h1 {
     color: #2d2a81;
     font-size: 2em;
@@ -31,7 +32,7 @@ html body header {
   position: relative;
   margin: 0 0 1em 0;
   padding: 1em;
-  height: 6em;
+  height: 9em;
   background-color: rgba(255, 255, 255, .95);
   //border-radius: 5px
 
@@ -128,7 +129,12 @@ html body a {
 
 }
 html body {
-   -webkit-perspective: 2400px;
+    /**
+   * Fixes an ios issue where you cannot use negative z index, should really only work on the body.
+   */
+  -webkit-transform:  translate3d(0, 0, 2000px);
+
+  -webkit-perspective: 1000px;
   position: relative;
   z-index: 1000;
   height:0;
@@ -204,7 +210,6 @@ h1 {
 @import "../station/station.scss";
 @import "../about/about.scss";
 
-@import "./_bselect.scss";
 @import "../../components/search/search.scss";
 
 @import "./materialize/sass/materialize.scss";
