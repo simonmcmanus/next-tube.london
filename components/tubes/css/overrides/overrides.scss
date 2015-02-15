@@ -4,10 +4,10 @@
     opacity: 1;
     -webkit-transform-style: preserve-3d;
     position: relative;
-    // transition-property: transform, opacity;
-    // transition-duration: 1.2s        , 1s;
-    // transition-delay:   0s;
-    // transform:  translate3d(-1900px, 3000px ,-12000px);
+    transition-property: transform, opacity;
+    transition-duration: 1.2s        , 1s;
+    transition-delay:   0s;
+    transform:  translate3d(-1900px, 3000px ,-12000px);
     margin-left: 1em;
     margin-top: 4em;
     @media (min-width: 500px) {
@@ -124,18 +124,11 @@
             text-decoration: none;
             transform: translateZ(1);
             font-size: 14px;
-            
-            //transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
-            //transition-duration: 1s;
-            //transition-delay: .5s;
-            //transition-delay   :4s,         4s,       4s,          4s,         4s,  4s,        5s ,     4s, 5s,5s ;
 
-            //transition-timing-function: ease-out;
-            // force gpu
-
-            // transition-property: all;
-            // transition-duration: .8s;
-
+            transition-delay: .5s;
+            transition-property: all;
+            transition-duration: .8s;
+            transition-timing-function: ease-out;
 
             color: #4A70CB;
             cursor: hand;
@@ -244,9 +237,9 @@
               //background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, .95) 100px);
 
                
-                // transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
+                transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
 
-                // transition-delay   : .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;
+                transition-delay   : .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;
 
  
                 border: 1px solid $border-color;
