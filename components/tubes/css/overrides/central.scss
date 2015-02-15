@@ -1,7 +1,7 @@
 $break1: 800px;
 
 &[data-station=EPP] {
-    transform: translate(-3326px,-9px);
+    transform: translate(-3330px, -28px);
     li.active.roundel .left {
         right: 45px !important;
         top: -8px !important;
@@ -9,23 +9,23 @@ $break1: 800px;
 }
 
 &[data-station=THB] {
-    transform: translate(-3279px, -54px);
+    transform: translate(-3286px, -76px);
 }
 
 &[data-station=DEB] {
-    transform: translate(-3319px, -106px);
+    transform: translate(-3323px, -122px);
 }
 
 &[data-station=LTN] {
-    transform: translate(-3308px,-163px);
+    transform: translate(-3313px, -168px);
 }
 
 &[data-station=BHL] {
-    transform: translate(-3259px, -190px);
+    transform: translate(-3280px, -215px);
 }
 
 &[data-station=WFD] {
-    transform: translate(-3301px, -380px);
+    transform: translate(-3307px,-384px);
     li.active.roundel .left {
         right: 45px !important;
         top: -8px !important;
@@ -33,39 +33,39 @@ $break1: 800px;
 }
 
 &[data-station=SWF] {
-    transform: translate(-3257px, -436px);
+    transform: translate(-3266px,-440px);
 }
 
 &[data-station=SNB] {
-    transform: translate(-3288px, -491px);
+    transform: translate(-3294px,-495px);
 }
 
 &[data-station=LYS] {
-    transform: translate(-3256px,-532px);
+    transform: translate(-3293px,-658px);
 }
 
 &[data-station=LEY] {
-    transform: translate(-3344px, -640px);
+    transform: translate(-3328px,-782px);
 }
 
 &[data-station=SFD] {
-    transform: translate(-3382px,-773px);
+    transform: translate(-3398px,-903px);
 }
 
 &[data-station=MLE] {
-    transform: translate(-3021px, -991px);
+    transform: translate(-3037px,-1120px);
 }
 
 &[data-station=BNG] {
-    transform: translate(-2909px, -991px);
+    transform: translate(-2925px,-1123px);
 }
 
 &[data-station=LST] {
-    transform: translate(-2588px, -1063px);
+    transform: translate(-2604px,-1192px);
 }
 
 &[data-station=BNK] {
-    transform: translate(-2377px, -1212px);
+    transform: translate(-2393px,-1356px);
 }
 
 li.STP {
@@ -84,17 +84,17 @@ li.STP {
 }
 
 &[data-station=STP] {
-    transform: translate(-2328px, -1201px);
+    transform: translate(-2343px,-1348px);
 }
 
 
 
 &[data-station=CYL] {
-    transform: translate(-2199px, -1151px);
+    transform: translate(-2215px,-1285px);
 }
 
 &[data-station=HOL] {
-    transform: translate(-2001px,-1216px);
+    transform: translate(-2101px,-1369px);
 }
 
 li.roundel.HOL {
@@ -110,7 +110,7 @@ li.roundel.HOL {
 
 
 &[data-station=TCR] {
-    transform: translate(-2001px,-1216px);
+    transform: translate(-1998px,-1386px);
 }
 
 li.TCR a.below {
@@ -131,11 +131,11 @@ li.TCR a.below::after {
 
 
 &[data-station=OXC] {
-    transform: translate(-1668px,-1149px);
+    transform: translate(-1791px,-1280px);
 }
 
 &[data-station=BDS] {
-    transform: translate(-1893px, -1242px);
+    transform: translate(-1663px,-1280px);
 }
 
 li.BDS a.above  {
@@ -144,20 +144,20 @@ li.BDS a.above  {
 
 
 &[data-station=MAR] {
-    transform: translate(-1831px, -1333px);
+    transform: translate(-1587px,-1385px);
 }
 
 &[data-station=LAN] {
-    transform: translate(-1491px, -1151px);
+    transform: translate(-1507px,-1285px);
 }
 
 &[data-station=QWY] {
-    transform: translate(-1423px, -1223px);
+    transform: translate(-1438px,-1370px);
 }
 
 
 &[data-station=NHG] {
-    transform: translate(-1307px, -1152px);
+    transform: translate(-1324px,-1295px);
 }
 
 li#cen016.NHG a {
@@ -165,15 +165,15 @@ li#cen016.NHG a {
 }
 
 &[data-station=HPK] {
-    transform: translate(-1233px, -1223px);
+    transform: translate(-1249px,-1367px);
 }
 
 &[data-station=SBC] {
-    transform: translate(-1134px, -1151px);
+    transform: translate(-1150px,-1295px);
 }
 
 &[data-station=WCT] {
-    transform: translate(-985px, -1154px);
+    transform: translate(-1002px,-1296px);
 }
 
 li.roundel.WCT a {
@@ -188,19 +188,19 @@ li.roundel.WCT.active a {
 }
 
 &[data-station=EAC] {
-    transform: translate(-897px, -1152px);
+    transform: translate(-913px,-1301px);
 }
 
 &[data-station=NAC] {
-    transform: translate(-855px, -1222px);
+    transform: translate(-871px,-1367px);
 }
 
 &[data-station=WAC] {
-    transform: translate(-855px, -1222px);
+    transform: translate(-701px,-1367px);
 }
 
 &[data-station=EBY] {
-    transform: translate(-322px, -1197px);
+    transform: translate(-370px,-1338px);
 }
 
 
@@ -210,7 +210,7 @@ li.roundel.active.EBY a{
 }
 
 &[data-station=HLN] {
-    transform: translate(-404px, -953px);
+    transform: translate(-442px,-1098px);
 }
 
 li.HLN, li.PER {
@@ -229,11 +229,11 @@ li.HLN, li.PER {
 }
 
 &[data-station=PER] {
-    transform: translate(-351px, -866px);
+    transform: translate(-383px,-1011px);
 }
 
 &[data-station=GFD] {
-    transform: translate(-235px, -769px);
+    transform: translate(-274px,-911px);
 }
 
 li.GFD {
@@ -253,11 +253,11 @@ li.GFD {
 }
 
 &[data-station=NHT] {
-    transform: translate(-227px, -604px);
+    transform: translate(-254px,-748px);
 }
 
 &[data-station=SRP] {
-    transform: translate(-181px, -480px);
+    transform: translate(-227px,-632px);
 }
 
 li.active.roundel.SRP a {
@@ -266,11 +266,11 @@ li.active.roundel.SRP a {
 }
 
 &[data-station=RUG] {
-    transform: translate(-168px, -382px);
+    transform: translate(-209px,-526px);
 }
 
 &[data-station=WRP] {
-    transform: translate(-187px, -159px);
+    transform: translate(-229px,-302px);
 }
 
 li.active.roundel.WRP a {
@@ -282,7 +282,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=ROD] {
-    transform: translate(-3433px, -109px);
+    transform: translate(-3444px, -246px);
     .ROD {
         &.active.roundel a.above{
             top: -62px;
@@ -298,15 +298,15 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=CHG] {
-    transform: translate(-3509px, -191px);
+    transform: translate(-3525px, -354px);
 }
 
 &[data-station=GRH] {
-    transform: translate(-3553px, -105px);
+    transform: translate(-3569px,-269px);
 }
 
 &[data-station=HAI] {
-    transform: translate(-3546px, -217px);
+    transform: translate(-3577px, -361px);
     li.active.roundel .left {
         right: 45px !important;
         top: -8px !important;
@@ -314,27 +314,27 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=FLP] {
-    transform: translate(-3561px, -272px);
+    transform: translate(-3586px, -416px);
 }
 
 &[data-station=BDE] {
-    transform: translate(-3524px, -325px);
+    transform: translate(-3558px, -469px);
 }
 
 &[data-station=NEP] {
-    transform:translate(-3505px, -379px);
+    transform: translate(-3541px, -523px);
 }
 
 &[data-station=GHL] {
-    transform: translate(-3577px, -483px);
+    transform: translate(-3593px,-627px);
 }
 
 &[data-station=RED] {
-    transform: translate(-3501px, -412px);
+    transform: translate(-3517px,-560px);
 }
 
 &[data-station=WAN] {
-    transform: translate(-3446px, -483px);
+    transform: translate(-3462px, -645px);
 }
 
 li.WAN a {

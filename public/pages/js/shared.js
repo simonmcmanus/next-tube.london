@@ -265,8 +265,9 @@ floater.prototype.decreaseHeight = function(removeHeight) {
 
 
 },{}],3:[function(require,module,exports){
+'use strict';
 
-var Search = module.exports = function($el, bus) {
+module.exports = function($el, bus) {
     $el.find('[type="submit"]').hide();
     $el.find('select').change(function() {
         bus.trigger('page:load', '/' + this.value);
@@ -3838,8 +3839,10 @@ station.prototype.changeStation = function(newStation) {
 };
 
 station.prototype.directionInit = function() {
+
     var self = this;
     self.$el.find('[data-direction]').each(function() {
+        console.log('direction INIT ', self.code);
         var dir = new direction(self.code, this.dataset.direction, $(this), self.bus);
         self.directions[this.dataset.direction] = dir;
     });
@@ -22238,6 +22241,8 @@ window.NT = {
     pages: {}
 };
 
+
+// it a page is already setup run destroy.
 page(function(context, next) {
     var nextCalled = false;
     if(!context.init && NT.activePage) {
@@ -22476,16 +22481,14 @@ station.prototype.route = function(context) {
     // messsy
     NT.activePage = 'station';
     $('body').attr('data-page', 'station');
+    
+// something is wrong just about here.
     if(!context.init) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');
         self.bus.trigger('loader:show');
         var stationCode = urlCodes[context.params.stationName];
         self.bus.trigger('station', {code: stationCode});
-        
-
-
-
 
         self.getStationData(context.canonicalPath, function(data) {
             document.title = data.name;
@@ -22520,12 +22523,14 @@ station.prototype.route = function(context) {
 
 
 station.prototype.setup = function() {
+
     new stationComp($('.stationContainer'), this.bus);
     if(this.floater) {
         this.floater.$el = $('#floater');
     }
     else {
         this.floater = new floaterComp($('#floater'), this.bus);
+        
     }
 };
 

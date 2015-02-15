@@ -27,16 +27,14 @@ station.prototype.route = function(context) {
     // messsy
     NT.activePage = 'station';
     $('body').attr('data-page', 'station');
+    
+// something is wrong just about here.
     if(!context.init) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');
         self.bus.trigger('loader:show');
         var stationCode = urlCodes[context.params.stationName];
         self.bus.trigger('station', {code: stationCode});
-        
-
-
-
 
         self.getStationData(context.canonicalPath, function(data) {
             document.title = data.name;
@@ -71,12 +69,14 @@ station.prototype.route = function(context) {
 
 
 station.prototype.setup = function() {
+
     new stationComp($('.stationContainer'), this.bus);
     if(this.floater) {
         this.floater.$el = $('#floater');
     }
     else {
         this.floater = new floaterComp($('#floater'), this.bus);
+        
     }
 };
 

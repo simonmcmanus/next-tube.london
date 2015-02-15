@@ -37,8 +37,10 @@ station.prototype.changeStation = function(newStation) {
 };
 
 station.prototype.directionInit = function() {
+
     var self = this;
     self.$el.find('[data-direction]').each(function() {
+        console.log('direction INIT ', self.code);
         var dir = new direction(self.code, this.dataset.direction, $(this), self.bus);
         self.directions[this.dataset.direction] = dir;
     });

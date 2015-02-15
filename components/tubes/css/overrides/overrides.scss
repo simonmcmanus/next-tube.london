@@ -4,13 +4,14 @@
     opacity: 1;
     -webkit-transform-style: preserve-3d;
     position: relative;
-    transition-property: transform, opacity;
-    transition-duration: 1.2s        , 1s;
-    transition-delay:   0s;
-    transform:  translate3d(-1900px, 3000px ,-12000px);
+    // transition-property: transform, opacity;
+    // transition-duration: 1.2s        , 1s;
+    // transition-delay:   0s;
+    // transform:  translate3d(-1900px, 3000px ,-12000px);
     margin-left: 1em;
-
+    margin-top: 4em;
     @media (min-width: 500px) {
+        //margin-top: 4em;
         transform:  translate3d(-1700px, 1400px ,-7000px);
     }
     @media (min-width: 800px) {
@@ -22,30 +23,6 @@
     @media (min-width: 1000px) {
         transform:  translate3d(-1500px, 800px, -4000px);
     }
-    // @media (min-width: 1100px) {
-    //     transform: scale(.17);
-    // }
-    // @media (min-width: 1200px) {
-    //     transform: scale(.19);
-    // }
-    // @media (min-width: 1300px) {
-    //     transform: scale(.21);
-    // }
-    // @media (min-width: 1400px) {
-    //     transform: scale(.22);
-    // }
-    // @media (min-width: 1500px) {
-    //     transform: scale(.24);
-    // }
-    // @media (min-width: 1600px) {
-    //     transform: scale(.25);
-    // }
-    // @media (min-width: 1700px) {
-    //     transform: scale(.26);
-    // }
-    // @media (min-width: 1800px) {
-    //     transform: scale(.28);
-    // }
 
     #piccadilly,
     #metropolitan,
@@ -110,7 +87,6 @@
     padding-left: 0;
 
 
-
     &[data-station=""] {
 
     height: 2826px;
@@ -147,6 +123,8 @@
             position: absolute;
             text-decoration: none;
             transform: translateZ(1);
+            font-size: 14px;
+            
             //transition-duration: .8s,       .3s,      .8s,        .7s,       .8s,   .8s,    .8s,     .8s,  .8s, .5s;
             //transition-duration: 1s;
             //transition-delay: .5s;
@@ -155,8 +133,8 @@
             //transition-timing-function: ease-out;
             // force gpu
 
-            transition-property: all;
-            transition-duration: .8s;
+            // transition-property: all;
+            // transition-duration: .8s;
 
 
             color: #4A70CB;
@@ -206,6 +184,8 @@
         }
         &.active {
             a {
+                letter-spacing: 0em;
+                font-weight: normal;
 
             }
             transition-delay: 2s;
@@ -244,7 +224,7 @@
         }
         &.highlight {
             text-shadow: -1px 1px 20px red, 1px -1px 20px #fff;
-            font-size: 2em;
+            //font-size: 2em;
             border: 1px solid $border-color;
             background: linear-gradient(#fff 0px, #f4f4f4 10px, #fff 50px);
             z-index: 1000 !important;
@@ -259,13 +239,14 @@
             z-index: 1000 !important;
             a {
 
-                //@extend .z-depth-1;
+                @extend .shade;
+                @extend .z-depth-1;
               //background: linear-gradient(#fff 0px, #f2f2f2 5px, rgba(255, 255, 255, .95) 100px);
 
                
-                transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
+                // transition-property: background, border,  box-shadow, font-size, left,  margin, padding, top,  width;
 
-                transition-delay   : .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;
+                // transition-delay   : .4s,       .4s,      .4s,         .4s,       .4s,  .4s,    .5s,     .2s,  .2s;
 
  
                 border: 1px solid $border-color;

@@ -29,6 +29,8 @@ window.NT = {
     pages: {}
 };
 
+
+// it a page is already setup run destroy.
 page(function(context, next) {
     var nextCalled = false;
     if(!context.init && NT.activePage) {

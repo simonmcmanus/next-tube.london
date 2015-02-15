@@ -121,11 +121,16 @@ body[data-page="station"] {
       left: 0em;
       z-index: 20000 !important;
       margin-left: 1em;
-      top: 13em;
+      top: 12.4em;
+
+      @media (min-width: 500px) {
+        top: 9.4em;
+      }
       margin: 1em;
-      height: 2.7em;
+      height: 3.3em;
       @media (min-width: 800px) {
-        margin: auto 20% !important;
+        //margin: auto 20% !important;
+        margin-left: 20% !important;
       }
       position: absolute;
       z-index: 999 !important;
