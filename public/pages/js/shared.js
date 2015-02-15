@@ -265,18 +265,14 @@ floater.prototype.decreaseHeight = function(removeHeight) {
 
 
 },{}],3:[function(require,module,exports){
-require('../station-switcher/lib/selectize');
 
 var Search = module.exports = function($el, bus) {
-    //$el.find('select').bselect();
-
-//    $el.find('select').selectize({});
-
-    // $el.find('a').click(function() {
-    //     $el.toggleClass('open');
-    // });
+    $el.find('[type="submit"]').hide();
+    $el.find('select').change(function() {
+        bus.trigger('page:load', '/' + this.value);
+    });
 };
-},{"../station-switcher/lib/selectize":5}],4:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 module.exports=[
     {
         "id": "OXC",
@@ -22211,339 +22207,6 @@ home.prototype.destroy = function(callback) {
 },{"../../components/station-switcher/station-switcher.js":6,"./home.jade":70,"jquery":17}],72:[function(require,module,exports){
 (function(e,t){"use strict";function s(t){return e.isPlainObject(e(t).data(h))}function i(e,s){return f[s]!==t?f[s].apply(e,u.call(arguments,2)):e}function n(t){return i(t,"option","placeholder")||t.data("placeholder")||e.bselect.i18n.selectAnOption}function a(e){var t=e.find(".bselect-option-list"),s=t.find("li:visible").length;t.innerHeight(1.5*parseInt(t.css("line-height"),10)*(5>s?s:5))}function l(t,s,n){var a=i(t,"element");e.each(s,function(t,s){if(n[t]!==s&&"size"===t){var i=e.map(b.slice(0),function(e){return"bselect-"+e}).join(" ");a.removeClass(i),b.indexOf(n.size)>-1&&a.addClass("bselect-"+n.size)}})}function o(t){var s=i(t,"element");s.find(".bselect-message").text(e.bselect.i18n.noOptionsAvailable).show()}function r(t){if(38===t.keyCode||40===t.keyCode||13===t.keyCode){var s=e(this),i=s.is(".bselect-search-input");switch(t.keyCode){case 38:i?e(t.delegateTarget).find(".bselect-option:visible:last").focus():s.prevAll(".bselect-option:visible").eq(0).focus();break;case 40:i?e(t.delegateTarget).find(".bselect-option:visible:first").focus():s.nextAll(".bselect-option:visible").eq(0).focus();break;case 13:i||s.trigger("click")}return!1}}function c(s,a){var o,c,b,u,v,g=e(s);if(u=++d,b=e("<div class='bselect' />",{id:"bselect-"+u}),v=e("<div class='bselect-dropdown' />"),a.searchInput===!0){var m=e("<div class='bselect-search' />");e("<input type='text' class='bselect-search-input' />").attr({role:"combobox",tabindex:1,"aria-expanded":"false","aria-owns":"bselect-option-list-"+u}).appendTo(m),e("<span class='bselect-search-icon' />").append("<i class='icon-search'></i>").appendTo(m),m.appendTo(v)}e("<div class='bselect-message' role='status' />").appendTo(v),e("<ul class='bselect-option-list' />").attr({id:"bselect-option-list-"+u,role:"listbox"}).appendTo(v),b.append(v).insertAfter(g),g.data(h,{options:a,element:b,open:!1}),l(g,e.bselect.defaults,a),i(g,"refresh"),g.bind("bselectselect.bselect",a.select),g.bind("bselectselected.bselect",a.selected),g.bind("bselectsearch.bselect",a.search),c=e("<span />").addClass("bselect-label").text(n(g)),o=e("<button type='button' />").addClass("bselect-caret").html("<span class='caret'></span>"),b.prepend(o).prepend(c),c.outerWidth(g.outerWidth()-o.outerWidth()),g.addClass("bselect-inaccessible"),p.push(g),b.find(".bselect-search-input").keyup(e.proxy(f.search,g)),b.on("click",".bselect-option",e.proxy(f.select,g)),b.on("click",".bselect-caret, .bselect-label",e.proxy(f.toggle,g)),b.on("keydown",".bselect-option, .bselect-search-input",r),g.bind("change.bselect",function(){var e=g.data(h),s=e.itemsMap[this.value];return e.tempDisable?(e.tempDisable=!1,t):(i(g,"select",s),t)}).trigger("change.bselect")}var d=0,h="bselect",p=[],b=["mini","small","large"],u=Array.prototype.slice,f={option:function(s,i){var n=this.data(h).options||{},a=e.extend({},n);return"string"==typeof s&&"_"!==s[0]?i===t?n[s]:(n[s]=i,l(this,a,n),this):(e.isPlainObject(s)&&(e.extend(n,s),l(this,a,n),this.data(h).options=n),n)},element:function(){return this.data(h).element},toggle:function(t){if(this[0].disabled)return this;var s=i(this,"element");if(t instanceof e.Event){var n=i(this,"option","showOn");if(e(t.target).is(".bselect-label")&&"both"!==n)return this}return s.find(".bselect-dropdown").is(":hidden")?i(this,"show"):i(this,"hide"),this},show:function(){var t,s,n,l,o,r=this.data(h);if(this[0].disabled||r.open)return this;if(n=r.element,l=n.find(".bselect-dropdown"),l.css("left","-9999em").show(),a(n),s=n.find(".bselect-option.active"),s.length){var c=n.find(".bselect-option-list"),d=s.position().top,p=c.position().top;c.height()>d-p?c.scrollTop(0):c.scrollTop(d-p)}return l.hide().css("left","auto"),l.slideDown(i(this,"option","animationDuration")),this.data(h,e.extend(r,{open:!0})),n.addClass("open"),t=n.find(".bselect-search-input").focus(),o=t.parent().width()-t.next().outerWidth(),t.innerWidth(o),n.find(".bselect-search-input").attr("aria-expanded","true"),this},hide:function(s){var n=this.data(h);if(this[0].disabled||!n.open)return this;var a=n.options,l=n.element;return s=s===t?!0:s,this.data(h,e.extend(n,{open:!1})),l.find(".bselect-dropdown").slideUp(a.animationDuration),l.removeClass("open"),s&&a.clearSearchOnExit&&i(this,"clearSearch"),l.find(".bselect-search-input").attr("aria-expanded","false"),this},select:function(t){var s,n,a=i(this,"element");if(t instanceof e.Event)s=e(t.currentTarget);else if(s=a.find("li").eq(t),!s.length)return this;var l=a.find("li").removeClass("active").attr("aria-selected","false").index(s),o=this.find("option[value!='']").get(l);return this.trigger("bselectselect",[o]),n=s.addClass("active").data("value"),s.attr("aria-selected","true"),a.find(".bselect-label").text(s.text()),i(this,"hide"),this.data(h).tempDisable=!0,this.val(n).trigger("change"),this.trigger("bselectselected",[n,o]),this},search:function(t){var s,n,l,r,c,d=i(this,"option"),h=t instanceof e.Event?t.target.value:t,p=i(this,"element");if(this[0].disabled)return this;if(""===h&&i(this,"clearSearch"),t instanceof e.Event||p.find(".bselect-search").val(h),!(h===d.lastSearch||h.length<d.minSearchInput)){for(c=e(),s=p.find("li").hide(),l=0,r=s.length;r>l;l++)n=s[l],n.textContent.toLowerCase().indexOf(h.toLowerCase())>-1&&(c=c.add(e(n).show()));return 0===c.length?o(this):p.find(".bselect-message").hide(),this.trigger("bselectsearch",[h,c]),a(s.end()),this}},clearSearch:function(){var e=i(this,"element");return e.find(".bselect-search-input").val(""),e.find("li").show(),e.find(".bselect-message").hide(),a(e),this},disable:function(){return this[0].disabled||(i(this,"element").addClass("disabled"),this.prop("disabled",!0)),this},enable:function(){return this[0].disabled&&(i(this,"element").removeClass("disabled"),this.prop("disabled",!1)),this},refresh:function(){var t=i(this,"element"),s=t.find(".bselect-option-list").empty(),n={},a=0;return t.toggleClass("disabled",this.prop("disabled")),this.find("option, > optgroup").each(function(){var t,i,l=e(this).is("option");(!l||this.value)&&(l?(t="bselect-option",e(this).closest("optgroup").length&&(t+=" grouped")):t="bselect-option-group",i=e("<li />").attr({"class":t,role:"option",tabindex:l?2:-1,"aria-selected":"false"}),l?(i.data("value",this.value),n[this.value]=a,i.html("<a href='#'>"+this.text+"</a>")):i.text(this.label),i.appendTo(s),a++)}),0===a&&o(this),this.data(h).itemsMap=n,this},destroy:function(){var e=i(this,"element");return this.data(h,null),p.splice(p.indexOf(this),1),e.remove(),this.removeClass("bselect-inaccessible").unbind(".bselect"),this}};e.fn.bselect=function(i){return"string"==typeof i&&this[0]?s(this[0])&&f[i]!==t?f[i].apply(e(this[0]),u.call(arguments,1)):this:this.each(function(){s(this)||(i=e.isPlainObject(i)?i:{},i=e.extend({},e.bselect.defaults,i),c(this,i))})},e.bselect={defaults:{size:"normal",showOn:"both",clearSearchOnExit:!0,minSearchInput:0,animationDuration:300,searchInput:!0,search:null,select:null,selected:null},i18n:{selectAnOption:"Select an option",noOptionsAvailable:"No options available."}},e(document).on("click.bselect","label",function(t){var s,n,a;for(s=0,n=p.length;n>s;s++)if(a=p[s][0].id,a&&e(t.target).attr("for")===a)return i(p[s],"show"),!1}).on("click.bselect",function(e){var t,s,n;for(t=0,s=p.length;s>t;t++)n=p[t].data(h),n.open&&!n.element.has(e.target).length&&i(p[t],"hide")}),e(window).resize(function(){var e,t,s,i;for(e=0,t=p.length;t>e;e++)s=p[e].data(h),i=s.element.find(".bselect-caret"),s.element.find(".bselect-label").outerWidth(p[e].outerWidth()-i.outerWidth())})})(jQuery);
 },{}],73:[function(require,module,exports){
-/*!
- * Waves v0.6.0
- * http://fian.my.id/Waves
- *
- * Copyright 2014 Alfiana E. Sibuea and other contributors
- * Released under the MIT license
- * https://github.com/fians/Waves/blob/master/LICENSE
- */
-
-;(function(window) {
-    'use strict';
-
-    var Waves = Waves || {};
-    var $$ = document.querySelectorAll.bind(document);
-    // Find exact position of element
-    function isWindow(obj) {
-        return obj !== null && obj === obj.window;
-    }
-
-    function getWindow(elem) {
-        return isWindow(elem) ? elem : elem.nodeType === 9 && elem.defaultView;
-    }
-
-    function offset(elem) {
-        var docElem, win,
-            box = {top: 0, left: 0},
-            doc = elem && elem.ownerDocument;
-
-        docElem = doc.documentElement;
-
-        if (typeof elem.getBoundingClientRect !== typeof undefined) {
-            box = elem.getBoundingClientRect();
-        }
-        win = getWindow(doc);
-        return {
-            top: box.top + win.pageYOffset - docElem.clientTop,
-            left: box.left + win.pageXOffset - docElem.clientLeft
-        };
-    }
-
-    function convertStyle(obj) {
-        var style = '';
-
-        for (var a in obj) {
-            if (obj.hasOwnProperty(a)) {
-                style += (a + ':' + obj[a] + ';');
-            }
-        }
-
-        return style;
-    }
-
-    var Effect = {
-
-        // Effect delay
-        duration: 750,
-
-        show: function(e, element) {
-
-            // Disable right click
-            if (e.button === 2) {
-                return false;
-            }
-
-            var el = element || this;
-
-            // Create ripple
-            var ripple = document.createElement('div');
-            ripple.className = 'waves-ripple';
-            el.appendChild(ripple);
-
-            // Get click coordinate and element witdh
-            var pos         = offset(el);
-            var relativeY   = (e.pageY - pos.top);
-            var relativeX   = (e.pageX - pos.left);
-            var scale       = 'scale('+((el.clientWidth / 100) * 10)+')';
-
-            // Support for touch devices
-            if ('touches' in e) {
-              relativeY   = (e.touches[0].pageY - pos.top);
-              relativeX   = (e.touches[0].pageX - pos.left);
-            }
-
-            // Attach data to element
-            ripple.setAttribute('data-hold', Date.now());
-            ripple.setAttribute('data-scale', scale);
-            ripple.setAttribute('data-x', relativeX);
-            ripple.setAttribute('data-y', relativeY);
-
-            // Set ripple position
-            var rippleStyle = {
-                'top': relativeY+'px',
-                'left': relativeX+'px'
-            };
-
-            ripple.className = ripple.className + ' waves-notransition';
-            ripple.setAttribute('style', convertStyle(rippleStyle));
-            ripple.className = ripple.className.replace('waves-notransition', '');
-
-            // Scale the ripple
-            rippleStyle['-webkit-transform'] = scale;
-            rippleStyle['-moz-transform'] = scale;
-            rippleStyle['-ms-transform'] = scale;
-            rippleStyle['-o-transform'] = scale;
-            rippleStyle.transform = scale;
-            rippleStyle.opacity   = '1';
-
-            rippleStyle['-webkit-transition-duration'] = Effect.duration + 'ms';
-            rippleStyle['-moz-transition-duration']    = Effect.duration + 'ms';
-            rippleStyle['-o-transition-duration']      = Effect.duration + 'ms';
-            rippleStyle['transition-duration']         = Effect.duration + 'ms';
-
-            rippleStyle['-webkit-transition-timing-function'] = 'cubic-bezier(0.250, 0.460, 0.450, 0.940)';
-            rippleStyle['-moz-transition-timing-function']    = 'cubic-bezier(0.250, 0.460, 0.450, 0.940)';
-            rippleStyle['-o-transition-timing-function']      = 'cubic-bezier(0.250, 0.460, 0.450, 0.940)';
-            rippleStyle['transition-timing-function']         = 'cubic-bezier(0.250, 0.460, 0.450, 0.940)';
-
-            ripple.setAttribute('style', convertStyle(rippleStyle));
-        },
-
-        hide: function(e) {
-            TouchHandler.touchup(e);
-
-            var el = this;
-            var width = el.clientWidth * 1.4;
-
-            // Get first ripple
-            var ripple = null;
-            var ripples = el.getElementsByClassName('waves-ripple');
-            if (ripples.length > 0) {
-                ripple = ripples[ripples.length - 1];
-            } else {
-                return false;
-            }
-
-            var relativeX   = ripple.getAttribute('data-x');
-            var relativeY   = ripple.getAttribute('data-y');
-            var scale       = ripple.getAttribute('data-scale');
-
-            // Get delay beetween mousedown and mouse leave
-            var diff = Date.now() - Number(ripple.getAttribute('data-hold'));
-            var delay = 350 - diff;
-
-            if (delay < 0) {
-                delay = 0;
-            }
-
-            // Fade out ripple after delay
-            setTimeout(function() {
-                var style = {
-                    'top': relativeY+'px',
-                    'left': relativeX+'px',
-                    'opacity': '0',
-
-                    // Duration
-                    '-webkit-transition-duration': Effect.duration + 'ms',
-                    '-moz-transition-duration': Effect.duration + 'ms',
-                    '-o-transition-duration': Effect.duration + 'ms',
-                    'transition-duration': Effect.duration + 'ms',
-                    '-webkit-transform': scale,
-                    '-moz-transform': scale,
-                    '-ms-transform': scale,
-                    '-o-transform': scale,
-                    'transform': scale,
-                };
-
-                ripple.setAttribute('style', convertStyle(style));
-
-                setTimeout(function() {
-                    try {
-                        el.removeChild(ripple);
-                    } catch(e) {
-                        return false;
-                    }
-                }, Effect.duration);
-            }, delay);
-        },
-
-        // Little hack to make <input> can perform waves effect
-        wrapInput: function(elements) {
-            for (var a = 0; a < elements.length; a++) {
-                var el = elements[a];
-
-                if (el.tagName.toLowerCase() === 'input') {
-                    var parent = el.parentNode;
-
-                    // If input already have parent just pass through
-                    if (parent.tagName.toLowerCase() === 'i' && parent.className.indexOf('waves-effect') !== -1) {
-                        continue;
-                    }
-
-                    // Put element class and style to the specified parent
-                    var wrapper = document.createElement('i');
-                    wrapper.className = el.className + ' waves-input-wrapper';
-
-                    var elementStyle = el.getAttribute('style');
-
-                    if (!elementStyle) {
-                        elementStyle = '';
-                    }
-
-                    wrapper.setAttribute('style', elementStyle);
-
-                    el.className = 'waves-button-input';
-                    el.removeAttribute('style');
-
-                    // Put element as child
-                    parent.replaceChild(wrapper, el);
-                    wrapper.appendChild(el);
-                }
-            }
-        }
-    };
-
-
-    /**
-     * Disable mousedown event for 500ms during and after touch
-     */
-    var TouchHandler = {
-        /* uses an integer rather than bool so there's no issues with
-         * needing to clear timeouts if another touch event occurred
-         * within the 500ms. Cannot mouseup between touchstart and
-         * touchend, nor in the 500ms after touchend. */
-        touches: 0,
-        allowEvent: function(e) {
-            var allow = true;
-
-            if (e.type === 'touchstart') {
-                TouchHandler.touches += 1; //push
-            } else if (e.type === 'touchend' || e.type === 'touchcancel') {
-                setTimeout(function() {
-                    if (TouchHandler.touches > 0) {
-                        TouchHandler.touches -= 1; //pop after 500ms
-                    }
-                }, 500);
-            } else if (e.type === 'mousedown' && TouchHandler.touches > 0) {
-                allow = false;
-            }
-
-            return allow;
-        },
-        touchup: function(e) {
-            TouchHandler.allowEvent(e);
-        }
-    };
-
-
-    /**
-     * Delegated click handler for .waves-effect element.
-     * returns null when .waves-effect element not in "click tree"
-     */
-    function getWavesEffectElement(e) {
-        if (TouchHandler.allowEvent(e) === false) {
-            return null;
-        }
-
-        var element = null;
-        var target = e.target || e.srcElement;
-
-        while (target.parentElement !== null) {
-            if (target.className.indexOf('waves-effect') !== -1) {
-                element = target;
-                break;
-            }
-            target = target.parentElement;
-        }
-
-        return element;
-    }
-
-    /**
-     * Bubble the click and show effect if .waves-effect elem was found
-     */
-    function showEffect(e) {
-        var element = getWavesEffectElement(e);
-
-        if (element !== null) {
-            Effect.show(e, element);
-
-            if ('ontouchstart' in window) {
-                element.addEventListener('touchend', Effect.hide, false);
-                element.addEventListener('touchcancel', Effect.hide, false);
-            }
-
-            element.addEventListener('mouseup', Effect.hide, false);
-            element.addEventListener('mouseleave', Effect.hide, false);
-        }
-    }
-
-    Waves.displayEffect = function(options) {
-        options = options || {};
-
-        if ('duration' in options) {
-            Effect.duration = options.duration;
-        }
-
-        //Wrap input inside <i> tag
-        Effect.wrapInput($$('.waves-effect'));
-
-        if ('ontouchstart' in window) {
-            document.body.addEventListener('touchstart', showEffect, false);
-        }
-
-        document.body.addEventListener('mousedown', showEffect, false);
-    };
-
-    /**
-     * Attach Waves to an input element (or any element which doesn't
-     * bubble mouseup/mousedown events).
-     *   Intended to be used with dynamically loaded forms/inputs, or
-     * where the user doesn't want a delegated click handler.
-     */
-    Waves.attach = function(element) {
-        //FUTURE: automatically add waves classes and allow users
-        // to specify them with an options param? Eg. light/classic/button
-        if (element.tagName.toLowerCase() === 'input') {
-            Effect.wrapInput([element]);
-            element = element.parentElement;
-        }
-
-        if ('ontouchstart' in window) {
-            element.addEventListener('touchstart', showEffect, false);
-        }
-
-        element.addEventListener('mousedown', showEffect, false);
-    };
-
-    window.Waves = Waves;
-        Waves.displayEffect();
-
-
-})(window);
-},{}],74:[function(require,module,exports){
 'use strict';
 
 var $  = window.jQuery = require('jquery');
@@ -22566,8 +22229,6 @@ var StationPage = require('../station/station');
 var AboutPage = require('../about/about');
 
 
-var a= require('./materialize/js/waves.js');
-console.log(a)
 
 
 window.NT = {
@@ -22620,7 +22281,7 @@ if(window.location.hostname === 'woodford.today') {
 
 var socket = io(url);
 
-},{"../../components/search/search.js":3,"../../components/tubes/tubes.js":12,"../../node_modules/backbone-events-standalone":14,"../../public/libs/page.js":78,"../about/about":69,"../home/home":71,"../station/station":77,"./bselect":72,"./materialize/js/waves.js":73,"fastclick":15,"jquery":17,"socket.io-client":20}],75:[function(require,module,exports){
+},{"../../components/search/search.js":3,"../../components/tubes/tubes.js":12,"../../node_modules/backbone-events-standalone":14,"../../public/libs/page.js":77,"../about/about":69,"../home/home":71,"../station/station":76,"./bselect":72,"fastclick":15,"jquery":17,"socket.io-client":20}],74:[function(require,module,exports){
 module.exports={
   "bank": "BNK",
   "barkingside": "BDE",
@@ -22672,7 +22333,7 @@ module.exports={
   "white-city": "WCT",
   "woodford": "WFD"
 }
-},{}],76:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -22785,7 +22446,7 @@ buf.push("<h3 class=\"noTrains\">No Trains</h3>");
 }
 buf.push("</div><div class=\"error\"></div></div></div></div>");}.call(this,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined));;return buf.join("");
 };
-},{"jade/runtime":16}],77:[function(require,module,exports){
+},{"jade/runtime":16}],76:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -22920,7 +22581,7 @@ station.prototype.stationChanges = function(changes) {
         }
     });
 };
-},{"../../components/floater/floater.js":2,"../../components/station/station.js":8,"./station-url-codes.json":75,"./station.jade":76,"jquery":17}],78:[function(require,module,exports){
+},{"../../components/floater/floater.js":2,"../../components/station/station.js":8,"./station-url-codes.json":74,"./station.jade":75,"jquery":17}],77:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.page=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
@@ -23484,4 +23145,4 @@ function pathtoRegexp (path, keys, options) {
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[74]);
+},{}]},{},[73]);

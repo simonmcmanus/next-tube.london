@@ -1,0 +1,42 @@
+header {
+
+  z-index: 1;
+  border-bottom: 1px solid #f5f3f3;
+  position: relative;
+  margin: 0 0 1em 0;
+  padding: 1em;
+  height: 9em;
+  @media (min-width: 550px) {
+    height: 6em;
+  }
+  background-color: rgba(255, 255, 255, .95);
+  //border-radius: 5px
+
+
+  h1 a {
+
+    color: #2d2a81;
+    top: .6em;
+    padding: 0 0;
+    line-height: 1em;
+    position: relative;
+  }
+
+
+  form.search {
+
+    margin-left: 1em;
+      top: 3em;
+      position: relative;
+    @media (min-width: 550px) {
+    top: 2.2em;
+      right: 0;
+      display: inline-block;
+      margin-right: 1em;
+      position: absolute;
+    }
+    @media (min-width: 800px) {
+      margin-right: 20%;
+    }
+  }
+}

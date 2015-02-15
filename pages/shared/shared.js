@@ -20,8 +20,6 @@ var StationPage = require('../station/station');
 var AboutPage = require('../about/about');
 
 
-var a= require('./materialize/js/waves.js');
-console.log(a)
 
 
 window.NT = {
