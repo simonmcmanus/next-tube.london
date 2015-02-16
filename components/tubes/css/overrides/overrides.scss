@@ -9,7 +9,7 @@
     transition-delay:   0s;
     transform:  translate3d(-1900px, 3000px ,-12000px);
     margin-left: 1em;
-    margin-top: 4em;
+    margin-top: 3em;
     @media (min-width: 500px) {
         //margin-top: 4em;
         transform:  translate3d(-1700px, 1400px ,-7000px);
@@ -272,10 +272,7 @@
             }
         }
     }
-    .roundel {
-        height: 34px;
-        width: 34px;
-    }
+
     // .roundel strong,
     // .station strong  {
     //     transition: opacity .3s ease-out;

@@ -118,6 +118,10 @@ h1 {
   display: inline;
 }
 
+.z-depth-1 {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0),0 2px 10px 0 rgba(205, 201, 201, 0.39);
+}
+
 .notice {
   background: #C8D4F2;
   padding: 1em;
@@ -138,4 +142,4 @@ h1 {
 @import "../../components/search/search.scss";
 
 
-@import "./materialize/sass/materialize.scss";
+//@import "./materialize/sass/materialize.scss";
