@@ -7,7 +7,6 @@ var stationsObj = allStations.reduce(function(obj, item) {
     return obj;
 }, {});
 
-console.log('all stat', stationsObj);
 
 module.exports = function($el, bus) {
     $el.find('[type="submit"]').hide();
