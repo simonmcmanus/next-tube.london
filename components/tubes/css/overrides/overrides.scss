@@ -119,7 +119,7 @@
 
 
         a {
-            z-index: 1;
+            z-index: 1000 !important;
             position: absolute;
             text-decoration: none;
             transform: translateZ(1);
@@ -229,7 +229,6 @@
             font-size: 4em;
         }
         &.active {
-            z-index: 1000 !important;
             a {
 
                 @extend .shade;
@@ -243,7 +242,6 @@
 
  
                 border: 1px solid $border-color;
-                z-index: 1000 !important;
 
                 &.left {
                     //transform-origin: 3em;
@@ -284,6 +282,9 @@
     // .station:hover strong {
     //     opacity: 1;
     // }
+}
+.bend45deg {
+    z-index: -100 !important;
 }
 .bend45deg:after,
 .bend90deg:after{

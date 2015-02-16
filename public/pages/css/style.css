@@ -160,7 +160,7 @@ a.right,strong.right{text-align:left;left:15px}
 .rot315 a.right,.rot315 strong.right{top:-7px;left:21px;-webkit-transform-origin:0 0;-moz-transform-origin:0 0}
 .rot315.connection a.left,.rot315.connection strong.left{right:46px}
 .rot315.connection a.right,.rot315.connection strong.right{left:46px}
-.bend45deg{height:23px;width:31px;border-radius:0 23px 0 0;z-index:9!important}
+.bend45deg{height:23px;width:31px;border-radius:0 23px 0 0}
 .bend45deg:after{height:60px;width:60px;content:'';position:absolute;top:10px;left:-29px;border-radius:95px;z-index:11}
 .bend45deg.flipped{border-radius:0 0 23px}
 .bend45deg.flipped:after{bottom:10px;top:auto}
@@ -1519,7 +1519,7 @@ header li:hover a{opacity:1}
 #map-container.loaded{transition-property:-webkit-transform;transition-property:transform;transition-duration:1.2s;transition-timing-function:ease-out}
 #map-container ul#central li a:hover,#map-container ul#central li.active a{opacity:1!important}
 #map-container .links{display:none}
-#map-container li a{position:absolute;text-decoration:none;-webkit-transform:translateZ(1);transform:translateZ(1);font-size:14px;transition-delay:.5s;transition-property:all;transition-duration:.8s;transition-timing-function:ease-out;color:#4A70CB;cursor:hand;font-weight:700;border:1px solid transparent;line-height:1em;white-space:nowrap;border-radius:4px;padding:15px 25px;width:auto;z-index:1}
+#map-container li a{z-index:1000!important;position:absolute;text-decoration:none;-webkit-transform:translateZ(1);transform:translateZ(1);font-size:14px;transition-delay:.5s;transition-property:all;transition-duration:.8s;transition-timing-function:ease-out;color:#4A70CB;cursor:hand;font-weight:700;border:1px solid transparent;line-height:1em;white-space:nowrap;border-radius:4px;padding:15px 25px;width:auto}
 #map-container li a.left{top:-22px;right:-5px}
 #map-container li a.right{top:-14px}
 #map-container li a.above{left:-6px;top:-58px}
@@ -1539,8 +1539,7 @@ header li:hover a{opacity:1}
 #map-container li.highlight{text-shadow:-1px 1px 20px red,1px -1px 20px #fff;border:1px solid #B8B8B8;background:linear-gradient(#fff 0,#f4f4f4 10px,#fff 50px);z-index:1000!important}
 #map-container li.highlight a{opacity:1!important}
 #map-container li.selected{font-size:4em}
-#map-container li.active{z-index:1000!important}
-#map-container li.active a{transition-property:background,border,box-shadow,font-size,left,margin,padding,top,width;transition-delay:.4s,.4s,.4s,.4s,.4s,.4s,.5s,.2s,.2s;border:1px solid #B8B8B8;z-index:1000!important}
+#map-container li.active a{transition-property:background,border,box-shadow,font-size,left,margin,padding,top,width;transition-delay:.4s,.4s,.4s,.4s,.4s,.4s,.5s,.2s,.2s;border:1px solid #B8B8B8}
 #map-container li.active a.right{margin-left:6px;top:-12px}
 #map-container li.active a.above{top:-60px}
 #map-container li.active a.below{margin-top:18px}
@@ -1565,6 +1564,7 @@ header li:hover a{opacity:1}
 #map-container li.active a.below::after{border-color:#fff transparent}
 #map-container li.active a.below.point::before{top:-8px}
 #map-container li.active a.below.point::after{top:-7px}
+.bend45deg{z-index:-100!important}
 .bend45deg:after,.bend90deg:after{background-color:#F9F8F8}
 .roundel a,.roundel strong,.station a,.station strong{font-size:1em}
 #tflStatus small{margin-left:40px;padding:2em}
