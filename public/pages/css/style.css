@@ -1603,10 +1603,10 @@ header{z-index:1;border-bottom:1px solid #B8B8B8;position:relative;margin:0 0 1e
 @media (min-width:500px){header{height:3em}}
 header h1 a{color:#2d2a81;top:.6em;padding:0;line-height:1em;position:relative}
 header form.search{top:3em;position:relative;text-align:center}
-@media (min-width:500px){header form.search{text-align:left;margin-left:1em;top:1.4em;right:0;display:inline-block;margin-right:1em;position:absolute}}
+@media (min-width:500px){header form.search{text-align:left;margin-left:1em;top:1.5em;right:0;display:inline-block;margin-right:1em;position:absolute}}
 @media (min-width:800px){header form.search{margin-right:20%}}
 form.search{margin-right:20%;border-radius:2px;transition:all 1s}
 form.search input[type=submit]{margin-right:5px;background:#fff;border-radius:2px}
-form.search input[type=submit],form.search select{height:32px;font-family:london_tubenormal!important;font-weight:bolder;font-size:.8em;color:#616776;border:1px solid #B8B8B8}
+form.search input[type=submit],form.search select{height:30px;font-family:london_tubenormal!important;font-weight:400;font-size:.7em;color:#616776;border:1px solid #B8B8B8}
 form.search select{width:180px}
 form.search.open input{box-shadow:inset 1px 1px 5px #E8E0E0;border-radius:2px;opacity:1}
