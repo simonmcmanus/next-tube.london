@@ -100,9 +100,6 @@ html body {
       div.settings {
         //margin-top: 1em;
       }
-      h1 {
-      }
-      //margin: 0 20%;
   }
 }
 body {
@@ -115,7 +112,7 @@ body {
 }
 
 h1 {
-  display: inline;
+        margin-top: 0 !important;
 }
 
 .z-depth-1 {

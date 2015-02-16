@@ -25,17 +25,17 @@ header {
 
   form.search {
 
-      top: 3em;
-      position: relative;
-      text-align: center;
+    top: 3em;
+    position: relative;
+    text-align: center;
     @media (min-width: 500px) {
-      text-align: left;
-    margin-left: 1em;
-    top: 2.2em;
-      right: 0;
-      display: inline-block;
-      margin-right: 1em;
-      position: absolute;
+        text-align: left;
+        margin-left: 1em;
+        top: 1.4em;
+        right: 0;
+        display: inline-block;
+        margin-right: 1em;
+        position: absolute;
     }
     @media (min-width: 800px) {
       margin-right: 20%;
