@@ -21,7 +21,6 @@ var direction = module.exports = function(stationCode, direction, $el, bus) {
     this.$el = $el;
     this.bus = bus;
     this.initChildren();
-    console.log('on ', stationCode + '.platforms.' + direction + '.trains');
     bus.on(stationCode + '.platforms.' + direction + '.trains', this.listChange.bind(this));
 };
 
@@ -4068,7 +4067,6 @@ var tubes = module.exports = function($el, bus) {
 };
 
 tubes.prototype.transitionFinished = function(e) {
-    console.log('trans find')
     var pName =  e.propertyName || e.originalEvent.propertyName;
     if(pName === 'transform') {
         this.bus.trigger('zoom:finished');
@@ -22476,7 +22474,6 @@ var urlCodes = require('./station-url-codes.json');
 var template = require('./station.jade');
 
 var station = module.exports = function(NT, socket) {
-    console.log('station setup')
     var self = this;
     self.bus = NT.bus;
     self.socket = socket;
@@ -22486,16 +22483,12 @@ var station = module.exports = function(NT, socket) {
     return this;
 };
 
-
 station.prototype.route = function(context) {
-
-    console.log('station route');
     var self = this;
     // messsy
     NT.activePage = 'station';
     $('body').attr('data-page', 'station');
-    
-// something is wrong just about here.
+
     if(!context.init) {
         $('#content').addClass('hide');
         $('.page').attr('id', 'station');
@@ -22509,7 +22502,8 @@ station.prototype.route = function(context) {
             var markup = template({
                 station: data
             });
-            $('#content').html(markup[0].outerHTML);
+            console.log('got station data: markup[0].outerHTML', markup);
+            $('#content').html(markup);
             self.bus.on('zoom:finished', function() {
                 self.bus.trigger('data:inplace');
             });

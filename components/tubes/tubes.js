@@ -13,7 +13,6 @@ var tubes = module.exports = function($el, bus) {
 };
 
 tubes.prototype.transitionFinished = function(e) {
-    console.log('trans find')
     var pName =  e.propertyName || e.originalEvent.propertyName;
     if(pName === 'transform') {
         this.bus.trigger('zoom:finished');
