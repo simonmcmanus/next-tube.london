@@ -22271,7 +22271,7 @@ var bus = window.bus = require("../../node_modules/backbone-events-standalone").
 
 
 var TriggerBack = require('../../../triggerback/index');
-var bus = new TriggerBack();
+var bus = new TriggerBack(true);
 
 var page = require('../../public/libs/page.js');
 
@@ -22538,6 +22538,7 @@ station.prototype.route = function(context) {
     var stationCode = urlCodes[context.params.stationName];
 
     if(!context.init) {
+        // we need to run this if the station if the station has been initialised previously.
 
 
         this.bus.trigger('moving', {}, function() {

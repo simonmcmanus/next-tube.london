@@ -1,8 +1,4 @@
 form.search(method="get", action="/search")
-
-
-
-
     select(name="station")
         each station in stationCodes
             option(value=station.slug, data-code=str)=station.name

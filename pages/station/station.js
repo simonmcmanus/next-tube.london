@@ -26,6 +26,7 @@ station.prototype.route = function(context) {
     var stationCode = urlCodes[context.params.stationName];
 
     if(!context.init) {
+        // we need to run this if the station if the station has been initialised previously.
 
 
         this.bus.trigger('moving', {}, function() {

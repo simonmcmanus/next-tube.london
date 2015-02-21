@@ -11,7 +11,7 @@ var bus = window.bus = require("../../node_modules/backbone-events-standalone").
 
 
 var TriggerBack = require('../../../triggerback/index');
-var bus = new TriggerBack();
+var bus = new TriggerBack(true);
 
 var page = require('../../public/libs/page.js');
 
