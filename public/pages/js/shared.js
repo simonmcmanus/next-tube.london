@@ -247,13 +247,11 @@ var floater = module.exports = function($el, bus) {
     bus.on('zoom:finished', this.zoomEnd.bind(this));
     bus.on('moving', this.hide.bind(this));
     bus.on('zoomto:station', this.loading.bind(this));
-
-    
 };
 
 floater.prototype.loading = function(params, next) {
     this.$el.addClass('loading');
-    
+    next();
 };
 
 
