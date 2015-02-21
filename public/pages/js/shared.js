@@ -247,10 +247,18 @@ var floater = module.exports = function($el, bus) {
     bus.on('zoom:finished', this.zoomEnd.bind(this));
     bus.on('moving', this.hide.bind(this));
     bus.on('zoomto:station', this.loading.bind(this));
+    bus.on('loading', this.loading.bind(this));
+    bus.on('loaded', this.loaded.bind(this));
 };
 
 floater.prototype.loading = function(params, next) {
     this.$el.addClass('loading');
+    next();
+};
+
+
+floater.prototype.loaded = function(params, next) {
+    this.$el.removeClass('loading');
     next();
 };
 
@@ -261,8 +269,9 @@ floater.prototype.hide = function(params, next) {
     this.$el.one('transitionend', next);
 };
 
-floater.prototype.zoomEnd = function() {
+floater.prototype.zoomEnd = function(params, next) {
     this.setState('active');
+    next();
 };
 
 
@@ -274,12 +283,10 @@ floater.prototype.getState = function() {
 };
 
 floater.prototype.setState = function(newState, callback) {
-    console.log('set sate', newState);
     this.$el.attr('data-state', newState);
 };
 
 floater.prototype.station = function() {
-    console.log('set state small');
     this.setState('small');
 };
 
@@ -307,7 +314,6 @@ floater.prototype.resize = function() {
 }
 
 floater.prototype.increaseHeight = function(addHeight) {
-    console.log('th', targetHeight);
     if(!targetHeight) {
         targetHeight = $el.find('.container').height() + addHeight;
     }else {
@@ -22541,17 +22547,20 @@ station.prototype.route = function(context) {
     if(!context.init) {
         // we need to run this if the station if the station has been initialised previously.
 
+      
+        self.bus.trigger('zoomto:station', { code: stationCode } , function() {
+            self.bus.trigger('zoom:finished');
+        });
 
         this.bus.trigger('moving', {}, function() {
+            self.bus.trigger('loading');
             // add loading class here.
-                self.getStationData(context.canonicalPath, function(data) {
-                    document.title = data.name;
-                    self.setup(stationCode);
-                    //self.station.render(data);
-                });
-           self.bus.trigger('zoomto:station', { code: stationCode } , function() {
-               self.bus.trigger('zoom:finished');
-           });
+            self.getStationData(context.canonicalPath, function(data) {
+                document.title = data.name;
+                self.setup(stationCode);
+                self.station.render(data);
+                self.bus.trigger('loaded');
+            });
         });
 
 

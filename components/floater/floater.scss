@@ -21,11 +21,15 @@
   @media (min-width: 500px) {
     margin-top: 9em;
   }
+  .container {
+    -webkit-filter: blur(0px);
+    transition: -webkit-filter .4s linear;
+    
+  }
 
   &[data-state="active"] {
     .container {
-      -webkit-filter: blur(0px);
-      transition: -webkit-filter .4s linear;
+  //    -webkit-filter: blur(0px);
     }
   }
 
@@ -33,7 +37,6 @@
     z-index: 2000 !important;
 
     .container {
-      background:rgba(255,255,255,0);
       -webkit-filter: blur(3px);
     }
     transform: translate3d(0, 5px, -48px);
@@ -47,7 +50,7 @@
     }
   }
 
-  .loading {
+  &.loading {
     background-image: url(/ajax-loader.gif);
     background-repeat:  no-repeat;
     background-position: center;

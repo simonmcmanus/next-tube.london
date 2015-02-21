@@ -36,7 +36,7 @@ body[data-page=station] #key{border:3px double #333;width:505px;height:275px}
 body[data-page=station] .direction{vertical-align:top;padding:1em}
 body[data-page=station] .direction ul.trains{list-style:none;padding:.5em 0}
 body[data-page=station] .direction ul.trains li{padding:.3em 0}
-body[data-page=station] .direction ul.trains .detail{background:#fff;font-size:.7em;margin-left:80px;position:relative;top:-3px;width:auto;display:block;display:inline-block;color:#A0A9CD}
+body[data-page=station] .direction ul.trains .detail{font-size:.7em;margin-left:80px;position:relative;top:-3px;width:auto;display:block;display:inline-block;color:#A0A9CD}
 body[data-page=station] .direction ul.trains span.destination{font-size:1em;top:-7px;width:100%;color:#4A70CB;position:relative}
 body[data-page=station] .direction ul.trains .due-container{display:inline-block;width:80px;text-align:right}
 body[data-page=station] .direction ul.trains .due-container .due{text-align:right;font-size:1.4em;margin-right:10px;font-family:Erbos;display:inline-block;line-height:22px;border-right:1px solid #FCFCFC!important;color:#FFF;background:#7A9971}
@@ -49,12 +49,12 @@ body[data-page=station] #placement.below{top:4em}
 body[data-page=station] body #placement{top:12em;margin:1em 20% 0!important}}
 #floater{overflow:hidden;min-height:60px;margin:14em 1em 1em;border-radius:4px;opacity:1;border:1px solid #B8B8B8;vertical-align:top;color:#838383;width:auto;z-index:2000;position:absolute;transition-property:height,width,border,background-color,opacity,-webkit-filter,background-image,-webkit-transform;transition-property:height,width,border,background-color,opacity,-webkit-filter,background-image,transform;transition-duration:.5s,1s,1s,.4s,.3s,.3s,.1s,.5s;transition-delay:.5s,0,0,0,.1s,0,.5s,0;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d}
 @media (min-width:500px){#floater{margin-top:9em}}
-#floater[data-state=active] .container{-webkit-filter:blur(0);transition:-webkit-filter .4s linear}
+#floater .container{-webkit-filter:blur(0)}
 #floater[data-state=small]{z-index:2000!important;-webkit-transform:translate3d(0,5px,-48px);transform:translate3d(0,5px,-48px);opacity:0}
-#floater[data-state=small] .container{background:rgba(255,255,255,0);-webkit-filter:blur(3px)}
+#floater[data-state=small] .container{-webkit-filter:blur(3px)}
 #floater[data-state=blurred] .direction{background:rgba(255,255,255,.8);-webkit-filter:blur(4px)}
-#floater .loading{background-image:url(/ajax-loader.gif);background-repeat:no-repeat;background-position:center}
-#floater .loading .container{opacity:0}
+#floater.loading{background-image:url(/ajax-loader.gif);background-repeat:no-repeat;background-position:center}
+#floater.loading .container{opacity:0}
 #floater.error .container .error{opacity:1}
 #floater .container{opacity:1;transition:opacity .25s ease-in}
 #floater .error{padding:1em}
@@ -1523,7 +1523,7 @@ header li:hover a{opacity:1}
 #map-container.loaded{transition-property:-webkit-transform;transition-property:transform;transition-duration:1.2s;transition-timing-function:ease-out}
 #map-container ul#central li a:hover,#map-container ul#central li.active a{opacity:1!important}
 #map-container .links{display:none}
-#map-container li a{z-index:1000!important;position:absolute;text-decoration:none;-webkit-transform:translateZ(1);transform:translateZ(1);font-size:14px;transition-delay:.5s;transition-property:all;transition-duration:.8s;transition-timing-function:ease-out;color:#4A70CB;cursor:hand;font-weight:700;border:1px solid transparent;line-height:1em;white-space:nowrap;border-radius:4px;padding:15px 25px;width:auto}
+#map-container li a{position:absolute;text-decoration:none;-webkit-transform:translateZ(1);transform:translateZ(1);font-size:14px;transition-delay:.5s;transition-property:all;transition-duration:.8s;transition-timing-function:ease-out;color:#4A70CB;cursor:hand;font-weight:700;border:1px solid transparent;line-height:1em;white-space:nowrap;border-radius:4px;padding:15px 25px;width:auto;z-index:1!important}
 #map-container li a.left{top:-22px;right:-5px}
 #map-container li a.right{top:-14px}
 #map-container li a.above{left:-6px;top:-58px}
@@ -1532,7 +1532,7 @@ header li:hover a{opacity:1}
 #map-container li.roundel a.above{left:1px;top:-59px}
 #map-container li.roundel a.below{left:11px;top:19px}
 #map-container li.active{transition-delay:2s}
-#map-container li.active a{letter-spacing:0;font-weight:400}
+#map-container li.active a{z-index:1000!important;letter-spacing:0;font-weight:400}
 #map-container li.active .left{right:25px;top:-18px}
 #map-container li.active.roundel .left{right:40px;top:-13px}
 #map-container li.active .right{float:left;-webkit-transform-origin:50% -6em;-ms-transform-origin:50% -6em;transform-origin:50% -6em}

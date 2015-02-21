@@ -28,17 +28,20 @@ station.prototype.route = function(context) {
     if(!context.init) {
         // we need to run this if the station if the station has been initialised previously.
 
+      
+        self.bus.trigger('zoomto:station', { code: stationCode } , function() {
+            self.bus.trigger('zoom:finished');
+        });
 
         this.bus.trigger('moving', {}, function() {
+            self.bus.trigger('loading');
             // add loading class here.
-                self.getStationData(context.canonicalPath, function(data) {
-                    document.title = data.name;
-                    self.setup(stationCode);
-                    //self.station.render(data);
-                });
-           self.bus.trigger('zoomto:station', { code: stationCode } , function() {
-               self.bus.trigger('zoom:finished');
-           });
+            self.getStationData(context.canonicalPath, function(data) {
+                document.title = data.name;
+                self.setup(stationCode);
+                self.station.render(data);
+                self.bus.trigger('loaded');
+            });
         });
 
 
