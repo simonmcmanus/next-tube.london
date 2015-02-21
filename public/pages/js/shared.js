@@ -4092,7 +4092,7 @@ train.prototype.destroy = function() {
 },{}],13:[function(require,module,exports){
 'use strict';
 
-var $ = require('jquery'); 
+var $ = require('jquery');
 
 var tubes = module.exports = function($el, bus) {
     this.$el = $el;
@@ -22547,7 +22547,7 @@ station.prototype.route = function(context) {
                 self.getStationData(context.canonicalPath, function(data) {
                     document.title = data.name;
                     self.setup(stationCode);
-                    self.station.render(data);
+                    //self.station.render(data);
                 });
            self.bus.trigger('zoomto:station', { code: stationCode } , function() {
                self.bus.trigger('zoom:finished');

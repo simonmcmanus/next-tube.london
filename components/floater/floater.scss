@@ -14,32 +14,27 @@
   z-index: 2000;
   position: absolute;
   transition-property: height, width, border, background-color, opacity, -webkit-filter, background-image, transform;
-  transition-duration: .5s   , 1s   , 1s    , .4s              , .2s    , .3s           , .1s, .5s;
+  transition-duration: .5s   , 1s   , 1s    , .4s              , .3s    , .3s           , .1s, .5s;
   transition-delay:    .5s   , 0    , 0     , 0               , .1s    , 0             , .5s, 0;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
-
-
-  .direction {
-    transition:  -webkit-filter 500ms linear .5s ease-in-out ;
-  }
-
+-webkit-transform-style: preserve-3d;
   @media (min-width: 500px) {
     margin-top: 9em;
   }
 
   &[data-state="active"] {
-    -webkit-filter: blur(0px);
-    background:rgba(255,255,255, 1);
-
+    .container {
+      -webkit-filter: blur(0px);
+      transition: -webkit-filter .4s linear;
+    }
   }
 
   &[data-state="small"] {
     z-index: 2000 !important;
 
-    .direction {
-      background:rgba(255,255,255,0.8);
+    .container {
+      background:rgba(255,255,255,0);
       -webkit-filter: blur(3px);
-
     }
     transform: translate3d(0, 5px, -48px);
     opacity: 0;
@@ -62,14 +57,6 @@
 
   }
 
-  &[data-state="error"] {
-
-  }
-
-
-  &.hide {
-
-  }
   &.error {
       .container {
         .error {
@@ -80,8 +67,6 @@
   .container {
     opacity: 1;
     transition: opacity .25s ease-in;
-  }
-  &.loading {
   }
   .error {
     padding: 1em;

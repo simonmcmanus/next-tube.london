@@ -47,12 +47,11 @@ body[data-page=station] #placement.above{top:2em}
 body[data-page=station] #placement.below{top:4em}
 @media (min-width:800px){body[data-page=station] .direction{width:auto;min-width:auto}
 body[data-page=station] body #placement{top:12em;margin:1em 20% 0!important}}
-#floater{overflow:hidden;min-height:60px;margin:14em 1em 1em;border-radius:4px;opacity:1;border:1px solid #B8B8B8;vertical-align:top;color:#838383;width:auto;z-index:2000;position:absolute;transition-property:height,width,border,background-color,opacity,-webkit-filter,background-image,-webkit-transform;transition-property:height,width,border,background-color,opacity,-webkit-filter,background-image,transform;transition-duration:.5s,1s,1s,.4s,.2s,.3s,.1s,.5s;transition-delay:.5s,0,0,0,.1s,0,.5s,0;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
-#floater .direction{transition:-webkit-filter 500ms linear .5s ease-in-out}
+#floater{overflow:hidden;min-height:60px;margin:14em 1em 1em;border-radius:4px;opacity:1;border:1px solid #B8B8B8;vertical-align:top;color:#838383;width:auto;z-index:2000;position:absolute;transition-property:height,width,border,background-color,opacity,-webkit-filter,background-image,-webkit-transform;transition-property:height,width,border,background-color,opacity,-webkit-filter,background-image,transform;transition-duration:.5s,1s,1s,.4s,.3s,.3s,.1s,.5s;transition-delay:.5s,0,0,0,.1s,0,.5s,0;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d}
 @media (min-width:500px){#floater{margin-top:9em}}
-#floater[data-state=active]{-webkit-filter:blur(0);background:#fff}
+#floater[data-state=active] .container{-webkit-filter:blur(0);transition:-webkit-filter .4s linear}
 #floater[data-state=small]{z-index:2000!important;-webkit-transform:translate3d(0,5px,-48px);transform:translate3d(0,5px,-48px);opacity:0}
-#floater[data-state=small] .direction{background:rgba(255,255,255,.8);-webkit-filter:blur(3px)}
+#floater[data-state=small] .container{background:rgba(255,255,255,0);-webkit-filter:blur(3px)}
 #floater[data-state=blurred] .direction{background:rgba(255,255,255,.8);-webkit-filter:blur(4px)}
 #floater .loading{background-image:url(/ajax-loader.gif);background-repeat:no-repeat;background-position:center}
 #floater .loading .container{opacity:0}
