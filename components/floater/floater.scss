@@ -15,7 +15,7 @@
   position: absolute;
   transition-property: height, width, border, background-color, opacity, -webkit-filter, background-image, transform;
   transition-duration: .5s   , 1s   , 1s    , .4s              , .3s    , .3s           , .1s, .5s;
-  transition-delay:    .5s   , 0    , 0     , 0               , .1s    , 0             , .5s, 0;
+  transition-delay:    .5s   , 0    , 0     , 0               , 0s    , 0             , .5s, 0;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
 -webkit-transform-style: preserve-3d;
   @media (min-width: 500px) {
