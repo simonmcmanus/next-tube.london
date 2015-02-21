@@ -16,20 +16,31 @@
   transition: all .8s ease-in-out;
   transition-property: height, width, border, background-color, opacity, -webkit-filter, background-image, transform;
   transition-duration: .5s   , 1s   , 1s    , 1s              , .3s    , .3s           , .1s, .5s;
-  transition-delay:    .5s   , 0    , 0     , 0               , .2s    , 0             , .5s, 0;
+  transition-delay:    .5s   , 0    , 0     , 0               , 0s    , 0             , .5s, 0;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
+
+
+  .direction {
+    transition:  -webkit-filter 500ms linear .5s ease-in-out ;
+  }
 
   @media (min-width: 500px) {
     margin-top: 9em;
   }
 
   &[data-state="small"] {
-    transform: translate3d(-110%,20%,-3000px);
+
+    .direction {
+      background:rgba(255,255,255,0.8);
+      -webkit-filter: blur(4px);
+
+    }
+    transform: translate3d(0, -5px,-110px);
     opacity: 0;
   }
 
   &[data-state="blurred"] {
-    &.hidden .direction {
+    .direction {
       background:rgba(255,255,255,0.8);
       -webkit-filter: blur(4px);
     }

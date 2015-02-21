@@ -20,7 +20,8 @@ tubes.prototype.transitionFinished = function(e) {
 
 tubes.prototype.focus = function(station, callback) {
 //    console.log('focus', station, callback);
-    $('html, body').animate({scrollTop : 0}, 500);
+    var headerHeight = $('header').outerHeight();
+    $('html, body').animate({scrollTop : headerHeight}, 500);
     this.$el.attr('data-station', station.code);
     this.$el.find('li.active').removeClass('active z-depth-1');
 
