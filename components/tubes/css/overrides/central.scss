@@ -1,7 +1,7 @@
 $break1: 800px;
-
+$zoomout: -50px;
 &[data-station=EPP] {
-    transform: translate(-3330px, -28px);
+    transform: translate3d(-3330px, -28px, $zoomout);
     li.active.roundel .left {
         right: 45px !important;
         top: -8px !important;
@@ -9,23 +9,23 @@ $break1: 800px;
 }
 
 &[data-station=THB] {
-    transform: translate(-3286px, -76px);
+    transform: translate3d(-3286px, -76px, $zoomout);
 }
 
 &[data-station=DEB] {
-    transform: translate(-3323px, -122px);
+    transform: translate3d(-3323px, -122px, $zoomout);
 }
 
 &[data-station=LTN] {
-    transform: translate(-3313px, -168px);
+    transform: translate3d(-3313px, -168px, $zoomout);
 }
 
 &[data-station=BHL] {
-    transform: translate(-3280px, -215px);
+    transform: translate3d(-3280px, -215px, $zoomout);
 }
 
 &[data-station=WFD] {
-    transform: translate(-3307px,-384px);
+    transform: translate3d(-3307px,-384px, $zoomout);
     li.active.roundel .left {
         right: 45px !important;
         top: -8px !important;
@@ -33,39 +33,39 @@ $break1: 800px;
 }
 
 &[data-station=SWF] {
-    transform: translate(-3266px,-440px);
+    transform: translate3d(-3266px,-440px, $zoomout);
 }
 
 &[data-station=SNB] {
-    transform: translate(-3294px,-495px);
+    transform: translate3d(-3294px,-495px, $zoomout);
 }
 
 &[data-station=LYS] {
-    transform: translate(-3293px,-658px);
+    transform: translate3d(-3293px,-658px, $zoomout);
 }
 
 &[data-station=LEY] {
-    transform: translate(-3328px,-782px);
+    transform: translate3d(-3328px,-782px, $zoomout);
 }
 
 &[data-station=SFD] {
-    transform: translate(-3398px,-903px);
+    transform: translate3d(-3398px,-903px, $zoomout);
 }
 
 &[data-station=MLE] {
-    transform: translate(-3037px,-1120px);
+    transform: translate3d(-3037px,-1120px, $zoomout);
 }
 
 &[data-station=BNG] {
-    transform: translate(-2925px,-1123px);
+    transform: translate3d(-2925px,-1123px, $zoomout);
 }
 
 &[data-station=LST] {
-    transform: translate(-2604px,-1192px);
+    transform: translate3d(-2604px,-1192px, $zoomout);
 }
 
 &[data-station=BNK] {
-    transform: translate(-2393px,-1356px);
+    transform: translate3d(-2393px,-1356px, $zoomout);
 }
 
 li.STP {
@@ -84,17 +84,17 @@ li.STP {
 }
 
 &[data-station=STP] {
-    transform: translate(-2343px,-1348px);
+    transform: translate3d(-2343px,-1348px, $zoomout);
 }
 
 
 
 &[data-station=CYL] {
-    transform: translate(-2215px,-1285px);
+    transform: translate3d(-2215px,-1285px, $zoomout);
 }
 
 &[data-station=HOL] {
-    transform: translate(-2101px,-1369px);
+    transform: translate3d(-2101px,-1369px, $zoomout);
 }
 
 li.roundel.HOL {
@@ -110,7 +110,7 @@ li.roundel.HOL {
 
 
 &[data-station=TCR] {
-    transform: translate(-1998px,-1386px);
+    transform: translate3d(-1998px,-1386px, $zoomout);
 }
 
 li.TCR a.below {
@@ -131,11 +131,11 @@ li.TCR a.below::after {
 
 
 &[data-station=OXC] {
-    transform: translate(-1791px,-1280px);
+    transform: translate3d(-1791px,-1280px, $zoomout);
 }
 
 &[data-station=BDS] {
-    transform: translate(-1663px,-1280px);
+    transform: translate3d(-1663px,-1280px, $zoomout);
 }
 
 li.BDS a.above  {
@@ -144,20 +144,20 @@ li.BDS a.above  {
 
 
 &[data-station=MAR] {
-    transform: translate(-1587px,-1385px);
+    transform: translate3d(-1587px,-1385px, $zoomout);
 }
 
 &[data-station=LAN] {
-    transform: translate(-1507px,-1285px);
+    transform: translate3d(-1507px,-1285px, $zoomout);
 }
 
 &[data-station=QWY] {
-    transform: translate(-1438px,-1370px);
+    transform: translate3d(-1438px,-1370px, $zoomout);
 }
 
 
 &[data-station=NHG] {
-    transform: translate(-1324px,-1295px);
+    transform: translate3d(-1324px,-1295px, $zoomout);
 }
 
 li#cen016.NHG a {
@@ -165,15 +165,15 @@ li#cen016.NHG a {
 }
 
 &[data-station=HPK] {
-    transform: translate(-1249px,-1367px);
+    transform: translate3d(-1249px,-1367px, $zoomout);
 }
 
 &[data-station=SBC] {
-    transform: translate(-1150px,-1295px);
+    transform: translate3d(-1150px,-1295px, $zoomout);
 }
 
 &[data-station=WCT] {
-    transform: translate(-1002px,-1296px);
+    transform: translate3d(-1002px,-1296px, $zoomout);
 }
 
 li.roundel.WCT a {
@@ -188,19 +188,19 @@ li.roundel.WCT.active a {
 }
 
 &[data-station=EAC] {
-    transform: translate(-913px,-1301px);
+    transform: translate3d(-913px,-1301px, $zoomout);
 }
 
 &[data-station=NAC] {
-    transform: translate(-871px,-1367px);
+    transform: translate3d(-871px,-1367px, $zoomout);
 }
 
 &[data-station=WAC] {
-    transform: translate(-701px,-1367px);
+    transform: translate3d(-701px,-1367px, $zoomout);
 }
 
 &[data-station=EBY] {
-    transform: translate(-370px,-1338px);
+    transform: translate3d(-370px,-1338px, $zoomout);
 }
 
 
@@ -210,7 +210,7 @@ li.roundel.active.EBY a{
 }
 
 &[data-station=HLN] {
-    transform: translate(-442px,-1098px);
+    transform: translate3d(-442px,-1098px, $zoomout);
 }
 
 li.HLN, li.PER {
@@ -229,11 +229,11 @@ li.HLN, li.PER {
 }
 
 &[data-station=PER] {
-    transform: translate(-383px,-1011px);
+    transform: translate3d(-383px,-1011px, $zoomout);
 }
 
 &[data-station=GFD] {
-    transform: translate(-274px,-911px);
+    transform: translate3d(-274px,-911px, $zoomout);
 }
 
 li.GFD {
@@ -253,11 +253,11 @@ li.GFD {
 }
 
 &[data-station=NHT] {
-    transform: translate(-254px,-748px);
+    transform: translate3d(-254px,-748px, $zoomout);
 }
 
 &[data-station=SRP] {
-    transform: translate(-227px,-632px);
+    transform: translate3d(-227px,-632px, $zoomout);
 }
 
 li.active.roundel.SRP a {
@@ -266,11 +266,11 @@ li.active.roundel.SRP a {
 }
 
 &[data-station=RUG] {
-    transform: translate(-209px,-526px);
+    transform: translate3d(-209px,-526px, $zoomout);
 }
 
 &[data-station=WRP] {
-    transform: translate(-229px,-302px);
+    transform: translate3d(-229px,-302px, $zoomout);
 }
 
 li.active.roundel.WRP a {
@@ -282,7 +282,7 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=ROD] {
-    transform: translate(-3444px, -246px);
+    transform: translate3d(-3444px, -246px, $zoomout);
     .ROD {
         &.active.roundel a.above{
             top: -62px;
@@ -298,15 +298,15 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=CHG] {
-    transform: translate(-3525px, -354px);
+    transform: translate3d(-3525px, -354px, $zoomout);
 }
 
 &[data-station=GRH] {
-    transform: translate(-3569px,-269px);
+    transform: translate3d(-3569px,-269px, $zoomout);
 }
 
 &[data-station=HAI] {
-    transform: translate(-3577px, -361px);
+    transform: translate3d(-3577px, -361px, $zoomout);
     li.active.roundel .left {
         right: 45px !important;
         top: -8px !important;
@@ -314,27 +314,27 @@ li.active.roundel.WRP a {
 }
 
 &[data-station=FLP] {
-    transform: translate(-3586px, -416px);
+    transform: translate3d(-3586px, -416px, $zoomout);
 }
 
 &[data-station=BDE] {
-    transform: translate(-3558px, -469px);
+    transform: translate3d(-3558px, -469px, $zoomout);
 }
 
 &[data-station=NEP] {
-    transform: translate(-3541px, -523px);
+    transform: translate3d(-3541px, -523px, $zoomout);
 }
 
 &[data-station=GHL] {
-    transform: translate(-3593px,-627px);
+    transform: translate3d(-3593px,-627px, $zoomout);
 }
 
 &[data-station=RED] {
-    transform: translate(-3517px,-560px);
+    transform: translate3d(-3517px,-560px, $zoomout);
 }
 
 &[data-station=WAN] {
-    transform: translate(-3462px, -645px);
+    transform: translate3d(-3462px, -645px, $zoomout);
 }
 
 li.WAN a {

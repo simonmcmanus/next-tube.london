@@ -4115,9 +4115,9 @@ tubes.prototype.focus = function(station, callback) {
     var headerHeight = $('header').outerHeight();
     $('html, body').animate({scrollTop : headerHeight}, 500);
     this.$el.attr('data-station', station.code);
-    this.$el.find('li.active').removeClass('active z-depth-1');
+    this.$el.find('li.active').removeClass('active z-depth-2');
 
-    $('li.' + station.code ).addClass('active z-depth-1');
+    $('li.' + station.code ).addClass('active z-depth-2');
     this.$el.one('transitionend', function() {
         $('ul.line li  a.point').removeClass('point');
         $('ul.line li.' + station.code + ' a').addClass('point');
