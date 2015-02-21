@@ -6,10 +6,9 @@ var tubes = module.exports = function($el, bus) {
     this.$el = $el;
     this.bus = bus;
     this.$el.addClass('available');
-    bus.on('station', this.focus.bind(this));
+    bus.on('zoomto:station', this.focus.bind(this));
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
-    this.$el.on('transitionend', this.transitionFinished.bind(this));
 };
 
 tubes.prototype.transitionFinished = function(e) {
@@ -19,16 +18,18 @@ tubes.prototype.transitionFinished = function(e) {
     }
 };
 
-tubes.prototype.focus = function(station) {
-    this.bus.trigger('zoom:start');
+tubes.prototype.focus = function(station, callback) {
+//    console.log('focus', station, callback);
+    $('html, body').animate({scrollTop : 0}, 500);
     this.$el.attr('data-station', station.code);
     this.$el.find('li.active').removeClass('active z-depth-1');
-    $('html, body').animate({scrollTop : 0}, 500);
-    $('li.' + station.code ).addClass('active z-depth-1');
 
-    this.bus.on('zoom:finished', function() {
+    $('li.' + station.code ).addClass('active z-depth-1');
+    this.$el.one('transitionend', function() {
         $('ul.line li  a.point').removeClass('point');
         $('ul.line li.' + station.code + ' a').addClass('point');
+        console.log('cb', callback)
+        callback();
     });
 };
 

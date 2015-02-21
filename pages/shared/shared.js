@@ -7,9 +7,12 @@ var attachFastClick = require('fastclick');
 attachFastClick(document.body);
 
 
- require('./bselect');
-
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
+
+
+var TriggerBack = require('../../../triggerback/index');
+var bus = new TriggerBack();
+
 var page = require('../../public/libs/page.js');
 
 var tubesComponent = require('../../components/tubes/tubes.js');
@@ -18,9 +21,6 @@ var searchComponent = require('../../components/search/search.js');
 var HomePage = require('../home/home');
 var StationPage = require('../station/station');
 var AboutPage = require('../about/about');
-
-
-
 
 window.NT = {
     bus: bus,

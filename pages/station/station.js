@@ -7,6 +7,8 @@ var floaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');
 
 var template = require('./station.jade');
+var templateError = require('./error.jade');
+
 
 var station = module.exports = function(NT, socket) {
     var self = this;
@@ -20,76 +22,59 @@ var station = module.exports = function(NT, socket) {
 
 station.prototype.route = function(context) {
     var self = this;
-    // messsy
-    NT.activePage = 'station';
-    $('body').attr('data-page', 'station');
+
+    var stationCode = urlCodes[context.params.stationName];
 
     if(!context.init) {
-        $('#content').addClass('hide');
-        $('.page').attr('id', 'station');
-        self.bus.trigger('loader:show');
-        var stationCode = urlCodes[context.params.stationName];
-        self.bus.trigger('station', {code: stationCode});
+
+
+        this.bus.trigger('moving', {}, function() {
+            // add loading class here.
+           self.bus.trigger('zoomto:station', { code: stationCode } , function() {
+               self.bus.trigger('zoom:finished');
+           });
+        });
+
+
 
         self.getStationData(context.canonicalPath, function(data) {
             document.title = data.name;
-
-            var markup = template({
-                station: data
-            });
-            console.log('got station data: markup[0].outerHTML', markup);
-            $('#content').html(markup);
-            self.bus.on('zoom:finished', function() {
-                self.bus.trigger('data:inplace');
-            });
-            self.listen({
-                code: urlCodes[context.params.stationName]
-            });
-            self.setup();
+            self.setup(stationCode);
+            self.station.render(data);
         });
-
-        // self.bus.trigger('station', {
-        //     slug: context.params.stationName,
-        //     code: urlCodes[context.params.stationName]
-        // });
     } else {
-        self.setup();
-        self.listen({
-            code: urlCodes[context.params.stationName]
-        });
+        self.setup(stationCode);
     }
-
-
-
 };
 
 
-station.prototype.setup = function() {
+station.prototype.setup = function(code) {
 
-    new stationComp($('.stationContainer'), this.bus);
+    this.station = new stationComp($('.stationContainer'), this.bus);
+
     if(this.floater) {
         this.floater.$el = $('#floater');
-    }
-    else {
+    } else {
         this.floater = new floaterComp($('#floater'), this.bus);
-        
     }
+
+    this.listen({
+        code: code
+    });
+
 };
 
 station.prototype.destroy = function(callback) {
-    $('#content').removeClass('hide');
     this.stopListen();
-    callback();
+    this.floater.setState('small', callback);
 };
 
 station.prototype.getStationData = function(path, callback) {
-    var self = this;
     $('.page').attr('id', 'station');
     $.ajax({
         url: path + '?ajax=true' ,
         headers: {
-            'Accept': 'application/json',
-            //'X-PJAX': 'true'
+            'Accept': 'application/json'
         },
         complete: function(xhr, status) {
             if(status === 'error') {
@@ -105,24 +90,21 @@ station.prototype.errorCallback = function(stationCode) {
     this.$el.find('.trains').empty();
     this.$el.find('.error').html(templateError({stationCode: stationCode}));
     this.bus.trigger('error:show');
-}
+};
 
 station.prototype.stopListen = function() {
-    //console.log('stop', 'station:' + this.activeStation);
     this.socket.off('station:' + this.activeStation);
     this.activeStation = null;
 };
 
 station.prototype.listen = function(station) {
-     this.activeStation = station.code;
-     //console.log('listening to', this.activeStation);
-     this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
+    this.activeStation = station.code;
+    this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
 };
 
 station.prototype.stationChanges = function(changes) {
     var self = this;
     changes.forEach(function(change) {
-        //console.log('got change', change);
         if(change.parent) {
             self.bus.trigger(change.parent, change);
         }

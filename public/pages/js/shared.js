@@ -1,6 +1,66 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+
+var parallel = require('./parallel');
+
+var bus = module.exports = function(debug) {
+    this.events = {};
+    this.debug = debug || false;
+};
+
+bus.prototype.on = function(event, action) {
+    if(!this.events[event])  {
+        this.events[event] = [];
+    }
+    this.events[event].push(action);
+};
+
+bus.prototype.off = function(event) {
+    if(this.debug) {
+        console.log('off ', event);
+    }
+    delete this.events[event];
+};
+
+bus.prototype.trigger = function(event, params, callback) {
+    if(this.debug) {
+        console.log('fired',event, this.events[event], params);
+    }
+    parallel(this.events[event], params, callback);
+};
+
+},{"./parallel":2}],2:[function(require,module,exports){
+'use strict';
+
+/**
+    Custom implementation of Parallel that runs all function regardles of errors.
+
+ * @param  {array}   gets
+ * @param  {Function} callback
+ */
+module.exports = function (gets, params, callback) {
+
+    if (!gets) {
+        callback && callback(null, null);
+        return;
+    }
+    var counter = 0;
+    var buildOutput = function () {
+        counter++;
+        if (counter === gets.length) {
+            callback && callback(null, null);
+        }
+    };
+
+
+    gets.forEach(function(getter) {
+        getter(params, buildOutput);
+    });
+};
+},{}],3:[function(require,module,exports){
+'use strict';
+
 var $ = require('jquery');
 // train left
 // new train added
@@ -169,14 +229,14 @@ direction.prototype.listChange = function(data) {
         break;
     }
 }
-},{"../train/train":11,"../train/train.jade":10,"jquery":17}],2:[function(require,module,exports){
+},{"../train/train":12,"../train/train.jade":11,"jquery":18}],4:[function(require,module,exports){
 'use strict';
 
 
 var floater = module.exports = function($el, bus) {
     this.$el = $el;
 //    this.setState('hidden');
-
+    bus.on('station',this.station.bind(this));
     bus.on('loader:show',this.showLoader.bind(this));
     bus.on('error:show', this.showError.bind(this));
     bus.on('error:hide', this.hideError.bind(this));
@@ -185,25 +245,27 @@ var floater = module.exports = function($el, bus) {
     bus.on('decreaseHeight', this.decreaseHeight.bind(this));
     bus.on('resize', this.resize.bind(this));
     bus.on('zoom:finished', this.zoomEnd.bind(this));
-    bus.on('zoom:start', this.zoomStart.bind(this));
-    bus.on('data:inplace', this.dataInPlace.bind(this));
+    bus.on('moving', this.hide.bind(this));
+    bus.on('zoomto:station', this.loading.bind(this));
+
+    
+};
+
+floater.prototype.loading = function(params, next) {
+    this.$el.addClass('loading');
+    
 };
 
 
-floater.prototype.zoomStart = function() {
-    this.$el.addClass('hidden')
-}
+
+floater.prototype.hide = function(params, next) {
+    this.setState('small');
+    this.$el.one('transitionend', next);
+};
 
 floater.prototype.zoomEnd = function() {
-    this.$el.removeClass('hidden');
-}
-
-
-floater.prototype.dataInPlace = function() {
-    this.setState('');
-}
-
-
+    this.setState('active');
+};
 
 
 var targetHeight = null;
@@ -213,19 +275,23 @@ floater.prototype.getState = function() {
     return this.$el.attr('data-state');
 };
 
-floater.prototype.setState = function(newState) {
-    console.log('set state', newState);
+floater.prototype.setState = function(newState, callback) {
+    console.log('set sate', newState);
     this.$el.attr('data-state', newState);
 };
 
+floater.prototype.station = function() {
+    console.log('set state small');
+    this.setState('small');
+};
 
 floater.prototype.hideLoader = function() {
     this.setState('');
-}
+};
 
 floater.prototype.showLoader = function() {
-    this.setState('loading');
-}
+    //this.setState('loading');
+};
 
 floater.prototype.showError = function() {
     this.$el.addClass('error');
@@ -263,7 +329,7 @@ floater.prototype.decreaseHeight = function(removeHeight) {
 
 
 
-},{}],3:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 
@@ -285,7 +351,7 @@ module.exports = function($el, bus) {
         $select.val(stationDetail.slug);
     });
 };
-},{"../station-switcher/lib/all-stations.json":4}],4:[function(require,module,exports){
+},{"../station-switcher/lib/all-stations.json":6}],6:[function(require,module,exports){
 module.exports=[
     {
         "id": "OXC",
@@ -693,7 +759,7 @@ module.exports=[
         "slug": "central/woodford"
     }
 ]
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * selectize.js (v0.12.0)
  * Copyright (c) 2013–2015 Brian Reavis & contributors
@@ -3753,7 +3819,7 @@ module.exports=[
 
     return Selectize;
 }));
-},{"jquery":17,"microplugin":18,"sifter":19}],6:[function(require,module,exports){
+},{"jquery":18,"microplugin":19,"sifter":20}],8:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -3801,89 +3867,7 @@ switcher.prototype.show = function() {
     this.$el.removeClass('hide');
 };
 
-},{"./lib/all-stations.json":4,"./lib/selectize":5,"jquery":17}],7:[function(require,module,exports){
-var jade = require("jade/runtime");
-
-module.exports = function template(locals) {
-var buf = [];
-var jade_mixins = {};
-var jade_interp;
-;var locals_for_with = (locals || {});(function (stationCode) {
-buf.push("<h2>Ooops</h2><div class=\"detail\">Something Went wrong. you can try refreshing the page, or maybe pop back later.<p>" + (jade.escape(null == (jade_interp = 'An error occured fetching ' + stationCode) ? "" : jade_interp)) + "</p></div><hr/>");}.call(this,"stationCode" in locals_for_with?locals_for_with.stationCode:typeof stationCode!=="undefined"?stationCode:undefined));;return buf.join("");
-};
-},{"jade/runtime":16}],8:[function(require,module,exports){
-'use strict';
-
-var $ = require('jquery');
-
-// component functionality includes.
-var direction = require('../direction/direction');
-
-// template includes
-var templateError = require('../station/error.jade');
-var templateTrains = require('../station/trains.jade');
-
-
-//var stationCodes = require('../../fetchers/')
-
-
-var station = module.exports = function($el, bus) {
-    this.directions = {};
-    this.bus = bus;
-    this.$el = $el;
-    this.code = $el.data('station-code');
-
-
-    this.directionInit();
-    bus.on('nextTrain:gotStationData', this.render.bind(this));
-    //bus.on('station', this.changeStation.bind(this));
-    var self = this;
-};
-
-station.prototype.changeStation = function(newStation) {
-
-    var directions = this.directions;
-    this.code = newStation.code;
-    Object.keys(directions).forEach(function(direction) {
-        directions[direction].destroy();
-    });
-    //this.getStationData(newStation);
-};
-
-station.prototype.directionInit = function() {
-
-    var self = this;
-    self.$el.find('[data-direction]').each(function() {
-        console.log('direction INIT ', self.code);
-        var dir = new direction(self.code, this.dataset.direction, $(this), self.bus);
-        self.directions[this.dataset.direction] = dir;
-    });
-};
-
-window.onresize = function() {
-    bus.trigger('resize');
-};
-
-station.prototype.render = function(data) {
-    var $el = this.$el;
-    var $select = $el.find('select');
-    // $select.attr('data-currently-listening', data.code);
-    // $select.val(data.code);
-//    $el.find('.error').empty();
-    var $newMarkup = $(templateTrains({
-        station: data
-    }));
-    var self = this;
-    // should listen for floater
-    setTimeout(function() {
-        $el.find('div.listing').html($newMarkup);
-        self.directionInit(data.code, $el, self.bus);
-        self.bus.trigger('resize');
-    }, 400);
-};
-
-
-},{"../direction/direction":1,"../station/error.jade":7,"../station/trains.jade":9,"jquery":17}],9:[function(require,module,exports){
+},{"./lib/all-stations.json":6,"./lib/selectize":7,"jquery":18}],9:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -3891,6 +3875,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 ;var locals_for_with = (locals || {});(function (station) {
+buf.push("<div" + (jade.attr("data-station-code", station.code, true, false)) + " class=\"stationContainer\"><div class=\"listing\">");
 var noTrains = true;
 if ( station)
 {
@@ -3992,9 +3977,64 @@ noTrains = false;
 if ( noTrains)
 {
 buf.push("<h3 class=\"noTrains\">No Trains</h3>");
-}}.call(this,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined));;return buf.join("");
+}
+buf.push("</div><div class=\"error\"></div></div>");}.call(this,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined));;return buf.join("");
 };
-},{"jade/runtime":16}],10:[function(require,module,exports){
+},{"jade/runtime":17}],10:[function(require,module,exports){
+'use strict';
+
+var $ = require('jquery');
+
+var direction = require('../direction/direction');
+
+var stationTemplate = require('../station/station.jade');
+
+var station = module.exports = function($el, bus) {
+    this.directions = {};
+    this.bus = bus;
+    this.$el = $el;
+    this.code = $el.data('station-code');
+    this.directionInit();
+    bus.on('nextTrain:gotStationData', this.render.bind(this));
+    var self = this;
+};
+
+station.prototype.changeStation = function(newStation) {
+
+    var directions = this.directions;
+    this.code = newStation.code;
+    Object.keys(directions).forEach(function(direction) {
+        directions[direction].destroy();
+    });
+};
+
+station.prototype.directionInit = function() {
+
+    var self = this;
+    self.$el.find('[data-direction]').each(function() {
+        var dir = new direction(self.code, this.dataset.direction, $(this), self.bus);
+        self.directions[this.dataset.direction] = dir;
+    });
+};
+
+window.onresize = function() {
+    bus.trigger('resize');
+};
+
+station.prototype.render = function(data) {
+    var $el = this.$el;
+    var $newMarkup = $(stationTemplate({
+        station: data,
+        state: 'small'
+    }));
+
+    $el.find('div.listing').html($newMarkup);
+    this.directionInit(data.code, $el, this.bus);
+    this.bus.trigger('resize');
+};
+
+
+},{"../direction/direction":3,"../station/station.jade":9,"jquery":18}],11:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -4007,7 +4047,7 @@ if ( train)
 buf.push("<li" + (jade.attr("data-id", train.id, true, false)) + " class=\"train\"><div class=\"due-container\"><span class=\"due\">" + (jade.escape(null == (jade_interp = train.dueIn) ? "" : jade_interp)) + "</span></div><!--a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())--><!--span.destination=train.destination + ' - ' + train.id--><span class=\"destination\">" + (jade.escape(null == (jade_interp = train.destination) ? "" : jade_interp)) + "</span><!--span.platform=train.platform--><br/><span class=\"detail\">" + (jade.escape(null == (jade_interp = train.location) ? "" : jade_interp)) + "</span></li>");
 }}.call(this,"train" in locals_for_with?locals_for_with.train:typeof train!=="undefined"?train:undefined));;return buf.join("");
 };
-},{"jade/runtime":16}],11:[function(require,module,exports){
+},{"jade/runtime":17}],12:[function(require,module,exports){
 'use strict';
 
 function makeKey(stationCode, direction, id) {
@@ -4051,7 +4091,7 @@ train.prototype.destroy = function() {
     var key = makeKey(this.stationCode, this.direction, this.id);
     this.bus.off(key);
 };
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery'); 
@@ -4060,10 +4100,9 @@ var tubes = module.exports = function($el, bus) {
     this.$el = $el;
     this.bus = bus;
     this.$el.addClass('available');
-    bus.on('station', this.focus.bind(this));
+    bus.on('zoomto:station', this.focus.bind(this));
     bus.on('zoom:out', this.zoomOut.bind(this));
     bus.on('search:highlight', this.highlight.bind(this));
-    this.$el.on('transitionend', this.transitionFinished.bind(this));
 };
 
 tubes.prototype.transitionFinished = function(e) {
@@ -4073,16 +4112,18 @@ tubes.prototype.transitionFinished = function(e) {
     }
 };
 
-tubes.prototype.focus = function(station) {
-    this.bus.trigger('zoom:start');
+tubes.prototype.focus = function(station, callback) {
+//    console.log('focus', station, callback);
+    $('html, body').animate({scrollTop : 0}, 500);
     this.$el.attr('data-station', station.code);
     this.$el.find('li.active').removeClass('active z-depth-1');
-    $('html, body').animate({scrollTop : 0}, 500);
-    $('li.' + station.code ).addClass('active z-depth-1');
 
-    this.bus.on('zoom:finished', function() {
+    $('li.' + station.code ).addClass('active z-depth-1');
+    this.$el.one('transitionend', function() {
         $('ul.line li  a.point').removeClass('point');
         $('ul.line li.' + station.code + ' a').addClass('point');
+        console.log('cb', callback)
+        callback();
     });
 };
 
@@ -4104,7 +4145,7 @@ tubes.prototype.zoomOut = function() {
     this.$el.attr('data-station', '');
     this.unfocus();
 };
-},{"jquery":17}],13:[function(require,module,exports){
+},{"jquery":18}],14:[function(require,module,exports){
 /**
  * Standalone extraction of Backbone.Events, no external dependency required.
  * Degrades nicely when Backone/underscore are already available in the current
@@ -4383,10 +4424,10 @@ tubes.prototype.zoomOut = function() {
   }
 })(this);
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = require('./backbone-events-standalone');
 
-},{"./backbone-events-standalone":13}],15:[function(require,module,exports){
+},{"./backbone-events-standalone":14}],16:[function(require,module,exports){
 /**
  * @preserve FastClick: polyfill to remove click delays on browsers with touch UIs.
  *
@@ -5209,7 +5250,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
 	window.FastClick = FastClick;
 }
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 'use strict';
@@ -5422,7 +5463,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 (1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.3
  * http://jquery.com/
@@ -14629,7 +14670,7 @@ return jQuery;
 
 }));
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 /**
  * microplugin.js
  * Copyright (c) 2013 Brian Reavis & contributors
@@ -14765,7 +14806,7 @@ return jQuery;
 
 	return MicroPlugin;
 }));
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /**
  * sifter.js
  * Copyright (c) 2013 Brian Reavis & contributors
@@ -15215,11 +15256,11 @@ return jQuery;
 }));
 
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 
 module.exports = require('./lib/');
 
-},{"./lib/":21}],21:[function(require,module,exports){
+},{"./lib/":22}],22:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -15308,7 +15349,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":22,"./socket":24,"./url":25,"debug":29,"socket.io-parser":63}],22:[function(require,module,exports){
+},{"./manager":23,"./socket":25,"./url":26,"debug":30,"socket.io-parser":64}],23:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -15813,7 +15854,7 @@ Manager.prototype.onreconnect = function(){
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":23,"./socket":24,"./url":25,"backo2":26,"component-bind":27,"component-emitter":28,"debug":29,"engine.io-client":30,"indexof":59,"object-component":60,"socket.io-parser":63}],23:[function(require,module,exports){
+},{"./on":24,"./socket":25,"./url":26,"backo2":27,"component-bind":28,"component-emitter":29,"debug":30,"engine.io-client":31,"indexof":60,"object-component":61,"socket.io-parser":64}],24:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -15839,7 +15880,7 @@ function on(obj, ev, fn) {
   };
 }
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -16226,7 +16267,7 @@ Socket.prototype.disconnect = function(){
   return this;
 };
 
-},{"./on":23,"component-bind":27,"component-emitter":28,"debug":29,"has-binary":57,"socket.io-parser":63,"to-array":67}],25:[function(require,module,exports){
+},{"./on":24,"component-bind":28,"component-emitter":29,"debug":30,"has-binary":58,"socket.io-parser":64,"to-array":68}],26:[function(require,module,exports){
 (function (global){
 
 /**
@@ -16303,7 +16344,7 @@ function url(uri, loc){
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"debug":29,"parseuri":61}],26:[function(require,module,exports){
+},{"debug":30,"parseuri":62}],27:[function(require,module,exports){
 
 /**
  * Expose `Backoff`.
@@ -16390,7 +16431,7 @@ Backoff.prototype.setJitter = function(jitter){
 };
 
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /**
  * Slice reference.
  */
@@ -16415,7 +16456,7 @@ module.exports = function(obj, fn){
   }
 };
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -16581,7 +16622,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 
 /**
  * Expose `debug()` as the module.
@@ -16720,11 +16761,11 @@ try {
   if (window.localStorage) debug.enable(localStorage.debug);
 } catch(e){}
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 
 module.exports =  require('./lib/');
 
-},{"./lib/":31}],31:[function(require,module,exports){
+},{"./lib/":32}],32:[function(require,module,exports){
 
 module.exports = require('./socket');
 
@@ -16736,7 +16777,7 @@ module.exports = require('./socket');
  */
 module.exports.parser = require('engine.io-parser');
 
-},{"./socket":32,"engine.io-parser":44}],32:[function(require,module,exports){
+},{"./socket":33,"engine.io-parser":45}],33:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -17445,7 +17486,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./transport":33,"./transports":34,"component-emitter":28,"debug":41,"engine.io-parser":44,"indexof":59,"parsejson":53,"parseqs":54,"parseuri":55}],33:[function(require,module,exports){
+},{"./transport":34,"./transports":35,"component-emitter":29,"debug":42,"engine.io-parser":45,"indexof":60,"parsejson":54,"parseqs":55,"parseuri":56}],34:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -17606,7 +17647,7 @@ Transport.prototype.onClose = function () {
   this.emit('close');
 };
 
-},{"component-emitter":28,"engine.io-parser":44}],34:[function(require,module,exports){
+},{"component-emitter":29,"engine.io-parser":45}],35:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies
@@ -17663,7 +17704,7 @@ function polling(opts){
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling-jsonp":35,"./polling-xhr":36,"./websocket":38,"xmlhttprequest":39}],35:[function(require,module,exports){
+},{"./polling-jsonp":36,"./polling-xhr":37,"./websocket":39,"xmlhttprequest":40}],36:[function(require,module,exports){
 (function (global){
 
 /**
@@ -17900,7 +17941,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":37,"component-inherit":40}],36:[function(require,module,exports){
+},{"./polling":38,"component-inherit":41}],37:[function(require,module,exports){
 (function (global){
 /**
  * Module requirements.
@@ -18288,7 +18329,7 @@ function unloadHandler() {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./polling":37,"component-emitter":28,"component-inherit":40,"debug":41,"xmlhttprequest":39}],37:[function(require,module,exports){
+},{"./polling":38,"component-emitter":29,"component-inherit":41,"debug":42,"xmlhttprequest":40}],38:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -18535,7 +18576,7 @@ Polling.prototype.uri = function(){
   return schema + '://' + this.hostname + port + this.path + query;
 };
 
-},{"../transport":33,"component-inherit":40,"debug":41,"engine.io-parser":44,"parseqs":54,"xmlhttprequest":39}],38:[function(require,module,exports){
+},{"../transport":34,"component-inherit":41,"debug":42,"engine.io-parser":45,"parseqs":55,"xmlhttprequest":40}],39:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -18775,7 +18816,7 @@ WS.prototype.check = function(){
   return !!WebSocket && !('__initialize' in WebSocket && this.name === WS.prototype.name);
 };
 
-},{"../transport":33,"component-inherit":40,"debug":41,"engine.io-parser":44,"parseqs":54,"ws":56}],39:[function(require,module,exports){
+},{"../transport":34,"component-inherit":41,"debug":42,"engine.io-parser":45,"parseqs":55,"ws":57}],40:[function(require,module,exports){
 // browser shim for xmlhttprequest module
 var hasCORS = require('has-cors');
 
@@ -18813,7 +18854,7 @@ module.exports = function(opts) {
   }
 }
 
-},{"has-cors":51}],40:[function(require,module,exports){
+},{"has-cors":52}],41:[function(require,module,exports){
 
 module.exports = function(a, b){
   var fn = function(){};
@@ -18821,7 +18862,7 @@ module.exports = function(a, b){
   a.prototype = new fn;
   a.prototype.constructor = a;
 };
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -18970,7 +19011,7 @@ function load() {
 
 exports.enable(load());
 
-},{"./debug":42}],42:[function(require,module,exports){
+},{"./debug":43}],43:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -19169,7 +19210,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":43}],43:[function(require,module,exports){
+},{"ms":44}],44:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -19282,7 +19323,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -19880,7 +19921,7 @@ exports.decodePayloadAsBinary = function (data, binaryType, callback) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./keys":45,"after":46,"arraybuffer.slice":47,"base64-arraybuffer":48,"blob":49,"has-binary":57,"utf8":50}],45:[function(require,module,exports){
+},{"./keys":46,"after":47,"arraybuffer.slice":48,"base64-arraybuffer":49,"blob":50,"has-binary":58,"utf8":51}],46:[function(require,module,exports){
 
 /**
  * Gets the keys for an object.
@@ -19901,7 +19942,7 @@ module.exports = Object.keys || function keys (obj){
   return arr;
 };
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 module.exports = after
 
 function after(count, callback, err_cb) {
@@ -19931,7 +19972,7 @@ function after(count, callback, err_cb) {
 
 function noop() {}
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 /**
  * An abstraction for slicing an arraybuffer even when
  * ArrayBuffer.prototype.slice is not supported
@@ -19962,7 +20003,7 @@ module.exports = function(arraybuffer, start, end) {
   return result.buffer;
 };
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 /*
  * base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer
@@ -20023,7 +20064,7 @@ module.exports = function(arraybuffer, start, end) {
   };
 })("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
 
-},{}],49:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 (function (global){
 /**
  * Create a blob builder even when vendor prefixes exist
@@ -20076,7 +20117,7 @@ module.exports = (function() {
 })();
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],50:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 (function (global){
 /*! http://mths.be/utf8js v2.0.0 by @mathias */
 ;(function(root) {
@@ -20319,7 +20360,7 @@ module.exports = (function() {
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -20344,7 +20385,7 @@ try {
   module.exports = false;
 }
 
-},{"global":52}],52:[function(require,module,exports){
+},{"global":53}],53:[function(require,module,exports){
 
 /**
  * Returns `this`. Execute this without a "context" (i.e. without it being
@@ -20354,7 +20395,7 @@ try {
 
 module.exports = (function () { return this; })();
 
-},{}],53:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 (function (global){
 /**
  * JSON parse.
@@ -20389,7 +20430,7 @@ module.exports = function parsejson(data) {
   }
 };
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],54:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 /**
  * Compiles a querystring
  * Returns string representation of the object
@@ -20428,7 +20469,7 @@ exports.decode = function(qs){
   return qry;
 };
 
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -20469,7 +20510,7 @@ module.exports = function parseuri(str) {
     return uri;
 };
 
-},{}],56:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -20514,7 +20555,7 @@ function ws(uri, protocols, opts) {
 
 if (WebSocket) ws.prototype = WebSocket.prototype;
 
-},{}],57:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 (function (global){
 
 /*
@@ -20576,12 +20617,12 @@ function hasBinary(data) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":58}],58:[function(require,module,exports){
+},{"isarray":59}],59:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -20592,7 +20633,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],60:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 
 /**
  * HOP ref.
@@ -20677,7 +20718,7 @@ exports.length = function(obj){
 exports.isEmpty = function(obj){
   return 0 == exports.length(obj);
 };
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -20704,7 +20745,7 @@ module.exports = function parseuri(str) {
   return uri;
 };
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 (function (global){
 /*global Blob,File*/
 
@@ -20849,7 +20890,7 @@ exports.removeBlobs = function(data, callback) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./is-buffer":64,"isarray":65}],63:[function(require,module,exports){
+},{"./is-buffer":65,"isarray":66}],64:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -21247,7 +21288,7 @@ function error(data){
   };
 }
 
-},{"./binary":62,"./is-buffer":64,"component-emitter":28,"debug":29,"isarray":65,"json3":66}],64:[function(require,module,exports){
+},{"./binary":63,"./is-buffer":65,"component-emitter":29,"debug":30,"isarray":66,"json3":67}],65:[function(require,module,exports){
 (function (global){
 
 module.exports = isBuf;
@@ -21264,9 +21305,9 @@ function isBuf(obj) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],65:[function(require,module,exports){
-arguments[4][58][0].apply(exports,arguments)
-},{"dup":58}],66:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
+arguments[4][59][0].apply(exports,arguments)
+},{"dup":59}],67:[function(require,module,exports){
 /*! JSON v3.2.6 | http://bestiejs.github.io/json3 | Copyright 2012-2013, Kit Cambridge | http://kit.mit-license.org */
 ;(function (window) {
   // Convenience aliases.
@@ -22129,7 +22170,7 @@ arguments[4][58][0].apply(exports,arguments)
   }
 }(this));
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -22144,7 +22185,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -22154,7 +22195,7 @@ var jade_interp;
 
 buf.push("<div class=\"about\"><div id=\"floater\"><div class=\"container\"><h3>About</h3><p>This site was made by <a href=\"http://simonmcmanus.com\">Simon McManus</a>.</p><p>It makes extensive use of <a href=\"http://csstubemap.co.uk\">csstubemap.co.uk</a> from <a href=\"http://www.johngalantini.com/\">John Galantini</a>.</p><p>If you have any questions please contact me via email: \"mcmanus.simon@gmail.com\" or by making issues on the github page.</p><p>The source code is available at <a href=\"http://github.com/simonmcmanus\">http://github.com/simonmcmanus</a></p></div></div></div>");;return buf.join("");
 };
-},{"jade/runtime":16}],69:[function(require,module,exports){
+},{"jade/runtime":17}],70:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -22179,7 +22220,7 @@ var about = module.exports = function(NT) {
 about.prototype.destroy = function(callback) {
     callback();
 };
-},{"./about.jade":68,"jquery":17}],70:[function(require,module,exports){
+},{"./about.jade":69,"jquery":18}],71:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -22189,7 +22230,7 @@ var jade_interp;
 
 buf.push("\n");;return buf.join("");
 };
-},{"jade/runtime":16}],71:[function(require,module,exports){
+},{"jade/runtime":17}],72:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -22218,9 +22259,7 @@ var home = module.exports = function(NT) {
 home.prototype.destroy = function(callback) {
     callback();
 };
-},{"../../components/station-switcher/station-switcher.js":6,"./home.jade":70,"jquery":17}],72:[function(require,module,exports){
-(function(e,t){"use strict";function s(t){return e.isPlainObject(e(t).data(h))}function i(e,s){return f[s]!==t?f[s].apply(e,u.call(arguments,2)):e}function n(t){return i(t,"option","placeholder")||t.data("placeholder")||e.bselect.i18n.selectAnOption}function a(e){var t=e.find(".bselect-option-list"),s=t.find("li:visible").length;t.innerHeight(1.5*parseInt(t.css("line-height"),10)*(5>s?s:5))}function l(t,s,n){var a=i(t,"element");e.each(s,function(t,s){if(n[t]!==s&&"size"===t){var i=e.map(b.slice(0),function(e){return"bselect-"+e}).join(" ");a.removeClass(i),b.indexOf(n.size)>-1&&a.addClass("bselect-"+n.size)}})}function o(t){var s=i(t,"element");s.find(".bselect-message").text(e.bselect.i18n.noOptionsAvailable).show()}function r(t){if(38===t.keyCode||40===t.keyCode||13===t.keyCode){var s=e(this),i=s.is(".bselect-search-input");switch(t.keyCode){case 38:i?e(t.delegateTarget).find(".bselect-option:visible:last").focus():s.prevAll(".bselect-option:visible").eq(0).focus();break;case 40:i?e(t.delegateTarget).find(".bselect-option:visible:first").focus():s.nextAll(".bselect-option:visible").eq(0).focus();break;case 13:i||s.trigger("click")}return!1}}function c(s,a){var o,c,b,u,v,g=e(s);if(u=++d,b=e("<div class='bselect' />",{id:"bselect-"+u}),v=e("<div class='bselect-dropdown' />"),a.searchInput===!0){var m=e("<div class='bselect-search' />");e("<input type='text' class='bselect-search-input' />").attr({role:"combobox",tabindex:1,"aria-expanded":"false","aria-owns":"bselect-option-list-"+u}).appendTo(m),e("<span class='bselect-search-icon' />").append("<i class='icon-search'></i>").appendTo(m),m.appendTo(v)}e("<div class='bselect-message' role='status' />").appendTo(v),e("<ul class='bselect-option-list' />").attr({id:"bselect-option-list-"+u,role:"listbox"}).appendTo(v),b.append(v).insertAfter(g),g.data(h,{options:a,element:b,open:!1}),l(g,e.bselect.defaults,a),i(g,"refresh"),g.bind("bselectselect.bselect",a.select),g.bind("bselectselected.bselect",a.selected),g.bind("bselectsearch.bselect",a.search),c=e("<span />").addClass("bselect-label").text(n(g)),o=e("<button type='button' />").addClass("bselect-caret").html("<span class='caret'></span>"),b.prepend(o).prepend(c),c.outerWidth(g.outerWidth()-o.outerWidth()),g.addClass("bselect-inaccessible"),p.push(g),b.find(".bselect-search-input").keyup(e.proxy(f.search,g)),b.on("click",".bselect-option",e.proxy(f.select,g)),b.on("click",".bselect-caret, .bselect-label",e.proxy(f.toggle,g)),b.on("keydown",".bselect-option, .bselect-search-input",r),g.bind("change.bselect",function(){var e=g.data(h),s=e.itemsMap[this.value];return e.tempDisable?(e.tempDisable=!1,t):(i(g,"select",s),t)}).trigger("change.bselect")}var d=0,h="bselect",p=[],b=["mini","small","large"],u=Array.prototype.slice,f={option:function(s,i){var n=this.data(h).options||{},a=e.extend({},n);return"string"==typeof s&&"_"!==s[0]?i===t?n[s]:(n[s]=i,l(this,a,n),this):(e.isPlainObject(s)&&(e.extend(n,s),l(this,a,n),this.data(h).options=n),n)},element:function(){return this.data(h).element},toggle:function(t){if(this[0].disabled)return this;var s=i(this,"element");if(t instanceof e.Event){var n=i(this,"option","showOn");if(e(t.target).is(".bselect-label")&&"both"!==n)return this}return s.find(".bselect-dropdown").is(":hidden")?i(this,"show"):i(this,"hide"),this},show:function(){var t,s,n,l,o,r=this.data(h);if(this[0].disabled||r.open)return this;if(n=r.element,l=n.find(".bselect-dropdown"),l.css("left","-9999em").show(),a(n),s=n.find(".bselect-option.active"),s.length){var c=n.find(".bselect-option-list"),d=s.position().top,p=c.position().top;c.height()>d-p?c.scrollTop(0):c.scrollTop(d-p)}return l.hide().css("left","auto"),l.slideDown(i(this,"option","animationDuration")),this.data(h,e.extend(r,{open:!0})),n.addClass("open"),t=n.find(".bselect-search-input").focus(),o=t.parent().width()-t.next().outerWidth(),t.innerWidth(o),n.find(".bselect-search-input").attr("aria-expanded","true"),this},hide:function(s){var n=this.data(h);if(this[0].disabled||!n.open)return this;var a=n.options,l=n.element;return s=s===t?!0:s,this.data(h,e.extend(n,{open:!1})),l.find(".bselect-dropdown").slideUp(a.animationDuration),l.removeClass("open"),s&&a.clearSearchOnExit&&i(this,"clearSearch"),l.find(".bselect-search-input").attr("aria-expanded","false"),this},select:function(t){var s,n,a=i(this,"element");if(t instanceof e.Event)s=e(t.currentTarget);else if(s=a.find("li").eq(t),!s.length)return this;var l=a.find("li").removeClass("active").attr("aria-selected","false").index(s),o=this.find("option[value!='']").get(l);return this.trigger("bselectselect",[o]),n=s.addClass("active").data("value"),s.attr("aria-selected","true"),a.find(".bselect-label").text(s.text()),i(this,"hide"),this.data(h).tempDisable=!0,this.val(n).trigger("change"),this.trigger("bselectselected",[n,o]),this},search:function(t){var s,n,l,r,c,d=i(this,"option"),h=t instanceof e.Event?t.target.value:t,p=i(this,"element");if(this[0].disabled)return this;if(""===h&&i(this,"clearSearch"),t instanceof e.Event||p.find(".bselect-search").val(h),!(h===d.lastSearch||h.length<d.minSearchInput)){for(c=e(),s=p.find("li").hide(),l=0,r=s.length;r>l;l++)n=s[l],n.textContent.toLowerCase().indexOf(h.toLowerCase())>-1&&(c=c.add(e(n).show()));return 0===c.length?o(this):p.find(".bselect-message").hide(),this.trigger("bselectsearch",[h,c]),a(s.end()),this}},clearSearch:function(){var e=i(this,"element");return e.find(".bselect-search-input").val(""),e.find("li").show(),e.find(".bselect-message").hide(),a(e),this},disable:function(){return this[0].disabled||(i(this,"element").addClass("disabled"),this.prop("disabled",!0)),this},enable:function(){return this[0].disabled&&(i(this,"element").removeClass("disabled"),this.prop("disabled",!1)),this},refresh:function(){var t=i(this,"element"),s=t.find(".bselect-option-list").empty(),n={},a=0;return t.toggleClass("disabled",this.prop("disabled")),this.find("option, > optgroup").each(function(){var t,i,l=e(this).is("option");(!l||this.value)&&(l?(t="bselect-option",e(this).closest("optgroup").length&&(t+=" grouped")):t="bselect-option-group",i=e("<li />").attr({"class":t,role:"option",tabindex:l?2:-1,"aria-selected":"false"}),l?(i.data("value",this.value),n[this.value]=a,i.html("<a href='#'>"+this.text+"</a>")):i.text(this.label),i.appendTo(s),a++)}),0===a&&o(this),this.data(h).itemsMap=n,this},destroy:function(){var e=i(this,"element");return this.data(h,null),p.splice(p.indexOf(this),1),e.remove(),this.removeClass("bselect-inaccessible").unbind(".bselect"),this}};e.fn.bselect=function(i){return"string"==typeof i&&this[0]?s(this[0])&&f[i]!==t?f[i].apply(e(this[0]),u.call(arguments,1)):this:this.each(function(){s(this)||(i=e.isPlainObject(i)?i:{},i=e.extend({},e.bselect.defaults,i),c(this,i))})},e.bselect={defaults:{size:"normal",showOn:"both",clearSearchOnExit:!0,minSearchInput:0,animationDuration:300,searchInput:!0,search:null,select:null,selected:null},i18n:{selectAnOption:"Select an option",noOptionsAvailable:"No options available."}},e(document).on("click.bselect","label",function(t){var s,n,a;for(s=0,n=p.length;n>s;s++)if(a=p[s][0].id,a&&e(t.target).attr("for")===a)return i(p[s],"show"),!1}).on("click.bselect",function(e){var t,s,n;for(t=0,s=p.length;s>t;t++)n=p[t].data(h),n.open&&!n.element.has(e.target).length&&i(p[t],"hide")}),e(window).resize(function(){var e,t,s,i;for(e=0,t=p.length;t>e;e++)s=p[e].data(h),i=s.element.find(".bselect-caret"),s.element.find(".bselect-label").outerWidth(p[e].outerWidth()-i.outerWidth())})})(jQuery);
-},{}],73:[function(require,module,exports){
+},{"../../components/station-switcher/station-switcher.js":8,"./home.jade":71,"jquery":18}],73:[function(require,module,exports){
 'use strict';
 
 var $  = window.jQuery = require('jquery');
@@ -22230,9 +22269,12 @@ var attachFastClick = require('fastclick');
 attachFastClick(document.body);
 
 
- require('./bselect');
-
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
+
+
+var TriggerBack = require('../../../triggerback/index');
+var bus = new TriggerBack();
+
 var page = require('../../public/libs/page.js');
 
 var tubesComponent = require('../../components/tubes/tubes.js');
@@ -22241,9 +22283,6 @@ var searchComponent = require('../../components/search/search.js');
 var HomePage = require('../home/home');
 var StationPage = require('../station/station');
 var AboutPage = require('../about/about');
-
-
-
 
 window.NT = {
     bus: bus,
@@ -22297,7 +22336,17 @@ if(window.location.hostname === 'woodford.today') {
 
 var socket = io(url);
 
-},{"../../components/search/search.js":3,"../../components/tubes/tubes.js":12,"../../node_modules/backbone-events-standalone":14,"../../public/libs/page.js":77,"../about/about":69,"../home/home":71,"../station/station":76,"./bselect":72,"fastclick":15,"jquery":17,"socket.io-client":20}],74:[function(require,module,exports){
+},{"../../../triggerback/index":1,"../../components/search/search.js":5,"../../components/tubes/tubes.js":13,"../../node_modules/backbone-events-standalone":15,"../../public/libs/page.js":78,"../about/about":70,"../home/home":72,"../station/station":77,"fastclick":16,"jquery":18,"socket.io-client":21}],74:[function(require,module,exports){
+var jade = require("jade/runtime");
+
+module.exports = function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+;var locals_for_with = (locals || {});(function (stationCode) {
+buf.push("<h2>Ooops</h2><div class=\"detail\">Something Went wrong. you can try refreshing the page, or maybe pop back later.<p>" + (jade.escape(null == (jade_interp = 'An error occured fetching ' + stationCode) ? "" : jade_interp)) + "</p></div><hr/>");}.call(this,"stationCode" in locals_for_with?locals_for_with.stationCode:typeof stationCode!=="undefined"?stationCode:undefined));;return buf.join("");
+};
+},{"jade/runtime":17}],75:[function(require,module,exports){
 module.exports={
   "bank": "BNK",
   "barkingside": "BDE",
@@ -22349,15 +22398,15 @@ module.exports={
   "white-city": "WCT",
   "woodford": "WFD"
 }
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
 var buf = [];
 var jade_mixins = {};
 var jade_interp;
-;var locals_for_with = (locals || {});(function (station) {
-buf.push("<div id=\"floater\" class=\"raised\"><div class=\"container\"><div" + (jade.attr("data-station-code", station.code, true, false)) + " class=\"stationContainer\"><div class=\"listing\">");
+;var locals_for_with = (locals || {});(function (state, station) {
+buf.push("<div id=\"floater\"" + (jade.attr("data-state", state|'', true, false)) + " class=\"raised\"><div class=\"container\"><div" + (jade.attr("data-station-code", station.code, true, false)) + " class=\"stationContainer\"><div class=\"listing\">");
 var noTrains = true;
 if ( station)
 {
@@ -22460,9 +22509,9 @@ if ( noTrains)
 {
 buf.push("<h3 class=\"noTrains\">No Trains</h3>");
 }
-buf.push("</div><div class=\"error\"></div></div></div></div>");}.call(this,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined));;return buf.join("");
+buf.push("</div><div class=\"error\"></div></div></div></div>");}.call(this,"state" in locals_for_with?locals_for_with.state:typeof state!=="undefined"?state:undefined,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined));;return buf.join("");
 };
-},{"jade/runtime":16}],76:[function(require,module,exports){
+},{"jade/runtime":17}],77:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -22472,6 +22521,8 @@ var floaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');
 
 var template = require('./station.jade');
+var templateError = require('./error.jade');
+
 
 var station = module.exports = function(NT, socket) {
     var self = this;
@@ -22485,76 +22536,59 @@ var station = module.exports = function(NT, socket) {
 
 station.prototype.route = function(context) {
     var self = this;
-    // messsy
-    NT.activePage = 'station';
-    $('body').attr('data-page', 'station');
+
+    var stationCode = urlCodes[context.params.stationName];
 
     if(!context.init) {
-        $('#content').addClass('hide');
-        $('.page').attr('id', 'station');
-        self.bus.trigger('loader:show');
-        var stationCode = urlCodes[context.params.stationName];
-        self.bus.trigger('station', {code: stationCode});
+
+
+        this.bus.trigger('moving', {}, function() {
+            // add loading class here.
+           self.bus.trigger('zoomto:station', { code: stationCode } , function() {
+               self.bus.trigger('zoom:finished');
+           });
+        });
+
+
 
         self.getStationData(context.canonicalPath, function(data) {
             document.title = data.name;
-
-            var markup = template({
-                station: data
-            });
-            console.log('got station data: markup[0].outerHTML', markup);
-            $('#content').html(markup);
-            self.bus.on('zoom:finished', function() {
-                self.bus.trigger('data:inplace');
-            });
-            self.listen({
-                code: urlCodes[context.params.stationName]
-            });
-            self.setup();
+            self.setup(stationCode);
+            self.station.render(data);
         });
-
-        // self.bus.trigger('station', {
-        //     slug: context.params.stationName,
-        //     code: urlCodes[context.params.stationName]
-        // });
     } else {
-        self.setup();
-        self.listen({
-            code: urlCodes[context.params.stationName]
-        });
+        self.setup(stationCode);
     }
-
-
-
 };
 
 
-station.prototype.setup = function() {
+station.prototype.setup = function(code) {
 
-    new stationComp($('.stationContainer'), this.bus);
+    this.station = new stationComp($('.stationContainer'), this.bus);
+
     if(this.floater) {
         this.floater.$el = $('#floater');
-    }
-    else {
+    } else {
         this.floater = new floaterComp($('#floater'), this.bus);
-        
     }
+
+    this.listen({
+        code: code
+    });
+
 };
 
 station.prototype.destroy = function(callback) {
-    $('#content').removeClass('hide');
     this.stopListen();
-    callback();
+    this.floater.setState('small', callback);
 };
 
 station.prototype.getStationData = function(path, callback) {
-    var self = this;
     $('.page').attr('id', 'station');
     $.ajax({
         url: path + '?ajax=true' ,
         headers: {
-            'Accept': 'application/json',
-            //'X-PJAX': 'true'
+            'Accept': 'application/json'
         },
         complete: function(xhr, status) {
             if(status === 'error') {
@@ -22570,30 +22604,27 @@ station.prototype.errorCallback = function(stationCode) {
     this.$el.find('.trains').empty();
     this.$el.find('.error').html(templateError({stationCode: stationCode}));
     this.bus.trigger('error:show');
-}
+};
 
 station.prototype.stopListen = function() {
-    //console.log('stop', 'station:' + this.activeStation);
     this.socket.off('station:' + this.activeStation);
     this.activeStation = null;
 };
 
 station.prototype.listen = function(station) {
-     this.activeStation = station.code;
-     //console.log('listening to', this.activeStation);
-     this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
+    this.activeStation = station.code;
+    this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
 };
 
 station.prototype.stationChanges = function(changes) {
     var self = this;
     changes.forEach(function(change) {
-        //console.log('got change', change);
         if(change.parent) {
             self.bus.trigger(change.parent, change);
         }
     });
 };
-},{"../../components/floater/floater.js":2,"../../components/station/station.js":8,"./station-url-codes.json":74,"./station.jade":75,"jquery":17}],77:[function(require,module,exports){
+},{"../../components/floater/floater.js":4,"../../components/station/station.js":10,"./error.jade":74,"./station-url-codes.json":75,"./station.jade":76,"jquery":18}],78:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.page=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
