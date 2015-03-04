@@ -13570,8 +13570,10 @@ var template = require('./home.jade');
 
 var switcherComp = require('../../components/station-switcher/station-switcher.js');
 
-var home = module.exports = function(NT) {
-    NT.page('/', function(context) {
+var NT = window.NT;
+
+NT.pages.home = module.exports = function(context) {
+    console.log('DO HOME')
         NT.activePage = 'home';
         NT.bus.trigger('zoom:out');
         if(!context.init) {
@@ -13580,14 +13582,13 @@ var home = module.exports = function(NT) {
             $('#content').html(template());
             $('#content').removeClass('hideTop');
         }
-        new switcherComp($('div.settings'), bus);
+        new switcherComp($('div.settings'), NT.bus);
         setTimeout(function() {
             $('input').eq(1).focus();
         }, 500);
-    });
 };
 
-home.prototype.destroy = function(callback) {
+NT.pages.home.prototype.destroy = function(callback) {
     callback();
 };
 },{"../../components/station-switcher/station-switcher.js":3,"./home.jade":9,"jquery":6}]},{},[10]);

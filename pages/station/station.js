@@ -14,7 +14,7 @@ var NT = window.NT;
 
 NT.pages.station = function(context) {
 
-
+    var self = this;
     // if context .init
 //    console.log(context);
 
@@ -25,17 +25,17 @@ NT.pages.station = function(context) {
         NT.bus.trigger('zoom:finished');
     });
 
-    // this.bus.trigger('moving', {}, function() {
-    //     NT.bus.trigger('loading');
-    //     self.getStationData(context.canonicalPath, function(data) {
-    //         document.title = data.name;
-    //         self.setup(stationCode);
-    //         self.station.render(data);
+    NT.bus.trigger('moving', {}, function() {
+        NT.bus.trigger('loading');
+        self.getStationData(context.canonicalPath, function(data) {
+            document.title = data.name;
+            self.setup(stationCode);
+            self.station.render(data);
 
-    //         // set height (without animation) here.
-    //         self.bus.trigger('loaded');
-    //     });
-    // });
+            // set height (without animation) here.
+            NT.bus.trigger('loaded');
+        });
+    });
 };
 
 
@@ -49,8 +49,8 @@ NT.pages.station.prototype.leave = function() {
 
 
 NT.pages.station.prototype.getStationData = function(path, callback) {
-    $('.page').attr('id', 'station');
-    $.ajax({
+    NT.$('.page').attr('id', 'station');
+    NT.$.ajax({
         url: path + '?ajax=true' ,
         headers: {
             'Accept': 'application/json'
@@ -65,6 +65,22 @@ NT.pages.station.prototype.getStationData = function(path, callback) {
     });
 };
 
+
+NT.pages.station.prototype.setup = function(code) {
+
+    this.station = new StationComp(NT.$('.stationContainer'), NT.bus);
+
+    if(this.floater) {
+        this.floater.$el = $('#floater');
+    } else {
+        this.floater = new FloaterComp(NT.$('#floater'), NT.bus);
+    }
+
+    // this.listen({
+    //     code: code
+    // });
+
+};
 
 
 
@@ -100,22 +116,6 @@ NT.pages.station.prototype.getStationData = function(path, callback) {
 //     }
 // };
 
-
-// station.prototype.setup = function(code) {
-
-//     this.station = new stationComp($('.stationContainer'), this.bus);
-
-//     if(this.floater) {
-//         this.floater.$el = $('#floater');
-//     } else {
-//         this.floater = new floaterComp($('#floater'), this.bus);
-//     }
-
-//     this.listen({
-//         code: code
-//     });
-
-// };
 
 // station.prototype.destroy = function(callback) {
 //     this.stopListen();

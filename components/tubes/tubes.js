@@ -24,12 +24,10 @@ tubes.prototype.focus = function(station, callback) {
     $('html, body').animate({scrollTop : headerHeight}, 500);
     this.$el.attr('data-station', station.code);
     this.$el.find('li.active').removeClass('active z-depth-2');
-
     $('li.' + station.code ).addClass('active z-depth-2');
-    this.$el.one('transitionend', function() {
+    this.$el.on('transitionend', function() {
         $('ul.line li  a.point').removeClass('point');
         $('ul.line li.' + station.code + ' a').addClass('point');
-        console.log('cb', callback)
         callback();
     });
 };
@@ -48,7 +46,8 @@ tubes.prototype.highlight = function(stations) {
     });
 };
 
-tubes.prototype.zoomOut = function() {
+tubes.prototype.zoomOut = function(params, next) {
     this.$el.attr('data-station', '');
     this.unfocus();
+    next();
 };
