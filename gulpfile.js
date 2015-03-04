@@ -30,11 +30,11 @@ gulp.task('autoprefixer', function () {
 gulp.task('compressjs', function() {
   gulp.src('./public/pages/js/shared.js')
     .pipe(uglify())
-    .pipe(gulp.dest('./public/pages/js'))
+    .pipe(gulp.dest('./public/pages/js'));
 });
 
 
 gulp.task('watch', function () {
     gulp.watch(['components/**/*.scss', 'pages/**/*.scss'], ['build:css']);
-    gulp.watch(['components/**/*.js', 'components/**/*.jade', 'views/**', 'pages/*/*.js'], ['build:js']);
+    gulp.watch(['../pageify/*.js', 'components/**/*.js', 'components/**/*.jade', 'views/**', 'pages/*/*.js'], ['build:js']);
 });

@@ -1,6 +1,7 @@
 head
     title=title || 'next-tube.london'
     link(rel="stylesheet", type="text/css", href="/pages/css/style.css")
+    link#perPageStyle(rel="stylesheet", type="text/css", href="/pages/css/" + pageId + ".css")
     meta( name="viewport", content="initial-scale=1, witdth=800, user-scalable=no")
 
     link(rel='shortcut icon', href='http://www.tfl.gov.uk/cdn/static/assets/icons/favicon.ico', type='image/x-icon')
@@ -14,7 +15,6 @@ head
     link(rel='apple-touch-icon', sizes='114x114', href='http://www.tfl.gov.uk/cdn/static/assets/icons/apple-touch-icon@2x.png')
     link(rel='apple-touch-icon', sizes='144x144', href='http://www.tfl.gov.uk/cdn/static/assets/icons/apple-touch-icon-72@2x.png')
 
-
 body(data-page=pageId)
     include ../components/header/header.jade
     #content
@@ -23,3 +23,4 @@ body(data-page=pageId)
     div.clear
     include ../components/tubes/tubes.jade
     script(src='/pages/js/shared.js')
+    script(src='/pages/js/' + pageId + '.js')

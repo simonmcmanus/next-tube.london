@@ -18,3 +18,12 @@ public/css/shared.css.map
 
 components/duo.json
 
+
+*.css
+
+*.map
+*style.css.map
+
+*.map
+
+*.map

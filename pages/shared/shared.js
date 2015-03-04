@@ -1,4 +1,8 @@
 'use strict';
+window.NS = {};
+require('pageify');
+
+
 
 var $  = window.jQuery = require('jquery');
 var io = require('socket.io-client');
@@ -13,7 +17,6 @@ var bus = new TriggerBack(true);
 
 require('pageify');
 
-
 var tubesComponent = require('../../components/tubes/tubes.js');
 var searchComponent = require('../../components/search/search.js');
 //var SearchPage = require('../search/search');
@@ -27,34 +30,33 @@ window.NT = {
     activePage: null,
     pages: {}
 };
-
-// it a page is already setup run destroy.
-page(function(context, next) {
-    var nextCalled = false;
-    if(!context.init && NT.activePage) {
-        if(NT.pages[NT.activePage].destroy) {
-            NT.pages[NT.activePage].destroy(next);
-            nextCalled = true;
-        }
-    }
-    if(!nextCalled){
-        next();
-    }
-});
+// // it a page is already setup run destroy.
+// page(function(context, next) {
+//     var nextCalled = false;
+//     if(!context.init && NT.activePage) {
+//         if(NT.pages[NT.activePage].destroy) {
+//             NT.pages[NT.activePage].destroy(next);
+//             nextCalled = true;
+//         }
+//     }
+//     if(!nextCalled){
+//         next();
+//     }
+// });
 
 $(document).ready(function() {
-    new tubesComponent($('.map-wrapper'), bus);
-    new searchComponent($('form.search'), bus);
-    // init all the pages.
+//     new tubesComponent($('.map-wrapper'), bus);
+//     new searchComponent($('form.search'), bus);
+//     // init all the pages.
 
-    NT.pages = {
-        home: new HomePage(NT, socket),
-        station: new StationPage(NT, socket),
-//        search: new SearchPage(NT, socket),
-        about: new AboutPage(NT, socket)
-    };
+//     NT.pages = {
+//         home: new HomePage(NT, socket),
+//         station: new StationPage(NT, socket),
+// //        search: new SearchPage(NT, socket),
+//         about: new AboutPage(NT, socket)
+//     };
 
-    page();
+//     page();
     bus.trigger('document:ready');
 });
 
@@ -67,7 +69,7 @@ var url;
 if(window.location.hostname === 'woodford.today') {
     url = 'http://www.next-tube.london/';
 } else {
-    url = 'http://127.0.0.1:4000/';
+    url = 'http://127.0.0.1:3040/';
 }
 
 var socket = io(url);

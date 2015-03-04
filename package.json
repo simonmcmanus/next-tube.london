@@ -35,6 +35,9 @@
   "engines": {
     "node": "0.10.x"
   },
+  "browserify": {
+    "transform": ["jadeify", "../pageify/transform.js"]
+  },
   "devDependencies": {
     "browserify": "^9.0.3",
     "duo": "^0.8.4",
