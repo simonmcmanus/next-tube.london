@@ -1,9 +1,12 @@
 // overridable
 module.exports = {
-  NS:'NS',
+  NS:'NT',
   PAGES_FOLDER: './pages/',
   JS_EXT: '.js',
   CSS_EXT: '.scss',
+  setupPage: function(page, context) {
+    window.NT.pages[page](context);
+  },
   PUBLIC_FOLDER: '/pages/',
   STYLE_ID: '#perPageStyle',
   mappings: {
@@ -20,7 +23,7 @@ module.exports = {
         page: 'about',
         route: 'about'
     },
-    '/:line/:station': {
+    '/:line/:stationName': {
         page: 'station',
         route: 'station'
 

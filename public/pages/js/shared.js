@@ -23301,79 +23301,66 @@ home.prototype.destroy = function(callback) {
     callback();
 };
 },{"../../components/station-switcher/station-switcher.js":8,"./home.jade":78,"jquery":19}],80:[function(require,module,exports){
-'use strict';
-window.NS = {};
+
+window.NT = {
+    pages: {}
+};
 'use strict';
 var page = require('page');
 var scriptLoader = require('scriptjs');
 
 if (history.pushState) {
 
-    var changePage = function(page, context){
-    };
+  var setupPage=function (page, context) {
+    window.NT.pages[page](context);
+  }
 
-console.log("router loaded", "/");
     page('/', function (context, next) {
         if (!context.init) {
-console.log(" script loadings")
-            if (!NS.pages) {
-              NS.pages = {}
+            if (!NT.pages) {
+              NT.pages = {}
             }
-            if (!NS.pages['home']) {
                 scriptLoader('/pages//js/home.js', function (a, b) {
-                  changePage('home', context);
+                  setupPage('home', context);
                 });
-            } else {
-                changePage('home', context);
-            }
         } else {
-            changePage('home', context);
+            setupPage('home', context);
         }
         document.querySelector('link#perPageStyle').href = '/pages/css/home.css';
     });
 
-console.log("router loaded", "/about");
     page('/about', function (context, next) {
         if (!context.init) {
-console.log(" script loadings")
-            if (!NS.pages) {
-              NS.pages = {}
+            if (!NT.pages) {
+              NT.pages = {}
             }
-            if (!NS.pages['about']) {
                 scriptLoader('/pages//js/about.js', function (a, b) {
-                  changePage('about', context);
+                  setupPage('about', context);
                 });
-            } else {
-                changePage('about', context);
-            }
         } else {
-            changePage('about', context);
+            setupPage('about', context);
         }
         document.querySelector('link#perPageStyle').href = '/pages/css/about.css';
     });
 
-console.log("router loaded", "/:line/:station");
-    page('/:line/:station', function (context, next) {
+    page('/:line/:stationName', function (context, next) {
         if (!context.init) {
-console.log(" script loadings")
-            if (!NS.pages) {
-              NS.pages = {}
+            if (!NT.pages) {
+              NT.pages = {}
             }
-            if (!NS.pages['station']) {
                 scriptLoader('/pages//js/station.js', function (a, b) {
-                  changePage('station', context);
+                  setupPage('station', context);
                 });
-            } else {
-                changePage('station', context);
-            }
         } else {
-            changePage('station', context);
+            setupPage('station', context);
         }
         document.querySelector('link#perPageStyle').href = '/pages/css/station.css';
     });
 
 
+document.addEventListener("DOMContentLoaded", function(event) { 
     page();
+});
 };
 
 
@@ -23383,6 +23370,7 @@ var io = require('socket.io-client');
 
 var attachFastClick = require('fastclick');
 attachFastClick(document.body);
+
 
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
 
@@ -23395,71 +23383,56 @@ var scriptLoader = require('scriptjs');
 
 if (history.pushState) {
 
-    var changePage = function(page, context){
-    };
+  var setupPage=function (page, context) {
+    window.NT.pages[page](context);
+  }
 
-console.log("router loaded", "/");
     page('/', function (context, next) {
         if (!context.init) {
-console.log(" script loadings")
-            if (!NS.pages) {
-              NS.pages = {}
+            if (!NT.pages) {
+              NT.pages = {}
             }
-            if (!NS.pages['home']) {
                 scriptLoader('/pages//js/home.js', function (a, b) {
-                  changePage('home', context);
+                  setupPage('home', context);
                 });
-            } else {
-                changePage('home', context);
-            }
         } else {
-            changePage('home', context);
+            setupPage('home', context);
         }
         document.querySelector('link#perPageStyle').href = '/pages/css/home.css';
     });
 
-console.log("router loaded", "/about");
     page('/about', function (context, next) {
         if (!context.init) {
-console.log(" script loadings")
-            if (!NS.pages) {
-              NS.pages = {}
+            if (!NT.pages) {
+              NT.pages = {}
             }
-            if (!NS.pages['about']) {
                 scriptLoader('/pages//js/about.js', function (a, b) {
-                  changePage('about', context);
+                  setupPage('about', context);
                 });
-            } else {
-                changePage('about', context);
-            }
         } else {
-            changePage('about', context);
+            setupPage('about', context);
         }
         document.querySelector('link#perPageStyle').href = '/pages/css/about.css';
     });
 
-console.log("router loaded", "/:line/:station");
-    page('/:line/:station', function (context, next) {
+    page('/:line/:stationName', function (context, next) {
         if (!context.init) {
-console.log(" script loadings")
-            if (!NS.pages) {
-              NS.pages = {}
+            if (!NT.pages) {
+              NT.pages = {}
             }
-            if (!NS.pages['station']) {
                 scriptLoader('/pages//js/station.js', function (a, b) {
-                  changePage('station', context);
+                  setupPage('station', context);
                 });
-            } else {
-                changePage('station', context);
-            }
         } else {
-            changePage('station', context);
+            setupPage('station', context);
         }
         document.querySelector('link#perPageStyle').href = '/pages/css/station.css';
     });
 
 
+document.addEventListener("DOMContentLoaded", function(event) { 
     page();
+});
 };
 
 var tubesComponent = require('../../components/tubes/tubes.js');
@@ -23469,12 +23442,8 @@ var HomePage = require('../home/home');
 var StationPage = require('../station/station');
 var AboutPage = require('../about/about');
 
-window.NT = {
-    bus: bus,
-    page: page,
-    activePage: null,
-    pages: {}
-};
+window.NT.bus = bus;
+
 // // it a page is already setup run destroy.
 // page(function(context, next) {
 //     var nextCalled = false;
@@ -23490,8 +23459,8 @@ window.NT = {
 // });
 
 $(document).ready(function() {
-//     new tubesComponent($('.map-wrapper'), bus);
-//     new searchComponent($('form.search'), bus);
+    new tubesComponent($('.map-wrapper'), bus);
+    new searchComponent($('form.search'), bus);
 //     // init all the pages.
 
 //     NT.pages = {
@@ -23519,17 +23488,7 @@ if(window.location.hostname === 'woodford.today') {
 
 var socket = io(url);
 
-},{"../../../triggerback/index":1,"../../components/search/search.js":5,"../../components/tubes/tubes.js":13,"../../node_modules/backbone-events-standalone":15,"../about/about":77,"../home/home":79,"../station/station":84,"fastclick":17,"jquery":19,"page":21,"scriptjs":24,"socket.io-client":26}],81:[function(require,module,exports){
-var jade = require("jade/runtime");
-
-module.exports = function template(locals) {
-var buf = [];
-var jade_mixins = {};
-var jade_interp;
-;var locals_for_with = (locals || {});(function (stationCode) {
-buf.push("<h2>Ooops</h2><div class=\"detail\">Something Went wrong. you can try refreshing the page, or maybe pop back later.<p>" + (jade.escape(null == (jade_interp = 'An error occured fetching ' + stationCode) ? "" : jade_interp)) + "</p></div><hr/>");}.call(this,"stationCode" in locals_for_with?locals_for_with.stationCode:typeof stationCode!=="undefined"?stationCode:undefined));;return buf.join("");
-};
-},{"jade/runtime":18}],82:[function(require,module,exports){
+},{"../../../triggerback/index":1,"../../components/search/search.js":5,"../../components/tubes/tubes.js":13,"../../node_modules/backbone-events-standalone":15,"../about/about":77,"../home/home":79,"../station/station":83,"fastclick":17,"jquery":19,"page":21,"scriptjs":24,"socket.io-client":26}],81:[function(require,module,exports){
 module.exports=module.exports = {
   "bank": "BNK",
   "barkingside": "BDE",
@@ -23581,7 +23540,7 @@ module.exports=module.exports = {
   "white-city": "WCT",
   "woodford": "WFD"
 }
-},{}],83:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -23694,83 +23653,58 @@ buf.push("<h3 class=\"noTrains\">No Trains</h3>");
 }
 buf.push("</div><div class=\"error\"></div></div></div></div>");}.call(this,"state" in locals_for_with?locals_for_with.state:typeof state!=="undefined"?state:undefined,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 };
-},{"jade/runtime":18}],84:[function(require,module,exports){
+},{"jade/runtime":18}],83:[function(require,module,exports){
 'use strict';
 
-
-var $ = require('jquery');
-
-var stationComp = require('../../components/station/station.js');
-var floaterComp = require('../../components/floater/floater.js');
+var StationComp = require('../../components/station/station.js');
+var FloaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');
 
+
 var template = require('./station.jade');
-var templateError = require('./error.jade');
+// var templateError = require('./error.jade');
 
 
-var station = module.exports = function(NT, socket) {
-    var self = this;
-    self.bus = NT.bus;
-    self.socket = socket;
-    self.activeStation = null;
+var NT = window.NT;
+//console.log('NT IS ', NT);
 
-    NT.page('/:line/:stationName', self.route.bind(this));
-    return this;
-};
+NT.pages.station = function(context) {
 
-station.prototype.route = function(context) {
-    var self = this;
 
+    // if context .init
+//    console.log(context);
+
+    // TODO - pass in correct code.
     var stationCode = urlCodes[context.params.stationName];
-
-    if(!context.init) {
-        // we need to run this if the station if the station has been initialised previously.
-        self.bus.trigger('zoomto:station', { code: stationCode } , function() {
-
-            self.bus.trigger('zoom:finished');
-        });
-
-        this.bus.trigger('moving', {}, function() {
-            self.bus.trigger('loading');
-            self.getStationData(context.canonicalPath, function(data) {
-                document.title = data.name;
-                self.setup(stationCode);
-                self.station.render(data);
-
-                // set height (without animation) here.
-                self.bus.trigger('loaded');
-            });
-        });
-
-
-    } else {
-        self.setup(stationCode);
-    }
-};
-
-
-station.prototype.setup = function(code) {
-
-    this.station = new stationComp($('.stationContainer'), this.bus);
-
-    if(this.floater) {
-        this.floater.$el = $('#floater');
-    } else {
-        this.floater = new floaterComp($('#floater'), this.bus);
-    }
-
-    this.listen({
-        code: code
+    console.log('station setup', stationCode)
+    NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
+        NT.bus.trigger('zoom:finished');
     });
 
+    // this.bus.trigger('moving', {}, function() {
+    //     NT.bus.trigger('loading');
+    //     self.getStationData(context.canonicalPath, function(data) {
+    //         document.title = data.name;
+    //         self.setup(stationCode);
+    //         self.station.render(data);
+
+    //         // set height (without animation) here.
+    //         self.bus.trigger('loaded');
+    //     });
+    // });
 };
 
-station.prototype.destroy = function(callback) {
-    this.stopListen();
-    this.floater.setState('small', callback);
+
+NT.pages.station.prototype.leave = function() {
+
 };
 
-station.prototype.getStationData = function(path, callback) {
+
+
+
+
+
+NT.pages.station.prototype.getStationData = function(path, callback) {
     $('.page').attr('id', 'station');
     $.ajax({
         url: path + '?ajax=true' ,
@@ -23787,28 +23721,85 @@ station.prototype.getStationData = function(path, callback) {
     });
 };
 
-station.prototype.errorCallback = function(stationCode) {
-    this.$el.find('.trains').empty();
-    this.$el.find('.error').html(templateError({stationCode: stationCode}));
-    this.bus.trigger('error:show');
-};
 
-station.prototype.stopListen = function() {
-    this.socket.off('station:' + this.activeStation);
-    this.activeStation = null;
-};
 
-station.prototype.listen = function(station) {
-    this.activeStation = station.code;
-    this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
-};
 
-station.prototype.stationChanges = function(changes) {
-    var self = this;
-    changes.forEach(function(change) {
-        if(change.parent) {
-            self.bus.trigger(change.parent, change);
-        }
-    });
-};
-},{"../../components/floater/floater.js":4,"../../components/station/station.js":10,"./error.jade":81,"./station-url-codes.json":82,"./station.jade":83,"jquery":19}]},{},[80]);
+
+
+// station.prototype.route = function(context) {
+//     var self = this;
+
+//     var stationCode = urlCodes[context.params.stationName];
+
+//     if(!context.init) {
+//         // we need to run this if the station if the station has been initialised previously.
+//         self.bus.trigger('zoomto:station', { code: stationCode } , function() {
+
+//             self.bus.trigger('zoom:finished');
+//         });
+
+//         this.bus.trigger('moving', {}, function() {
+//             self.bus.trigger('loading');
+//             self.getStationData(context.canonicalPath, function(data) {
+//                 document.title = data.name;
+//                 self.setup(stationCode);
+//                 self.station.render(data);
+
+//                 // set height (without animation) here.
+//                 self.bus.trigger('loaded');
+//             });
+//         });
+
+
+//     } else {
+//         self.setup(stationCode);
+//     }
+// };
+
+
+// station.prototype.setup = function(code) {
+
+//     this.station = new stationComp($('.stationContainer'), this.bus);
+
+//     if(this.floater) {
+//         this.floater.$el = $('#floater');
+//     } else {
+//         this.floater = new floaterComp($('#floater'), this.bus);
+//     }
+
+//     this.listen({
+//         code: code
+//     });
+
+// };
+
+// station.prototype.destroy = function(callback) {
+//     this.stopListen();
+//     this.floater.setState('small', callback);
+// };
+
+// station.prototype.errorCallback = function(stationCode) {
+//     this.$el.find('.trains').empty();
+//     this.$el.find('.error').html(templateError({stationCode: stationCode}));
+//     this.bus.trigger('error:show');
+// };
+
+// station.prototype.stopListen = function() {
+//     this.socket.off('station:' + this.activeStation);
+//     this.activeStation = null;
+// };
+
+// station.prototype.listen = function(station) {
+//     this.activeStation = station.code;
+//     this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
+// };
+
+// station.prototype.stationChanges = function(changes) {
+//     var self = this;
+//     changes.forEach(function(change) {
+//         if(change.parent) {
+//             self.bus.trigger(change.parent, change);
+//         }
+//     });
+// };
+},{"../../components/floater/floater.js":4,"../../components/station/station.js":10,"./station-url-codes.json":81,"./station.jade":82}]},{},[80]);

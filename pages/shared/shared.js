@@ -1,5 +1,7 @@
-'use strict';
-window.NS = {};
+
+window.NT = {
+    pages: {}
+};
 require('pageify');
 
 
@@ -9,6 +11,7 @@ var io = require('socket.io-client');
 
 var attachFastClick = require('fastclick');
 attachFastClick(document.body);
+
 
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
 
@@ -24,12 +27,8 @@ var HomePage = require('../home/home');
 var StationPage = require('../station/station');
 var AboutPage = require('../about/about');
 
-window.NT = {
-    bus: bus,
-    page: page,
-    activePage: null,
-    pages: {}
-};
+window.NT.bus = bus;
+
 // // it a page is already setup run destroy.
 // page(function(context, next) {
 //     var nextCalled = false;
@@ -45,8 +44,8 @@ window.NT = {
 // });
 
 $(document).ready(function() {
-//     new tubesComponent($('.map-wrapper'), bus);
-//     new searchComponent($('form.search'), bus);
+    new tubesComponent($('.map-wrapper'), bus);
+    new searchComponent($('form.search'), bus);
 //     // init all the pages.
 
 //     NT.pages = {
