@@ -5,7 +5,9 @@ mkdir ./public/pages/js/
 
 #rm components/duo.json
 #rmdir ./public/pages/js/pages/
-browserify -t jadeify ./pages/shared/shared.js > ./public/pages/js/shared.js
+#
+pwd
+browserify -t ../pageify/transform.js  -t  jadeify  ./pages/shared/shared.js > ./public/pages/js/shared.js
 
 #gulp compressjs
 #node_modules/duo/bin/duo -v --development --use duo-jade ./pages/shared/shared.js ./public/pages/js  

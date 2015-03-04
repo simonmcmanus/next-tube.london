@@ -27,7 +27,7 @@ app.set('view engine', 'jade');
 app.set('view cache', true);
 
 var server = http.createServer(app);
-var port =  process.env.PORT || 4000;
+var port =  process.env.PORT || 3040;
 
 server.listen(port, function () {
     console.log('Listening on ' + port);
@@ -35,6 +35,8 @@ server.listen(port, function () {
 
 var io = socket.listen(server);
 
+
+console.log(port);
 var models = new Models({
     station: require('./model/station'),
     //status: require('./fetchers/tfl-status')

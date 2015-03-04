@@ -13,17 +13,17 @@
   width: auto;
   z-index: 2000;
   position: absolute;
-  transition-property: height, width, border, background-color, opacity, -webkit-filter, background-image, transform;
-  transition-duration: .5s   , 1s   , 1s    , .4s              , .3s    , .3s           , .1s, .5s;
-  transition-delay:    .5s   , 0    , 0     , 0               , 0s    , 0             , .5s, 0;
+  transition-property: height, width, border, background-color, opacity, filter, background-image, transform, box-shadow;
+  transition-duration: .5s   , 1s   , 1s    , .4s              , .3s    , .3s           , .1s, .5s, .1s;
+  transition-delay:    .5s   , 0    , 0     , 0               , 0s    , 0             , .5s   , 0 , 0;
   transform: translate3d(0,0,0); // enable hardware acc for ipad.
 -webkit-transform-style: preserve-3d;
   @media (min-width: 500px) {
     margin-top: 9em;
   }
   .container {
-    -webkit-filter: blur(0px);
-    transition: -webkit-filter .4s linear;
+    filter: blur(0px);
+    transition: filter .4s linear;
     
   }
 
@@ -35,18 +35,19 @@
 
   &[data-state="small"] {
     z-index: 2000 !important;
+    box-shadow: 0;
 
     .container {
-      -webkit-filter: blur(3px);
+      filter: blur(5px);
     }
-    transform: translate3d(0, 5px, -48px);
+    transform: translate3d(0, 0px, -35px);
     opacity: 0;
   }
 
   &[data-state="blurred"] {
     .direction {
       background:rgba(255,255,255,0.8);
-      -webkit-filter: blur(4px);
+      filter: blur(4px);
     }
   }
 

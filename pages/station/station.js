@@ -38,6 +38,8 @@ station.prototype.route = function(context) {
                 document.title = data.name;
                 self.setup(stationCode);
                 self.station.render(data);
+
+                // set height (without animation) here.
                 self.bus.trigger('loaded');
             });
         });

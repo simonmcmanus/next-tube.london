@@ -31,7 +31,7 @@
 	  border-color: transparent $border-color;
   }
   &::after {
-	  border-color: transparent #f7f7f7;
+	  border-color: transparent #FAFAFA;
   }
   &.point {
   	&::before {
@@ -57,7 +57,7 @@
 	}
 	&::after {
 		left: -7px;
-		border-color: transparent #f7f7f7;
+		border-color: transparent #FBFBFB;
 	}
 }
 

@@ -6,14 +6,13 @@ var io = require('socket.io-client');
 var attachFastClick = require('fastclick');
 attachFastClick(document.body);
 
-
 var bus = window.bus = require("../../node_modules/backbone-events-standalone").mixin({});
-
 
 var TriggerBack = require('../../../triggerback/index');
 var bus = new TriggerBack(true);
 
-var page = require('../../public/libs/page.js');
+require('pageify');
+
 
 var tubesComponent = require('../../components/tubes/tubes.js');
 var searchComponent = require('../../components/search/search.js');
@@ -28,7 +27,6 @@ window.NT = {
     activePage: null,
     pages: {}
 };
-
 
 // it a page is already setup run destroy.
 page(function(context, next) {
