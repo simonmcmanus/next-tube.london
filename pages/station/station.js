@@ -13,29 +13,36 @@ var NT = window.NT;
 //console.log('NT IS ', NT);
 
 NT.pages.station = function(context) {
-
     var self = this;
-    // if context .init
-//    console.log(context);
-
-    // TODO - pass in correct code.
     var stationCode = urlCodes[context.params.stationName];
-    console.log('station setup', stationCode)
     NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
         NT.bus.trigger('zoom:finished');
     });
 
+    var dataShown = false;
+    var moved = false;
+
     NT.bus.trigger('moving', {}, function() {
         NT.bus.trigger('loading');
-        self.getStationData(context.canonicalPath, function(data) {
+        moved = true;
+        console.log('MOVING CHECK', dataShown, moved)
+        if(dataShown && moved) {
+            NT.bus.trigger('loaded');
+        }
+
+    });
+
+    if(!context.init) {
+        self.getStationData(context.canonicalPath, function(err, data) {
             document.title = data.name;
             self.setup(stationCode);
             self.station.render(data);
-
-            // set height (without animation) here.
-            NT.bus.trigger('loaded');
+            dataShown = true;
+            if(dataShown && moved) {
+                NT.bus.trigger('loaded');
+            }
         });
-    });
+    }
 };
 
 
@@ -49,25 +56,25 @@ NT.pages.station.prototype.leave = function() {
 
 
 NT.pages.station.prototype.getStationData = function(path, callback) {
-    NT.$('.page').attr('id', 'station');
+    console.log('GSD')
+    //NT.$('.page').attr('id', 'station');
+
+
+
     NT.$.ajax({
-        url: path + '?ajax=true' ,
+        url:  path + '?ajax=true',
         headers: {
             'Accept': 'application/json'
-        },
-        complete: function(xhr, status) {
-            if(status === 'error') {
-                console.log("ERRROR");
-                callback(true);
-            }
-        },
-        success: callback
+        }
+    }).then(function(data) {
+        callback(null, data)
+    }).fail(function(err) {
+        callback(err);
     });
 };
 
 
 NT.pages.station.prototype.setup = function(code) {
-
     this.station = new StationComp(NT.$('.stationContainer'), NT.bus);
 
     if(this.floater) {

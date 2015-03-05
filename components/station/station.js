@@ -35,7 +35,7 @@ station.prototype.directionInit = function() {
 };
 
 window.onresize = function() {
-    bus.trigger('resize');
+    NT.bus.trigger('resize');
 };
 
 station.prototype.render = function(data) {
