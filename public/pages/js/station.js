@@ -169,7 +169,7 @@ direction.prototype.listChange = function(data) {
         break;
     }
 }
-},{"../train/train":6,"../train/train.jade":5,"jquery":9}],2:[function(require,module,exports){
+},{"../train/train":6,"../train/train.jade":5,"jquery":8}],2:[function(require,module,exports){
 'use strict';
 
 
@@ -387,7 +387,7 @@ buf.push("<h3 class=\"noTrains\">No Trains</h3>");
 }
 buf.push("</div><div class=\"error\"></div></div>");}.call(this,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 };
-},{"jade/runtime":8}],4:[function(require,module,exports){
+},{"jade/runtime":7}],4:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -449,7 +449,7 @@ station.prototype.getStationData = function(path, callback) {
     });
 };
 
-},{"../direction/direction":1,"../station/station.jade":3,"jquery":9}],5:[function(require,module,exports){
+},{"../direction/direction":1,"../station/station.jade":3,"jquery":8}],5:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -462,7 +462,7 @@ if ( train)
 buf.push("<li" + (jade.attr("data-id", train.id, true, false)) + " class=\"train\"><div class=\"due-container\"><span class=\"due\">" + (jade.escape(null == (jade_interp = train.dueIn) ? "" : jade_interp)) + "</span></div><!--a(href='/central-line/' + train.destination.replace(/ /g, '-').toLowerCase())--><!--span.destination=train.destination + ' - ' + train.id--><span class=\"destination\">" + (jade.escape(null == (jade_interp = train.destination) ? "" : jade_interp)) + "</span><!--span.platform=train.platform--><br/><span class=\"detail\">" + (jade.escape(null == (jade_interp = train.location) ? "" : jade_interp)) + "</span></li>");
 }}.call(this,"train" in locals_for_with?locals_for_with.train:typeof train!=="undefined"?train:undefined));;return buf.join("");
 };
-},{"jade/runtime":8}],6:[function(require,module,exports){
+},{"jade/runtime":7}],6:[function(require,module,exports){
 'use strict';
 
 function makeKey(stationCode, direction, id) {
@@ -507,8 +507,6 @@ train.prototype.destroy = function() {
     this.bus.off(key);
 };
 },{}],7:[function(require,module,exports){
-
-},{}],8:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
@@ -749,7 +747,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 },{}]},{},[1])(1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"fs":7}],9:[function(require,module,exports){
+},{"fs":12}],8:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.3
  * http://jquery.com/
@@ -9956,7 +9954,7 @@ return jQuery;
 
 }));
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports=module.exports = {
   "bank": "BNK",
   "barkingside": "BDE",
@@ -10008,7 +10006,7 @@ module.exports=module.exports = {
   "white-city": "WCT",
   "woodford": "WFD"
 }
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -10121,7 +10119,7 @@ buf.push("<h3 class=\"noTrains\">No Trains</h3>");
 }
 buf.push("</div><div class=\"error\"></div></div></div></div>");}.call(this,"state" in locals_for_with?locals_for_with.state:typeof state!=="undefined"?state:undefined,"station" in locals_for_with?locals_for_with.station:typeof station!=="undefined"?station:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 };
-},{"jade/runtime":8}],12:[function(require,module,exports){
+},{"jade/runtime":7}],11:[function(require,module,exports){
 'use strict';
 
 var StationComp = require('../../components/station/station.js');
@@ -10247,4 +10245,6 @@ NT.pages.station.prototype.render = function(data) {
 //         }
 //     });
 // };
-},{"../../components/floater/floater.js":2,"../../components/station/station.js":4,"./station-url-codes.json":10,"./station.jade":11}]},{},[12]);
+},{"../../components/floater/floater.js":2,"../../components/station/station.js":4,"./station-url-codes.json":9,"./station.jade":10}],12:[function(require,module,exports){
+
+},{}]},{},[11]);

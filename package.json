@@ -36,7 +36,10 @@
     "node": "0.10.x"
   },
   "browserify": {
-    "transform": ["jadeify", "../pageify/transform.js"]
+    "transform": [
+      "jadeify",
+      "pageify"
+    ]
   },
   "devDependencies": {
     "browserify": "^9.0.3",
@@ -45,11 +48,13 @@
     "duosass": "^1.0.2",
     "jade": "^1.9.2",
     "jadeify": "^4.1.0",
+    "page": "^1.6.1",
     "pageify": "^1.0.0"
   },
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./bin/js.sh && ./bin/css.sh"
   },
   "author": "",
   "license": "ISC"

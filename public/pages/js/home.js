@@ -3466,7 +3466,7 @@ module.exports=[
 
     return Selectize;
 }));
-},{"jquery":6,"microplugin":7,"sifter":8}],3:[function(require,module,exports){
+},{"jquery":5,"microplugin":6,"sifter":7}],3:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -3514,9 +3514,7 @@ switcher.prototype.show = function() {
     this.$el.removeClass('hide');
 };
 
-},{"./lib/all-stations.json":1,"./lib/selectize":2,"jquery":6}],4:[function(require,module,exports){
-
-},{}],5:[function(require,module,exports){
+},{"./lib/all-stations.json":1,"./lib/selectize":2,"jquery":5}],4:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
@@ -3757,7 +3755,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 },{}]},{},[1])(1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"fs":4}],6:[function(require,module,exports){
+},{"fs":10}],5:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.3
  * http://jquery.com/
@@ -12964,7 +12962,7 @@ return jQuery;
 
 }));
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /**
  * microplugin.js
  * Copyright (c) 2013 Brian Reavis & contributors
@@ -13100,7 +13098,7 @@ return jQuery;
 
 	return MicroPlugin;
 }));
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * sifter.js
  * Copyright (c) 2013 Brian Reavis & contributors
@@ -13550,7 +13548,7 @@ return jQuery;
 }));
 
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -13560,7 +13558,7 @@ var jade_interp;
 
 buf.push("\n");;return buf.join("");
 };
-},{"jade/runtime":5}],10:[function(require,module,exports){
+},{"jade/runtime":4}],9:[function(require,module,exports){
 
 'use strict';
 
@@ -13590,4 +13588,6 @@ NT.pages.home = module.exports = function(context) {
 NT.pages.home.prototype.destroy = function(callback) {
     callback();
 };
-},{"../../components/station-switcher/station-switcher.js":3,"./home.jade":9,"jquery":6}]},{},[10]);
+},{"../../components/station-switcher/station-switcher.js":3,"./home.jade":8,"jquery":5}],10:[function(require,module,exports){
+
+},{}]},{},[9]);
