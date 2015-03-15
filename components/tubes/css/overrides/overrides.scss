@@ -39,8 +39,7 @@
     #emirates,
     .cablecar-symbol {
 
-        // if ipad retina?
-        display: none;
+// display: none;
         transition: opacity 2s ease-out 1s;
         .roundel strong,
         .station strong, {
@@ -104,7 +103,7 @@
 
 
     ul#central li a {
-        //opacity: .3;
+        opacity: 0;
     }
 
     ul#central li.active a,

@@ -7,14 +7,11 @@ var FloaterComp = require('../../components/floater/floater.js');
 var urlCodes = require('./station-url-codes.json');
 
 
-
 var template = require('./station.jade');
 // var templateError = require('./error.jade');
 
 
 var NT = window.NT;
-
-
 
 
 NT.pages.station = function(context) {
@@ -31,6 +28,9 @@ NT.pages.station = function(context) {
             NT.bus.trigger('zoom:finished');
         });
 
+
+//        NT.bus.trigger('loading', {}, function() {
+ //       });
         this.station.getStationData(context.canonicalPath, function(err, data) {
             if(!err) {
                 self.render({
