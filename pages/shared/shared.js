@@ -1,12 +1,22 @@
 var TriggerBack = require('../../../triggerback/index');
 
+var FloaterComp = require('../../components/floater/floater.js');
 
+
+var bus = new TriggerBack(true);
+var $ = require('jquery');
 
 window.NT = {
-    bus: new TriggerBack(true),
+    bus: bus,
     pages: {},
-    $: require('jquery')
+    components: {
+        floater: new FloaterComp($('#floater'), bus)
+    },
+    $: $
 };
+
+
+
 
 require('pageify');
 

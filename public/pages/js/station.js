@@ -173,8 +173,7 @@ direction.prototype.listChange = function(data) {
 'use strict';
 
 
-var floater = module.exports = function($el, bus) {
-    this.$el = $el;
+var floater = module.exports = function(bus) {
 //    this.setState('hidden');
     bus.on('station',this.station.bind(this));
     bus.on('loader:show',this.showLoader.bind(this));
@@ -395,15 +394,16 @@ var direction = require('../direction/direction');
 
 var stationTemplate = require('../station/station.jade');
 
-var station = module.exports = function($el, bus) {
+var station = module.exports = function(stationCode, bus) {
     this.directions = {};
     this.bus = bus;
-    this.$el = $el;
-    this.code = $el.data('station-code');
-    this.directionInit();
-    bus.on('nextTrain:gotStationData', this.render.bind(this));
-    var self = this;
+    this.code = stationCode;
+   
+    bus.on('getStationData', this.getStationData.bind(this));
+    //bus.on('nextTrain:gotStationData', this.render.bind(this));
 };
+
+
 
 station.prototype.changeStation = function(newStation) {
 
@@ -427,18 +427,25 @@ window.onresize = function() {
     NT.bus.trigger('resize');
 };
 
-station.prototype.render = function(data) {
-    var $el = this.$el;
-    var $newMarkup = $(stationTemplate({
-        station: data,
-        state: 'small'
-    }));
 
-    $el.find('div.listing').html($newMarkup);
-    this.directionInit(data.code, $el, this.bus);
-    this.bus.trigger('resize');
+
+station.prototype.getStationData = function(path, callback) {
+    var self = this;
+    console.log('get station data', arguments)
+
+    console.log('GSD')
+    NT.$.ajax({
+        url:  path + '?ajax=true',
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(function(data) {
+        self.data = data;
+        callback(null, data);
+    }).fail(function(err) {
+        callback(err);
+    });
 };
-
 
 },{"../direction/direction":1,"../station/station.jade":3,"jquery":9}],5:[function(require,module,exports){
 var jade = require("jade/runtime");
@@ -10116,8 +10123,11 @@ buf.push("</div><div class=\"error\"></div></div></div></div>");}.call(this,"sta
 'use strict';
 
 var StationComp = require('../../components/station/station.js');
+
 var FloaterComp = require('../../components/floater/floater.js');
+
 var urlCodes = require('./station-url-codes.json');
+
 
 
 var template = require('./station.jade');
@@ -10125,84 +10135,68 @@ var template = require('./station.jade');
 
 
 var NT = window.NT;
-//console.log('NT IS ', NT);
+
+
+
 
 NT.pages.station = function(context) {
     var self = this;
+    NT.$('body').attr('data-page', 'station');
     var stationCode = urlCodes[context.params.stationName];
-    NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
-        NT.bus.trigger('zoom:finished');
-    });
+    this.floater = new FloaterComp(NT.bus);
+    this.station = new StationComp(stationCode, NT.bus);
 
-    var dataShown = false;
-    var moved = false;
-
-    NT.bus.trigger('moving', {}, function() {
-        NT.bus.trigger('loading');
-        moved = true;
-        console.log('MOVING CHECK', dataShown, moved)
-        if(dataShown && moved) {
-            NT.bus.trigger('loaded');
-        }
-
-    });
 
     if(!context.init) {
-        self.getStationData(context.canonicalPath, function(err, data) {
-            document.title = data.name;
-            self.setup(stationCode);
-            self.station.render(data);
-            dataShown = true;
-            if(dataShown && moved) {
-                NT.bus.trigger('loaded');
+        this.station.getStationData(context.canonicalPath, function(err, data) {
+            if(!err) {
+                console.log('do render');
+                self.render({
+                    station: data,
+                    state: 'small'
+                });
+                self.setup(stationCode);
             }
         });
-    }
-};
-
-
-NT.pages.station.prototype.leave = function() {
-
-};
-
-
-
-
-
-
-NT.pages.station.prototype.getStationData = function(path, callback) {
-    console.log('GSD')
-    //NT.$('.page').attr('id', 'station');
-
-
-
-    NT.$.ajax({
-        url:  path + '?ajax=true',
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(function(data) {
-        callback(null, data)
-    }).fail(function(err) {
-        callback(err);
-    });
-};
-
-
-NT.pages.station.prototype.setup = function(code) {
-    this.station = new StationComp(NT.$('.stationContainer'), NT.bus);
-
-    if(this.floater) {
-        this.floater.$el = $('#floater');
     } else {
-        this.floater = new FloaterComp(NT.$('#floater'), NT.bus);
+        self.setup(stationCode);
     }
 
-    // this.listen({
-    //     code: code
+
+    return;
+
+
+    // NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
+    //     NT.bus.trigger('zoom:finished');
+    // });
+
+    // var dataShown = false;
+    // var moved = false;
+
+    // NT.bus.trigger('moving', {}, function() {
+    //     NT.bus.trigger('loading');
+    //     moved = true;
+    //     console.log('MOVING CHECK', dataShown, moved)
+    //     if(dataShown && moved) {
+    //         NT.bus.trigger('loaded');
+    //     }
     // });
 
 };
+
+NT.pages.station.prototype.setup = function() {
+    this.station.$el = NT.$('#floater');
+    this.floater.$el = NT.$('#floater .content');
+    this.station.directionInit();
+    NT.bus.trigger('resize');
+};
+
+
+
+NT.pages.station.prototype.render = function(data) {
+    NT.$('#content').html(template(data));
+};
+
 
 
 

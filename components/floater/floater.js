@@ -1,8 +1,7 @@
 'use strict';
 
 
-var floater = module.exports = function($el, bus) {
-    this.$el = $el;
+var floater = module.exports = function(bus) {
 //    this.setState('hidden');
     bus.on('station',this.station.bind(this));
     bus.on('loader:show',this.showLoader.bind(this));

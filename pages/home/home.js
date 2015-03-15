@@ -10,7 +10,6 @@ var switcherComp = require('../../components/station-switcher/station-switcher.j
 var NT = window.NT;
 
 NT.pages.home = module.exports = function(context) {
-    console.log('DO HOME')
         NT.activePage = 'home';
         NT.bus.trigger('zoom:out');
         if(!context.init) {

@@ -1,8 +1,11 @@
 'use strict';
 
 var StationComp = require('../../components/station/station.js');
+
 var FloaterComp = require('../../components/floater/floater.js');
+
 var urlCodes = require('./station-url-codes.json');
+
 
 
 var template = require('./station.jade');
@@ -10,84 +13,68 @@ var template = require('./station.jade');
 
 
 var NT = window.NT;
-//console.log('NT IS ', NT);
+
+
+
 
 NT.pages.station = function(context) {
     var self = this;
+    NT.$('body').attr('data-page', 'station');
     var stationCode = urlCodes[context.params.stationName];
-    NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
-        NT.bus.trigger('zoom:finished');
-    });
+    this.floater = new FloaterComp(NT.bus);
+    this.station = new StationComp(stationCode, NT.bus);
 
-    var dataShown = false;
-    var moved = false;
-
-    NT.bus.trigger('moving', {}, function() {
-        NT.bus.trigger('loading');
-        moved = true;
-        console.log('MOVING CHECK', dataShown, moved)
-        if(dataShown && moved) {
-            NT.bus.trigger('loaded');
-        }
-
-    });
 
     if(!context.init) {
-        self.getStationData(context.canonicalPath, function(err, data) {
-            document.title = data.name;
-            self.setup(stationCode);
-            self.station.render(data);
-            dataShown = true;
-            if(dataShown && moved) {
-                NT.bus.trigger('loaded');
+        this.station.getStationData(context.canonicalPath, function(err, data) {
+            if(!err) {
+                console.log('do render');
+                self.render({
+                    station: data,
+                    state: 'small'
+                });
+                self.setup(stationCode);
             }
         });
-    }
-};
-
-
-NT.pages.station.prototype.leave = function() {
-
-};
-
-
-
-
-
-
-NT.pages.station.prototype.getStationData = function(path, callback) {
-    console.log('GSD')
-    //NT.$('.page').attr('id', 'station');
-
-
-
-    NT.$.ajax({
-        url:  path + '?ajax=true',
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(function(data) {
-        callback(null, data)
-    }).fail(function(err) {
-        callback(err);
-    });
-};
-
-
-NT.pages.station.prototype.setup = function(code) {
-    this.station = new StationComp(NT.$('.stationContainer'), NT.bus);
-
-    if(this.floater) {
-        this.floater.$el = $('#floater');
     } else {
-        this.floater = new FloaterComp(NT.$('#floater'), NT.bus);
+        self.setup(stationCode);
     }
 
-    // this.listen({
-    //     code: code
+
+    return;
+
+
+    // NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
+    //     NT.bus.trigger('zoom:finished');
+    // });
+
+    // var dataShown = false;
+    // var moved = false;
+
+    // NT.bus.trigger('moving', {}, function() {
+    //     NT.bus.trigger('loading');
+    //     moved = true;
+    //     console.log('MOVING CHECK', dataShown, moved)
+    //     if(dataShown && moved) {
+    //         NT.bus.trigger('loaded');
+    //     }
     // });
 
 };
+
+NT.pages.station.prototype.setup = function() {
+    this.station.$el = NT.$('#floater');
+    this.floater.$el = NT.$('#floater .content');
+    this.station.directionInit();
+    NT.bus.trigger('resize');
+};
+
+
+
+NT.pages.station.prototype.render = function(data) {
+    NT.$('#content').html(template(data));
+};
+
 
 
 

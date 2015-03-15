@@ -6,15 +6,16 @@ var direction = require('../direction/direction');
 
 var stationTemplate = require('../station/station.jade');
 
-var station = module.exports = function($el, bus) {
+var station = module.exports = function(stationCode, bus) {
     this.directions = {};
     this.bus = bus;
-    this.$el = $el;
-    this.code = $el.data('station-code');
-    this.directionInit();
-    bus.on('nextTrain:gotStationData', this.render.bind(this));
-    var self = this;
+    this.code = stationCode;
+   
+    bus.on('getStationData', this.getStationData.bind(this));
+    //bus.on('nextTrain:gotStationData', this.render.bind(this));
 };
+
+
 
 station.prototype.changeStation = function(newStation) {
 
@@ -38,15 +39,22 @@ window.onresize = function() {
     NT.bus.trigger('resize');
 };
 
-station.prototype.render = function(data) {
-    var $el = this.$el;
-    var $newMarkup = $(stationTemplate({
-        station: data,
-        state: 'small'
-    }));
 
-    $el.find('div.listing').html($newMarkup);
-    this.directionInit(data.code, $el, this.bus);
-    this.bus.trigger('resize');
+
+station.prototype.getStationData = function(path, callback) {
+    var self = this;
+    console.log('get station data', arguments)
+
+    console.log('GSD')
+    NT.$.ajax({
+        url:  path + '?ajax=true',
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(function(data) {
+        self.data = data;
+        callback(null, data);
+    }).fail(function(err) {
+        callback(err);
+    });
 };
-
