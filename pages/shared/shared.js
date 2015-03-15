@@ -1,6 +1,4 @@
-var TriggerBack = require('../../../triggerback/index');
-
-var FloaterComp = require('../../components/floater/floater.js');
+var TriggerBack = require('triggerback');
 
 
 var bus = new TriggerBack(true);

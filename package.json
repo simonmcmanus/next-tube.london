@@ -20,21 +20,20 @@
     "gulp-shell": "^0.2.9",
     "gulp-uglify": "^1.1.0",
     "jade": "*",
-    "jadeify": "*",
+    "jadeify": "^4.1.0",
     "jquery": "^2.1.3",
     "microplugin": "0.0.3",
+    "page": "^1.6.1",
+    "pageify": "^1.0.0",
     "request": "*",
     "sifter": "^0.3.4",
     "socket.io": "1.1.0",
     "socket.io-client": "^1.3.2",
+    "triggerback": "^1.0.2",
     "underscore": "^1.7.0",
     "underscore.deepclone": "^0.1.0",
     "xml2js": "0.4.4",
-    "xml2json": "0.5.1",
-    "page": "^1.6.1",
-    "pageify": "^1.0.0",
-    "jadeify": "^4.1.0"
-
+    "xml2json": "0.5.1"
   },
   "engines": {
     "node": "0.10.x"

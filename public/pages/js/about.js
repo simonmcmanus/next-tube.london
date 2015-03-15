@@ -1,4 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+},{}],2:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
@@ -239,7 +241,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 },{}]},{},[1])(1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"fs":5}],2:[function(require,module,exports){
+},{"fs":1}],3:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.3
  * http://jquery.com/
@@ -9446,7 +9448,7 @@ return jQuery;
 
 }));
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -9456,7 +9458,7 @@ var jade_interp;
 
 buf.push("<div class=\"about\"><div id=\"floater\"><div class=\"container\"><h3>About</h3><p>This site was made by <a href=\"http://simonmcmanus.com\">Simon McManus</a>.</p><p>It makes extensive use of <a href=\"http://csstubemap.co.uk\">csstubemap.co.uk</a> from <a href=\"http://www.johngalantini.com/\">John Galantini</a>.</p><p>If you have any questions please contact me via email: \"mcmanus.simon@gmail.com\" or by making issues on the github page.</p><p>The source code is available at <a href=\"http://github.com/simonmcmanus\">http://github.com/simonmcmanus</a></p></div></div></div>");;return buf.join("");
 };
-},{"jade/runtime":1}],4:[function(require,module,exports){
+},{"jade/runtime":2}],5:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -9480,6 +9482,4 @@ about.prototype.destroy = function(callback) {
 
 
 
-},{"./about.jade":3,"jquery":2}],5:[function(require,module,exports){
-
-},{}]},{},[4]);
+},{"./about.jade":4,"jquery":3}]},{},[5]);
