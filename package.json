@@ -51,7 +51,7 @@
     "duo": "^0.8.4",
     "duo-jade": "0.0.5",
     "duosass": "^1.0.2",
-    "jade": "^1.9.2",
+    "jade": "^1.9.2"
   },
   "scripts": {
     "start": "node app.js",
