@@ -191,7 +191,9 @@ var floater = module.exports = function(bus) {
 };
 
 floater.prototype.loading = function(params, next) {
-    this.$el.addClass('loading');
+    if(this.$el) {
+        this.$el.addClass('loading');
+    }
     next();
 };
 
@@ -10148,6 +10150,26 @@ NT.pages.station = function(context) {
 
 
     if(!context.init) {
+
+
+
+        NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
+//            NT.bus.trigger('zoom:finished');
+        });
+
+        // var dataShown = false;
+        // var moved = false;
+
+        // NT.bus.trigger('moving', {}, function() {
+        //     NT.bus.trigger('loading');
+        //     moved = true;
+        //     console.log('MOVING CHECK', dataShown, moved)
+        //     if(dataShown && moved) {
+        //         NT.bus.trigger('loaded');
+        //     }
+        // });
+
+
         this.station.getStationData(context.canonicalPath, function(err, data) {
             if(!err) {
                 console.log('do render');
@@ -10163,30 +10185,13 @@ NT.pages.station = function(context) {
     }
 
 
-    return;
 
-
-    // NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
-    //     NT.bus.trigger('zoom:finished');
-    // });
-
-    // var dataShown = false;
-    // var moved = false;
-
-    // NT.bus.trigger('moving', {}, function() {
-    //     NT.bus.trigger('loading');
-    //     moved = true;
-    //     console.log('MOVING CHECK', dataShown, moved)
-    //     if(dataShown && moved) {
-    //         NT.bus.trigger('loaded');
-    //     }
-    // });
 
 };
 
 NT.pages.station.prototype.setup = function() {
     this.station.$el = NT.$('#floater');
-    this.floater.$el = NT.$('#floater .content');
+    this.floater.$el = NT.$('#floater .container');
     this.station.directionInit();
     NT.bus.trigger('resize');
 };
