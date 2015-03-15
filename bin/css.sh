@@ -10,7 +10,6 @@ mkdir ./public/pages/css/
 ./node_modules/node-sass/bin/node-sass  ./pages/about/about.scss ./public/pages/css/about.css
 ./node_modules/node-sass/bin/node-sass  ./pages/station/station.scss ./public/pages/css/station.css
 
-
 gulp autoprefixer
 
 #rm components/duo.json
