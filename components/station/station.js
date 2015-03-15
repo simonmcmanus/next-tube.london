@@ -43,9 +43,6 @@ window.onresize = function() {
 
 station.prototype.getStationData = function(path, callback) {
     var self = this;
-    console.log('get station data', arguments)
-
-    console.log('GSD')
     NT.$.ajax({
         url:  path + '?ajax=true',
         headers: {

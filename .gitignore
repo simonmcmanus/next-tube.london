@@ -1,14 +1,9 @@
 node_modules
 .DS_Store
-./public/pages/
 npm-debug.log
 .sass-cache/
-public/css/shared.css.map
-
 *.scssc
 
-
-components/duo.json
 
 
 *.css
@@ -16,8 +11,5 @@ components/duo.json
 *.map
 *style.css.map
 
-*.map
-
-*.map
-
-
+public/pages/js/*
+public/pages/css/*
