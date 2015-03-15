@@ -2,7 +2,6 @@
 
 rm -Rf ./public/pages/js/
 mkdir ./public/pages/js
-./bin
 #rm components/duo.json
 #rmdir ./public/pages/js/pages/
 #
