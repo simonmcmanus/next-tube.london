@@ -2,6 +2,7 @@
 module.exports = {
   NS:'NT',
   PAGES_FOLDER: './pages/',
+  PUBLIC_FOLDER: '/pages/',
   JS_EXT: '.js',
   CSS_EXT: '.scss',
   setupPage: function(page, context) {
@@ -9,7 +10,6 @@ module.exports = {
       new window.NT.pages[page](context);
     }
   },
-  PUBLIC_FOLDER: './pages/',
   STYLE_ID: '#perPageStyle',
   mappings: {
     '/': {
