@@ -30,7 +30,11 @@
     "underscore": "^1.7.0",
     "underscore.deepclone": "^0.1.0",
     "xml2js": "0.4.4",
-    "xml2json": "0.5.1"
+    "xml2json": "0.5.1",
+    "page": "^1.6.1",
+    "pageify": "^1.0.0",
+    "jadeify": "^4.1.0"
+
   },
   "engines": {
     "node": "0.10.x"
@@ -46,10 +50,7 @@
     "duo": "^0.8.4",
     "duo-jade": "0.0.5",
     "duosass": "^1.0.2",
-    "jade": "^1.9.2",
-    "jadeify": "^4.1.0",
-    "page": "^1.6.1",
-    "pageify": "^1.0.0"
+    "jade": "^1.9.2"
   },
   "scripts": {
     "start": "node app.js",
