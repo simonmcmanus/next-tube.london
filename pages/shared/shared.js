@@ -1,3 +1,6 @@
+
+
+
 var TriggerBack = require('triggerback');
 
 
@@ -7,26 +10,15 @@ var $ = require('jquery');
 window.NT = {
     bus: bus,
     pages: {},
-    components: {
-        floater: new FloaterComp($('#floater'), bus)
-    },
     $: $
 };
 
-
-
-
 require('pageify');
-
+// quack.
 var io = require('socket.io-client');
 
 var attachFastClick = require('fastclick');
 attachFastClick(document.body);
-
-
-
-
-require('pageify');
 
 var tubesComponent = require('../../components/tubes/tubes.js');
 var searchComponent = require('../../components/search/search.js');
@@ -52,7 +44,6 @@ NT.$(document).ready(function() {
     new searchComponent(NT.$('form.search'), NT.bus);
     NT.bus.trigger('document:ready');
 });
-
 // allows page change to be triggered by an event.
 NT.bus.on('page:load', function(path) {
     page(path);

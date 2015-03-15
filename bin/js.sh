@@ -1,7 +1,7 @@
 #! /bin/bash
 
 rm -Rf ./public/pages/js/
-mkdir ./public/pages/js/ -p
+mkdir ./public/pages/js/ 
 #rm components/duo.json
 #rmdir ./public/pages/js/pages/
 #
