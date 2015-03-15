@@ -1,20 +1,12 @@
 node_modules
-node_modules/*
 .DS_Store
+./public/pages/
 npm-debug.log
 .sass-cache/
 public/css/shared.css.map
-.sass-cache/c8353a0324541dbe225bfd56e1a2ec19d3c9ae94/central.scssc
 
 *.scssc
 
-*.scssc
-
-*.scssc
-
-.sass-cache/ff9edf2f931bf941ea9feeba9a2509c76e5d4a4a/central.scssc
-
-.sass-cache/cb676231dc4b5b1a6837fff2fda22e01a66a55cb/next-train.scssc
 
 components/duo.json
 
@@ -27,3 +19,5 @@ components/duo.json
 *.map
 
 *.map
+
+
