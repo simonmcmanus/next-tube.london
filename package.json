@@ -24,7 +24,7 @@
     "jquery": "^2.1.3",
     "microplugin": "0.0.3",
     "page": "^1.6.1",
-    "pageify": "2.0.1",
+    "pageify": "^2.0.2",
     "request": "*",
     "sifter": "^0.3.4",
     "socket.io": "1.1.0",
