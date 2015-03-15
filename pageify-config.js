@@ -9,7 +9,7 @@ module.exports = {
       new window.NT.pages[page](context);
     }
   },
-  PUBLIC_FOLDER: '/pages/',
+  PUBLIC_FOLDER: './pages/',
   STYLE_ID: '#perPageStyle',
   mappings: {
     '/': {
