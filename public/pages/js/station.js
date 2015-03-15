@@ -10151,28 +10151,12 @@ NT.pages.station = function(context) {
 
     if(!context.init) {
 
-
-
         NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
-//            NT.bus.trigger('zoom:finished');
+            NT.bus.trigger('zoom:finished');
         });
-
-        // var dataShown = false;
-        // var moved = false;
-
-        // NT.bus.trigger('moving', {}, function() {
-        //     NT.bus.trigger('loading');
-        //     moved = true;
-        //     console.log('MOVING CHECK', dataShown, moved)
-        //     if(dataShown && moved) {
-        //         NT.bus.trigger('loaded');
-        //     }
-        // });
-
 
         this.station.getStationData(context.canonicalPath, function(err, data) {
             if(!err) {
-                console.log('do render');
                 self.render({
                     station: data,
                     state: 'small'
@@ -10183,10 +10167,6 @@ NT.pages.station = function(context) {
     } else {
         self.setup(stationCode);
     }
-
-
-
-
 };
 
 NT.pages.station.prototype.setup = function() {

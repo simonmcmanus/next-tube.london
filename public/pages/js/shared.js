@@ -82,7 +82,6 @@ var floater = module.exports = function(bus) {
 floater.prototype.loading = function(params, next) {
     if(this.$el) {
         this.$el.addClass('loading');
-        
     }
     next();
 };
