@@ -34,7 +34,7 @@
     "underscore.deepclone": "^0.1.0",
     "xml2js": "0.4.4",
     "xml2json": "0.5.1",
-    "node-sass": "^3.0.0-pre"
+    "node-sass": "2.*"
 
   },
   "engines": {

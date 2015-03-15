@@ -5,12 +5,11 @@ mkdir ./public/pages/css/
 #rm -Rf .sass-cache
 
 
-scss --sourcemap=inline ./pages/shared/shared.scss public/pages/css/style.css
+./node_modules/node-sass/bin/node-sass --source-map/pages/shared/shared.scss public/pages/css/style.css
 
-scss --sourcemap=inline ./pages/home/home.scss public/pages/css/home.css
-
-scss --sourcemap=inline ./pages/about/about.scss public/pages/css/about.css
-scss --sourcemap=inline ./pages/station/station.scss public/pages/css/station.css
+./node_modules/node-sass/bin/node-sass --source-map ./pages/home/home.scss public/pages/css/home.css
+./node_modules/node-sass/bin/node-sass --source-map ./pages/about/about.scss public/pages/css/about.css
+./node_modules/node-sass/bin/node-sass --source-map ./pages/station/station.scss public/pages/css/station.css
 
 
 gulp autoprefixer
