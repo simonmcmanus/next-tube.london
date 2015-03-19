@@ -49,7 +49,7 @@ NT.pages.station = function(context) {
             });
             self.floater.$el = NT.$('#floater');
             process.nextTick(function() {
-                self.floater.setState('active');
+                self.floater.setState('activ2e');
                 self.setup(stationCode);
 
             });

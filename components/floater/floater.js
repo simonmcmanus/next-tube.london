@@ -11,7 +11,7 @@ var floater = module.exports = function(bus) {
     bus.on('increaseHeight', this.increaseHeight.bind(this));
     bus.on('decreaseHeight', this.decreaseHeight.bind(this));
     bus.on('resize', this.resize.bind(this));
-    bus.on('zoom:finished', this.zoomEnd.bind(this));
+    //bus.on('zoom:finished', this.zoomEnd.bind(this));
     bus.on('moving', this.hide.bind(this));
     bus.on('zoomto:station', this.loading.bind(this));
     bus.on('loading', this.loading.bind(this));
