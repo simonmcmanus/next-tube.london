@@ -29,7 +29,8 @@
 
   &[data-state="active"] {
     .container {
-  //    -webkit-filter: blur(0px);
+      -webkit-filter: blur(0px);
+      opacity: 1;
     }
   }
 

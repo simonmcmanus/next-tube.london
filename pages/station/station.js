@@ -1,5 +1,7 @@
 'use strict';
 
+var async = require('async');
+
 var StationComp = require('../../components/station/station.js');
 
 var FloaterComp = require('../../components/floater/floater.js');
@@ -17,29 +19,43 @@ var NT = window.NT;
 NT.pages.station = function(context) {
     var self = this;
     NT.$('body').attr('data-page', 'station');
+
     var stationCode = urlCodes[context.params.stationName];
     this.floater = new FloaterComp(NT.bus);
     this.station = new StationComp(stationCode, NT.bus);
+    this.floater.$el = NT.$('#floater');
 
 
     if(!context.init) {
 
-        NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
-            NT.bus.trigger('zoom:finished');
-        });
-
-
-//        NT.bus.trigger('loading', {}, function() {
- //       });
-        this.station.getStationData(context.canonicalPath, function(err, data) {
-            if(!err) {
-                self.render({
-                    station: data,
-                    state: 'small'
+        async.parallel({
+            hideFloater: function(next) {
+                NT.bus.trigger('moving', next());
+            },
+            zoom: function(next) {
+                NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
+                    NT.bus.trigger('zoom:finished');
+                    next();
                 });
-                self.setup(stationCode);
+            },
+            getData: function(next) {
+                self.station.getStationData(context.canonicalPath, next);
             }
+        }, function(errors, datas) {
+
+            self.render({
+                station: datas.getData,
+                state: 'small'
+            });
+            self.floater.$el = NT.$('#floater');
+            process.nextTick(function() {
+                self.floater.setState('active');
+                self.setup(stationCode);
+
+            });
+
         });
+
     } else {
         self.setup(stationCode);
     }
@@ -47,7 +63,6 @@ NT.pages.station = function(context) {
 
 NT.pages.station.prototype.setup = function() {
     this.station.$el = NT.$('#floater');
-    this.floater.$el = NT.$('#floater .container');
     this.station.directionInit();
     NT.bus.trigger('resize');
 };

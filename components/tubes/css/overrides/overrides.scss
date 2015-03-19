@@ -7,8 +7,9 @@
     transition-property: transform, opacity;
     transition-duration: 1.2s        , 1s;
     transition-delay:   0s;
+    left: 1em;
     transform:  translate3d(-1900px, 3000px ,-12000px);
-    margin-left: 1em;
+    margin-left: 4em;
     margin-top: 3em;
     @media (min-width: 500px) {
         //margin-top: 4em;
@@ -49,25 +50,24 @@
     }
 
 
-    &.available {
-        #piccadilly,
-        #metropolitan,
-        #district,
-        #circle,
-        #hammersmith-and-city,
-        #bakerloo,
-        #victoria,
-        #waterloo-and-city,
-        #northern,
-        #jubilee,
-        #overground,
-        #dlr,
-        #emirates,
-        .cablecar-symbol
-         {
-            opacity: .1;
-        }
+    #piccadilly,
+    #metropolitan,
+    #district,
+    #circle,
+    #hammersmith-and-city,
+    #bakerloo,
+    #victoria,
+    #waterloo-and-city,
+    #northern,
+    #jubilee,
+    #overground,
+    #dlr,
+    #emirates,
+    .cablecar-symbol
+     {
+        opacity: .1;
     }
+
 
 
 
@@ -108,7 +108,7 @@
 
     ul#central li.active a,
     ul#central li a:hover {
-        opacity: 1 !important;
+        opacity: 1;
     }
 
     .links {
@@ -121,7 +121,7 @@
             position: absolute;
             text-decoration: none;
             transform: translateZ(1);
-            font-size: 14px;
+            font-size: 13px;
 
             transition-delay: .5s;
             transition-property: all;

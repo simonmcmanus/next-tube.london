@@ -1,5 +1,5 @@
 $break1: 800px;
-$zoomout: -50px;
+$zoomout: 0px;
 &[data-station=EPP] {
     transform: translate3d(-3330px, -28px, $zoomout);
     li.active.roundel .left {

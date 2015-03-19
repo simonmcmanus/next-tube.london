@@ -25,13 +25,10 @@ floater.prototype.loading = function(params, next) {
     next();
 };
 
-
 floater.prototype.loaded = function(params, next) {
     this.$el.removeClass('loading');
     next();
 };
-
-
 
 floater.prototype.hide = function(params, next) {
     this.setState('small');
@@ -45,7 +42,6 @@ floater.prototype.zoomEnd = function(params, next) {
 
 
 var targetHeight = null;
-
 
 floater.prototype.getState = function() {
     return this.$el.attr('data-state');
