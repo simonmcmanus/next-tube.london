@@ -1,12 +1,14 @@
+.js .map-wrapper {
+    transition-property: transform, opacity;
+    transition-duration: 1.2s        , 1s;
+    transition-delay:   0s;
+}
 .map-wrapper {
     width: 100%;
     height: 100%;
     opacity: 1;
     -webkit-transform-style: preserve-3d;
     position: relative;
-    transition-property: transform, opacity;
-    transition-duration: 1.2s        , 1s;
-    transition-delay:   0s;
     left: 1em;
     transform:  translate3d(-1900px, 3000px ,-12000px);
     margin-left: 4em;

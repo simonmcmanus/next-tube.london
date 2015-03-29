@@ -1,8 +1,6 @@
-
-
+'use strict';
 
 var TriggerBack = require('triggerback');
-
 
 var bus = new TriggerBack(true);
 var $ = require('jquery');
@@ -55,5 +53,7 @@ if(window.location.hostname === 'woodford.today') {
 } else {
     url = 'http://127.0.0.1:3040/';
 }
+
+NT.$('body').addClass('js');
 
 var socket = io(url);

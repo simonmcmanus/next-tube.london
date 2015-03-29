@@ -1,6 +1,5 @@
 // overridable
 module.exports = {
-  NS:'NT',
   PAGES_FOLDER: './pages/',
   PUBLIC_FOLDER: '/pages/',
   JS_EXT: '.js',
