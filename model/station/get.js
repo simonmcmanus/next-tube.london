@@ -70,7 +70,9 @@ function get(key, callback) {
 }
 
 module.exports = function(stationCode, callback, incChanges, bustCache) {
+
     var key = 'C/' + stationCode;
+
     if(cache[ key ] && !bustCache) {
         callback(null, cache[ key ]);
     }else {

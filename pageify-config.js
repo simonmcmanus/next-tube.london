@@ -5,7 +5,11 @@ module.exports = {
   JS_EXT: '.js',
   CSS_EXT: '.scss',
   setupPage: function(page, context) {
-      new window.NT.pages[page](context);
+    var pages = window.NT.pages;
+    if(pages.active && pages.active.destroy) {
+      pages.active.destroy();
+    }
+    new pages[page](context);
   },
   STYLE_ID: '#perPageStyle',
   mappings: {

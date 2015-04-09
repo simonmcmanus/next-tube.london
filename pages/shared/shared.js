@@ -5,15 +5,18 @@ var TriggerBack = require('triggerback');
 var bus = new TriggerBack(true);
 var $ = require('jquery');
 
+
+var io = require('socket.io-client')
+
 window.NT = {
     bus: bus,
     pages: {},
     $: $
 };
 
+
+
 require('pageify');
-// quack.
-var io = require('socket.io-client');
 
 var attachFastClick = require('fastclick');
 attachFastClick(document.body);
@@ -48,7 +51,7 @@ NT.bus.on('page:load', function(path) {
 });
 
 var url;
-if(window.location.hostname === 'woodford.today') {
+if(window.location.hostname === 'next-tube.london') {
     url = 'http://www.next-tube.london/';
 } else {
     url = 'http://127.0.0.1:3040/';
@@ -56,4 +59,4 @@ if(window.location.hostname === 'woodford.today') {
 
 NT.$('body').addClass('js');
 
-var socket = io(url);
+NT.socket = io(url);

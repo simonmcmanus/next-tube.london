@@ -36,11 +36,10 @@ server.listen(port, function () {
 var io = socket.listen(server);
 
 
-console.log(port);
 var models = new Models({
     station: require('./model/station'),
     //status: require('./fetchers/tfl-status')
-}, io, 100000);
+}, io, 10000);
 
 
 app.get('/', HOME.bind(null, models.station));

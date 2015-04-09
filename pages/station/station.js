@@ -16,24 +16,23 @@ var template = require('./station.jade');
 var NT = window.NT;
 
 
+
 NT.pages.station = function(context) {
     var self = this;
     NT.$('body').attr('data-page', 'station');
 
-    var stationCode = urlCodes[context.params.stationName];
-    this.floater = new FloaterComp(NT.bus);
-    this.station = new StationComp(stationCode, NT.bus);
-    this.floater.$el = NT.$('#floater');
-
+    self.stationCode = urlCodes[context.params.stationName];
+    self.floater = new FloaterComp(NT.bus);
+    self.station = new StationComp(self.stationCode, NT.bus);
+    self.floater.$el = NT.$('#floater');
 
     if(!context.init) {
-
         async.parallel({
             hideFloater: function(next) {
                 NT.bus.trigger('moving', next());
             },
             zoom: function(next) {
-                NT.bus.trigger('zoomto:station', { code: stationCode } , function() {
+                NT.bus.trigger('zoomto:station', { code: self.stationCode } , function() {
                     NT.bus.trigger('zoom:finished');
                     next();
                 });
@@ -50,21 +49,47 @@ NT.pages.station = function(context) {
             self.floater.$el = NT.$('#floater');
             process.nextTick(function() {
                 self.floater.setState('activ2e');
-                self.setup(stationCode);
+                self.setup();
 
             });
 
         });
 
     } else {
-        self.setup(stationCode);
+        self.setup();
     }
 };
 
+
+
+NT.pages.station.prototype.listen = function(stationCode) {
+  console.log('on:', 'station:' + this.stationCode);
+    NT.socket.on('station:' + this.stationCode, this.stationChanges.bind(this));
+};
+
+
+NT.pages.station.prototype.destroy = function() {
+  console.log("off:", 'station:' + this.stationCode);
+  NT.socket.off('station:' + this.stationCode);
+};
+
+NT.pages.station.prototype.stationChanges = function(changes) {
+  console.log(changes);
+    var self = this;
+    changes.forEach(function(change) {
+        if(change.parent) {
+            NT.bus.trigger(change.parent, change);
+        }
+    });
+};
+
+
 NT.pages.station.prototype.setup = function() {
     this.station.$el = NT.$('#floater');
+    NT.pages.active = this;
     this.station.directionInit();
     NT.bus.trigger('resize');
+    this.listen();
 };
 
 
@@ -123,18 +148,4 @@ NT.pages.station.prototype.render = function(data) {
 // station.prototype.stopListen = function() {
 //     this.socket.off('station:' + this.activeStation);
 //     this.activeStation = null;
-// };
-
-// station.prototype.listen = function(station) {
-//     this.activeStation = station.code;
-//     this.socket.on('station:' + this.activeStation, this.stationChanges.bind(this));
-// };
-
-// station.prototype.stationChanges = function(changes) {
-//     var self = this;
-//     changes.forEach(function(change) {
-//         if(change.parent) {
-//             self.bus.trigger(change.parent, change);
-//         }
-//     });
 // };

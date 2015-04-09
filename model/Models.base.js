@@ -14,7 +14,9 @@ var base = module.exports = function(models, io, interval) {
     self.models = models;
     fetch(self.models, io, function() {});
     setInterval(function () {
-        fetch(self.models, io, function() {});
+        fetch(self.models, io, function(e, d) {
+          console.log(d);
+        });
     }, interval);
     return self.models;
 };
