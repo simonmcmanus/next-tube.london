@@ -49,7 +49,7 @@ NT.bus.on('page:load', function(path) {
 });
 
 var url;
-if(window.location.hostname === 'next-tube.london') {
+if(window.location.host === 'test.next-tube.london') {
     url = 'http://www.next-tube.london/';
 } else {
     url = 'http://127.0.0.1:3040/';
@@ -57,4 +57,8 @@ if(window.location.hostname === 'next-tube.london') {
 
 NT.$('body').addClass('js');
 
-NT.socket = io(url);
+var socketsEnabled = (window.location.host === 'test.next-tube.london'
+                      || window.location.host === '127.0.0.1:3040')
+if(socketsEnabled) {
+  NT.socket = io('//' + window.location.host);
+}
