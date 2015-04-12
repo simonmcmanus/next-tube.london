@@ -74,10 +74,11 @@ NT.pages.station.prototype.destroy = function() {
 };
 
 NT.pages.station.prototype.stationChanges = function(changes) {
-  console.log(changes);
+
     var self = this;
     changes.forEach(function(change) {
         if(change.parent) {
+          console.log(change.parent, change.code);
             NT.bus.trigger(change.parent, change);
         }
     });

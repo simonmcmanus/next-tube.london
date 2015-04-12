@@ -70,9 +70,8 @@ function get(key, callback) {
 }
 
 module.exports = function(stationCode, callback, incChanges, bustCache) {
-
+    // currently only works for the central line.
     var key = 'C/' + stationCode;
-
     if(cache[ key ] && !bustCache) {
         callback(null, cache[ key ]);
     }else {
