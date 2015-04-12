@@ -1,7 +1,7 @@
 // overridable
 module.exports = {
   PAGES_FOLDER: './pages/',
-  PUBLIC_FOLDER: '/pages/',
+  PUBLIC_FOLDER: '/js/pages/',
   JS_EXT: '.js',
   CSS_EXT: '.scss',
   setupPage: function(page, context) {

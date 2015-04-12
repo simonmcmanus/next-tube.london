@@ -25,7 +25,7 @@
     "microplugin": "0.0.3",
     "node-sass": "2.*",
     "page": "^1.6.1",
-    "pageify": "^2.0.4",
+    "pageify": "^4.0.0",
     "request": "*",
     "factor-bundle": "*",
     "scriptjs": "^2.5.7",

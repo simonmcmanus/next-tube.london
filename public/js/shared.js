@@ -15,7 +15,6 @@ window.NT = {
     $: $
 };
 
-'use strict';
 var page = require('page');
 var scriptLoader = require('scriptjs');
 
@@ -30,41 +29,41 @@ if (history.pushState) {
   }
     page('/', function (context, next) {
         if (!context.init) {
-            scriptLoader('/pages/js/home.js', function (a, b) {
+            scriptLoader('/js/pages//home.js', function (a, b) {
                setupPage('home', context);
             });
         } else {
             setupPage('home', context);
         }
-        document.querySelector('link#perPageStyle').href = '/pages/css/home.css';
+        document.querySelector('link#perPageStyle').href = '/js/pages/css/home.css';
     });
 
     page('/about', function (context, next) {
         if (!context.init) {
-            scriptLoader('/pages/js/about.js', function (a, b) {
+            scriptLoader('/js/pages//about.js', function (a, b) {
                setupPage('about', context);
             });
         } else {
             setupPage('about', context);
         }
-        document.querySelector('link#perPageStyle').href = '/pages/css/about.css';
+        document.querySelector('link#perPageStyle').href = '/js/pages/css/about.css';
     });
 
     page('/:line/:stationName', function (context, next) {
         if (!context.init) {
-            scriptLoader('/pages/js/station.js', function (a, b) {
+            scriptLoader('/js/pages//station.js', function (a, b) {
                setupPage('station', context);
             });
         } else {
             setupPage('station', context);
         }
-        document.querySelector('link#perPageStyle').href = '/pages/css/station.css';
+        document.querySelector('link#perPageStyle').href = '/js/pages/css/station.css';
     });
 
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-    page();
-});
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        page();
+    });
 };
 
 var attachFastClick = require('fastclick');
