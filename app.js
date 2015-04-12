@@ -13,7 +13,6 @@ var partials = require('express-partials');
 
 app.use(compression());
 
-
 var HOME = require('./routes/home');
 var ABOUT = require('./routes/about');
 var SEARCH = require('./routes/search');
@@ -47,4 +46,4 @@ app.get('/search', SEARCH);
 app.get('/about', ABOUT);
 app.get('/:line/:station', STATION.bind(null, models.station));
 
-console.log('running in', process.env['NODE_ENV'], app.get('view cache'));
+console.log('running in', process.env.NODE_ENV, app.get('view cache'));

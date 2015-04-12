@@ -41,7 +41,7 @@
       "_": true,
       "Backbone": true,
       "page": true,
-      "history": true
+      "history": true,
     },
     "boss"          : true
 
