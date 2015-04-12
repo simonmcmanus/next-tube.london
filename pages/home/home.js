@@ -1,6 +1,8 @@
 
 'use strict';
 
+require('../../components/shared/shared.js');
+
 var $ = require('jquery');
 
 var template = require('./home.jade');
