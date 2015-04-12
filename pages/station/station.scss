@@ -166,12 +166,7 @@ body[data-page="station"] {
 
     }
   }
-
-
-
 }
-
-@import "../shared/reusable.scss";
 
 @import '../../components/floater/floater.scss';
 @import '../../components/station-switcher/station-switcher.scss';
@@ -179,4 +174,3 @@ body[data-page="station"] {
 @import '../../components/train-status/train-status.scss';
 @import '../../components/direction/direction.scss';
 @import '../../components/train/train.scss';
-

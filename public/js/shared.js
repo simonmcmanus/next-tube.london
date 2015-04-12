@@ -29,35 +29,35 @@ if (history.pushState) {
   }
     page('/', function (context, next) {
         if (!context.init) {
-            scriptLoader('/js/pages//home.js', function (a, b) {
+            scriptLoader('/js/pages/home.js', function (a, b) {
                setupPage('home', context);
             });
         } else {
             setupPage('home', context);
         }
-        document.querySelector('link#perPageStyle').href = '/js/pages/css/home.css';
+        document.querySelector('link#perPageStyle').href = '/css/pages/home.css';
     });
 
     page('/about', function (context, next) {
         if (!context.init) {
-            scriptLoader('/js/pages//about.js', function (a, b) {
+            scriptLoader('/js/pages/about.js', function (a, b) {
                setupPage('about', context);
             });
         } else {
             setupPage('about', context);
         }
-        document.querySelector('link#perPageStyle').href = '/js/pages/css/about.css';
+        document.querySelector('link#perPageStyle').href = '/css/pages/about.css';
     });
 
     page('/:line/:stationName', function (context, next) {
         if (!context.init) {
-            scriptLoader('/js/pages//station.js', function (a, b) {
+            scriptLoader('/js/pages/station.js', function (a, b) {
                setupPage('station', context);
             });
         } else {
             setupPage('station', context);
         }
-        document.querySelector('link#perPageStyle').href = '/js/pages/css/station.css';
+        document.querySelector('link#perPageStyle').href = '/css/pages/station.css';
     });
 
 

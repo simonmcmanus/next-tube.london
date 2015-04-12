@@ -51,6 +51,7 @@
   "scripts": {
     "start": "node app.js",
     "js": "./bin/js.sh",
+    "css": "./bin/css.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "./bin/js.sh && ./bin/css.sh"
   },
