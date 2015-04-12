@@ -1,9 +1,8 @@
 //central/:station
 //
-var urlCodes = require('../fetchers/next-train/url-codes.json');
+var urlCodes = require('../model/station-lister/url-codes.json');
 var stations = require('../components/tubes/stations.json');
 var stationCodes = require('../components/station-switcher/lib/all-stations');
-
 
 var getStationData = function(stationCode, callback) {
     if (cache.nextTrain.stations[stationCode]) {
